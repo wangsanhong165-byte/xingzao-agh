@@ -1,0 +1,16 @@
+{
+  "name": "@photo-cad/feature-repair-tools",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "Apache-2.0",
+  "exports": "./index.mjs",
+  "agnes": {
+    "plugins": [
+      { "export": "repairInspectTool", "id": "ext:photo-cad/repair-inspect", "inject": ["extension"] },
+      { "export": "repairEvaluateTool", "id": "ext:photo-cad/repair-evaluate", "inject": ["extension"] },
+      { "export": "repairApplyTool", "id": "ext:photo-cad/repair-apply", "inject": ["extension"] },
+      { "export": "repairVerifyTool", "id": "ext:photo-cad/repair-verify", "inject": ["extension"] },
+      { "export": "repairSubmitTool", "id": "ext:photo-cad/repair-submit", "inject": ["extension"] }
+    ]
+  }
+}

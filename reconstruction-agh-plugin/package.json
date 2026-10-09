@@ -1,0 +1,16 @@
+{
+  "name": "@photo-cad/reconstruction-tools",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "Apache-2.0",
+  "exports": "./index.mjs",
+  "agnes": {
+    "plugins": [
+      { "export": "meshInspectTool", "id": "ext:photo-cad/mesh-inspect", "inject": ["extension"] },
+      { "export": "meshGenerateTool", "id": "ext:photo-cad/mesh-generate", "inject": ["extension"] },
+      { "export": "meshValidateTool", "id": "ext:photo-cad/mesh-validate", "inject": ["extension"] },
+      { "export": "meshSliceTool", "id": "ext:photo-cad/mesh-slice", "inject": ["extension"] },
+      { "export": "meshSubmitTool", "id": "ext:photo-cad/mesh-submit", "inject": ["extension"] }
+    ]
+  }
+}

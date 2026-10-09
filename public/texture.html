@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#eff4f3">
+  <title>形造 · 插画上色</title>
+  <link rel="stylesheet" href="/texture.css">
+  <script type="importmap">{"imports":{"three":"/vendor/three.module.js","three/addons/":"/vendor/addons/"}}</script>
+  <script type="module" src="/texture.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="返回形造工作台"><span class="brand-mark">形</span><span>形造 <small>ILLUSTRATION TEXTURE</small></span></a>
+    <div class="top-status" role="status" aria-live="polite"><i id="engine-dot"></i><span id="engine-status">正在读取上色服务…</span></div>
+    <a class="back-link" id="back-link" href="/reconstruct">返回重建任务 <span aria-hidden="true">↗</span></a>
+  </header>
+  <main class="layout">
+    <section class="input-column">
+      <div class="kicker">重建工作台 <span>/</span> 插画上色 · 实验功能</div>
+      <h1>给现有网格添加插画颜色。</h1>
+      <p class="lede">沿用已提交并完成实际切片的重建候选，生成可检查的纹理预览。原始几何保持不变。</p>
+      <section class="card input-card">
+        <div class="card-title"><div><b class="step">01</b><h2>参考类型</h2></div><span class="small-note">当前仅支持插画</span></div>
+        <div class="reference-kind"><strong>平面插画</strong><span>单张正面平面插画参考</span></div>
+        <label class="check-line" for="reference-confirmed"><input id="reference-confirmed" type="checkbox"><span>我确认本次使用的是平面插画参考</span></label>
+        <p class="hint">背面颜色会根据正面内容推测。上色只添加外观材质，不会修复、补全或改变模型几何。</p>
+        <div class="divider"></div>
+        <div class="card-title"><div><b class="step">02</b><h2>来源网格</h2></div><span id="source-state" class="mode-pill">等待父任务</span></div>
+        <dl id="source-facts" class="facts"><div><dt>父重建任务</dt><dd>通过已完成的重建页面进入</dd></div></dl>
+        <div class="reference-preview" id="reference-preview" hidden><img id="reference-image" alt="本次插画上色所用的正面参考"><span id="reference-label"></span></div>
+        <button class="button" id="start-job" type="button" disabled>开始插画上色 <span aria-hidden="true">→</span></button>
+        <p class="start-note" id="start-note" role="status" aria-live="polite">读取父重建任务后可开始。</p>
+        <div class="notice"><strong>需检查颜色效果</strong><p>完成状态表示文件与几何检查通过。纹理可能有灰斑或接缝，使用前请旋转查看。背面颜色由正面推测。</p></div>
+      </section>
+      <details class="card tech-card">
+        <summary>技术来源与检查细节</summary>
+        <dl id="technical-facts" class="facts"><div><dt>纹理任务</dt><dd>尚未读取</dd></div></dl>
+        <div class="attempts-wrap"><table><caption>生成尝试</caption><thead><tr><th>尝试</th><th>档位</th><th>状态</th><th>三角面</th><th>纹理尺寸</th></tr></thead><tbody id="attempt-rows"><tr><td colspan="5">任务完成后显示服务返回的检查数据。</td></tr></tbody></table></div>
+      </details>
+    </section>
+    <section class="work-column">
+      <div class="work-heading"><div><div class="kicker">真实任务状态</div><h2>白模与上色结果</h2></div><span class="job-pill"><i id="job-dot"></i><span id="job-stage">尚无任务</span></span></div>
+      <section class="card viewer-card">
+        <div class="viewer-bar"><strong id="candidate-title">父任务候选网格</strong><div class="viewer-actions"><div class="view-switch" role="group" aria-label="选择预览模型"><button id="show-white" type="button" class="selected" aria-pressed="true">白模</button><button id="show-color" type="button" aria-pressed="false" disabled>上色预览</button></div><button id="reset-view" type="button" disabled>重置视角</button><button id="download-glb" type="button" disabled>下载 GLB</button></div></div>
+        <div class="viewer-stage" id="viewer-stage"><canvas id="mesh-canvas" aria-label="父任务候选网格三维预览" tabindex="0"></canvas><div class="viewer-message" id="viewer-message"><span>◇</span><strong>等待父任务网格</strong><small>读取父任务后始终可以查看原始白模</small></div></div>
+        <div class="viewer-footer"><span><i id="mesh-dot"></i><span id="mesh-status" role="status" aria-live="polite">尚无网格</span></span><span id="mesh-info">Z-up · 单位 mm</span></div>
+      </section>
+      <div class="evidence-grid">
+        <section class="card evidence-card"><div class="card-title"><div><b class="step">A</b><h3>任务与来源</h3></div><span id="delivery-state" class="mode-pill">未提交</span></div><dl id="job-facts" class="facts"><div><dt>任务</dt><dd>等待读取</dd></div></dl><div class="error-box" id="job-error" hidden></div></section>
+        <section class="card evidence-card"><div class="card-title"><div><b class="step">B</b><h3>当前预览</h3></div><span id="preview-state" class="mode-pill">白模</span></div><p class="decision-note" id="preview-note">白模使用父重建任务返回的原始 STL。</p><p class="hint">只有任务完成且已提交尝试带有服务返回的 GLB 链接时，才开放彩色预览和下载。</p></section>
+      </div>
+      <section class="card run-card"><div class="run-header"><h3>执行事件</h3><span id="job-id" class="run-id">—</span></div><div id="event-list" class="event-list" role="log" aria-live="polite"><p class="event-empty">服务返回的执行事件将在这里显示。</p></div></section>
+    </section>
+  </main>
+</body>
+</html>

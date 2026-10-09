@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#eff4f3">
+  <title>形造 · 打印方案比较</title>
+  <link rel="stylesheet" href="/poses.css">
+  <script type="importmap">{"imports":{"three":"/vendor/three.module.js","three/addons/":"/vendor/addons/"}}</script>
+  <script type="module" src="/poses.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="返回形造工作台"><span class="brand-mark">形</span><span>形造 <small>PRINT PLAN COMPARISON</small></span></a>
+    <div class="top-status"><i id="engine-dot"></i><span id="engine-status">正在读取执行环境…</span></div>
+    <a class="back-link" href="/reconstruct.html">形状重建 <span aria-hidden="true">↗</span></a>
+  </header>
+  <main class="layout">
+    <section class="input-column">
+      <div class="kicker">打印工作台 <span>/</span> 同源姿态比较</div>
+      <h1>形造·打印方案比较</h1>
+      <p class="lede">对同一个候选模型、同一尺度比较任务声明的打印姿态。结果可以全部不合格，也可能没有姿态带来改善。</p>
+      <section class="card input-card">
+        <div class="card-title"><div><b class="step">01</b><h2>比较来源</h2></div><span class="small-note">服务端校验</span></div>
+        <label class="source-field" for="source-kind">模型来源<select id="source-kind"><option value="reconstructed">照片重建候选</option><option value="imported" disabled>导入 STL / GLB</option></select></label>
+        <label class="source-field" id="reconstructed-source" for="source-job">源重建任务 ID<input id="source-job" type="text" inputmode="text" autocomplete="off" placeholder="粘贴重建任务 UUID"></label>
+        <div id="imported-source" hidden><label class="source-field" for="model-file">导入 STL / GLB<input id="model-file" type="file" accept=".stl,.glb,model/stl,model/gltf-binary"></label>
+          <label class="source-field" for="source-units">源文件单位<select id="source-units"><option value="mm">毫米 (mm)</option><option value="target-scale">按目标最长边缩放</option></select></label>
+          <label class="source-field" id="target-edge-field" for="target-edge">目标最长边（mm）<input id="target-edge" type="number" min="1" max="180" step="any" value="80"></label>
+          <p class="hint">导入时均按目标最长边归一化。若要保留原毫米尺寸，请填写原模型的最长边。文件上限 25 MiB。</p>
+          <button class="button secondary" id="import-model" type="button">检查并导入模型</button><p id="import-note" class="start-note" role="status">选择模型并通过服务端几何检查后才能开始。</p>
+          <label class="source-field" for="source-candidate">已检查候选 ID<input id="source-candidate" type="text" inputmode="text" autocomplete="off" placeholder="64 位候选 ID"></label>
+          <div id="import-next" class="child-links" hidden><a id="continue-protect" href="#">继续外观保护 →</a><a id="continue-workflow" href="#">继续细杆检查 →</a></div>
+        </div>
+        <p class="hint">此高级入口默认四个姿态；新首次委托包含侧放，已执行任务按自己的声明列表展示。所有姿态共享同一源候选和模型尺度。源模型须先通过服务端导入检查。</p>
+        <div class="divider"></div>
+        <div class="card-title"><div><b class="step">02</b><h2>比较约束</h2></div><span class="unit-note">mm</span></div>
+        <label class="check-line"><input id="protect-enabled" type="checkbox"><span>启用我确认的区域保护</span></label>
+        <p class="hint">默认不启用区域保护，只比较切片成本。坐标需要用户依据原模型确认，不会自动套用示范区域。</p>
+        <fieldset id="region-fields" disabled>
+          <legend>保护区域边界（原模型坐标）</legend>
+          <div class="coord-grid" aria-label="保护区域六个坐标，毫米">
+            <label>X 最小<input id="xmin" type="number" step="any" placeholder="mm"></label><label>Y 最小<input id="ymin" type="number" step="any" placeholder="mm"></label><label>Z 最小<input id="zmin" type="number" step="any" placeholder="mm"></label>
+            <label>X 最大<input id="xmax" type="number" step="any" placeholder="mm"></label><label>Y 最大<input id="ymax" type="number" step="any" placeholder="mm"></label><label>Z 最大<input id="zmax" type="number" step="any" placeholder="mm"></label>
+          </div>
+          <label class="edge-field" for="max-path">允许支撑包络进入长度<span><input id="max-path" type="number" min="0" step="any" placeholder="mm"><i>mm</i></span></label>
+          <p class="notice-text">原模型坐标/示意体积不是自动识别人脸；此指标是支撑包络进入体积的近似长度，不是接触面积或表面损伤。</p>
+          <label class="check-line confirm-line"><input id="region-confirm" type="checkbox"><span>我已依据原模型确认上述区域与毫米坐标</span></label>
+        </fieldset>
+        <div class="divider"></div>
+        <label class="check-line"><input id="feature-enabled" type="checkbox" disabled><span>声明一个我确认的关键特征坐标范围</span></label>
+        <fieldset id="feature-fields" disabled><legend>关键特征（源模型归一化坐标 mm）</legend>
+          <label class="source-field" for="feature-kind">特征类型<select id="feature-kind"><option value="solid">实体表面保留</option><option value="void-channel">贯通孔道</option></select></label>
+          <label class="source-field" id="feature-axis-field" for="feature-axis" hidden>孔道方向<select id="feature-axis"><option value="x">X</option><option value="y">Y</option><option value="z">Z</option></select></label>
+          <div class="coord-grid" aria-label="关键特征六个坐标，毫米"><label>X 最小<input id="fxmin" type="number" step="any" placeholder="mm"></label><label>Y 最小<input id="fymin" type="number" step="any" placeholder="mm"></label><label>Z 最小<input id="fzmin" type="number" step="any" placeholder="mm"></label><label>X 最大<input id="fxmax" type="number" step="any" placeholder="mm"></label><label>Y 最大<input id="fymax" type="number" step="any" placeholder="mm"></label><label>Z 最大<input id="fzmax" type="number" step="any" placeholder="mm"></label></div>
+          <p class="notice-text">保留阈值 90%。表面比较容差 0.05 mm 仅用于软件采样比较，不代表实物制造公差。不会自动识别人脸或孔道。</p>
+          <label class="check-line confirm-line"><input id="feature-confirm" type="checkbox"><span>我已依据原模型确认特征类型、范围和方向</span></label>
+        </fieldset>
+        <button class="button" id="start-job" disabled>开始四姿态比较 <span aria-hidden="true">→</span></button>
+        <p class="start-note" id="start-note" role="status">等待服务状态。</p>
+        <div class="notice"><strong>结果边界</strong><p>切片耗材和时间是估算值；保护指标是支撑包络近似值。方案比较不证明强度、表面质量或实物打印成功。</p></div>
+      </section>
+    </section>
+    <section class="work-column">
+      <div class="work-heading"><div><div class="kicker">真实任务状态</div><h2>同源 · 同尺度 · 按任务声明</h2></div><span class="job-pill"><i id="job-dot"></i><span id="job-stage">尚无任务</span></span></div>
+      <section class="card viewer-card">
+        <div class="viewer-bar"><strong id="candidate-title">选择一个候选姿态预览</strong><div class="viewer-actions"><button id="reset-view" type="button" disabled>重置视角</button><button id="download-stl" type="button" disabled hidden>下载已交付 STL</button></div></div>
+        <div class="pose-tabs" id="pose-tabs" role="tablist" aria-label="姿态候选"></div>
+        <div class="viewer-stage" id="viewer-stage"><canvas id="mesh-canvas" aria-label="姿态候选三维预览"></canvas><div class="viewer-message" id="viewer-message"><span>◇</span><strong>等待真实候选网格</strong><small>仅加载任务返回的 STL</small></div><div class="roi-legend" id="roi-legend" hidden><i></i>用户保护区域体积示意 · 仅为包围体积</div></div>
+        <div class="viewer-footer"><span><i id="mesh-dot"></i><span id="mesh-status">尚无网格</span></span><span id="mesh-info">Z-up · 单位 mm</span></div>
+      </section>
+      <section class="card compare-card"><div class="card-title"><div><b class="step">A</b><h3>候选姿态关键比较</h3></div><span id="comparison-note" class="small-note">等待任务结果</span></div>
+        <div class="table-scroll"><table><thead><tr><th>候选姿态</th><th>质量状态</th><th>总耗材</th><th>预计时间</th><th id="protection-column-title">保护区包络</th></tr></thead><tbody id="comparison-body"></tbody></table></div>
+        <p class="table-footnote">“—”表示未知或未验证，不代表 0；质量状态按服务返回值展示。未验证的保护结果不会标为通过。</p>
+      </section>
+      <section class="card feature-card"><div class="card-title"><div><b class="step">D</b><h3>关键特征审计</h3></div><span id="feature-audit-state" class="small-note">等待任务结果</span></div><p id="feature-audit-note" class="table-footnote">未启用关键特征声明。</p><div id="feature-audit-results" class="feature-results"></div><a id="repair-link" class="button secondary" href="/repair" hidden>继续：声明预算并尝试细杆修正 →</a></section>
+      <div class="evidence-grid">
+        <section class="card evidence-card"><div class="card-title"><div><b class="step">B</b><h3>来源与决策</h3></div><span id="source-mode" class="mode-pill">等待任务</span></div><dl id="task-facts" class="facts"></dl><div id="decision-note" class="decision-note">尚无服务端决策。</div><div class="error-box" id="job-error" hidden></div></section>
+        <section class="card evidence-card"><div class="card-title"><div><b class="step">C</b><h3>重检与交付</h3></div><span id="delivery-state" class="mode-pill">未验证</span></div><dl id="delivery-facts" class="facts"></dl><p class="hint">候选可供预览；只有服务标记为已交付且重检 verified=true 时，才开放成功下载。</p></section>
+      </div>
+      <section class="card run-card"><div class="run-header"><h3>执行链与事件</h3><span id="job-id" class="run-id">—</span></div><div id="event-list" class="event-list"><p class="event-empty">任务事件将在服务返回后显示。</p></div></section>
+    </section>
+  </main>
+</body>
+</html>

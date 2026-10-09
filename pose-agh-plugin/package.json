@@ -1,0 +1,16 @@
+{
+  "name": "@photo-cad/pose-tools",
+  "version": "1.0.1",
+  "type": "module",
+  "license": "Apache-2.0",
+  "exports": "./index.mjs",
+  "agnes": {
+    "plugins": [
+      { "export": "poseInspectTool", "id": "ext:photo-cad/pose-inspect", "inject": ["extension"] },
+      { "export": "poseEvaluateTool", "id": "ext:photo-cad/pose-evaluate", "inject": ["extension"] },
+      { "export": "poseSelectTool", "id": "ext:photo-cad/pose-select", "inject": ["extension"] },
+      { "export": "poseVerifyTool", "id": "ext:photo-cad/pose-verify", "inject": ["extension"] },
+      { "export": "poseSubmitTool", "id": "ext:photo-cad/pose-submit", "inject": ["extension"] }
+    ]
+  }
+}

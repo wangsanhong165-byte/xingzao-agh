@@ -1,0 +1,97 @@
+diff --git a/packages/cli/src/boot/local.ts b/packages/cli/src/boot/local.ts
+index 8de66d0..549be66 100644
+--- a/packages/cli/src/boot/local.ts
++++ b/packages/cli/src/boot/local.ts
+@@ -39,6 +39,7 @@ import {
+   verifyLockIntegrity,
+ } from '@agnes/host'
+ import { createClient, memoryJournal } from '@agnes/sdk'
++import { createPackageManager } from '@agnes/package-manager'
+ import { packagedPackages } from '../../launch/packaged-host.js'
+ import { resolveLaunchResources } from '../../launch/resources.js'
+ import { BootError } from '../errors.js'
+@@ -131,6 +132,18 @@ export async function assembleLocalHost(
+     !deps.createHostImpl && process.getBuiltinModule('node:sea').isSea()
+       ? resolveLaunchResources().runtimeNode
+       : undefined
++  // Match the daemon worker: explicit third-party references execute only attested active pins.
++  // The installed directory is mutable and must not substitute for a verified runtime snapshot.
++  const bootPackages = new Map(
++    profile.packages.filter(pkg => pkg.enabled && pkg.trust !== 'builtin').map(pkg => [pkg.id, pkg.integrity]),
++  )
++  const installed = bootPackages.size && !deps.createHostImpl
++    ? createPackageManager({ dataDir: profile.dataDir, agnesVersion: deps.agnesVersion })
++    : undefined
++  const runtimePluginSources = installed ? () => installed.runtimePluginSnapshots(profileDir) : undefined
++  const runtimePluginSnapshots = runtimePluginSources
++    ? (await runtimePluginSources()).filter(source => source.trusted && source.snapshot.profile === profile.name && bootPackages.get(source.snapshot.packageId) === source.snapshot.integrity)
++    : undefined
+   return deps.createHostImpl
+     ? deps.createHostImpl(profile, prompter)
+     : createHost(profile, {
+@@ -140,6 +153,7 @@ export async function assembleLocalHost(
+         hostRoot,
+         log: hostLogger(deps.log),
+         prompter,
++        ...(runtimePluginSources && runtimePluginSnapshots ? { runtimePluginSources, runtimePluginSnapshots } : {}),
+         ...(deps.requestMedia ? { requestMedia: deps.requestMedia } : {}),
+         agnesVersion: deps.agnesVersion,
+         ...(windowsNodeExecutable !== undefined ? { windowsNodeExecutable } : {}),
+diff --git a/packages/cli/test/local-runtime.test.ts b/packages/cli/test/local-runtime.test.ts
+index bf729ce..036ee70 100644
+--- a/packages/cli/test/local-runtime.test.ts
++++ b/packages/cli/test/local-runtime.test.ts
+@@ -2,6 +2,7 @@ import { mkdtempSync, rmSync } from 'node:fs'
+ import { tmpdir } from 'node:os'
+ import { join } from 'node:path'
+ import { createHost, resolveProfile } from '@agnes/host'
++import { createPackageManager, type RuntimePluginSnapshot } from '@agnes/package-manager'
+ import { expect, it, vi } from 'vitest'
+ import { resolveLaunchResources } from '../launch/resources.js'
+ import { assembleLocalHost } from '../src/boot/local.js'
+@@ -14,6 +15,45 @@ vi.mock('@agnes/host', async (original) => ({
+   }),
+ }))
+ vi.mock('../launch/resources.js', () => ({ resolveLaunchResources: vi.fn() }))
++vi.mock('@agnes/package-manager', async (original) => ({
++  ...(await original<typeof import('@agnes/package-manager')>()),
++  createPackageManager: vi.fn(() => ({ runtimePluginSnapshots: async () => [] })),
++}))
++
++it('hands standalone Host only active immutable snapshots matching enabled profile packages', async () => {
++  const root = mkdtempSync(join(tmpdir(), 'agnes-local-plugins-'))
++  const integrity = `sha256-${'a'.repeat(64)}`
++  const item = (id: string, trusted = true, hash = integrity): RuntimePluginSnapshot => ({
++    generation: 1, trusted,
++    snapshot: { snapshotId: integrity, profile: 'local-dev', packageId: id, version: '1.0.0',
++      integrity: hash, treeIntegrity: integrity, capabilityHash: 'test', directory: join(root, id.replaceAll('/', '_')), contributions: [] },
++  })
++  const accepted = item('@acme/valid')
++  const sources = [accepted, item('@acme/disabled'), item('@acme/untrusted', false), item('@acme/stale', true, `sha256-${'b'.repeat(64)}`), item('@acme/not-declared')]
++  const readSnapshots = vi.fn(async () => sources)
++  vi.mocked(createPackageManager).mockReturnValue({ runtimePluginSnapshots: readSnapshots } as unknown as ReturnType<typeof createPackageManager>)
++  try {
++    const resolved = await resolveProfile({ builtin: 'local-dev', lock: TEST_LOCK }, {
++      platform: { os: 'win32', arch: 'x64', capabilities: {} }, agnesVersion: '0.0.0', now: '2026-10-02T00:00:00Z',
++    })
++    const profile = { ...resolved, packages: [...resolved.packages, ...['valid', 'disabled', 'untrusted', 'stale'].map(name => ({
++      id: `@acme/${name}`, version: '1.0.0', source: 'file:./fixture', integrity,
++      trust: 'trusted' as const, enabled: name !== 'disabled',
++    }))] }
++    const { createHostImpl: _drop, ...deps } = testDeps(root)
++    await expect(assembleLocalHost(profile, 'local-dev', root, {
++      ...deps, loader: { importPackage: async () => { throw new Error('unused loader') } },
++    }, { ask: async () => { throw new Error('unused prompter') } })).rejects.toThrow('assembly reached')
++    const options = vi.mocked(createHost).mock.calls.at(-1)?.[1]
++    expect(options?.runtimePluginSnapshots).toEqual([accepted])
++    expect(options?.runtimePluginSources).toBeTypeOf('function')
++    expect(readSnapshots).toHaveBeenCalledWith(join(root, 'profiles', 'local-dev'))
++  } finally {
++    vi.clearAllMocks()
++    if (!root.startsWith(join(tmpdir(), 'agnes-local-plugins-'))) throw new Error('Unexpected disposable test path')
++    rmSync(root, { recursive: true, force: true })
++  }
++})
+ 
+ it.each([false, true])('passes the packaged Node runtime only for SEA=%s', async (seaMode) => {
+   const root = mkdtempSync(join(tmpdir(), 'agnes-local-runtime-'))

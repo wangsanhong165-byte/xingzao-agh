@@ -1,0 +1,130 @@
+{
+  "jobId": "9d35935a-a0e3-45c9-af78-d34a142b6924",
+  "native": {
+    "sessionId": "agnes:local:local-dev:cli:workspace:2a13a671586de1c5",
+    "preset": "pose-tools",
+    "firstSeq": 1,
+    "lastSeq": 133,
+    "turnEndReason": "completed",
+    "businessCalls": [
+      {
+        "name": "pose_inspect",
+        "poseId": null,
+        "seq": 19,
+        "resultSeq": 23,
+        "success": true,
+        "code": "OK",
+        "durationMs": 25
+      },
+      {
+        "name": "pose_evaluate",
+        "poseId": "upright",
+        "seq": 37,
+        "resultSeq": 45,
+        "success": true,
+        "code": "OK",
+        "durationMs": 4309
+      },
+      {
+        "name": "pose_evaluate",
+        "poseId": "tilt-x-plus",
+        "seq": 38,
+        "resultSeq": 49,
+        "success": true,
+        "code": "OK",
+        "durationMs": 8749
+      },
+      {
+        "name": "pose_evaluate",
+        "poseId": "tilt-x-minus",
+        "seq": 39,
+        "resultSeq": 53,
+        "success": true,
+        "code": "OK",
+        "durationMs": 13013
+      },
+      {
+        "name": "pose_evaluate",
+        "poseId": "tilt-y-plus",
+        "seq": 40,
+        "resultSeq": 57,
+        "success": true,
+        "code": "OK",
+        "durationMs": 17426
+      },
+      {
+        "name": "pose_evaluate",
+        "poseId": "face-up",
+        "seq": 41,
+        "resultSeq": 61,
+        "success": true,
+        "code": "OK",
+        "durationMs": 21598
+      },
+      {
+        "name": "pose_select",
+        "poseId": "face-up",
+        "seq": 75,
+        "resultSeq": 79,
+        "success": true,
+        "code": "OK",
+        "durationMs": 16
+      },
+      {
+        "name": "pose_verify",
+        "poseId": null,
+        "seq": 93,
+        "resultSeq": 97,
+        "success": true,
+        "code": "OK",
+        "durationMs": 910
+      },
+      {
+        "name": "pose_submit",
+        "poseId": null,
+        "seq": 111,
+        "resultSeq": 115,
+        "success": true,
+        "code": "OK",
+        "durationMs": 910
+      }
+    ],
+    "requests": [
+      {
+        "seq": 16,
+        "model": "deepseek/deepseek-v4.1-flash",
+        "route": "command-code"
+      },
+      {
+        "seq": 34,
+        "model": "deepseek/deepseek-v4.1-flash",
+        "route": "command-code"
+      },
+      {
+        "seq": 72,
+        "model": "deepseek/deepseek-v4.1-flash",
+        "route": "command-code"
+      },
+      {
+        "seq": 90,
+        "model": "deepseek/deepseek-v4.1-flash",
+        "route": "command-code"
+      },
+      {
+        "seq": 108,
+        "model": "deepseek/deepseek-v4.1-flash",
+        "route": "command-code"
+      },
+      {
+        "seq": 126,
+        "model": "deepseek/deepseek-v4.1-flash",
+        "route": "command-code"
+      }
+    ],
+    "requestCount": 6,
+    "requiredToolsOfferedOnEveryToolBearingRequest": false,
+    "toolBearingRequestTraceCount": 0,
+    "toolLessRequestTraceCount": 0
+  },
+  "scope": "original sanitized native-ledger summary, not a new execution"
+}

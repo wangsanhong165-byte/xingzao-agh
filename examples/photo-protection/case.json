@@ -1,0 +1,156 @@
+{
+  "schema": "xingzao-protected-photo-evidence/v1",
+  "jobId": "6025253a-b246-486f-9e4a-ae39cdb349c9",
+  "poseJobId": "9d35935a-a0e3-45c9-af78-d34a142b6924",
+  "source": {
+    "kind": "reconstructed",
+    "jobId": "5e9e4974-0cd1-45bb-85f1-6cf35874adbd"
+  },
+  "sourceSha256": "f7ca276d0715bb1110ef264d318ca5da655bd7a1615f44654ed228431a2feee3",
+  "boundsMm": [
+    [
+      -17.657346152955768,
+      -30,
+      8.138046625983108
+    ],
+    [
+      22.342653847044232,
+      -5,
+      43.13804662598311
+    ]
+  ],
+  "reductionPercent": 50,
+  "baseline": {
+    "protectedSupportMm": 34898.410477241014,
+    "filamentMm": 13080.76,
+    "filamentG": 39.01,
+    "estimatedTimeSeconds": 10908
+  },
+  "best": {
+    "poseId": "face-up",
+    "protectedSupportMm": 7911.0259727919065,
+    "reductionPercent": 77.33127135417506,
+    "filamentMm": 11334.37,
+    "filamentG": 33.81,
+    "estimatedTimeSeconds": 9333
+  },
+  "deliverySha256": "91f08fcb520edaa6fb256e268b53d9d7e13bc9857fc858f2cfb36483ad14103a",
+  "cases": [
+    {
+      "poseId": "upright",
+      "gcode": "upright.gcode",
+      "gcodeSha256": "a3c2d36f3a208d4de9920c8478d0048c5b7467f955c0840434bc7ead177ab069",
+      "options": {
+        "printToSourceMatrix4": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "placementOffsetMm": {
+          "x": 90,
+          "y": 90,
+          "z": 0
+        },
+        "placementVerified": true,
+        "protectedRegions": [
+          {
+            "id": "important-region",
+            "boundsMm": [
+              [
+                -17.657346152955768,
+                -30,
+                8.138046625983108
+              ],
+              [
+                22.342653847044232,
+                -5,
+                43.13804662598311
+              ]
+            ]
+          }
+        ],
+        "layerHeightMm": 0.2
+      },
+      "expectedSupportPathLengthMm": 34898.410477241014,
+      "metrics": {
+        "filamentMm": 13080.76,
+        "filamentG": 39.01,
+        "estimatedTimeSeconds": 10908
+      },
+      "sourceSha256": "f7ca276d0715bb1110ef264d318ca5da655bd7a1615f44654ed228431a2feee3",
+      "candidateSha256": "d180e820161813be86a7ed7fcb68b2c596dced31fc974478a3997f8710cf51e8"
+    },
+    {
+      "poseId": "face-up",
+      "gcode": "face-up.gcode",
+      "gcodeSha256": "421002e1a18713ff3420e26fe6963ec50ec110a6ac295cddf5e3da96d4f9b76a",
+      "options": {
+        "printToSourceMatrix4": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          6.123233995736766e-17,
+          -1,
+          30,
+          0,
+          1,
+          6.123233995736766e-17,
+          27.863210678100582,
+          0,
+          0,
+          0,
+          1
+        ],
+        "placementOffsetMm": {
+          "x": 90,
+          "y": 90,
+          "z": 0
+        },
+        "placementVerified": true,
+        "protectedRegions": [
+          {
+            "id": "important-region",
+            "boundsMm": [
+              [
+                -17.657346152955768,
+                -30,
+                8.138046625983108
+              ],
+              [
+                22.342653847044232,
+                -5,
+                43.13804662598311
+              ]
+            ]
+          }
+        ],
+        "layerHeightMm": 0.2
+      },
+      "expectedSupportPathLengthMm": 7911.0259727919065,
+      "metrics": {
+        "filamentMm": 11334.37,
+        "filamentG": 33.81,
+        "estimatedTimeSeconds": 9333
+      },
+      "sourceSha256": "f7ca276d0715bb1110ef264d318ca5da655bd7a1615f44654ed228431a2feee3",
+      "candidateSha256": "91f08fcb520edaa6fb256e268b53d9d7e13bc9857fc858f2cfb36483ad14103a"
+    }
+  ],
+  "sourceLicense": "CC BY 4.0; exact input attribution in bundled original skull manifest",
+  "scope": "actual original G-code plus source-space ROI support recheck; no physical print"
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#eff4f3">
+  <title>形造 · 多视图重建</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%23087b6c%22/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/reconstruct.css">
+  <script type="importmap">{"imports":{"three":"/vendor/three.module.js","three/addons/":"/vendor/addons/"}}</script>
+  <script type="module" src="/reconstruct.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="返回形造工作台"><span class="brand-mark">形</span><span>形造 <small>3D RECONSTRUCTION</small></span></a>
+    <div class="top-status"><i id="engine-dot"></i><span id="engine-status">正在读取执行环境…</span></div>
+    <a class="back-link" href="/print-detail.html">平面细节验证 <span aria-hidden="true">↗</span></a>
+  </header>
+  <main class="layout">
+    <section class="input-column">
+      <div class="kicker">重建工作台 <span>/</span> 三视图形状基线</div>
+      <h1>用三个清楚的视角，生成可检查的网格。</h1>
+      <p class="lede">上传正面、侧面与背面照片，指定模型最长边。请使用背景简单或已处理的图片，并让每张图的视角标注明确。</p>
+      <section class="card input-card">
+        <div class="card-title"><div><b class="step">01</b><h2>视图图片</h2></div><span class="small-note">PNG / JPEG · 每张 ≤ 5 MiB</span></div>
+        <div class="view-grid" id="view-grid"></div>
+        <label class="source-field" for="side-view">侧视方向<select id="side-view"><option value="left">侧脸朝画面左</option><option value="right">侧脸朝画面右</option></select></label>
+        <p class="hint">三张图片分别对应指定方向。避免复杂背景、遮挡与明显透视；来源图片只在提交时发送，不写入浏览器存储。</p>
+        <div class="divider"></div>
+        <div class="card-title"><div><b class="step">02</b><h2>目标尺寸</h2></div><span class="unit-note">mm</span></div>
+        <label class="edge-field" for="target-edge">模型最长边 <span><input id="target-edge" type="number" min="1" max="180" step="any" value="100"><i>mm</i></span></label>
+        <button class="button" id="start-job" disabled>开始多视图重建 <span aria-hidden="true">→</span></button>
+        <p class="start-note" id="start-note" role="status">等待选择三张图片。</p>
+        <div class="notice"><strong>结果边界</strong><p>首版展示形状生成与虚拟切片基线，不承诺最佳打印方案、实物可打印、照片精确量测或细节完全保留。</p></div>
+      </section>
+    </section>
+    <section class="work-column">
+      <div class="work-heading"><div><div class="kicker">真实任务状态</div><h2>网格与检查记录</h2></div><span class="job-pill"><i id="job-dot"></i><span id="job-stage">尚无任务</span></span></div>
+      <section class="card viewer-card">
+        <div class="viewer-bar"><strong id="candidate-title">候选模型</strong><div class="viewer-actions"><a id="preview-color" href="/texture" hidden>生成彩色预览 →</a><a id="protect-region" href="/protect" hidden>保护外观区域 →</a><a id="compare-poses" href="/poses" hidden>检查细杆 →</a><button id="reset-view" type="button" disabled>重置视角</button><button id="download-stl" type="button" disabled>下载 STL</button></div></div>
+        <div class="viewer-stage" id="viewer-stage"><canvas id="mesh-canvas" aria-label="三维模型预览"></canvas><div class="viewer-message" id="viewer-message"><span>◇</span><strong>等待真实候选网格</strong><small>模型仅从任务返回的 STL 加载</small></div></div>
+        <div class="viewer-footer"><span><i id="mesh-dot"></i><span id="mesh-status">尚无网格</span></span><span id="mesh-info">Z-up · 单位 mm</span></div>
+      </section>
+      <div class="evidence-grid">
+        <section class="card evidence-card"><div class="card-title"><div><b class="step">A</b><h3>任务与来源</h3></div><span id="source-mode" class="mode-pill">等待任务</span></div><dl id="task-facts" class="facts"></dl><div class="error-box" id="job-error" hidden></div></section>
+        <section class="card evidence-card"><div class="card-title"><div><b class="step">B</b><h3>候选几何与切片</h3></div><span id="candidate-count" class="small-note">0 个候选</span></div><div id="candidate-summary" class="summary-empty">服务尚未返回候选检查结果。</div></section>
+      </div>
+      <section class="card run-card"><div class="run-header"><h3>执行事件</h3><span id="job-id" class="run-id">—</span></div><div id="event-list" class="event-list"><p class="event-empty">任务事件将在服务返回后显示。</p></div></section>
+    </section>
+  </main>
+</body>
+</html>

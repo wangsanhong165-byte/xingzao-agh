@@ -1,0 +1,97 @@
+{
+  "label": "shape silhouette proxy only",
+  "candidate_silhouette_method": "render-alpha",
+  "render_alpha_threshold": 128,
+  "ranking_proxy_only": true,
+  "review_required": true,
+  "not_three_dimensional_ground_truth": true,
+  "not_face_or_hair_detail": true,
+  "not_absolute_scale_or_texture": true,
+  "not_production_default": true,
+  "ranking_method": "mean IoU descending; boundary-distance mean ascending as tie-break; proxy only",
+  "scope": "uncalibrated three-view silhouette comparison; no view optimization or independent horizontal resizing",
+  "alignment": {
+    "horizontal": "centered per view",
+    "vertical": "bottom aligned per view",
+    "camera_calibration_assumed": false
+  },
+  "normalization": {
+    "mode": "one uniform scale shared by the three images within each image group",
+    "reference_group_max_bbox_height_px": 498,
+    "reference_group_scale_px_per_source_px": 0.642570281124498,
+    "target_group_max_bbox_height_px": 320,
+    "aspect_ratio_preserved": true
+  },
+  "canvas": {
+    "width": 1024,
+    "height": 512,
+    "minimum_width": 1024,
+    "minimum_height": 512,
+    "cropped": false
+  },
+  "reference_source_sha256": {
+    "front.png": "037559a477d25b5cc6c6a92ba0d668df3154692ed60e2066b39a9cfc29c23a53",
+    "left.png": "c9e01f7189e5687fbf61a6468776dc9d927f8620d5a529386404b92d48b8f287",
+    "back.png": "1496fea794abd591ad1acc536186d6611547f8cbc2de766d7291c662fe86b771"
+  },
+  "metrics_definition": {
+    "iou": "intersection over union of aligned binary silhouettes",
+    "boundary_distance_mean_px": "mean of both directed nearest-boundary distances",
+    "boundary_distance_p95_px": "95th percentile of concatenated both-direction boundary distances",
+    "boundary_distance_max_px": "maximum of concatenated both-direction boundary distances",
+    "aggregate": "mean IoU across views; boundary metrics from concatenated boundary samples across views"
+  },
+  "blue_chroma_extractor": {
+    "applied": false,
+    "rule": "B >= 55, B-R >= 28, B-G >= 12",
+    "background_assumption": "neutral gray or white"
+  },
+  "candidates": [
+    {
+      "name": "skull-baseline",
+      "proxy_rank": 1,
+      "aggregate": {
+        "mean_iou": 0.8844479502932536,
+        "boundary_distance_mean_px": 8.133799385781751,
+        "boundary_distance_p95_px": 18.110770276274835,
+        "boundary_distance_max_px": 28.861739379323623
+      },
+      "views": {
+        "front": {
+          "iou": 0.8664583019531054,
+          "boundary_distance_mean_px": 9.060624900637942,
+          "boundary_distance_p95_px": 19.243166447087,
+          "boundary_distance_max_px": 28.861739379323623
+        },
+        "left": {
+          "iou": 0.8631852779651219,
+          "boundary_distance_mean_px": 10.052476374937184,
+          "boundary_distance_p95_px": 18.35755975068582,
+          "boundary_distance_max_px": 23.430749027719962
+        },
+        "back": {
+          "iou": 0.9237002709615336,
+          "boundary_distance_mean_px": 5.130515993432419,
+          "boundary_distance_p95_px": 12.727922061357855,
+          "boundary_distance_max_px": 18.027756377319946
+        }
+      },
+      "source_sha256": {
+        "front.png": "0b75b2c32daebc2a1b21115f2e3110b078da39569eaf64e24cb66d93dc549e3d",
+        "left.png": "b7d88f18c7a9662073f53497553bb369e717546a78d4fcb06ef39104b592955f",
+        "back.png": "c7cf0bcbb3a3ff6c4895faffb2bd6921ee87c96c0194708e7c94a6d6e00daffb"
+      },
+      "overlays": {
+        "front": "skull-baseline-front-overlay.png",
+        "left": "skull-baseline-left-overlay.png",
+        "back": "skull-baseline-back-overlay.png"
+      },
+      "normalization": {
+        "shared_group_scale_px_per_source_px": 0.700218818380744,
+        "source_group_max_bbox_height_px": 457,
+        "target_group_max_bbox_height_px": 320,
+        "aspect_ratio_preserved": true
+      }
+    }
+  ]
+}

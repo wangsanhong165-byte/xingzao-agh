@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#eff4f3">
+  <title>形造 · 细杆打印工作流</title>
+  <link rel="stylesheet" href="/workflow.css">
+  <script type="importmap">{"imports":{"three":"/vendor/three.module.js","three/addons/":"/vendor/addons/"}}</script>
+  <script type="module" src="/workflow.js"></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/" aria-label="返回形造工作台"><span class="brand-mark">形</span><span>形造 <small>FIRST PRINT WORKFLOW</small></span></a><div class="top-status"><i id="engine-dot"></i><span id="engine-status">正在连接服务…</span></div><nav class="workflow-nav"><a href="/protect">外观保护</a><a href="/reconstruct">照片重建</a><a href="/">工作台</a></nav></header>
+  <main class="layout">
+    <section class="input-column">
+      <div class="kicker">打印工作台 <span>/</span> 首次使用</div><h1>检查一根细杆，再开始打印方案。</h1>
+      <p class="lede">选择一个已验证模型，查看未变换的源几何并圈定直圆杆。测量由服务端完成；你确认建议后才会启动 AGH。</p>
+      <section class="card input-card">
+        <div class="card-title"><div><b class="step">01</b><h2>已验证模型</h2></div><button id="refresh-sources" class="text-button" type="button">刷新目录</button></div>
+        <label class="source-field" for="source-select">模型来源<select id="source-select" disabled><option value="">正在读取目录…</option></select></label>
+        <p id="source-note" class="hint" role="status">目录只列出服务端已检查且有源 STL 的模型。</p>
+        <p class="hint"><a href="/poses?mode=import">导入自己的 STL / GLB →</a></p>
+        <div class="divider"></div>
+        <div class="card-title"><div><b class="step">02</b><h2>细杆与修改预算</h2></div><span class="unit-note">源坐标 · mm</span></div>
+        <p class="hint">选择杆轴和预算，再开启选取并点击源模型杆身中段。预览固定使用源坐标；视角控制不会旋转或缩放网格。</p>
+        <label class="source-field" for="axis">杆轴方向<select id="axis"><option value="">选择方向</option><option value="x">X 轴</option><option value="y">Y 轴</option><option value="z">Z 轴</option></select></label>
+        <label class="source-field" for="max-growth">最大径向增长（mm）<input id="max-growth" type="number" min="0.001" max="1" step="any" value="0.2"></label>
+        <label class="source-field" for="max-volume">最大新增体积（mm³）<input id="max-volume" type="number" min="0.001" max="10000" step="any" value="20"></label>
+        <button id="pick-target" class="button secondary" type="button" disabled aria-pressed="false">点击模型选取细杆</button>
+        <p id="pick-note" class="start-note" role="status">先选择模型、杆轴和有效预算。</p>
+        <div id="proposal-summary" class="proposal-summary" role="status">尚无测量建议。选取只读取几何，不修改网格。</div>
+        <div id="proposal-facts" class="proposal-facts" hidden></div>
+        <label id="confirm-wrap" class="check-line confirm-line" hidden><input id="confirm-proposal" type="checkbox"><span>我已查看原特征范围、允许增长范围和完整轴线；确认运行上述预算</span></label>
+        <button id="start-job" class="button" type="button" disabled>开始一次打印方案检查 <span aria-hidden="true">→</span></button>
+        <p id="start-note" class="start-note" role="status">等待服务状态。</p>
+        <div class="notice"><strong>支持范围与边界</strong><p>仅支持一根轴对齐的直圆杆及软件检查；其他孔或关键特征需另行明确声明。软件检查不代表实物强度或打印成功。新准备的任务使用五候选姿态策略，包含侧放 X −90°；历史任务继续按其原有策略运行。具体运行限制以任务返回的限制列表为准。</p></div>
+      </section>
+    </section>
+    <section class="work-column">
+      <div class="work-heading"><div><div class="kicker">源模型 · AGH 状态 · 已验证交付</div><h2>在同一个任务里跟进</h2></div><span class="job-pill"><i id="job-dot"></i><span id="job-stage">尚无任务</span></span></div>
+      <section class="card viewer-card"><div class="viewer-bar"><strong>未变换的源 STL</strong><button id="reset-view" type="button" disabled>重置视角</button></div>
+        <div class="viewer-stage"><canvas id="mesh-canvas" tabindex="0" aria-label="源模型三维预览；选择细杆后可点击模型表面"></canvas><div class="viewer-message" id="viewer-message"><span>◇</span><strong>选择目录中的已验证模型</strong><small>网格保持源坐标、原始 Z-up</small></div><div id="webgl-fallback" class="viewer-message fallback" hidden><strong>三维预览不可用</strong><small>此浏览器未提供 WebGL；可继续查看服务端结果，但不能点选细杆。</small></div></div>
+        <div class="viewer-footer"><span id="mesh-status">尚无网格</span><span>源坐标 · Z-up · mm</span></div></section>
+      <section class="card result-card"><div class="card-title"><div><b class="step">03</b><h3>运行进度与检查结果</h3></div><span id="result-state" class="mode-pill">等待任务</span></div><p id="job-summary" class="decision-note">准备提案后，可确认并启动唯一一次任务。</p>
+        <div id="phase-list" class="phase-list"><p class="empty">AGH 阶段将在任务启动后显示。</p></div>
+        <dl id="result-facts" class="facts"></dl><div id="job-error" class="error-box" hidden></div><div id="child-links" class="child-links"></div>
+        <div class="delivery-row"><div><strong id="delivery-title">交付尚未验证</strong><p id="delivery-note">只有服务确认完成且返回已验证交付时，下载才会开放。</p></div><a id="download-link" class="button secondary" href="#" hidden>下载已验证 STL</a></div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

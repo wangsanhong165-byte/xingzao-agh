@@ -1,0 +1,23 @@
+import {DatabaseSync} from 'node:sqlite';
+import {mkdir,writeFile} from 'node:fs/promises';
+import {dirname,join,resolve} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {printAghInternals} from '../../src/print-agh.mjs';
+
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'../..'),id=process.argv[2];
+if(!/^[a-f0-9]{8}-[a-f0-9]{4}-[1-8][0-9a-f]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/u.test(id??''))throw new Error('TEXTURE_AUDIT_ID_INVALID');
+const response=await fetch(`http://127.0.0.1:4337/api/texture/jobs/${id}`);
+if(!response.ok)throw new Error('TEXTURE_AUDIT_JOB_UNAVAILABLE');
+const job=await response.json();
+if(!job.execution?.sessionId||job.agentRunActive)throw new Error('TEXTURE_AUDIT_SESSION_NOT_FINISHED');
+const db=new DatabaseSync(join(printAghInternals.reconstructionHome(process.env),'data/sessions.db'),{readOnly:true});
+const events=db.prepare('SELECT seq,type,ts,data FROM events WHERE session_key=? AND seq<=? ORDER BY seq').all(job.execution.sessionId,job.execution.lastSeq).map(e=>({...e,data:JSON.parse(e.data)}));db.close();
+const typed=name=>events.filter(e=>e.type===name),results=new Map(typed('tool/result').map(e=>[e.data.toolUseId,e]));
+const names=['texture_inspect','texture_generate','texture_verify','texture_submit'];
+const calls=typed('tool/call').map(e=>{const result=results.get(e.data.toolUseId);return {name:e.data.name,seq:e.seq,resultSeq:result?.seq??null,attemptId:e.data.args?.attemptId??null,profile:e.data.args?.profile??null,success:result?.data.structured?.success===true};});
+const requests=typed('request/sent').map(e=>({seq:e.seq,model:e.data.model?.id??null,route:e.data.model?.route??null}));
+const start=typed('session/start')[0],end=typed('turn/end').at(-1);
+if(start?.data.preset!=='texture-tools'||calls.length!==job.events.length||calls.some((c,i)=>!names.includes(c.name)||c.name!==`texture_${job.events[i].tool}`||c.success!==job.events[i].success)||!requests.length||requests.some(r=>r.model!==job.execution.model))throw new Error('TEXTURE_NATIVE_EVIDENCE_MISMATCH');
+const evidence={schema:'texture-native-evidence/v1',jobId:id,sourceJobId:job.sourceJobId,sourceSha256:job.source.sha256,referenceSha256:job.reference.sha256,submittedAttemptId:job.submittedAttemptId,stage:job.stage,model:job.execution.model,native:{sessionId:job.execution.sessionId,preset:start.data.preset,calls,requests,turnEndReason:end?.data.reason??null},artifact:job.attempts.find(a=>a.attemptId===job.submittedAttemptId)?Object.fromEntries(['glbSha256','metrics'].map(k=>[k,job.attempts.find(a=>a.attemptId===job.submittedAttemptId)[k]])):null,physicalPrintVerified:false,visualQualityCertified:false,scope:'native ledger/service cross-check; texture geometry/file checks only',redaction:'No credentials, prompts, reasoning, image bytes, token or raw database rows'};
+const output=join(root,'data/print-validation',`texture-native-${id}.json`);await mkdir(dirname(output),{recursive:true});await writeFile(output,JSON.stringify(evidence,null,2));
+console.log(JSON.stringify({id,stage:job.stage,model:job.execution.model,nativeCalls:calls.length,modelRequests:requests.length,ledgerCrossCheck:true}));

@@ -1,0 +1,191 @@
+{
+  "repo": "tencent/Hunyuan3D-2",
+  "revision": "9cd649ba6913f7a852e3286bad86bfa9a2d83dcf",
+  "files": [
+    {
+      "path": "hunyuan3d-delight-v2-0/feature_extractor/preprocessor_config.json",
+      "size": 466,
+      "sha256": null,
+      "gitBlobId": "fb1692ff11ed6b3dee0634f577193bb23c0d37ec"
+    },
+    {
+      "path": "hunyuan3d-delight-v2-0/model_index.json",
+      "size": 621,
+      "sha256": null,
+      "gitBlobId": "2f76d0d3f6e71b71c80b3d5e062506e79c476157"
+    },
+    {
+      "path": "hunyuan3d-delight-v2-0/scheduler/scheduler_config.json",
+      "size": 533,
+      "sha256": null,
+      "gitBlobId": "3e2d05cdff18d85e17e23bc67d638fc36e9fec28"
+    },
+    {
+      "path": "hunyuan3d-delight-v2-0/text_encoder/config.json",
+      "size": 583,
+      "sha256": null,
+      "gitBlobId": "8d1412e50d46389d40b29f824034ff4ba4f973ca"
+    },
+    {
+      "path": "hunyuan3d-delight-v2-0/text_encoder/model.safetensors",
+      "size": 680820392,
+      "sha256": "bc1827c465450322616f06dea41596eac7d493f4e95904dcb51f0fc745c4e13f",
+      "gitBlobId": "a55e85a6b511d04d31fbcc67af976a8b0adf8030"
+    },
+    {
+      "path": "hunyuan3d-delight-v2-0/tokenizer/merges.txt",
+      "size": 524619,
+      "sha256": null,
+      "gitBlobId": "76e821f1b6f0a9709293c3b6b51ed90980b3166b"
+    },
+    {
+      "path": "hunyuan3d-delight-v2-0/tokenizer/special_tokens_map.json",
+      "size": 574,
+      "sha256": null,
+      "gitBlobId": "eaf8780e3c90b1af01a8574bf8596a9acebe6858"
+    },
+    {
+      "path": "hunyuan3d-delight-v2-0/tokenizer/tokenizer_config.json",
+      "size": 855,
+      "sha256": null,
+      "gitBlobId": "bd2abe19377557ff5771584921f9b65fa041fef0"
+    },
+    {
+      "path": "hunyuan3d-delight-v2-0/tokenizer/vocab.json",
+      "size": 1059962,
+      "sha256": null,
+      "gitBlobId": "469be27c5c010538f845f518c4f5e8574c78f7c8"
+    },
+    {
+      "path": "hunyuan3d-delight-v2-0/unet/config.json",
+      "size": 1835,
+      "sha256": null,
+      "gitBlobId": "d41e4dd1c7c732b4b3bd3cd62994a3342e4d1757"
+    },
+    {
+      "path": "hunyuan3d-delight-v2-0/unet/diffusion_pytorch_model.safetensors",
+      "size": 3463772592,
+      "sha256": "0ce61d15a43d11ba19079ab8f24dfce78b876d3f5291470079ef64b17e08ca58",
+      "gitBlobId": "1a9740dd66f3392b93ed673a0d58aed78cdd2d5b"
+    },
+    {
+      "path": "hunyuan3d-delight-v2-0/vae/config.json",
+      "size": 787,
+      "sha256": null,
+      "gitBlobId": "c5f3fb60380d78f4860c3dd057a1ce99882a3365"
+    },
+    {
+      "path": "hunyuan3d-delight-v2-0/vae/diffusion_pytorch_model.safetensors",
+      "size": 167335342,
+      "sha256": "3e4c08995484ee61270175e9e7a072b66a6e4eeb5f0c266667fe1f45b90daf9a",
+      "gitBlobId": "9a75e3c8e7cf4387be816cdebb751fbd5fc4e1e2"
+    },
+    {
+      "path": "hunyuan3d-paint-v2-0-turbo/README.md",
+      "size": 1801,
+      "sha256": null,
+      "gitBlobId": "ced35bb9c31a78fa7e619523e194df55c566ef1d"
+    },
+    {
+      "path": "hunyuan3d-paint-v2-0-turbo/feature_extractor/preprocessor_config.json",
+      "size": 342,
+      "sha256": null,
+      "gitBlobId": "5294955ff7801083f720b34b55d0f1f51313c5c5"
+    },
+    {
+      "path": "hunyuan3d-paint-v2-0-turbo/image_encoder/config.json",
+      "size": 672,
+      "sha256": null,
+      "gitBlobId": "5e55ea193b10796eed579de463bec7a3c6dc45ad"
+    },
+    {
+      "path": "hunyuan3d-paint-v2-0-turbo/image_encoder/preprocessor_config.json",
+      "size": 466,
+      "sha256": null,
+      "gitBlobId": "fb1692ff11ed6b3dee0634f577193bb23c0d37ec"
+    },
+    {
+      "path": "hunyuan3d-paint-v2-0-turbo/model_index.json",
+      "size": 620,
+      "sha256": null,
+      "gitBlobId": "01d2c5336625705d2ec4ea69f5aa9a87b9862c60"
+    },
+    {
+      "path": "hunyuan3d-paint-v2-0-turbo/scheduler/scheduler_config.json",
+      "size": 387,
+      "sha256": null,
+      "gitBlobId": "e2cca4b978fc3b95f8431fec292c2c289d8e1515"
+    },
+    {
+      "path": "hunyuan3d-paint-v2-0-turbo/text_encoder/config.json",
+      "size": 613,
+      "sha256": null,
+      "gitBlobId": "f9ac7c0b3b341525cd1b65e1a715128fee97b25c"
+    },
+    {
+      "path": "hunyuan3d-paint-v2-0-turbo/text_encoder/pytorch_model.bin",
+      "size": 1361671895,
+      "sha256": "c3e254d7b61353497ea0be2c4013df4ea8f739ee88cffa0ba58cd085459ed565",
+      "gitBlobId": "b8ec9957efbd821b9520ea61a4e7407cd7e87bb2"
+    },
+    {
+      "path": "hunyuan3d-paint-v2-0-turbo/tokenizer/merges.txt",
+      "size": 524619,
+      "sha256": null,
+      "gitBlobId": "76e821f1b6f0a9709293c3b6b51ed90980b3166b"
+    },
+    {
+      "path": "hunyuan3d-paint-v2-0-turbo/tokenizer/special_tokens_map.json",
+      "size": 460,
+      "sha256": null,
+      "gitBlobId": "ae0c5be6f35217e51c4c000fd325d8de0294e99c"
+    },
+    {
+      "path": "hunyuan3d-paint-v2-0-turbo/tokenizer/tokenizer_config.json",
+      "size": 807,
+      "sha256": null,
+      "gitBlobId": "65d055d1103982d6ba7cf1c5c876a9413077daf5"
+    },
+    {
+      "path": "hunyuan3d-paint-v2-0-turbo/tokenizer/vocab.json",
+      "size": 1059962,
+      "sha256": null,
+      "gitBlobId": "469be27c5c010538f845f518c4f5e8574c78f7c8"
+    },
+    {
+      "path": "hunyuan3d-paint-v2-0-turbo/unet/config.json",
+      "size": 911,
+      "sha256": null,
+      "gitBlobId": "0fa07f924dabbf7517dc62af845cd31573bc09e3"
+    },
+    {
+      "path": "hunyuan3d-paint-v2-0-turbo/unet/modules.py",
+      "size": 26773,
+      "sha256": null,
+      "gitBlobId": "36b4594d83e1462cbd9fc6c15447a76ee7b5f536"
+    },
+    {
+      "path": "hunyuan3d-paint-v2-0-turbo/vae/config.json",
+      "size": 553,
+      "sha256": null,
+      "gitBlobId": "9421ac5a7caf02657fa559cffe7c73a47572cd64"
+    },
+    {
+      "path": "hunyuan3d-paint-v2-0-turbo/vae/diffusion_pytorch_model.bin",
+      "size": 334707217,
+      "sha256": "1b4889b6b1d4ce7ae320a02dedaeff1780ad77d415ea0d744b476155c6377ddc",
+      "gitBlobId": "ba36f34d64ad3be997b7cab94b0b9acd61272851"
+    },
+    {
+      "path": "hunyuan3d-paint-v2-0-turbo/unet/diffusion_pytorch_model.bin",
+      "size": 7325432923,
+      "sha256": "24e7f1aea8a7c94cee627eb06f5265f19eeff4e19568636c5eaef050cc19ba3d",
+      "gitBlobId": "c22bc9d24dcab99a6158a58df99cf343884ad353"
+    }
+  ],
+  "downloadBytes": 13336950182,
+  "weightsDownloaded": false,
+  "selection": "current compatible Turbo BIN; stale IP-Adapter safetensors excluded; standalone HunyuanPaintPipeline does not register or use image_encoder; other component files retained",
+  "source": "public Hugging Face repository metadata for pinned revision",
+  "compatibilityEvidence": "texture-bin-meta-fast-20261004.json"
+}

@@ -1,0 +1,8 @@
+photo-cad print-detail tools
+Copyright 2026 the photo-cad project contributors
+
+Licensed under the Apache License, Version 2.0. The tool package contains original print-service
+integration code and does not bundle Agnes Harness source files. Its Cordis plugin entry follows
+the public interface demonstrated by Agnes Harness's examples/packages/hot-tool-plugin example;
+that separate example package declares MIT in its own package.json and retains its own license in
+the upstream Agnes Harness repository.

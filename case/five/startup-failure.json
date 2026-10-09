@@ -1,0 +1,190 @@
+{
+  "searchPolicy": {
+    "id": "fixed-five-v2",
+    "poseIds": [
+      "upright",
+      "tilt-x-plus",
+      "tilt-x-minus",
+      "tilt-y-plus",
+      "face-up"
+    ]
+  },
+  "id": "a97fde79-f668-40a0-8877-247a93fa4b24",
+  "stage": "failed",
+  "active": false,
+  "contractHash": "d05f91e976b9a6bf9f3061c77ea5e85414917a580ef75037febc8ccc92f83a74",
+  "source": {
+    "kind": "imported",
+    "candidateId": "dae51ce65241d01313bbc173a0b61efd46a3f020775ff24dce75a63571f7a49b",
+    "sourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+    "boundsMm": [
+      [
+        -6,
+        -4,
+        0
+      ],
+      [
+        6,
+        4,
+        30
+      ]
+    ]
+  },
+  "target": {
+    "id": "selected-rod",
+    "axis": "z",
+    "centerLineMm": [
+      [
+        -3.0000002556948613,
+        1.366718418438495e-7,
+        2
+      ],
+      [
+        -3.0000002556948613,
+        1.366718418438495e-7,
+        28
+      ]
+    ],
+    "measuredRadiusMm": 0.24996966630060571,
+    "boundsMm": [
+      [
+        -3.299969921995467,
+        -0.2999695296287639,
+        2.25
+      ],
+      [
+        -2.7000305893942556,
+        0.2999698029724476,
+        27.75
+      ]
+    ]
+  },
+  "spec": {
+    "axis": "z",
+    "centerLineMm": [
+      [
+        -3.0000002556948613,
+        1.366718418438495e-7,
+        2
+      ],
+      [
+        -3.0000002556948613,
+        1.366718418438495e-7,
+        28
+      ]
+    ],
+    "allowedBoundsMm": [
+      [
+        -3.479962764844142,
+        -0.47996237247743867,
+        2
+      ],
+      [
+        -2.5200377465455808,
+        0.47996264582112236,
+        28
+      ]
+    ],
+    "maxRadialGrowthMm": 0.2,
+    "maxAddedVolumeMm3": 20
+  },
+  "poseJob": {
+    "posePolicy": "fixed-five-v2",
+    "poseIds": [
+      "upright",
+      "tilt-x-plus",
+      "tilt-x-minus",
+      "tilt-y-plus",
+      "face-up"
+    ],
+    "id": "aecce224-4f7f-4d96-8143-67abf587a60e",
+    "stage": "failed",
+    "agentRunActive": false,
+    "source": {
+      "kind": "imported",
+      "jobId": null,
+      "candidateId": "dae51ce65241d01313bbc173a0b61efd46a3f020775ff24dce75a63571f7a49b",
+      "sourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+      "boundsMm": [
+        [
+          -6,
+          -4,
+          0
+        ],
+        [
+          6,
+          4,
+          30
+        ]
+      ]
+    },
+    "protectedRegions": [],
+    "regionSource": "none",
+    "criticalFeatures": [
+      {
+        "id": "selected-rod",
+        "kind": "solid",
+        "boundsMm": [
+          [
+            -3.299969921995467,
+            -0.2999695296287639,
+            2.25
+          ],
+          [
+            -2.7000305893942556,
+            0.2999698029724476,
+            27.75
+          ]
+        ],
+        "minRetention": 0.9,
+        "surfaceToleranceMm": 0.05
+      }
+    ],
+    "featureSource": "user-submitted-coordinate-bounds",
+    "constraints": {
+      "maxRegionSupportPathLengthMm": null
+    },
+    "profileId": "fdm-pla-04-auto-support",
+    "decision": null,
+    "selectedPoseId": null,
+    "submittedPoseId": null,
+    "recheck": null,
+    "error": "AGH_RUN_FAILED",
+    "events": [],
+    "execution": {
+      "mode": "agh",
+      "toolTransport": "native-plugin",
+      "profile": "local-dev",
+      "provider": "command-code",
+      "route": "command-code",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "modelBinding": "explicit-session-model-before-prompt",
+      "startedAt": "2026-10-08T01:17:51.613Z",
+      "endedAt": "2026-10-08T01:17:52.386Z",
+      "exitCode": null
+    },
+    "results": []
+  },
+  "repairJob": null,
+  "delivery": null,
+  "bindingError": null,
+  "error": "POSE_EXECUTION_FAILED",
+  "events": [
+    {
+      "at": "2026-10-08T01:17:51.607Z",
+      "stage": "pose-running",
+      "code": "OK"
+    },
+    {
+      "at": "2026-10-08T01:17:52.387Z",
+      "stage": "failed",
+      "code": "POSE_EXECUTION_FAILED"
+    }
+  ],
+  "physicalPrintVerified": false,
+  "limitations": [
+    "单根轴对齐直圆杆；所选杆以实际刀轨复核，其他未申报特征不作切片级保证。",
+    "本任务评估五个固定姿态，含X−90°侧放；结果限定于声明候选，不是全局最优。",
+    "模型与切片为软件验证，未验证实物打印或强度。"
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "schema": "xingzao-review-snapshot/v1",
+  "artifacts": [
+    {
+      "name": "case/source-original.stl",
+      "sourcePath": "data/import-jobs/dae51ce65241d01313bbc173a0b61efd46a3f020775ff24dce75a63571f7a49b/normalized.stl",
+      "sha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129"
+    },
+    {
+      "name": "case/probes-original.json",
+      "sourcePath": "data/critical-features/b7768427-8aed-4e81-89ef-9fa8fa941345/probes.json",
+      "sha256": "ab784037ceb6b97cf721fb58ea2c351e5cd0c7a4ae6e05db9ef37487d2276106"
+    },
+    {
+      "name": "case/baseline-pose.stl",
+      "sourcePath": "data/repair-jobs/555dccd0-7808-4c0d-af45-7b842b6e5ed3/slices/original-ad5bcffe-8ae3-410e-b740-52160bfb3110/pose.stl",
+      "sha256": "793f146429d4e88dbe83a0b2a39955aceb6abece403311b8b74595e3b0fb78f4"
+    },
+    {
+      "name": "case/baseline.gcode",
+      "sourcePath": "data/repair-jobs/555dccd0-7808-4c0d-af45-7b842b6e5ed3/slices/original-ad5bcffe-8ae3-410e-b740-52160bfb3110/slice/result.gcode",
+      "sha256": "fb82fecf364fc32b293dfc0a928c0025acc0d2994f16958c0b276cbe88debf8b"
+    },
+    {
+      "name": "case/boundary-source.stl",
+      "sourcePath": "data/repair-jobs/555dccd0-7808-4c0d-af45-7b842b6e5ed3/r02/candidate.stl",
+      "sha256": "2c00ca76d21f68a636acc833f67c4c6a5cff4c582ef2658a412065ba8a4395db"
+    },
+    {
+      "name": "case/boundary-pose.stl",
+      "sourcePath": "data/repair-jobs/555dccd0-7808-4c0d-af45-7b842b6e5ed3/slices/r02-1c9a0626-7eaa-41b6-9623-6addd90b668a/pose.stl",
+      "sha256": "ea7f64a1f7c0e9dafbe39f70d4f8df496ae97417f8f86fa2b82d8ddc8a34a4da"
+    },
+    {
+      "name": "case/boundary.gcode",
+      "sourcePath": "data/repair-jobs/555dccd0-7808-4c0d-af45-7b842b6e5ed3/slices/r02-1c9a0626-7eaa-41b6-9623-6addd90b668a/slice/result.gcode",
+      "sha256": "b83de4594ff21b94ce7bce02c0ad1eac8229d08e72941617897f864d4f856145"
+    },
+    {
+      "name": "case/boundary-probes.json",
+      "sourcePath": "data/critical-features/972331bd-9731-430a-8115-67d6a4d57bdc/probes.json",
+      "sha256": "0fb0df445c1c0258a84dfb5cc88f39285fa4c9f3c3ab825c39da5dc02603e629"
+    },
+    {
+      "name": "case/normal-source.stl",
+      "sourcePath": "data/repair-jobs/555dccd0-7808-4c0d-af45-7b842b6e5ed3/r03/candidate.stl",
+      "sha256": "a029a555ce54a5d74ee608184e4f61174bc36976c92ef6e14f377e9220561019"
+    },
+    {
+      "name": "case/normal-pose.stl",
+      "sourcePath": "data/repair-jobs/555dccd0-7808-4c0d-af45-7b842b6e5ed3/slices/r03-38ac1693-00bb-4208-b4c5-85e1e647bf83/pose.stl",
+      "sha256": "6f7d020c532f6b21b87e89397b1a4fe4313f608388341497be5eb75f13696023"
+    },
+    {
+      "name": "case/normal.gcode",
+      "sourcePath": "data/repair-jobs/555dccd0-7808-4c0d-af45-7b842b6e5ed3/slices/r03-38ac1693-00bb-4208-b4c5-85e1e647bf83/slice/result.gcode",
+      "sha256": "743b2288b0eb78436d2469d70ff9c108150b64ef2d3fc3cd8c8f8fa23b71c942"
+    },
+    {
+      "name": "case/normal-probes.json",
+      "sourcePath": "data/critical-features/289acddf-a476-4aaa-9328-2682cb6a8bbc/probes.json",
+      "sha256": "ccce3ce50e079bbdedf8cf4bf967d5c67c9c4dfb09bd1316c41aac3c2460c580"
+    },
+    {
+      "name": "case/face-up-pose.stl",
+      "sourcePath": "data/face-up-experiment-20261007-349e6bc2-f44e-4eda-bbae-aaac1231ac0b/original-lamppost/face-up.stl",
+      "sha256": "2c44e5007ba417f036aa8b35c14e3bb5fed30da271992381e976a19a5572f4b7"
+    },
+    {
+      "name": "case/face-up.gcode",
+      "sourcePath": "data/face-up-experiment-20261007-349e6bc2-f44e-4eda-bbae-aaac1231ac0b/original-lamppost/slice/result.gcode",
+      "sha256": "3539cae6766380df2937b5808c53f9627644f2e88d2d3685e69b88db79014c1c"
+    },
+    {
+      "name": "case/cases.json",
+      "sourcePath": "data/review-evidence-20261008/cases.json",
+      "sha256": "f1aa03bd2b8087ba14f6bda852ba923f6534be2f3f37a1a988a7e057adced15a"
+    },
+    {
+      "name": "case/native-summary.json",
+      "sourcePath": "data/review-evidence-20261007/native-summary.json",
+      "sha256": "e6d428c07a32e334e38dbf8d6abe6006498bc0ce203f8e2debd9e4df7dcad190"
+    },
+    {
+      "name": "case/visual-selection.png",
+      "sourcePath": "data/visual-rod-review-20261005/visual-selection.png",
+      "sha256": "e2c04b0b7cf630980ed3f16c05513e7dca84cd06f1b9e5a9b507d110c30bf47c"
+    },
+    {
+      "name": "case/skull-source.stl",
+      "sourcePath": "data/reconstruction/generated/7d037589dfdeb98054bb5de76fd504b70efcb44ea555ee10cd841ccfb6cc1852.stl",
+      "sha256": "f7ca276d0715bb1110ef264d318ca5da655bd7a1615f44654ed228431a2feee3"
+    },
+    {
+      "name": "case/skull-input-front.png",
+      "sourcePath": "data/public-skull-views/skull-display-20261007-v2/front.png",
+      "sha256": "037559a477d25b5cc6c6a92ba0d668df3154692ed60e2066b39a9cfc29c23a53"
+    },
+    {
+      "name": "case/skull-input-left.png",
+      "sourcePath": "data/public-skull-views/skull-display-20261007-v2/left.png",
+      "sha256": "c9e01f7189e5687fbf61a6468776dc9d927f8620d5a529386404b92d48b8f287"
+    },
+    {
+      "name": "case/skull-input-back.png",
+      "sourcePath": "data/public-skull-views/skull-display-20261007-v2/back.png",
+      "sha256": "1496fea794abd591ad1acc536186d6611547f8cbc2de766d7291c662fe86b771"
+    },
+    {
+      "name": "case/skull-render.png",
+      "sourcePath": "data/reconstruction/generated/reconstruction-5e9e4974-0cd1-45bb-85f1-6cf35874adbd-attempt1/render/perspective.png",
+      "sha256": "2d317a563483f2fb95cbfb13912e37eb51456670c500046d6b058b9464573fd6"
+    },
+    {
+      "name": "case/skull-input-manifest.json",
+      "sourcePath": "data/public-skull-views/skull-display-20261007-v2/manifest.json",
+      "sha256": "d327c8b24a58c31853fb2e85a889e9aa080fc703ab70e64452c0669e293c0005"
+    },
+    {
+      "name": "case/skull-raw-quality-proxy.json",
+      "sourcePath": "data/public-skull-views/skull-display-quality-20261007-alpha-v1/shape-silhouette-proxy.json",
+      "sha256": "8ec1b5079476311ef05b0079218ced92d5c3854a05c1601be9c03302b05a0d08"
+    },
+    {
+      "name": "case/skull/reference/front.png",
+      "sourcePath": "data/public-skull-views/skull-display-20261007-v2/front.png",
+      "sha256": "037559a477d25b5cc6c6a92ba0d668df3154692ed60e2066b39a9cfc29c23a53"
+    },
+    {
+      "name": "case/skull/delivered-alpha/front.png",
+      "sourcePath": "data/public-skull-views/skull-delivery-render-alpha-20261007/front.png",
+      "sha256": "a1596402df549b3dc66c97b986ccb46c795e80936cbb319ec44d91a5a3fedbc1"
+    },
+    {
+      "name": "case/skull/reference/left.png",
+      "sourcePath": "data/public-skull-views/skull-display-20261007-v2/left.png",
+      "sha256": "c9e01f7189e5687fbf61a6468776dc9d927f8620d5a529386404b92d48b8f287"
+    },
+    {
+      "name": "case/skull/delivered-alpha/left.png",
+      "sourcePath": "data/public-skull-views/skull-delivery-render-alpha-20261007/left.png",
+      "sha256": "98471cdb814294e1a81df44de79117990fae2e6dfc23f19d7e6b42e1257b49be"
+    },
+    {
+      "name": "case/skull/reference/back.png",
+      "sourcePath": "data/public-skull-views/skull-display-20261007-v2/back.png",
+      "sha256": "1496fea794abd591ad1acc536186d6611547f8cbc2de766d7291c662fe86b771"
+    },
+    {
+      "name": "case/skull/delivered-alpha/back.png",
+      "sourcePath": "data/public-skull-views/skull-delivery-render-alpha-20261007/back.png",
+      "sha256": "95afe92224df5bd3b03bf04e79751d3146b66b64e0ce365f5f0d9c636d10362d"
+    },
+    {
+      "name": "case/skull/delivered-alpha/blender-checks.json",
+      "sourcePath": "data/public-skull-views/skull-delivery-render-alpha-20261007/blender-checks.json",
+      "sha256": "336efc92b9a3fb33ab7b6c3ac4b59eef154778d7b8ad98cc42dfb6a8874dca41"
+    },
+    {
+      "name": "case/skull/delivered-quality-proxy.json",
+      "sourcePath": "data/public-skull-views/skull-delivery-quality-20261007/shape-silhouette-proxy.json",
+      "sha256": "ad00b109196ee2a1e45c8d27a82b7acdd42d9cbbf95e46208fda65ae7a685411"
+    },
+    {
+      "name": "case/five/normal-workflow.json",
+      "sourcePath": "data/review-evidence-20261008/normal-workflow.json",
+      "sha256": "460c84b14097e98e0e39814506d76ca38e378046e71f249f87fb2c13b1116091"
+    },
+    {
+      "name": "case/five/normal-native.json",
+      "sourcePath": "data/print-validation/pose-native-c86bfd25-2c5e-46a0-b41c-d77c773be3d5.json",
+      "sha256": "4f84874b5d623daf66e4457007686f566ba139e8bc42b3e21c8a6e4f79984958"
+    },
+    {
+      "name": "case/five/posed.stl",
+      "sourcePath": "data/pose-jobs/c86bfd25-2c5e-46a0-b41c-d77c773be3d5/face-up/pose.stl",
+      "sha256": "2c44e5007ba417f036aa8b35c14e3bb5fed30da271992381e976a19a5572f4b7"
+    },
+    {
+      "name": "case/five/result.gcode",
+      "sourcePath": "data/pose-jobs/c86bfd25-2c5e-46a0-b41c-d77c773be3d5/face-up/slice/result.gcode",
+      "sha256": "0e8b25af7ef7b6b19a11f011f4f4a2d8795d07ddddeaf87df1c64179e31d496c"
+    },
+    {
+      "name": "case/five/probes.json",
+      "sourcePath": "data/critical-features/1d2fe1b4-fd9b-47ff-9095-4e28e960f025/probes.json",
+      "sha256": "006c242f3c12ca6034bbb5212cbd3219123c2fd354b8a59b9c67561af17bb6ac"
+    },
+    {
+      "name": "case/five/tiny-growth-workflow.json",
+      "sourcePath": "data/review-evidence-20261008/tiny-growth-workflow.json",
+      "sha256": "a0b9e996e4797c97c8fb5c4237badb17fe06f91626ded3c10df077e7deae4058"
+    },
+    {
+      "name": "case/five/tiny-growth-native.json",
+      "sourcePath": "data/print-validation/pose-native-e2811957-a779-43cf-bd93-746c1faf5bc1.json",
+      "sha256": "e7d68b5de66ea4b9adac251a889bd08cdaa30d157999730a4de90646c5e973b0"
+    },
+    {
+      "name": "case/five/startup-failure.json",
+      "sourcePath": "data/review-evidence-20261008/startup-failure.json",
+      "sha256": "f5c3b455f6a853ec93a63f73239943814d1697cc0fe744d1973c53e19a692a81"
+    },
+    {
+      "name": "case/five/schema-failure.json",
+      "sourcePath": "data/review-evidence-20261008/schema-failure.json",
+      "sha256": "0983c042e890a5d84b4dba46a4f2b12c90c0ac75aa9950a059b874196496340c"
+    },
+    {
+      "name": "case/five/summary.json",
+      "sourcePath": "data/review-evidence-20261008/five-summary.json",
+      "sha256": "cdf028145fcefc0d513268275d6efddda7d85d578b39c502b0824165b9b7d13d"
+    }
+  ],
+  "summary": {
+    "task": "versioned-five-pose-original-delivery-and-historical-repair",
+    "source": "team-original-parametric-design; not a photograph",
+    "scope": "cached files and toolpath re-evaluation, not model execution replay",
+    "physicalPrintVerified": false
+  }
+}

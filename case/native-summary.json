@@ -1,0 +1,143 @@
+{
+  "schema": "xingzao-native-summary/v1",
+  "jobId": "555dccd0-7808-4c0d-af45-7b842b6e5ed3",
+  "stage": "completed",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "preset": "feature-repair-tools",
+  "actualBusinessCalls": [
+    {
+      "name": "repair_inspect",
+      "candidateId": null,
+      "radiusMm": null,
+      "seq": 19,
+      "resultSeq": 23,
+      "success": true,
+      "code": "OK"
+    },
+    {
+      "name": "repair_evaluate",
+      "candidateId": "original",
+      "radiusMm": null,
+      "seq": 37,
+      "resultSeq": 41,
+      "success": true,
+      "code": "OK"
+    },
+    {
+      "name": "repair_apply",
+      "candidateId": null,
+      "radiusMm": 0.3,
+      "seq": 55,
+      "resultSeq": 59,
+      "success": true,
+      "code": "OK"
+    },
+    {
+      "name": "repair_evaluate",
+      "candidateId": "r01",
+      "radiusMm": null,
+      "seq": 72,
+      "resultSeq": 76,
+      "success": true,
+      "code": "OK"
+    },
+    {
+      "name": "repair_apply",
+      "candidateId": null,
+      "radiusMm": 0.35,
+      "seq": 90,
+      "resultSeq": 94,
+      "success": true,
+      "code": "OK"
+    },
+    {
+      "name": "repair_evaluate",
+      "candidateId": "r02",
+      "radiusMm": null,
+      "seq": 107,
+      "resultSeq": 111,
+      "success": true,
+      "code": "OK"
+    },
+    {
+      "name": "repair_apply",
+      "candidateId": null,
+      "radiusMm": 0.4,
+      "seq": 125,
+      "resultSeq": 129,
+      "success": true,
+      "code": "OK"
+    },
+    {
+      "name": "repair_evaluate",
+      "candidateId": "r03",
+      "radiusMm": null,
+      "seq": 142,
+      "resultSeq": 146,
+      "success": true,
+      "code": "OK"
+    },
+    {
+      "name": "repair_verify",
+      "candidateId": "r03",
+      "radiusMm": null,
+      "seq": 160,
+      "resultSeq": 164,
+      "success": true,
+      "code": "OK"
+    },
+    {
+      "name": "repair_submit",
+      "candidateId": null,
+      "radiusMm": null,
+      "seq": 178,
+      "resultSeq": 182,
+      "success": true,
+      "code": "OK"
+    }
+  ],
+  "actualModelRequests": 11,
+  "toolCatalogObserved": false,
+  "geometryProof": {
+    "addedBoundsMm": [
+      [
+        -3.4000003337860107,
+        -0.39999985694885254,
+        2
+      ],
+      [
+        -2.6000001430511475,
+        0.40000012516975403,
+        28
+      ]
+    ],
+    "addedVolumeMm3": 7.960739205148532,
+    "addedWithinRequestedCylinder": true,
+    "budgetChecks": {
+      "addedBounds": true,
+      "addedVolume": true,
+      "addedWithinRequestedCylinder": true,
+      "globalBoundsUnchanged": true,
+      "radialGrowth": true,
+      "removedVolumeZero": true,
+      "sampledDisplacement": true
+    },
+    "candidateComponents": 1,
+    "candidateExpectedDifferenceToleranceMm3": 2.300765153293223e-7,
+    "candidateExpectedSymmetricDifferenceMm3": 0,
+    "candidateTopology": {
+      "watertight": true,
+      "windingConsistent": true
+    },
+    "distanceEvidence": "sampled-source-surface-to-candidate-surface-not-continuous-Hausdorff",
+    "globalBoundsUnchanged": true,
+    "maxSampledDistanceMm": 0.1499551949073831,
+    "radialGrowthMm": 0.14998178701249362,
+    "removedVolumeMm3": 0,
+    "sourceComponents": 1,
+    "verified": true,
+    "volumeToleranceMm3": 2.300765153293223e-7
+  },
+  "physicalPrintVerified": false,
+  "scope": "sanitized historical native ledger summary, not a fresh execution"
+}

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#eff4f3">
+  <title>形造 · 细杆局部修正</title>
+  <link rel="stylesheet" href="/repair.css">
+  <script type="importmap">{"imports":{"three":"/vendor/three.module.js","three/addons/":"/vendor/addons/"}}</script>
+  <script type="module" src="/repair.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="返回形造工作台"><span class="brand-mark">形</span><span>形造 <small>LOCAL FEATURE REPAIR</small></span></a>
+    <div class="top-status"><i id="engine-dot"></i><span id="engine-status">正在读取执行环境…</span></div>
+    <a class="back-link" href="/poses">打印方案 <span aria-hidden="true">↗</span></a>
+  </header>
+  <main class="layout">
+    <section class="input-column">
+      <div class="kicker">打印工作台 <span>/</span> 受限局部修正</div>
+      <h1>修正一根细杆，再验收它。</h1>
+      <p class="lede">从已检查的姿态任务选择实体特征，限定横向增长与新增体积。修正候选由后台 AGH 流程生成，特征复核通过后才可交付。</p>
+      <section class="card input-card">
+        <div class="card-title"><div><b class="step">01</b><h2>父任务与特征</h2></div><span class="small-note">沿用已检查网格</span></div>
+        <label class="source-field" for="parent-id">姿态任务 ID<input id="parent-id" inputmode="text" autocomplete="off" placeholder="从姿态比较页面打开，或粘贴任务 UUID"></label>
+        <button class="button secondary" id="load-parent" type="button">读取父任务</button>
+        <label class="source-field" for="pose-select">源姿态<select id="pose-select" disabled><option value="">先读取父任务</option></select></label>
+        <label class="source-field" for="feature-select">待修正的实体特征<select id="feature-select" disabled><option value="">先选择源姿态</option></select></label>
+        <p class="hint" id="parent-note" role="status">只显示来源任务声明且审计失败的实体特征；不会自动判断图片中的细杆。</p>
+
+        <div class="divider"></div>
+        <div class="card-title"><div><b class="step">02</b><h2>局部修改预算</h2></div><span class="unit-note">mm</span></div>
+        <div class="sample-wrap" id="sample-wrap" hidden><p class="sample-note">受控 pin-shaft 样例坐标，仅供演示。载入后所有坐标仍需你逐项确认。</p><button class="button secondary" id="sample-values" type="button">填入受控样例参数</button></div>
+        <p class="hint">选择源模型的杆轴和修改预算，再点击右侧原始模型的杆中部。工具会测量完整直杆段；曲杆、空心管或歧义截面会拒绝。</p>
+        <label class="source-field" for="axis">杆轴方向（源坐标系）<select id="axis"><option value="">选择方向</option><option value="x">X 轴</option><option value="y">Y 轴</option><option value="z">Z 轴</option></select></label>
+        <label class="source-field" for="max-growth">最大径向增长<input id="max-growth" type="number" min="0" max="1" step="any" value="0.2" placeholder="mm"></label>
+        <label class="source-field" for="max-volume">最大新增体积<input id="max-volume" type="number" min="0" max="10000" step="any" value="20" placeholder="mm³"></label>
+        <div id="proposal-summary" class="proposal-summary" role="status">尚未选取。建议参数不会自动启动修正，请查看高亮范围后确认。</div>
+        <details id="advanced-coordinates"><summary>查看或手动填写轴线与局部边界</summary>
+        <fieldset><legend>中心线两端（源模型坐标）</legend><div class="coord-grid" id="line-fields"></div></fieldset>
+        <fieldset><legend>允许修改的局部边界（源模型坐标）</legend><div class="coord-grid" id="bounds-fields"></div></fieldset>
+        </details>
+        <label class="check-line confirm-line"><input id="coordinates-confirmed" type="checkbox"><span>我已对照源模型确认轴线、边界与修改预算</span></label>
+        <button class="button" id="start-job" type="button" disabled>开始局部修正 <span aria-hidden="true">→</span></button>
+        <p class="start-note" id="start-note" role="status">读取可用任务后填写坐标。</p>
+        <div class="notice"><strong>支持范围</strong><p>本页只处理单根直圆杆。几何安全性、特征审计或切片任一项未验证，都不会显示为通过或开放交付下载。</p></div>
+      </section>
+    </section>
+    <section class="work-column">
+      <div class="work-heading"><div><div class="kicker">真实任务状态</div><h2>原始几何 · 修正候选</h2></div><span class="job-pill"><i id="job-dot"></i><span id="job-stage">尚无任务</span></span></div>
+      <div class="pick-row"><button id="pick-target" class="button secondary" type="button" aria-pressed="false" disabled>点击模型选取细杆</button><button id="focus-target" class="button secondary" type="button" disabled>聚焦申报特征</button><span id="pick-note" class="hint" role="status">选取只测量几何，不调用模型、不修改网格。</span></div>
+      <section class="card compare-viewers">
+        <article class="mesh-card"><div class="viewer-bar"><strong>原始姿态模型</strong><button id="reset-original" type="button" disabled>重置视角</button></div><div class="viewer-stage"><canvas id="original-canvas" aria-label="原始网格三维预览"></canvas><div class="viewer-message" id="original-message"><strong>等待父任务</strong><small>仅加载任务返回的源 STL</small></div></div><div class="viewer-footer"><span id="original-status">尚无网格</span><span>Z-up · mm</span></div><div class="toolpath"><strong>局部模型挤出路径投影（按原轴段）</strong><span id="original-toolpath-note">尚无已评价刀轨</span><img id="original-toolpath" alt="原始模型局部挤出路径投影" hidden></div></article>
+        <article class="mesh-card"><div class="viewer-bar"><strong id="candidate-title">修正候选</strong><button id="reset-candidate" type="button" disabled>重置视角</button></div><div class="viewer-stage"><canvas id="candidate-canvas" aria-label="修正候选网格三维预览"></canvas><div class="viewer-message" id="candidate-message"><strong>等待修正候选</strong><small>候选仅供预览，复核通过后才能交付</small></div></div><div class="viewer-footer"><span id="candidate-status">尚无候选</span><span id="candidate-meta">—</span></div><div class="toolpath"><strong>局部模型挤出路径投影（按原轴段）</strong><span id="candidate-toolpath-note">尚无已评价刀轨</span><img id="candidate-toolpath" alt="修正候选局部挤出路径投影" hidden></div></article>
+      </section>
+      <div class="focus-row"><button class="button secondary" id="focus-feature" type="button" disabled>聚焦细杆</button><span id="focus-note" class="hint">仅直立源姿态可直接用源模型坐标同步聚焦。</span></div>
+      <section class="card candidates-card"><div class="card-title"><div><b class="step">A</b><h3>候选与双重审计</h3></div><span id="candidate-count" class="small-note">等待任务</span></div><div id="candidate-list" class="candidate-list"><p class="empty">运行后显示原始模型和修正候选审计。</p></div></section>
+      <div class="evidence-grid">
+        <section class="card evidence-card"><div class="card-title"><div><b class="step">B</b><h3>修正依据</h3></div><span id="source-state" class="mode-pill">等待任务</span></div><dl id="job-facts" class="facts"></dl><div id="spec-facts" class="decision-note">修改范围与预算将在任务返回后显示。</div><div class="error-box" id="job-error" hidden></div></section>
+        <section class="card evidence-card"><div class="card-title"><div><b class="step">C</b><h3>重检与交付</h3></div><span id="delivery-state" class="mode-pill">未验证</span></div><dl id="delivery-facts" class="facts"></dl><p class="hint">只有原特征与修正后特征均通过、几何安全且同一候选复检已验证并提交，才开放下载。</p><button class="button secondary" id="download-stl" type="button" disabled>下载已交付 STL</button></section>
+      </div>
+      <section class="card run-card"><div class="run-header"><h3>AGH 执行链与事件</h3><span id="job-id" class="run-id">—</span></div><div id="event-list" class="event-list"><p class="empty">执行进度和失败原因会显示在这里。</p></div></section>
+    </section>
+  </main>
+</body>
+</html>

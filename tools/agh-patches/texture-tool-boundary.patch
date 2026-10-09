@@ -1,0 +1,26 @@
+diff --git a/packages/core/src/step/inference.ts b/packages/core/src/step/inference.ts
+index 453ab52..7c3f3ae 100644
+--- a/packages/core/src/step/inference.ts
++++ b/packages/core/src/step/inference.ts
+@@ -363,6 +363,8 @@ export function resolveModel(s: SessionImpl, slot: string): { route: string; mod
+ export function discloseTools(s: SessionImpl): string[] {
+   const snap = s.turn?.snapshot
+   if (!snap) return []
++  if (s.preset.name === 'texture-tools')
++    return snap.defs.filter((d) => d.meta.deferLoading !== true && ['texture_inspect', 'texture_generate', 'texture_verify', 'texture_submit'].includes(d.name)).map((d) => d.name)
+   const eager = (): string[] => snap.defs.filter((d) => d.meta.deferLoading !== true).map((d) => d.name)
+   let names: string[]
+   switch (s.preset.disclosure) {
+diff --git a/packages/core/src/step/tools.ts b/packages/core/src/step/tools.ts
+index dcdc5eb..5fd5e04 100644
+--- a/packages/core/src/step/tools.ts
++++ b/packages/core/src/step/tools.ts
+@@ -261,6 +261,8 @@ export async function approveAndExecute(
+   const op = s.op() as OpStateObj
+   const t = s.turn
+   if (!t) return { result: errorResult('no open turn') }
++  if (s.preset.name === 'texture-tools' && !['texture_inspect', 'texture_generate', 'texture_verify', 'texture_submit'].includes(call.name))
++    return { result: await refuse(s, call.toolUseId, 'TOOL_NOT_ALLOWED_BY_PRESET', 'tool is outside the texture task boundary') }
+   // A recovered attempt may already have reached the OS and must finish its exactly-once
+   // settlement. New/planned calls are still refused before hooks, approval, or effect intent.
+   if (!o.resumeDispatch && call.name === 'computer_use' && !s.computerUseAllowed())

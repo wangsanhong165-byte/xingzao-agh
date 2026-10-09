@@ -1,0 +1,23 @@
+import {DatabaseSync} from 'node:sqlite';
+import {readFile,mkdir,writeFile} from 'node:fs/promises';
+import {dirname,join,resolve} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {printAghInternals} from '../../src/print-agh.mjs';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'../..'),id=process.argv[2];
+if(!/^[a-f0-9-]{36}$/u.test(id??''))throw new Error('REPAIR_AUDIT_ID_INVALID');
+const response=await fetch(`http://127.0.0.1:4337/api/repair/jobs/${id}`);if(!response.ok)throw new Error('REPAIR_AUDIT_JOB_UNAVAILABLE');
+const job=await response.json();if(!job.execution?.sessionId||job.agentRunActive)throw new Error('REPAIR_AUDIT_SESSION_NOT_FINISHED');
+const home=printAghInternals.reconstructionHome(process.env),db=new DatabaseSync(join(home,'data/sessions.db'),{readOnly:true});
+const events=db.prepare('SELECT seq,type,ts,data FROM events WHERE session_key=? AND seq<=? ORDER BY seq').all(job.execution.sessionId,job.execution.lastSeq).map(r=>({...r,data:JSON.parse(r.data)}));db.close();
+const typed=t=>events.filter(e=>e.type===t),results=new Map(typed('tool/result').map(e=>[e.data.toolUseId,e]));
+const calls=typed('tool/call').filter(e=>/^repair_(?:inspect|evaluate|apply|verify|submit)$/u.test(e.data.name)).map(e=>{
+ const r=results.get(e.data.toolUseId);return {name:e.data.name,candidateId:e.data.args?.candidateId??null,radiusMm:e.data.args?.radiusMm??null,seq:e.seq,resultSeq:r?.seq??null,success:r?.data.structured?.success===true,code:r?.data.structured?.code??(r?.data.structured?.success?'OK':null)};
+});
+const requests=typed('request/sent').map(e=>({seq:e.seq,model:e.data.model?.id??null,route:e.data.model?.route??null})),start=typed('session/start')[0],end=typed('turn/end').at(-1);
+if(typed('tool/call').length!==calls.length||start?.data.preset!=='feature-repair-tools'||!requests.length||requests.some(r=>r.model!==job.execution.model||r.route!==(job.execution.route??job.execution.provider))||calls.length!==job.events.length||calls.some((c,i)=>c.name!==`repair_${job.events[i].tool}`||c.candidateId!==(job.events[i].candidateId??null)||c.radiusMm!==(job.events[i].radiusMm??null)||c.success!==job.events[i].success))throw new Error('REPAIR_NATIVE_EVIDENCE_MISMATCH');
+const trace=await readFile(join(root,'data/agnes-poses-tool-names.jsonl'),'utf8').then(s=>s.trim().split(/\r?\n/).map(JSON.parse).filter(r=>Date.parse(r.at)>=Date.parse(job.execution.startedAt)&&Date.parse(r.at)<=Date.parse(job.execution.endedAt)&&r.model===job.execution.model),()=>[]);
+const names=['repair_inspect','repair_evaluate','repair_apply','repair_verify','repair_submit'],bearing=trace.filter(r=>r.toolNames.length);
+const proof={schema:'repair-native-evidence/v1',job,native:{sessionId:job.execution.sessionId,preset:start.data.preset,businessCalls:calls,requests,requestCount:requests.length,turnEndReason:end?.data.reason??null,requiredToolsOffered:bearing.length>0&&bearing.every(r=>names.every(n=>r.toolNames.includes(n)))},physicalPrintVerified:false,scope:'sanitized-native-ledger-and-service-event-cross-check',redaction:'No keys, access tokens, prompts, reasoning, raw images, credential refs or private database rows.'};
+const output=join(root,'data/print-validation',`repair-native-${id}.json`);await mkdir(dirname(output),{recursive:true});await writeFile(output,JSON.stringify(proof,null,2));
+console.log(JSON.stringify({id,stage:job.stage,submitted:job.submittedCandidateId,actualNativeCalls:calls.length,actualModelRequests:requests.length,model:job.execution.model,requiredToolsOffered:proof.native.requiredToolsOffered,proof:output}));
+if(!proof.native.requiredToolsOffered)process.exitCode=1;

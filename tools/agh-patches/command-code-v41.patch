@@ -1,0 +1,344 @@
+diff --git a/docs/reference/configuration.md b/docs/reference/configuration.md
+index febc024..9e5bd7e 100644
+--- a/docs/reference/configuration.md
++++ b/docs/reference/configuration.md
+@@ -60,6 +60,8 @@ The configuration service supports account lists, per-account routes, and a defa
+ 
+ Credentials use `secret://namespace/name` references. File, environment, and vault adapters are different deployment options. Do not copy fake demo tokens into real services or expose real values in browser `publicConfig`, tool output, or environment dumps.
+ 
++The reviewed `command-code` API-key route is pinned to `https://api.commandcode.ai/provider/v1` and exposes only the static `deepseek/deepseek-v4.1-flash` text-input record through OpenAI Responses. Configuration still verifies the credential's model directory and accepts the route only when that exact ID is returned; other remote IDs do not become runtime models. The endpoint override is refused for this provider.
++
+ An exported [preset definition](../../packages/protocol/schema/preset.json) may set `model.max_tokens` to a positive safe integer, for example `model: { max_tokens: 32768 }`. This sets the primary model's per-request output allowance, independently of catalog capacity; omitting it preserves the provider default. Request hooks may override it, and tree budgets may lower it. Use a value supported by the selected provider. This field belongs to the preset definition, not the profile's `presets` selection or a top-level profile `model` field. Existing sessions retain their resolved preset.
+ 
+ For the official Agnes China gateway, the adapter explicitly sends the built-in models' catalog allowance of 65536 as `max_tokens` when no request override is present. Official specifications list 65536 for [3.0 Flash](https://agnes-ai.com/zh-Hans/docs/agnes-30-flash), [2.5 Pro](https://agnes-ai.com/zh-Hans/docs/agnes-25-pro), and [Pro Alpha](https://agnes-ai.com/zh-Hans/docs/agnes-25-pro-alpha). [Pro Beta](https://agnes-ai.com/en/docs/agnes-25-pro-beta) uses the Pro family allowance of 65536; its gateway capacity has not been independently verified. The [2.5 Flash](https://agnes-ai.com/zh-Hans/docs/agnes-25-flash) and [2.0 Flash](https://agnes-ai.com/zh-Hans/docs/agnes-20-flash) docs publish a rounded 65.5K, interpreted here as 65536. Deprecated models remain registered for configuration compatibility; gateway availability still applies. Explicit request allowances take precedence. Catalog metadata alone does not set the raw OpenAI-compatible stream's request allowance. Large generated files should still be built across multiple small write/edit calls; the default is an allowance, not a guarantee that an arbitrarily large call completes.
+diff --git a/docs/reference/configuration.zh-CN.md b/docs/reference/configuration.zh-CN.md
+index 441ed85..30f81f0 100644
+--- a/docs/reference/configuration.zh-CN.md
++++ b/docs/reference/configuration.zh-CN.md
+@@ -52,6 +52,8 @@ builtin 模板是基础，用户 profile 与 Host configuration overlay 合并
+ 
+ 凭据形式为 `secret://namespace/name`；文件/env/vault adapter 是不同部署面。不要将演示配置里的假 token 复制到真实服务，也不要在 browser `publicConfig`、工具输出或环境 dump 中暴露真实值。
+ 
++经审核的 `command-code` API Key 路由固定使用 `https://api.commandcode.ai/provider/v1`，只提供静态的 `deepseek/deepseek-v4.1-flash` 文本输入模型，并通过 OpenAI Responses 协议调用。配置时仍会验证凭据对应的模型目录，只有该目录精确包含此模型 ID 才能保存；远端目录中的其他 ID 不会自动成为运行时模型。该 Provider 拒绝覆盖 endpoint。
++
+ 包导出的 [preset 定义](../../packages/protocol/schema/preset.json) 可用正安全整数配置 `model.max_tokens`，例如 `model: { max_tokens: 32768 }`。它设置主模型单次请求的输出额度，与模型目录容量分开；省略时沿用 Provider 默认值。请求 hook 可覆盖它，任务树预算仍可压低额度，应使用所选 Provider 支持的值。该字段属于 preset 定义，不属于 profile 的 `presets` 选择字段或 profile 顶层 `model` 字段。现有会话保留创建时解析的 preset。
+ 
+ 使用 Agnes 中国官方网关时，若请求未覆盖额度，adapter 会明确将内置模型的目录额度 65536 作为 `max_tokens` 发送。[3.0 Flash](https://agnes-ai.com/zh-Hans/docs/agnes-30-flash)、[2.5 Pro](https://agnes-ai.com/zh-Hans/docs/agnes-25-pro)和 [Pro Alpha](https://agnes-ai.com/zh-Hans/docs/agnes-25-pro-alpha) 的官方规格为 65536；[Pro Beta](https://agnes-ai.com/en/docs/agnes-25-pro-beta) 按 Pro 同系额度配置为 65536，尚未单独验证网关容量；[2.5 Flash](https://agnes-ai.com/zh-Hans/docs/agnes-25-flash) 和 [2.0 Flash](https://agnes-ai.com/zh-Hans/docs/agnes-20-flash) 的官方说明使用约数 65.5K，此处按 65536 配置。已废弃模型保留注册以兼容现有配置，其可用性取决于网关。请求中明确设置的额度仍优先。仅修改目录元数据不会设置底层 OpenAI 兼容流请求的额度。大文件仍应通过多次小型 write/edit 调用分段构建；默认额度不能保证任意大的单次调用都能完成。
+diff --git a/packages/ai/src/adapters/pi/api-key-providers.ts b/packages/ai/src/adapters/pi/api-key-providers.ts
+index f1982f3..0c5fb3d 100644
+--- a/packages/ai/src/adapters/pi/api-key-providers.ts
++++ b/packages/ai/src/adapters/pi/api-key-providers.ts
+@@ -8,6 +8,7 @@ import {
+ import { isUsableCredential } from '../../credentials.js'
+ import { PiAdapter, type PiStream } from './index.js'
+ import { KNOWN_THINKING_CORRECTIONS } from './known-thinking-corrections.js'
++import { COMMAND_CODE_BASE_URL } from './providers/command-code.js'
+ 
+ export type ApiKeyProviderId =
+   | 'deepseek'
+@@ -22,6 +23,7 @@ export type ApiKeyProviderId =
+   | 'minimax'
+   | 'xai'
+   | 'agnes-ai'
++  | 'command-code'
+ 
+ export type ApiKeyProviderErrorCode =
+   | 'UNKNOWN_PROVIDER'
+@@ -208,6 +210,14 @@ const specs: readonly ProviderSpec[] = [
+     sourceProviderId: 'agnes-ai',
+     load: () => load(import('./providers/agnes-ai.js'), 'agnesAiProvider'),
+   },
++  {
++    id: 'command-code',
++    displayName: 'Command Code',
++    api: 'openai-responses',
++    baseUrl: COMMAND_CODE_BASE_URL,
++    sourceProviderId: 'command-code',
++    load: () => load(import('./providers/command-code.js'), 'commandCodeProvider'),
++  },
+ ] as const
+ 
+ const protocolThinkingLevels = ['off', 'minimal', 'low', 'medium', 'high', 'xhigh', 'max'] as const
+@@ -339,7 +349,7 @@ export const API_KEY_PROVIDER_REGISTRY: readonly ApiKeyProviderRegistryEntry[] =
+ /**
+  * The only credential references that an API-key client may leave unbound at startup.  Supplying
+  * this set to `createProvider` preserves fail-fast assembly for every other route while letting a
+- * first-run UI register all eleven choices before the user has entered any keys.
++ * first-run UI register all provider choices before the user has entered any keys.
+  */
+ export const API_KEY_CREDENTIAL_REFS: ReadonlySet<string> = new Set(
+   API_KEY_PROVIDER_REGISTRY.map((entry) => entry.credentialRef),
+diff --git a/packages/ai/test/api-key-provider-registry.test.ts b/packages/ai/test/api-key-provider-registry.test.ts
+index 20fd940..3ffa64a 100644
+--- a/packages/ai/test/api-key-provider-registry.test.ts
++++ b/packages/ai/test/api-key-provider-registry.test.ts
+@@ -31,6 +31,7 @@ const expected = [
+   ['minimax', 'MiniMax'],
+   ['xai', 'xAI'],
+   ['agnes-ai', 'Agnes AI'],
++  ['command-code', 'Command Code'],
+ ] as const
+ 
+ function assistant(): AssistantMessage {
+@@ -67,13 +68,34 @@ const streamOptions = () => ({
+ })
+ 
+ describe('API-key provider registry', () => {
+-  it('publishes exactly the twelve first-screen providers with stable friendly names', () => {
++  it('publishes the API-key providers with stable friendly names', () => {
+     expect(API_KEY_PROVIDER_REGISTRY.map(({ id, displayName }) => [id, displayName])).toEqual(expected)
+-    expect(new Set(API_KEY_PROVIDER_REGISTRY.map((entry) => entry.id)).size).toBe(12)
++    expect(new Set(API_KEY_PROVIDER_REGISTRY.map((entry) => entry.id)).size).toBe(13)
+     expect(API_KEY_PROVIDER_REGISTRY.every((entry) => entry.availability === 'available')).toBe(true)
+   })
+ 
+-  it('pre-registers all twelve providers without keys, then fails closed with AUTH only on selection', async () => {
++  it('pins Command Code to its reviewed OpenAI Responses endpoint and exact V4.1 model id', async () => {
++    const entry = getApiKeyProvider('command-code')
++    expect(entry).toMatchObject({
++      id: 'command-code',
++      api: 'openai-responses',
++      baseUrl: 'https://api.commandcode.ai/provider/v1',
++      credentialRef: 'secret://command-code/default',
++    })
++    const adapter = await entry?.createAdapter()
++    expect(adapter?.models('command-code')).toEqual([
++      expect.objectContaining({
++        id: 'deepseek/deepseek-v4.1-flash',
++        route: 'command-code',
++        api: 'openai-responses',
++        baseUrl: 'https://api.commandcode.ai/provider/v1',
++        input: ['text'],
++        toolCallFormats: ['native'],
++      }),
++    ])
++  })
++
++  it('pre-registers all thirteen providers without keys, then fails closed with AUTH only on selection', async () => {
+     const adapters = await createApiKeyProviderAdapters({
+       adapters: {
+         deepseek: { modelIds: ['deepseek-v4-pro'] },
+@@ -95,7 +117,7 @@ describe('API-key provider registry', () => {
+       clock: () => 0,
+     })
+ 
+-    // All eleven lookups were attempted, but none prevented route-table assembly.
++    // Every provider lookup was attempted, but none prevented route-table assembly.
+     expect(requested).toEqual(expected.map(([id]) => `secret://${id}/default`))
+     expect(provider.models().map((model) => model.route)).toContain('deepseek')
+     const events = await collect(
+@@ -256,6 +278,35 @@ describe('API-key provider registry', () => {
+     expect(calls[0]).toMatchObject({ body: { reasoning_effort: 'max' } })
+   })
+ 
++  it('sends the Command Code V4.1 request through the pinned OpenAI Responses endpoint and account credential', async () => {
++    const originalFetch = globalThis.fetch
++    const calls: Array<{ url: string; authorization: string | null; body: Record<string, unknown> }> = []
++    globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
++      const request = new Request(input, init)
++      calls.push({
++        url: request.url,
++        authorization: request.headers.get('authorization'),
++        body: JSON.parse(await request.clone().text()) as Record<string, unknown>,
++      })
++      throw new Error('test blocked network')
++    }) as typeof globalThis.fetch
++    try {
++      const entry = getApiKeyProvider('command-code')
++      const adapter = await entry?.createAdapter({ modelIds: ['deepseek/deepseek-v4.1-flash'], maxRetries: 0 })
++      if (!adapter) throw new Error('missing Command Code adapter')
++      adapter.bindCredential('command-code', 'command-code-test-key')
++      await collect(adapter.stream('command-code', fakeRequest({ route: 'command-code', model: 'deepseek/deepseek-v4.1-flash' }), streamOptions()))
++    } finally {
++      globalThis.fetch = originalFetch
++    }
++    expect(calls).toHaveLength(1)
++    expect(calls[0]).toMatchObject({
++      url: 'https://api.commandcode.ai/provider/v1/responses',
++      authorization: 'Bearer command-code-test-key',
++      body: { model: 'deepseek/deepseek-v4.1-flash' },
++    })
++  })
++
+   it('filters the trusted pi catalogue by the key-specific DeepSeek /models result', async () => {
+     const entry = getApiKeyProvider('deepseek')
+     const adapter = await entry?.createAdapter({ modelIds: ['deepseek-v4-pro', 'invented-model'] })
+diff --git a/packages/cli/src/onboarding/provider-registry.ts b/packages/cli/src/onboarding/provider-registry.ts
+index 89c2b9b..984c519 100644
+--- a/packages/cli/src/onboarding/provider-registry.ts
++++ b/packages/cli/src/onboarding/provider-registry.ts
+@@ -13,6 +13,7 @@ export type OnboardingProviderId =
+   | 'minimax'
+   | 'xai'
+   | 'agnes-ai'
++  | 'command-code'
+ 
+ export type AiRegistryProviderId =
+   | 'moonshot'
+@@ -27,6 +28,7 @@ export type AiRegistryProviderId =
+   | 'minimax'
+   | 'xai'
+   | 'agnes-ai'
++  | 'command-code'
+ 
+ export type OnboardingProvider = {
+   /** Stable source provider identity from the pinned Pi catalogue. */
+@@ -110,6 +112,12 @@ const PROVIDERS = [
+     aiRegistryId: 'agnes-ai',
+     credentialRef: 'secret://agnes-ai/default',
+   },
++  {
++    id: 'command-code',
++    label: 'Command Code',
++    aiRegistryId: 'command-code',
++    credentialRef: 'secret://command-code/default',
++  },
+ ] as const satisfies readonly OnboardingProvider[]
+ 
+ function assertUniqueProviders(providers: readonly OnboardingProvider[]): void {
+diff --git a/packages/cli/test/provider-registry.test.ts b/packages/cli/test/provider-registry.test.ts
+index 1d913f2..df5ac50 100644
+--- a/packages/cli/test/provider-registry.test.ts
++++ b/packages/cli/test/provider-registry.test.ts
+@@ -75,17 +75,23 @@ const EXPECTED_PROVIDERS = [
+     aiRegistryId: 'agnes-ai',
+     credentialRef: 'secret://agnes-ai/default',
+   },
++  {
++    id: 'command-code',
++    label: 'Command Code',
++    aiRegistryId: 'command-code',
++    credentialRef: 'secret://command-code/default',
++  },
+ ] as const
+ 
+ describe('API-key onboarding provider registry', () => {
+-  it('exports the twelve reviewed Pi provider IDs in a stable product order', () => {
++  it('exports reviewed provider IDs in a stable product order', () => {
+     expect(ONBOARDING_PROVIDERS).toEqual(EXPECTED_PROVIDERS)
+   })
+ 
+   it('maps each Pi identity one-to-one onto the AI registry credential identity', () => {
+-    expect(new Set(ONBOARDING_PROVIDERS.map(({ id }) => id))).toHaveLength(12)
+-    expect(new Set(ONBOARDING_PROVIDERS.map(({ aiRegistryId }) => aiRegistryId))).toHaveLength(12)
+-    expect(new Set(ONBOARDING_PROVIDERS.map(({ credentialRef }) => credentialRef))).toHaveLength(12)
++    expect(new Set(ONBOARDING_PROVIDERS.map(({ id }) => id))).toHaveLength(13)
++    expect(new Set(ONBOARDING_PROVIDERS.map(({ aiRegistryId }) => aiRegistryId))).toHaveLength(13)
++    expect(new Set(ONBOARDING_PROVIDERS.map(({ credentialRef }) => credentialRef))).toHaveLength(13)
+     for (const provider of ONBOARDING_PROVIDERS) {
+       expect(provider.credentialRef).toBe(`secret://${provider.aiRegistryId}/default`)
+       expect(Object.keys(provider).sort()).toEqual(['aiRegistryId', 'credentialRef', 'id', 'label'])
+diff --git a/packages/host/src/configuration.ts b/packages/host/src/configuration.ts
+index 2acb87b..583323a 100644
+--- a/packages/host/src/configuration.ts
++++ b/packages/host/src/configuration.ts
+@@ -267,6 +267,8 @@ function providerFor(value: unknown, authType?: 'api-key' | 'oauth'): Configurat
+ 
+ function providerEndpoint(entry: ConfigurationProvider, value: unknown): string {
+   const baseUrl = value === undefined ? entry.baseUrl : parseBaseUrl(value)
++  if (entry.id === 'command-code' && baseUrl !== entry.baseUrl)
++    throw new ConfigurationError('CONFIG_ENDPOINT_OVERRIDE_UNSUPPORTED')
+   const defaultUrl = entry.baseUrl.endsWith('/') ? entry.baseUrl.slice(0, -1) : entry.baseUrl
+   const requestedUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
+   if (requestedUrl !== defaultUrl && !COMPATIBLE_APIS.has(entry.api))
+diff --git a/packages/host/test/configuration.test.ts b/packages/host/test/configuration.test.ts
+index 24e01d5..f9d3e6f 100644
+--- a/packages/host/test/configuration.test.ts
++++ b/packages/host/test/configuration.test.ts
+@@ -108,6 +108,54 @@ it('tests a real provider catalogue, saves an atomic non-secret record, and expo
+   await expect(createCredentialStore({ root }).read(ref)).resolves.toMatchObject({ value: 'sk-test-value' })
+ })
+ 
++it('configures only the reviewed Command Code V4.1 catalogue entry and pins its endpoint', async () => {
++  const model = 'deepseek/deepseek-v4.1-flash'
++  const requested: Array<{ url: string; authorization: string | null }> = []
++  let offeredModel = model
++  const request: typeof fetch = async (input, init) => {
++    const request = new Request(input, init)
++    requested.push({ url: request.url, authorization: request.headers.get('authorization') })
++    return new Response(JSON.stringify({ object: 'list', data: [{ id: offeredModel }] }), {
++      status: 200,
++      headers: { 'content-type': 'application/json' },
++    })
++  }
++  const root = await home()
++  const service = createConfigurationService({ home: root, profile: 'local-dev', request })
++  const entry = getApiKeyProvider('command-code')
++  if (!entry) throw new Error('command-code registry entry missing')
++  expect(entry.baseUrl).toBe('https://api.commandcode.ai/provider/v1')
++
++  await expect(service.test({ providerId: entry.id, apiKey: 'sk-test-value' })).resolves.toEqual({
++    models: [{ id: model, name: 'DeepSeek V4.1 Flash (Command Code)' }],
++    verified: true,
++  })
++  expect(requested.at(-1)).toEqual({
++    url: 'https://api.commandcode.ai/provider/v1/models',
++    authorization: 'Bearer sk-test-value',
++  })
++
++  await service.save({ providerId: entry.id, apiKey: 'sk-test-value', model, expectedRevision: 0 })
++  const overlay = await service.profileInput()
++  expect(overlay.provider?.routes?.[0]).toMatchObject({
++    route: 'command-code',
++    api: 'openai-responses',
++    baseUrl: 'https://api.commandcode.ai/provider/v1',
++    models: [expect.objectContaining({ id: model, input: ['text'] })],
++  })
++  expect(JSON.stringify(overlay)).not.toContain('sk-test-value')
++
++  offeredModel = 'deepseek/deepseek-v4-pro'
++  await expect(service.test({ providerId: entry.id, apiKey: 'sk-test-value' })).resolves.toMatchObject({
++    verified: false,
++  })
++  await expect(service.test({
++    providerId: entry.id,
++    baseUrl: 'https://attacker.example/v1',
++    apiKey: 'sk-test-value',
++  })).rejects.toMatchObject({ code: 'CONFIG_ENDPOINT_OVERRIDE_UNSUPPORTED' })
++})
++
+ it('discovers, saves and reloads the current DeepSeek Flash id', async () => {
+   const server = await fixture('deepseek-flash')
+   const root = await home()
+
+diff --git a/packages/ai/src/adapters/pi/providers/command-code.ts b/packages/ai/src/adapters/pi/providers/command-code.ts
+new file mode 100644
+index 0000000..ee83920
+--- /dev/null
++++ b/packages/ai/src/adapters/pi/providers/command-code.ts
+@@ -0,0 +1,35 @@
++import type { Model, Provider as PiProvider } from '@earendil-works/pi-ai'
++
++export const COMMAND_CODE_BASE_URL = 'https://api.commandcode.ai/provider/v1'
++export const COMMAND_CODE_MODEL_ID = 'deepseek/deepseek-v4.1-flash'
++
++/**
++ * Command Code's live catalogue identifies this model and its OpenAI Responses support. The
++ * runtime record remains static and reviewed; host configuration only accepts the model when the
++ * authenticated /models response contains this exact id. Command Code does not publish cost in
++ * that catalogue, so zero is an accounting placeholder, not a price claim.
++ */
++const COMMAND_CODE_MODELS: Model<'openai-responses'>[] = [
++  {
++    id: COMMAND_CODE_MODEL_ID,
++    name: 'DeepSeek V4.1 Flash (Command Code)',
++    provider: 'command-code',
++    api: 'openai-responses',
++    baseUrl: COMMAND_CODE_BASE_URL,
++    input: ['text'],
++    contextWindow: 1_000_000,
++    maxTokens: 65_536,
++    reasoning: false,
++    cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
++  },
++]
++
++/** This registry adapter consumes only the provider identity and fixed model catalogue. */
++export function commandCodeProvider(): PiProvider {
++  return {
++    id: 'command-code',
++    name: 'Command Code',
++    baseUrl: COMMAND_CODE_BASE_URL,
++    getModels: () => COMMAND_CODE_MODELS,
++  } as unknown as PiProvider
++}

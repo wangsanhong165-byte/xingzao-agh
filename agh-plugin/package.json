@@ -1,0 +1,16 @@
+{
+  "name": "photo-cad-agh-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": "./index.mjs",
+  "agnes": {
+    "plugins": [
+      {
+        "export": "photoCadTools",
+        "id": "ext:photo-cad/agh-tools",
+        "inject": ["extension"]
+      }
+    ]
+  }
+}

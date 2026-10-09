@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f8f7">
+  <title>形造 · 照片参数建模</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="importmap">
+    {"imports":{"three":"/vendor/three.module.js","three/addons/":"/vendor/addons/"}}
+  </script>
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="形造首页"><span class="brand-mark">形</span><span>形造 <small>PHOTO TO CAD</small></span></a>
+    <div class="top-meta"><span class="status-dot"></span><span id="service-status">正在连接本地建模服务…</span><span class="top-divider"></span><a href="/character-test.html">角色三视图验证 →</a></div>
+  </header>
+  <main class="workspace">
+    <aside class="left-rail">
+      <div class="eyebrow">工作区 / 新建模型</div>
+      <h1>从照片开始</h1>
+      <p class="intro">提供实物照片和一个已知尺寸，整理出可编辑的基础几何。</p>
+
+      <section class="panel photo-panel">
+        <div class="section-heading"><div><span class="step">01</span><h2>实物照片</h2></div><span class="muted" id="photo-count">0 / 12</span></div>
+        <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="添加照片">
+          <input id="photo-input" type="file" accept="image/png,image/jpeg" multiple hidden>
+          <span class="upload-icon" aria-hidden="true">↑</span>
+          <strong>拖放照片到这里</strong>
+          <span>或 <u>浏览文件</u> · PNG / JPG，最多 12 张，每张 5 MB</span>
+        </div>
+        <div id="photo-list" class="photo-list" aria-live="polite"></div>
+        <label class="field-label" for="reference-value">已知参考尺寸 <span>必填</span></label>
+        <div class="reference-row"><input id="reference-value" type="number" min="0.1" max="500" step="any" placeholder="例如 80" required><span class="unit">mm</span></div>
+        <label class="field-label" for="reference-description">参考尺寸说明</label>
+        <input id="reference-description" type="text" maxlength="120" placeholder="例如：正面照片中，尺子沿物体宽边放置">
+        <label class="field-label" for="board-thickness">平板实测厚度 <span>仅用于图像测量，需手工填写</span></label>
+        <div class="reference-row"><input id="board-thickness" type="number" min="0.1" max="100" step="any" placeholder="例如 4.5"><span class="unit">mm</span></div>
+        <label class="field-label" for="object-description">物体结构与重点需求</label>
+        <textarea id="object-description" rows="3" maxlength="1000" placeholder="拍清不同面；补充用途、需保留的细节和尺寸误差要求"></textarea>
+        <label class="field-label" for="preferred-type">基础结构</label>
+        <select id="preferred-type"><option value="plate">带孔板</option><option value="bracket">L 形支架</option><option value="box">开口盒</option></select>
+        <button class="button button-primary button-wide" id="analyze-button" disabled>整理照片与建模建议 <span aria-hidden="true">→</span></button>
+        <p class="help-note" id="analyze-note">读取服务状态中…</p>
+        <button class="button button-outline button-wide measure-button" id="measure-button" disabled>测量平板照片（无需 Key）</button>
+        <p class="help-note">只测第一张近正俯拍、白底平板照片；把实测最长边填入上方“已知参考尺寸”，板厚另行测量填写。图像测量，非 AI 识图。</p>
+      </section>
+
+      <div class="rail-foot"><span class="shield-icon">⌂</span><span>照片默认留在本机；点击分析后才会提交。</span></div>
+    </aside>
+
+    <section class="main-area">
+      <div class="model-header">
+        <div><div class="eyebrow">3D 预览 <span class="crumb-sep">/</span> <span id="model-name">带孔板 · 示例</span></div><h2>模型工作台</h2></div>
+        <div class="header-actions"><button class="button button-quiet" id="load-example">载入示例 <span aria-hidden="true">↻</span></button><button class="button button-outline" id="render-views">Blender 三视图</button><button class="button button-outline" id="export-blend">导出 .blend</button><button class="button button-outline" id="export-json">导出参数 <span aria-hidden="true">↓</span></button><button class="button button-dark" id="export-stl">导出 STL <span aria-hidden="true">↓</span></button></div>
+      </div>
+      <section class="viewer-card">
+        <div class="viewer-toolbar"><div class="view-switch" role="tablist" aria-label="模型版本"><button class="active" data-view="optimized" role="tab" aria-selected="true">省料方案</button><button data-view="baseline" role="tab" aria-selected="false">原始方案</button></div><div class="viewer-tools"><span class="view-hint">拖动旋转 · 滚轮缩放</span><button id="reset-view" class="icon-button" title="重置视角" aria-label="重置视角">⟳</button></div></div>
+        <div class="viewer-stage" id="viewer-stage"><canvas id="model-canvas" aria-label="可交互的三维模型预览"></canvas><div class="viewer-empty" id="viewer-message"><span class="empty-cube">◇</span><strong>正在准备模型</strong><span>编辑参数后将在此显示三维预览</span></div><div class="viewer-error" id="viewer-error" hidden></div><div class="axis-labels"><span>X</span><span>Y</span><span>Z</span></div><div class="scale-label" id="scale-label">尺寸单位 · mm</div></div>
+        <div class="viewer-footer"><span class="mesh-state"><i></i><span id="mesh-state">等待模型</span></span><span id="triangle-count">—</span></div>
+      </section>
+      <section class="panel render-panel" id="render-result" hidden><div class="render-heading"><strong>Blender 三视图</strong><span id="render-state">真实几何预览</span></div><div class="render-gallery" id="render-gallery"></div><div id="render-checks" class="checks-list"></div></section>
+
+      <div class="lower-grid">
+        <section class="panel parameters-panel">
+          <div class="section-heading"><div><span class="step">02</span><h2>模型参数</h2></div><button class="text-button" id="import-json">导入 JSON <span aria-hidden="true">↑</span></button><input id="json-input" type="file" accept="application/json,.json" hidden></div>
+          <div class="parameter-toolbar"><label for="model-type">几何类型</label><select id="model-type"><option value="plate">带孔板 Plate</option><option value="bracket">L 形支架 Bracket</option><option value="box">开口盒 Box</option></select><span class="inline-badge" id="model-source">示例参数</span></div>
+          <div class="dimension-grid" id="dimensions"></div>
+          <div class="holes-section" id="holes-section"><div class="holes-heading"><div><h3>贯穿孔</h3><span>沿 Z 轴贯穿底板</span></div><button class="small-button" id="add-hole">＋ 添加孔</button></div><div id="hole-list" class="hole-list"></div><div id="hole-empty" class="hole-empty" hidden>当前没有孔。添加孔以配置孔的位置与直径。</div></div>
+          <div class="parameter-footer"><span class="muted">单位均为 mm</span><span id="parameter-error" class="inline-error" role="alert"></span></div>
+        </section>
+
+        <section class="panel optimization-panel">
+          <div class="section-heading"><div><span class="step">03</span><h2>省料与差异</h2></div><span class="muted">几何估算</span></div>
+          <div class="optimization-toggle"><div><strong>生成省料方案</strong><span>保留外边框和孔周材料；未验证承重</span></div><label class="switch"><input id="lightweight" type="checkbox"><span></span></label></div>
+          <div class="optimization-fields"><label><span>最小壁厚</span><span class="input-with-unit"><input id="min-wall" type="number" min="1" max="20" step="any" value="2"><i>mm</i></span></label><label><span>保留边距</span><span class="input-with-unit"><input id="preserve-margin" type="number" min="1" max="30" step="any" value="3"><i>mm</i></span></label></div>
+          <div class="metrics-head"><span>体积对照</span><span id="density-label">理论质量估算</span></div>
+          <div class="metric-main"><div><span class="metric-label">当前方案体积</span><strong id="optimized-volume">—</strong><small>mm³</small></div><div class="saving-pill" id="saved-percent">—</div></div>
+          <div class="compare-row"><div><span>原始体积</span><strong id="baseline-volume">— <small>mm³</small></strong></div><div><span>理论质量</span><strong id="estimated-mass">— <small>g</small></strong></div></div>
+          <div class="metric-disclaimer" id="metric-note">体积来自生成网格；质量为密度估算。未验证承重或打印性能。</div>
+          <div id="checks-list" class="checks-list"></div>
+          <div class="analysis-result" id="analysis-result" hidden></div>
+          <div id="measurement-result" class="analysis-result" hidden></div>
+        </section>
+      </div>
+      <footer class="page-foot"><span>形造 <span class="foot-sep">·</span> 参数化几何工具</span><span>照片提供形状参考，尺寸仍需已知实物测量</span></footer>
+    </section>
+  </main>
+</body>
+</html>

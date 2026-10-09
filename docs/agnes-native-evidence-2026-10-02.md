@@ -1,0 +1,11 @@
+# Agnes native AGH job evidence — 2026-10-02
+
+Public job `651a18df-2cf7-4321-ad1c-26280564ff23` reached `submitted` with candidate `4f07f02537a4e04e2db01d53`. Its recorded AGH execution is `mode=agh`, `toolTransport=native-plugin`, provider `agnes-ai`, model `agnes-3.0-flash`; the native session is `agnes:local:local-dev:cli:workspace:c241817512fbc0db`, turn 10, ending at sequence 757 with `reason=completed` and exit code 0.
+
+The exported evidence is in [agnes-native-evidence-2026-10-02.json](../data/print-validation/agnes-native-evidence-2026-10-02.json). It contains only the job/session identifiers, event timestamps and sequence numbers, tool names, bounded numeric arguments and candidate IDs, Boolean outcomes, selected checks/metrics, and a model/tool-name observation. Prompt text, reasoning, image bytes, API credentials and secret references, agent output, and freeform event messages were excluded. The source database and its native event records were not modified.
+
+The public job log and native session agree on 11 business tool calls: inspect; baseline build, slice, verify; 0.2 mm build, slice, verify; 0.6 mm build, slice, verify; submit. Both the baseline and 0.2 mm candidate returned failed verification outcomes. The baseline raised-detail path check failed; the 0.2 mm raised-path check passed but its overall verification still failed. The 0.6 mm candidate passed verification with 3 feature layers, 724.895 mm of feature extrusion, highest extrusion Z 2.6 mm, and fidelity 0.904552 against the recorded minimum 0.75 and minimum 2 layers. That same candidate was submitted successfully.
+
+Measured slicer results were 738.65 mm / 2.20 g / 876 s for the baseline, 747.40 mm / 2.23 g / 891 s at 0.2 mm relief, and 764.79 mm / 2.28 g / 923 s at 0.6 mm. The 0.6 mm build reported 2462.112 mm³ total volume, 2400 mm³ baseline volume, 62.112 mm³ relief volume, 40 × 30 mm bounds, and 2.6 mm maximum Z.
+
+The de-identified provider request trace records 14 requests, all using `agnes-3.0-flash`; each request offered all five native `detail_*` tools. This aligns the actual model identity with the AGH run metadata and confirms the tools were present in the model request, rather than relying on package status alone.

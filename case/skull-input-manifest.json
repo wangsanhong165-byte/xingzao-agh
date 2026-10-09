@@ -1,0 +1,81 @@
+{
+  "source": "https://gitlab.com/photogrammetry-test-sets/skull-turntable-strong-lights-white-background",
+  "commit": "37f6ee510d9b5ac31d13052980f67cdbb0688d43",
+  "license": "CC BY 4.0",
+  "attribution": "Photogrammetry Test Set: Skull - Turntable - Strong Lights - White Background by alansartlog / CC BY 4.0",
+  "cameraCalibrationVerified": false,
+  "targetLongestEdgeMm": 60,
+  "scaleSource": "chosen display size, not original object measurement",
+  "preprocessing": "manual bounding crop removes lower visible mount; GrabCut retains original colors; interior holes filled in alpha only; no generated detail",
+  "views": {
+    "front": {
+      "filename": "38.JPG",
+      "sourceSha256": "b18263ec377362b3581df8545e5066385131d33f70a6d8620c9b4a079fcd4df4",
+      "cropPixels": [
+        854,
+        228,
+        3973,
+        2449
+      ],
+      "uniformResizeScale": 0.24623276691247195,
+      "inputSha256": "037559a477d25b5cc6c6a92ba0d668df3154692ed60e2066b39a9cfc29c23a53",
+      "alphaPixels": 176535,
+      "alphaBoundsPixels": [
+        97,
+        43,
+        550,
+        535
+      ],
+      "sizePixels": [
+        768,
+        547
+      ]
+    },
+    "left": {
+      "filename": "43.JPG",
+      "sourceSha256": "2937c5b365f9c70e16a369e718ae5a4c53c54218554f1e031436fa7dde3cebc4",
+      "cropPixels": [
+        854,
+        228,
+        3973,
+        2449
+      ],
+      "uniformResizeScale": 0.24623276691247195,
+      "inputSha256": "c9e01f7189e5687fbf61a6468776dc9d927f8620d5a529386404b92d48b8f287",
+      "alphaPixels": 219742,
+      "alphaBoundsPixels": [
+        88,
+        53,
+        676,
+        535
+      ],
+      "sizePixels": [
+        768,
+        547
+      ]
+    },
+    "back": {
+      "filename": "47.JPG",
+      "sourceSha256": "3167951fd2ffa8eabdbd1ee47d054f0f6592abb9211f1da39475052fbed5b382",
+      "cropPixels": [
+        854,
+        228,
+        3973,
+        2449
+      ],
+      "uniformResizeScale": 0.24623276691247195,
+      "inputSha256": "1496fea794abd591ad1acc536186d6611547f8cbc2de766d7291c662fe86b771",
+      "alphaPixels": 184363,
+      "alphaBoundsPixels": [
+        86,
+        37,
+        550,
+        535
+      ],
+      "sizePixels": [
+        768,
+        547
+      ]
+    }
+  }
+}

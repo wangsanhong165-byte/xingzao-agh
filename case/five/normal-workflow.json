@@ -1,0 +1,1440 @@
+{
+  "searchPolicy": {
+    "id": "fixed-five-v2",
+    "poseIds": [
+      "upright",
+      "tilt-x-plus",
+      "tilt-x-minus",
+      "tilt-y-plus",
+      "face-up"
+    ]
+  },
+  "id": "982bbdc6-8af8-48e4-8fa3-ba69239f470d",
+  "stage": "completed",
+  "active": false,
+  "contractHash": "d05f91e976b9a6bf9f3061c77ea5e85414917a580ef75037febc8ccc92f83a74",
+  "source": {
+    "kind": "imported",
+    "candidateId": "dae51ce65241d01313bbc173a0b61efd46a3f020775ff24dce75a63571f7a49b",
+    "sourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+    "boundsMm": [
+      [
+        -6,
+        -4,
+        0
+      ],
+      [
+        6,
+        4,
+        30
+      ]
+    ]
+  },
+  "target": {
+    "id": "selected-rod",
+    "axis": "z",
+    "centerLineMm": [
+      [
+        -3.0000002556948613,
+        1.366718418438495e-7,
+        2
+      ],
+      [
+        -3.0000002556948613,
+        1.366718418438495e-7,
+        28
+      ]
+    ],
+    "measuredRadiusMm": 0.24996966630060571,
+    "boundsMm": [
+      [
+        -3.299969921995467,
+        -0.2999695296287639,
+        2.25
+      ],
+      [
+        -2.7000305893942556,
+        0.2999698029724476,
+        27.75
+      ]
+    ]
+  },
+  "spec": {
+    "axis": "z",
+    "centerLineMm": [
+      [
+        -3.0000002556948613,
+        1.366718418438495e-7,
+        2
+      ],
+      [
+        -3.0000002556948613,
+        1.366718418438495e-7,
+        28
+      ]
+    ],
+    "allowedBoundsMm": [
+      [
+        -3.479962764844142,
+        -0.47996237247743867,
+        2
+      ],
+      [
+        -2.5200377465455808,
+        0.47996264582112236,
+        28
+      ]
+    ],
+    "maxRadialGrowthMm": 0.2,
+    "maxAddedVolumeMm3": 20
+  },
+  "poseJob": {
+    "posePolicy": "fixed-five-v2",
+    "poseIds": [
+      "upright",
+      "tilt-x-plus",
+      "tilt-x-minus",
+      "tilt-y-plus",
+      "face-up"
+    ],
+    "id": "c86bfd25-2c5e-46a0-b41c-d77c773be3d5",
+    "stage": "completed",
+    "agentRunActive": false,
+    "source": {
+      "kind": "imported",
+      "jobId": null,
+      "candidateId": "dae51ce65241d01313bbc173a0b61efd46a3f020775ff24dce75a63571f7a49b",
+      "sourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+      "boundsMm": [
+        [
+          -6,
+          -4,
+          0
+        ],
+        [
+          6,
+          4,
+          30
+        ]
+      ]
+    },
+    "protectedRegions": [],
+    "regionSource": "none",
+    "criticalFeatures": [
+      {
+        "id": "selected-rod",
+        "kind": "solid",
+        "boundsMm": [
+          [
+            -3.299969921995467,
+            -0.2999695296287639,
+            2.25
+          ],
+          [
+            -2.7000305893942556,
+            0.2999698029724476,
+            27.75
+          ]
+        ],
+        "minRetention": 0.9,
+        "surfaceToleranceMm": 0.05
+      }
+    ],
+    "featureSource": "user-submitted-coordinate-bounds",
+    "constraints": {
+      "maxRegionSupportPathLengthMm": null
+    },
+    "profileId": "fdm-pla-04-auto-support",
+    "decision": {
+      "recommendedPoseId": "face-up",
+      "feasiblePoseIds": [
+        "face-up"
+      ],
+      "rejected": [
+        {
+          "poseId": "upright",
+          "reason": "CRITICAL_FEATURE_NOT_RETAINED"
+        },
+        {
+          "poseId": "tilt-x-plus",
+          "reason": "CRITICAL_FEATURE_NOT_RETAINED"
+        },
+        {
+          "poseId": "tilt-x-minus",
+          "reason": "CRITICAL_FEATURE_NOT_RETAINED"
+        },
+        {
+          "poseId": "tilt-y-plus",
+          "reason": "CRITICAL_FEATURE_NOT_RETAINED"
+        }
+      ],
+      "constraints": {
+        "maxRegionSupportPathLengthMm": null
+      },
+      "materialChangePercent": null,
+      "timeChangePercent": null,
+      "scope": "best-among-tested-feasible-poses",
+      "physicalPrintVerified": false,
+      "protectionVerified": false
+    },
+    "selectedPoseId": "face-up",
+    "submittedPoseId": "face-up",
+    "recheck": {
+      "verified": true,
+      "sourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+      "candidateSha256": "2c44e5007ba417f036aa8b35c14e3bb5fed30da271992381e976a19a5572f4b7",
+      "profileSha256": "c66018a382f03d459a77e8e0018d0998594907cfa693e8a3665a3b21d55c4fd5",
+      "gcodeSha256": "0e8b25af7ef7b6b19a11f011f4f4a2d8795d07ddddeaf87df1c64179e31d496c",
+      "scope": "files-transform-and-toolpath-audit-rechecked",
+      "physicalPrintVerified": false
+    },
+    "error": null,
+    "events": [
+      {
+        "tool": "inspect",
+        "poseId": null,
+        "source": "agh",
+        "at": "2026-10-08T01:42:34.173Z",
+        "success": true,
+        "code": "OK",
+        "message": "inspect completed"
+      },
+      {
+        "tool": "evaluate",
+        "poseId": "face-up",
+        "source": "agh",
+        "at": "2026-10-08T01:42:37.089Z",
+        "success": true,
+        "code": "OK",
+        "message": "evaluate completed"
+      },
+      {
+        "tool": "evaluate",
+        "poseId": "upright",
+        "source": "agh",
+        "at": "2026-10-08T01:42:55.222Z",
+        "success": true,
+        "code": "OK",
+        "message": "evaluate completed"
+      },
+      {
+        "tool": "evaluate",
+        "poseId": "tilt-x-plus",
+        "source": "agh",
+        "at": "2026-10-08T01:42:56.265Z",
+        "success": true,
+        "code": "OK",
+        "message": "evaluate completed"
+      },
+      {
+        "tool": "evaluate",
+        "poseId": "tilt-x-minus",
+        "source": "agh",
+        "at": "2026-10-08T01:42:57.141Z",
+        "success": true,
+        "code": "OK",
+        "message": "evaluate completed"
+      },
+      {
+        "tool": "evaluate",
+        "poseId": "tilt-y-plus",
+        "source": "agh",
+        "at": "2026-10-08T01:42:57.898Z",
+        "success": true,
+        "code": "OK",
+        "message": "evaluate completed"
+      },
+      {
+        "tool": "select",
+        "poseId": "face-up",
+        "source": "agh",
+        "at": "2026-10-08T01:43:03.434Z",
+        "success": true,
+        "code": "OK",
+        "message": "select completed"
+      },
+      {
+        "tool": "verify",
+        "poseId": null,
+        "source": "agh",
+        "at": "2026-10-08T01:43:05.327Z",
+        "success": true,
+        "code": "OK",
+        "message": "verify completed"
+      },
+      {
+        "tool": "submit",
+        "poseId": null,
+        "source": "agh",
+        "at": "2026-10-08T01:43:07.292Z",
+        "success": true,
+        "code": "OK",
+        "message": "submit completed"
+      }
+    ],
+    "execution": {
+      "mode": "agh",
+      "toolTransport": "native-plugin",
+      "profile": "local-dev",
+      "provider": "command-code",
+      "route": "command-code",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "modelBinding": "explicit-session-model-before-prompt",
+      "sessionId": "agnes:local:local-dev:cli:workspace:e6821e893468f82e",
+      "lastSeq": 133,
+      "turnReason": "completed",
+      "startedAt": "2026-10-08T01:42:29.481Z",
+      "endedAt": "2026-10-08T01:43:11.892Z",
+      "exitCode": 0
+    },
+    "results": [
+      {
+        "poseId": "face-up",
+        "status": "verified",
+        "reason": null,
+        "poseProof": {
+          "poseId": "face-up",
+          "anglesDeg": [
+            -90,
+            0,
+            0
+          ],
+          "sourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+          "candidateSha256": "2c44e5007ba417f036aa8b35c14e3bb5fed30da271992381e976a19a5572f4b7",
+          "sourceToPrintMatrix4": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            6.123233995736766e-17,
+            1,
+            -15,
+            0,
+            -1,
+            6.123233995736766e-17,
+            4,
+            0,
+            0,
+            0,
+            1
+          ],
+          "printToSourceMatrix4": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            6.123233995736766e-17,
+            -1,
+            4.000000000000001,
+            0,
+            1,
+            6.123233995736766e-17,
+            15,
+            0,
+            0,
+            0,
+            1
+          ],
+          "sourceBoundsMm": [
+            [
+              -6,
+              -4,
+              0
+            ],
+            [
+              6,
+              4,
+              30
+            ]
+          ],
+          "printBoundsMm": [
+            [
+              -6,
+              -15,
+              0
+            ],
+            [
+              6,
+              15,
+              8
+            ]
+          ],
+          "triangleCount": 1554,
+          "sourceVolumeMm3": 230.07651532932172,
+          "printVolumeMm3": 230.07651689868032,
+          "rigidTransformVerified": true
+        },
+        "slice": {
+          "metrics": {
+            "filamentMm": 267.05,
+            "filamentG": 0.8,
+            "estimatedTimeSeconds": 346
+          },
+          "proof": {
+            "sourceStlSha256": "2c44e5007ba417f036aa8b35c14e3bb5fed30da271992381e976a19a5572f4b7",
+            "profileId": "fdm-pla-04-auto-support",
+            "profileSha256": "c66018a382f03d459a77e8e0018d0998594907cfa693e8a3665a3b21d55c4fd5",
+            "gcodeSha256": "0e8b25af7ef7b6b19a11f011f4f4a2d8795d07ddddeaf87df1c64179e31d496c",
+            "settings": {
+              "supportMaterial": true,
+              "automaticSupport": true,
+              "layerHeightMm": 0.2,
+              "nozzleDiameterMm": 0.4,
+              "perimeters": 2,
+              "fillDensity": "15%",
+              "fillPattern": "stars",
+              "perimeterGenerator": "arachne"
+            }
+          },
+          "execution": {
+            "mode": "actual-slicer",
+            "version": "PrusaSlicer-2.9.6"
+          },
+          "placementVerification": {
+            "requestedCenterMm": {
+              "x": 90,
+              "y": 90
+            },
+            "observedExtrusionBoundsMm": {
+              "xMin": 84.2,
+              "yMin": 75.2,
+              "zMin": 0.2,
+              "xMax": 95.8,
+              "yMax": 104.775,
+              "zMax": 8
+            },
+            "observedExtrusionCenterMm": {
+              "x": 90,
+              "y": 89.9875
+            },
+            "modelPathsUsed": true,
+            "centeredAtRequestedPoint": true
+          }
+        },
+        "supportAudit": {
+          "verified": true,
+          "protectionVerified": false,
+          "support": {
+            "pathLengthMm": 4942.46437524631,
+            "filamentLengthMm": 173.96887000000004,
+            "interfacePathLengthMm": 1972.410333127701,
+            "interfaceFilamentLengthMm": 75.07360999999976,
+            "segmentCount": 995,
+            "interfaceSegmentCount": 503,
+            "byRole": {
+              "SUPPORT": {
+                "pathLengthMm": 2970.0540421186192,
+                "filamentLengthMm": 98.89525999999984,
+                "segmentCount": 492
+              },
+              "SUPPORT_INTERFACE": {
+                "pathLengthMm": 1972.410333127701,
+                "filamentLengthMm": 75.07360999999976,
+                "segmentCount": 503
+              }
+            }
+          },
+          "regions": [],
+          "warnings": [
+            "No protected regions were supplied; critical areas were not verified"
+          ],
+          "scope": "approximate-extrusion-envelope-in-source-aabb"
+        },
+        "featureAudit": {
+          "verified": true,
+          "passed": true,
+          "scope": "sampled-source-feature-vs-planned-model-extrusion",
+          "features": [
+            {
+              "id": "selected-rod",
+              "kind": "solid",
+              "verified": true,
+              "passed": true,
+              "code": "PASS",
+              "targetSampleCount": 3328,
+              "retainedSampleCount": 3328,
+              "retentionFraction": 1,
+              "connected": null,
+              "directionRetentions": [
+                {
+                  "direction": "-X",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 832,
+                  "retentionFraction": 1
+                },
+                {
+                  "direction": "+X",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 832,
+                  "retentionFraction": 1
+                },
+                {
+                  "direction": "-Y",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 832,
+                  "retentionFraction": 1
+                },
+                {
+                  "direction": "+Y",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 832,
+                  "retentionFraction": 1
+                }
+              ],
+              "sampling": {
+                "dimensions": [
+                  32,
+                  32,
+                  32
+                ],
+                "stepMm": [
+                  0.018748104143787858,
+                  0.018748104143787858,
+                  0.796875
+                ],
+                "surfaceToleranceMm": 0.05
+              },
+              "layerHeightEvidence": "per-extrusion-gcode-HEIGHT"
+            }
+          ],
+          "warnings": []
+        },
+        "featureProbeEvidence": {
+          "sourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+          "definitionsSha256": "1e0f177c0f34f507ff722d9e4b2b9cadd15ef9964ab2a4ce3153d168aff9a4fd",
+          "recipeSha256": "3e30281990ea44678ed3bd0974c4b7d425a96774cba4bcd2caaa41f23b59365c",
+          "probesSha256": "006c242f3c12ca6034bbb5212cbd3219123c2fd354b8a59b9c67561af17bb6ac",
+          "execution": "actual-source-mesh-probe"
+        },
+        "protectionVerified": false,
+        "stlUrl": "/api/poses/jobs/c86bfd25-2c5e-46a0-b41c-d77c773be3d5/stl/face-up?sha=2c44e5007ba417f036aa8b35c14e3bb5fed30da271992381e976a19a5572f4b7"
+      },
+      {
+        "poseId": "upright",
+        "status": "verified",
+        "reason": null,
+        "poseProof": {
+          "poseId": "upright",
+          "anglesDeg": [
+            0,
+            0,
+            0
+          ],
+          "sourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+          "candidateSha256": "793f146429d4e88dbe83a0b2a39955aceb6abece403311b8b74595e3b0fb78f4",
+          "sourceToPrintMatrix4": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "printToSourceMatrix4": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "sourceBoundsMm": [
+            [
+              -6,
+              -4,
+              0
+            ],
+            [
+              6,
+              4,
+              30
+            ]
+          ],
+          "printBoundsMm": [
+            [
+              -6,
+              -4,
+              0
+            ],
+            [
+              6,
+              4,
+              30
+            ]
+          ],
+          "triangleCount": 1554,
+          "sourceVolumeMm3": 230.07651532932172,
+          "printVolumeMm3": 230.07651532932172,
+          "rigidTransformVerified": true
+        },
+        "slice": {
+          "metrics": {
+            "filamentMm": 225.98,
+            "filamentG": 0.67,
+            "estimatedTimeSeconds": 365
+          },
+          "proof": {
+            "sourceStlSha256": "793f146429d4e88dbe83a0b2a39955aceb6abece403311b8b74595e3b0fb78f4",
+            "profileId": "fdm-pla-04-auto-support",
+            "profileSha256": "c66018a382f03d459a77e8e0018d0998594907cfa693e8a3665a3b21d55c4fd5",
+            "gcodeSha256": "4db66629f44cf7e171589a040b0b53a1324c9c80709754ff32f13bb64308e230",
+            "settings": {
+              "supportMaterial": true,
+              "automaticSupport": true,
+              "layerHeightMm": 0.2,
+              "nozzleDiameterMm": 0.4,
+              "perimeters": 2,
+              "fillDensity": "15%",
+              "fillPattern": "stars",
+              "perimeterGenerator": "arachne"
+            }
+          },
+          "execution": {
+            "mode": "actual-slicer",
+            "version": "PrusaSlicer-2.9.6"
+          },
+          "placementVerification": {
+            "requestedCenterMm": {
+              "x": 90,
+              "y": 90
+            },
+            "observedExtrusionBoundsMm": {
+              "xMin": 84.2,
+              "yMin": 86.2,
+              "zMin": 0.2,
+              "xMax": 95.8,
+              "yMax": 93.8,
+              "zMax": 30
+            },
+            "observedExtrusionCenterMm": {
+              "x": 90,
+              "y": 90
+            },
+            "modelPathsUsed": true,
+            "centeredAtRequestedPoint": true
+          }
+        },
+        "supportAudit": {
+          "verified": true,
+          "protectionVerified": false,
+          "support": {
+            "pathLengthMm": 3053.599826775508,
+            "filamentLengthMm": 127.63443999999983,
+            "interfacePathLengthMm": 645.3768561580621,
+            "interfaceFilamentLengthMm": 27.500799999999938,
+            "segmentCount": 1788,
+            "interfaceSegmentCount": 298,
+            "byRole": {
+              "SUPPORT_INTERFACE": {
+                "pathLengthMm": 645.3768561580621,
+                "filamentLengthMm": 27.500799999999938,
+                "segmentCount": 298
+              },
+              "SUPPORT": {
+                "pathLengthMm": 2408.2229706174408,
+                "filamentLengthMm": 100.13364000000011,
+                "segmentCount": 1490
+              }
+            }
+          },
+          "regions": [],
+          "warnings": [
+            "No protected regions were supplied; critical areas were not verified"
+          ],
+          "scope": "approximate-extrusion-envelope-in-source-aabb"
+        },
+        "featureAudit": {
+          "verified": true,
+          "passed": false,
+          "scope": "sampled-source-feature-vs-planned-model-extrusion",
+          "features": [
+            {
+              "id": "selected-rod",
+              "kind": "solid",
+              "verified": true,
+              "passed": false,
+              "code": "RETENTION_BELOW_MINIMUM",
+              "targetSampleCount": 3328,
+              "retainedSampleCount": 208,
+              "retentionFraction": 0.0625,
+              "connected": null,
+              "directionRetentions": [
+                {
+                  "direction": "-X",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 52,
+                  "retentionFraction": 0.0625
+                },
+                {
+                  "direction": "+X",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 52,
+                  "retentionFraction": 0.0625
+                },
+                {
+                  "direction": "-Y",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 52,
+                  "retentionFraction": 0.0625
+                },
+                {
+                  "direction": "+Y",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 52,
+                  "retentionFraction": 0.0625
+                }
+              ],
+              "sampling": {
+                "dimensions": [
+                  32,
+                  32,
+                  32
+                ],
+                "stepMm": [
+                  0.018748104143787858,
+                  0.018748104143787858,
+                  0.796875
+                ],
+                "surfaceToleranceMm": 0.05
+              },
+              "layerHeightEvidence": "per-extrusion-gcode-HEIGHT"
+            }
+          ],
+          "warnings": []
+        },
+        "featureProbeEvidence": {
+          "sourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+          "definitionsSha256": "1e0f177c0f34f507ff722d9e4b2b9cadd15ef9964ab2a4ce3153d168aff9a4fd",
+          "recipeSha256": "3e30281990ea44678ed3bd0974c4b7d425a96774cba4bcd2caaa41f23b59365c",
+          "probesSha256": "006c242f3c12ca6034bbb5212cbd3219123c2fd354b8a59b9c67561af17bb6ac",
+          "execution": "actual-source-mesh-probe"
+        },
+        "protectionVerified": false,
+        "stlUrl": "/api/poses/jobs/c86bfd25-2c5e-46a0-b41c-d77c773be3d5/stl/upright?sha=793f146429d4e88dbe83a0b2a39955aceb6abece403311b8b74595e3b0fb78f4"
+      },
+      {
+        "poseId": "tilt-x-plus",
+        "status": "verified",
+        "reason": null,
+        "poseProof": {
+          "poseId": "tilt-x-plus",
+          "anglesDeg": [
+            30,
+            0,
+            0
+          ],
+          "sourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+          "candidateSha256": "e75839e5b66364bee222e860f52d1fcd986831dea7d349a817c0ca391e8520de",
+          "sourceToPrintMatrix4": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0.8660254037844387,
+            -0.49999999999999994,
+            6.85048094716167,
+            0,
+            0.49999999999999994,
+            0.8660254037844387,
+            2,
+            0,
+            0,
+            0,
+            1
+          ],
+          "printToSourceMatrix4": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0.8660254037844387,
+            0.49999999999999994,
+            -6.932690528383289,
+            0,
+            -0.49999999999999994,
+            0.8660254037844387,
+            1.6931896660119572,
+            0,
+            0,
+            0,
+            1
+          ],
+          "sourceBoundsMm": [
+            [
+              -6,
+              -4,
+              0
+            ],
+            [
+              6,
+              4,
+              30
+            ]
+          ],
+          "printBoundsMm": [
+            [
+              -6,
+              -10.314582824707031,
+              2.220446049250313e-16
+            ],
+            [
+              6,
+              10.314582824707031,
+              29.230762481689453
+            ]
+          ],
+          "triangleCount": 1554,
+          "sourceVolumeMm3": 230.07651532932172,
+          "printVolumeMm3": 230.07652517330234,
+          "rigidTransformVerified": true
+        },
+        "slice": {
+          "metrics": {
+            "filamentMm": 390.31,
+            "filamentG": 1.16,
+            "estimatedTimeSeconds": 776
+          },
+          "proof": {
+            "sourceStlSha256": "e75839e5b66364bee222e860f52d1fcd986831dea7d349a817c0ca391e8520de",
+            "profileId": "fdm-pla-04-auto-support",
+            "profileSha256": "c66018a382f03d459a77e8e0018d0998594907cfa693e8a3665a3b21d55c4fd5",
+            "gcodeSha256": "92b948dfa7e354af02880deaa281a769e6ba460521f69572c62439672f76053f",
+            "settings": {
+              "supportMaterial": true,
+              "automaticSupport": true,
+              "layerHeightMm": 0.2,
+              "nozzleDiameterMm": 0.4,
+              "perimeters": 2,
+              "fillDensity": "15%",
+              "fillPattern": "stars",
+              "perimeterGenerator": "arachne"
+            }
+          },
+          "execution": {
+            "mode": "actual-slicer",
+            "version": "PrusaSlicer-2.9.6"
+          },
+          "placementVerification": {
+            "requestedCenterMm": {
+              "x": 90,
+              "y": 90
+            },
+            "observedExtrusionBoundsMm": {
+              "xMin": 84.115,
+              "yMin": 79.931,
+              "zMin": 0.2,
+              "xMax": 95.885,
+              "yMax": 100.032,
+              "zMax": 29.2
+            },
+            "observedExtrusionCenterMm": {
+              "x": 90,
+              "y": 89.9815
+            },
+            "modelPathsUsed": true,
+            "centeredAtRequestedPoint": true
+          }
+        },
+        "supportAudit": {
+          "verified": true,
+          "protectionVerified": false,
+          "support": {
+            "pathLengthMm": 8958.849435284907,
+            "filamentLengthMm": 292.84941000000015,
+            "interfacePathLengthMm": 3127.4244301976332,
+            "interfaceFilamentLengthMm": 92.85847999999771,
+            "segmentCount": 3726,
+            "interfaceSegmentCount": 2301,
+            "byRole": {
+              "SUPPORT_INTERFACE": {
+                "pathLengthMm": 3127.4244301976332,
+                "filamentLengthMm": 92.85847999999771,
+                "segmentCount": 2301
+              },
+              "SUPPORT": {
+                "pathLengthMm": 5831.425005087302,
+                "filamentLengthMm": 199.99092999999877,
+                "segmentCount": 1425
+              }
+            }
+          },
+          "regions": [],
+          "warnings": [
+            "No protected regions were supplied; critical areas were not verified"
+          ],
+          "scope": "approximate-extrusion-envelope-in-source-aabb"
+        },
+        "featureAudit": {
+          "verified": true,
+          "passed": false,
+          "scope": "sampled-source-feature-vs-planned-model-extrusion",
+          "features": [
+            {
+              "id": "selected-rod",
+              "kind": "solid",
+              "verified": true,
+              "passed": false,
+              "code": "RETENTION_BELOW_MINIMUM",
+              "targetSampleCount": 3328,
+              "retainedSampleCount": 2618,
+              "retentionFraction": 0.7866586538461539,
+              "connected": null,
+              "directionRetentions": [
+                {
+                  "direction": "-X",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 651,
+                  "retentionFraction": 0.7824519230769231
+                },
+                {
+                  "direction": "+X",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 651,
+                  "retentionFraction": 0.7824519230769231
+                },
+                {
+                  "direction": "-Y",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 656,
+                  "retentionFraction": 0.7884615384615384
+                },
+                {
+                  "direction": "+Y",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 660,
+                  "retentionFraction": 0.7932692307692307
+                }
+              ],
+              "sampling": {
+                "dimensions": [
+                  32,
+                  32,
+                  32
+                ],
+                "stepMm": [
+                  0.018748104143787858,
+                  0.018748104143787858,
+                  0.796875
+                ],
+                "surfaceToleranceMm": 0.05
+              },
+              "layerHeightEvidence": "per-extrusion-gcode-HEIGHT"
+            }
+          ],
+          "warnings": []
+        },
+        "featureProbeEvidence": {
+          "sourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+          "definitionsSha256": "1e0f177c0f34f507ff722d9e4b2b9cadd15ef9964ab2a4ce3153d168aff9a4fd",
+          "recipeSha256": "3e30281990ea44678ed3bd0974c4b7d425a96774cba4bcd2caaa41f23b59365c",
+          "probesSha256": "006c242f3c12ca6034bbb5212cbd3219123c2fd354b8a59b9c67561af17bb6ac",
+          "execution": "actual-source-mesh-probe"
+        },
+        "protectionVerified": false,
+        "stlUrl": "/api/poses/jobs/c86bfd25-2c5e-46a0-b41c-d77c773be3d5/stl/tilt-x-plus?sha=e75839e5b66364bee222e860f52d1fcd986831dea7d349a817c0ca391e8520de"
+      },
+      {
+        "poseId": "tilt-x-minus",
+        "status": "verified",
+        "reason": null,
+        "poseProof": {
+          "poseId": "tilt-x-minus",
+          "anglesDeg": [
+            -30,
+            0,
+            0
+          ],
+          "sourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+          "candidateSha256": "85f746192fe76281c4eadce3b9b7db0afbbffab17dbbeef5c87db1df1caed2a1",
+          "sourceToPrintMatrix4": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0.8660254037844387,
+            0.49999999999999994,
+            -6.85048094716167,
+            0,
+            -0.49999999999999994,
+            0.8660254037844387,
+            2,
+            0,
+            0,
+            0,
+            1
+          ],
+          "printToSourceMatrix4": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0.8660254037844387,
+            -0.49999999999999994,
+            6.932690528383289,
+            0,
+            0.49999999999999994,
+            0.8660254037844387,
+            1.6931896660119572,
+            0,
+            0,
+            0,
+            1
+          ],
+          "sourceBoundsMm": [
+            [
+              -6,
+              -4,
+              0
+            ],
+            [
+              6,
+              4,
+              30
+            ]
+          ],
+          "printBoundsMm": [
+            [
+              -6,
+              -10.314582824707031,
+              2.220446049250313e-16
+            ],
+            [
+              6,
+              10.314582824707031,
+              29.230762481689453
+            ]
+          ],
+          "triangleCount": 1554,
+          "sourceVolumeMm3": 230.07651532932172,
+          "printVolumeMm3": 230.07652799917773,
+          "rigidTransformVerified": true
+        },
+        "slice": {
+          "metrics": {
+            "filamentMm": 392.24,
+            "filamentG": 1.17,
+            "estimatedTimeSeconds": 785
+          },
+          "proof": {
+            "sourceStlSha256": "85f746192fe76281c4eadce3b9b7db0afbbffab17dbbeef5c87db1df1caed2a1",
+            "profileId": "fdm-pla-04-auto-support",
+            "profileSha256": "c66018a382f03d459a77e8e0018d0998594907cfa693e8a3665a3b21d55c4fd5",
+            "gcodeSha256": "14ced30c2e10b9decb42f1de830ebf3d70d59afe53c9fa8ecc18edbbacbc76c0",
+            "settings": {
+              "supportMaterial": true,
+              "automaticSupport": true,
+              "layerHeightMm": 0.2,
+              "nozzleDiameterMm": 0.4,
+              "perimeters": 2,
+              "fillDensity": "15%",
+              "fillPattern": "stars",
+              "perimeterGenerator": "arachne"
+            }
+          },
+          "execution": {
+            "mode": "actual-slicer",
+            "version": "PrusaSlicer-2.9.6"
+          },
+          "placementVerification": {
+            "requestedCenterMm": {
+              "x": 90,
+              "y": 90
+            },
+            "observedExtrusionBoundsMm": {
+              "xMin": 84.115,
+              "yMin": 79.968,
+              "zMin": 0.2,
+              "xMax": 95.885,
+              "yMax": 100.058,
+              "zMax": 29.2
+            },
+            "observedExtrusionCenterMm": {
+              "x": 90,
+              "y": 90.013
+            },
+            "modelPathsUsed": true,
+            "centeredAtRequestedPoint": true
+          }
+        },
+        "supportAudit": {
+          "verified": true,
+          "protectionVerified": false,
+          "support": {
+            "pathLengthMm": 9018.59247261885,
+            "filamentLengthMm": 294.62267999999966,
+            "interfacePathLengthMm": 3170.5231009803783,
+            "interfaceFilamentLengthMm": 94.13816999999766,
+            "segmentCount": 3770,
+            "interfaceSegmentCount": 2322,
+            "byRole": {
+              "SUPPORT": {
+                "pathLengthMm": 5848.069371638498,
+                "filamentLengthMm": 200.48450999999866,
+                "segmentCount": 1448
+              },
+              "SUPPORT_INTERFACE": {
+                "pathLengthMm": 3170.5231009803783,
+                "filamentLengthMm": 94.13816999999766,
+                "segmentCount": 2322
+              }
+            }
+          },
+          "regions": [],
+          "warnings": [
+            "No protected regions were supplied; critical areas were not verified"
+          ],
+          "scope": "approximate-extrusion-envelope-in-source-aabb"
+        },
+        "featureAudit": {
+          "verified": true,
+          "passed": false,
+          "scope": "sampled-source-feature-vs-planned-model-extrusion",
+          "features": [
+            {
+              "id": "selected-rod",
+              "kind": "solid",
+              "verified": true,
+              "passed": false,
+              "code": "RETENTION_BELOW_MINIMUM",
+              "targetSampleCount": 3328,
+              "retainedSampleCount": 2414,
+              "retentionFraction": 0.7253605769230769,
+              "connected": null,
+              "directionRetentions": [
+                {
+                  "direction": "-X",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 603,
+                  "retentionFraction": 0.7247596153846154
+                },
+                {
+                  "direction": "+X",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 603,
+                  "retentionFraction": 0.7247596153846154
+                },
+                {
+                  "direction": "-Y",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 552,
+                  "retentionFraction": 0.6634615384615384
+                },
+                {
+                  "direction": "+Y",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 656,
+                  "retentionFraction": 0.7884615384615384
+                }
+              ],
+              "sampling": {
+                "dimensions": [
+                  32,
+                  32,
+                  32
+                ],
+                "stepMm": [
+                  0.018748104143787858,
+                  0.018748104143787858,
+                  0.796875
+                ],
+                "surfaceToleranceMm": 0.05
+              },
+              "layerHeightEvidence": "per-extrusion-gcode-HEIGHT"
+            }
+          ],
+          "warnings": []
+        },
+        "featureProbeEvidence": {
+          "sourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+          "definitionsSha256": "1e0f177c0f34f507ff722d9e4b2b9cadd15ef9964ab2a4ce3153d168aff9a4fd",
+          "recipeSha256": "3e30281990ea44678ed3bd0974c4b7d425a96774cba4bcd2caaa41f23b59365c",
+          "probesSha256": "006c242f3c12ca6034bbb5212cbd3219123c2fd354b8a59b9c67561af17bb6ac",
+          "execution": "actual-source-mesh-probe"
+        },
+        "protectionVerified": false,
+        "stlUrl": "/api/poses/jobs/c86bfd25-2c5e-46a0-b41c-d77c773be3d5/stl/tilt-x-minus?sha=85f746192fe76281c4eadce3b9b7db0afbbffab17dbbeef5c87db1df1caed2a1"
+      },
+      {
+        "poseId": "tilt-y-plus",
+        "status": "verified",
+        "reason": null,
+        "poseProof": {
+          "poseId": "tilt-y-plus",
+          "anglesDeg": [
+            0,
+            30,
+            0
+          ],
+          "sourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+          "candidateSha256": "cd4acb2ff9eccf56e6d0732479d0bbee226363e1ac16e2222d19b7a638d7e7e4",
+          "sourceToPrintMatrix4": [
+            0.8660254037844387,
+            0,
+            0.49999999999999994,
+            -4.685417437700574,
+            0,
+            1,
+            0,
+            0,
+            -0.49999999999999994,
+            0,
+            0.8660254037844387,
+            3,
+            0,
+            0,
+            0,
+            1
+          ],
+          "printToSourceMatrix4": [
+            0.8660254037844387,
+            0,
+            -0.49999999999999994,
+            5.557690528383289,
+            0,
+            1,
+            0,
+            0,
+            0.49999999999999994,
+            0,
+            0.8660254037844387,
+            -0.2553674925030296,
+            0,
+            0,
+            0,
+            1
+          ],
+          "sourceBoundsMm": [
+            [
+              -6,
+              -4,
+              0
+            ],
+            [
+              6,
+              4,
+              30
+            ]
+          ],
+          "printBoundsMm": [
+            [
+              -9.881569862365723,
+              -4,
+              4.440892098500626e-16
+            ],
+            [
+              9.881569862365723,
+              4,
+              31.730762481689453
+            ]
+          ],
+          "triangleCount": 1554,
+          "sourceVolumeMm3": 230.07651532932172,
+          "printVolumeMm3": 230.076525237626,
+          "rigidTransformVerified": true
+        },
+        "slice": {
+          "metrics": {
+            "filamentMm": 402.71,
+            "filamentG": 1.2,
+            "estimatedTimeSeconds": 634
+          },
+          "proof": {
+            "sourceStlSha256": "cd4acb2ff9eccf56e6d0732479d0bbee226363e1ac16e2222d19b7a638d7e7e4",
+            "profileId": "fdm-pla-04-auto-support",
+            "profileSha256": "c66018a382f03d459a77e8e0018d0998594907cfa693e8a3665a3b21d55c4fd5",
+            "gcodeSha256": "2bc0168faec2617ec748f67a1ecee87df321f67af870bdbb40f50e3b8c5ad781",
+            "settings": {
+              "supportMaterial": true,
+              "automaticSupport": true,
+              "layerHeightMm": 0.2,
+              "nozzleDiameterMm": 0.4,
+              "perimeters": 2,
+              "fillDensity": "15%",
+              "fillPattern": "stars",
+              "perimeterGenerator": "arachne"
+            }
+          },
+          "execution": {
+            "mode": "actual-slicer",
+            "version": "PrusaSlicer-2.9.6"
+          },
+          "placementVerification": {
+            "requestedCenterMm": {
+              "x": 90,
+              "y": 90
+            },
+            "observedExtrusionBoundsMm": {
+              "xMin": 80.401,
+              "yMin": 86.115,
+              "zMin": 0.2,
+              "xMax": 99.576,
+              "yMax": 93.885,
+              "zMax": 31.6
+            },
+            "observedExtrusionCenterMm": {
+              "x": 89.9885,
+              "y": 90
+            },
+            "modelPathsUsed": true,
+            "centeredAtRequestedPoint": true
+          }
+        },
+        "supportAudit": {
+          "verified": true,
+          "protectionVerified": false,
+          "support": {
+            "pathLengthMm": 9458.205622434518,
+            "filamentLengthMm": 306.1276200000043,
+            "interfacePathLengthMm": 3286.6063237490453,
+            "interfaceFilamentLengthMm": 97.58454999999837,
+            "segmentCount": 2550,
+            "interfaceSegmentCount": 1193,
+            "byRole": {
+              "SUPPORT": {
+                "pathLengthMm": 6171.599298685468,
+                "filamentLengthMm": 208.54306999999974,
+                "segmentCount": 1357
+              },
+              "SUPPORT_INTERFACE": {
+                "pathLengthMm": 3286.6063237490453,
+                "filamentLengthMm": 97.58454999999837,
+                "segmentCount": 1193
+              }
+            }
+          },
+          "regions": [],
+          "warnings": [
+            "No protected regions were supplied; critical areas were not verified"
+          ],
+          "scope": "approximate-extrusion-envelope-in-source-aabb"
+        },
+        "featureAudit": {
+          "verified": true,
+          "passed": false,
+          "scope": "sampled-source-feature-vs-planned-model-extrusion",
+          "features": [
+            {
+              "id": "selected-rod",
+              "kind": "solid",
+              "verified": true,
+              "passed": false,
+              "code": "RETENTION_BELOW_MINIMUM",
+              "targetSampleCount": 3328,
+              "retainedSampleCount": 0,
+              "retentionFraction": 0,
+              "connected": null,
+              "directionRetentions": [
+                {
+                  "direction": "-X",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 0,
+                  "retentionFraction": 0
+                },
+                {
+                  "direction": "+X",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 0,
+                  "retentionFraction": 0
+                },
+                {
+                  "direction": "-Y",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 0,
+                  "retentionFraction": 0
+                },
+                {
+                  "direction": "+Y",
+                  "targetSampleCount": 832,
+                  "retainedSampleCount": 0,
+                  "retentionFraction": 0
+                }
+              ],
+              "sampling": {
+                "dimensions": [
+                  32,
+                  32,
+                  32
+                ],
+                "stepMm": [
+                  0.018748104143787858,
+                  0.018748104143787858,
+                  0.796875
+                ],
+                "surfaceToleranceMm": 0.05
+              },
+              "layerHeightEvidence": "per-extrusion-gcode-HEIGHT"
+            }
+          ],
+          "warnings": []
+        },
+        "featureProbeEvidence": {
+          "sourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+          "definitionsSha256": "1e0f177c0f34f507ff722d9e4b2b9cadd15ef9964ab2a4ce3153d168aff9a4fd",
+          "recipeSha256": "3e30281990ea44678ed3bd0974c4b7d425a96774cba4bcd2caaa41f23b59365c",
+          "probesSha256": "006c242f3c12ca6034bbb5212cbd3219123c2fd354b8a59b9c67561af17bb6ac",
+          "execution": "actual-source-mesh-probe"
+        },
+        "protectionVerified": false,
+        "stlUrl": "/api/poses/jobs/c86bfd25-2c5e-46a0-b41c-d77c773be3d5/stl/tilt-y-plus?sha=cd4acb2ff9eccf56e6d0732479d0bbee226363e1ac16e2222d19b7a638d7e7e4"
+      }
+    ]
+  },
+  "repairJob": null,
+  "delivery": {
+    "kind": "original",
+    "candidateSha256": "2c44e5007ba417f036aa8b35c14e3bb5fed30da271992381e976a19a5572f4b7",
+    "metrics": {
+      "filamentMm": 267.05,
+      "filamentG": 0.8,
+      "estimatedTimeSeconds": 346
+    },
+    "poseId": "face-up",
+    "url": "/api/workflow/jobs/982bbdc6-8af8-48e4-8fa3-ba69239f470d/delivery?sha=2c44e5007ba417f036aa8b35c14e3bb5fed30da271992381e976a19a5572f4b7"
+  },
+  "bindingError": null,
+  "error": null,
+  "events": [
+    {
+      "at": "2026-10-08T01:42:29.479Z",
+      "stage": "pose-running",
+      "code": "OK"
+    },
+    {
+      "at": "2026-10-08T01:43:11.919Z",
+      "stage": "completed",
+      "code": "OK"
+    }
+  ],
+  "physicalPrintVerified": false,
+  "limitations": [
+    "单根轴对齐直圆杆；所选杆以实际刀轨复核，其他未申报特征不作切片级保证。",
+    "本任务评估五个固定姿态，含X−90°侧放；结果限定于声明候选，不是全局最优。",
+    "模型与切片为软件验证，未验证实物打印或强度。"
+  ]
+}

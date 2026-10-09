@@ -1,0 +1,16 @@
+{
+  "name": "@photo-cad/print-detail-tools",
+  "version": "1.0.1",
+  "type": "module",
+  "license": "Apache-2.0",
+  "exports": "./index.mjs",
+  "agnes": {
+    "plugins": [
+      { "export": "detailInspectTool", "id": "ext:photo-cad/detail-inspect", "inject": ["extension"] },
+      { "export": "detailBuildTool", "id": "ext:photo-cad/detail-build", "inject": ["extension"] },
+      { "export": "detailSliceTool", "id": "ext:photo-cad/detail-slice", "inject": ["extension"] },
+      { "export": "detailVerifyTool", "id": "ext:photo-cad/detail-verify", "inject": ["extension"] },
+      { "export": "detailSubmitTool", "id": "ext:photo-cad/detail-submit", "inject": ["extension"] }
+    ]
+  }
+}

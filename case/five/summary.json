@@ -1,0 +1,32 @@
+[
+  {
+    "id": "982bbdc6-8af8-48e4-8fa3-ba69239f470d",
+    "poseJobId": "c86bfd25-2c5e-46a0-b41c-d77c773be3d5",
+    "stage": "completed",
+    "kind": "original",
+    "metrics": {
+      "filamentMm": 267.05,
+      "filamentG": 0.8,
+      "estimatedTimeSeconds": 346
+    },
+    "sha256": "2c44e5007ba417f036aa8b35c14e3bb5fed30da271992381e976a19a5572f4b7",
+    "bytes": 77784,
+    "policy": "fixed-five-v2",
+    "bindingError": null
+  },
+  {
+    "id": "7ad402a0-41f6-4f32-ad51-2db6b5cce60e",
+    "poseJobId": "e2811957-a779-43cf-bd93-746c1faf5bc1",
+    "stage": "completed",
+    "kind": "original",
+    "metrics": {
+      "filamentMm": 267.05,
+      "filamentG": 0.8,
+      "estimatedTimeSeconds": 346
+    },
+    "sha256": "2c44e5007ba417f036aa8b35c14e3bb5fed30da271992381e976a19a5572f4b7",
+    "bytes": 77784,
+    "policy": "fixed-five-v2",
+    "bindingError": null
+  }
+]

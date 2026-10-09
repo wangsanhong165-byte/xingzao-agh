@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#eff4f3">
+  <title>形造 · 浮雕细节验证</title>
+  <link rel="stylesheet" href="/print-detail.css">
+  <script type="importmap">{"imports":{"three":"/vendor/three.module.js","three/addons/":"/vendor/addons/"}}</script>
+  <script type="module" src="/print-detail.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="返回形造工作台"><span class="brand-mark">形</span><span>形造 <small>PRINT DETAIL LAB</small></span></a>
+    <div class="top-status"><span id="agh-dot" class="status-dot"></span><span id="agh-status">正在读取执行环境…</span></div>
+    <a class="back-link" href="/workflow">3D 打印方案 <span aria-hidden="true">→</span></a>
+    <a class="back-link" href="/protect">外观区域保护 <span aria-hidden="true">→</span></a>
+    <a class="back-link" href="/reconstruct">照片建模 <span aria-hidden="true">→</span></a>
+    <a class="back-link" href="#run-card">任务执行记录 <span aria-hidden="true">↓</span></a>
+  </header>
+
+  <main class="layout">
+    <aside class="input-column">
+      <div class="page-kicker">实验工作台 <span>/</span> 平面浮雕打印细节</div>
+      <h1>保护细线，也保护可打印性。</h1>
+      <p class="lede">选择高对比字样或徽标，检查底板上的细节能否成为真实凸起，并经过切片路径验证。</p>
+
+      <section class="card input-card">
+        <div class="card-title"><div><span class="step">01</span><h2>黑白图案</h2></div><span class="small-note">PNG · ≤ 5 MiB</span></div>
+        <div class="upload-box" id="upload-box" tabindex="0" role="button" aria-label="上传 PNG 图案">
+          <input id="image-file" type="file" accept="image/png" hidden>
+          <span class="upload-mark">↑</span><strong>拖入徽标 PNG</strong><span>或 <u>从本机选取</u> · 白底黑图 / 透明底深色图案</span>
+        </div>
+        <div class="sample-row"><span>快速样例</span><button id="sample-ai" type="button">AI 字样</button><button id="sample-o" type="button">O 字环</button></div>
+        <div class="image-editor" id="image-editor" hidden>
+          <canvas id="source-canvas" aria-label="原图与可拖拽保护区域"></canvas>
+          <div class="image-meta"><span id="image-name">未选择</span><button id="roi-reset" type="button" class="quiet-button">重置全图区域</button></div>
+          <div class="roi-readout">保护区域 ROI · <code id="roi-value">—</code> px <span>拖动框选；默认整张图片</span></div>
+        </div>
+        <p class="microcopy">单色目标作为真实几何凸起，不是表面纹理。避免渐变、复杂彩色图和透视照片。</p>
+
+        <div class="divider"></div>
+        <div class="card-title"><div><span class="step">02</span><h2>目标尺寸</h2></div><span class="unit-note">mm</span></div>
+        <div class="three-fields">
+          <label>宽度 <span><input id="width-mm" type="number" min="1" max="180" step="any" value="40"><i>mm</i></span></label>
+          <label>深度 <span><input id="depth-mm" type="number" min="1" max="180" step="any" value="30"><i>mm</i></span></label>
+          <label>底板厚度 <span><input id="base-mm" type="number" min="0.8" max="10" step="any" value="2"><i>mm</i></span></label>
+        </div>
+        <div class="divider compact"></div>
+        <div class="card-title"><div><span class="step">03</span><h2>细节约束</h2></div><span class="unit-note">固定虚拟 FDM / PLA</span></div>
+        <div class="constraint-grid">
+          <label>最小线宽<input id="min-feature" type="number" min="0.4" max="3" step="any" value="0.8"><small>mm</small></label>
+          <label>凸起高度<input id="relief-height" type="number" min="0.2" max="1.2" step="any" value="0.6"><small>mm</small></label>
+          <label>凸起上限<input id="max-relief" type="number" min="0.2" max="3" step="any" value="1.2"><small>mm</small></label>
+          <label>最低保真度<input id="min-fidelity" type="number" min="0.5" max="1" step="0.01" value="0.75"><small>0.5–1</small></label>
+        </div>
+        <div class="profile-chip"><span class="profile-icon">▤</span><div><strong id="profile-name">正在读取切片配置…</strong><span>0.4 mm nozzle · 0.2 mm layer · virtual PLA</span></div><span id="profile-ready" class="profile-state">检查中</span></div>
+        <button class="button button-primary" id="start-job" disabled>开始真实 AGH 验证 <span aria-hidden="true">→</span></button>
+        <p class="start-note" id="start-note">读取 AGH 状态中…</p>
+        <div class="notice"><strong>实验边界</strong><p>当前只验证几何、切片路径与凸起细节。虚拟切片参数不是已连接的实物打印机；不代表打印成功、承重能力或艺术还原质量。</p></div>
+      </section>
+      <section class="card import-card" aria-labelledby="import-title">
+        <div class="card-title"><div><span class="step import-step">G</span><h2 id="import-title">独立网格导入</h2></div><span class="small-note">STL / GLB · ≤ 25 MiB</span></div>
+        <p class="import-intro">对已有网格做尺寸归一化和几何检查；这是独立工具，不替换上方图片与打印细节任务。</p>
+        <div class="import-drop" id="model-import-drop" role="button" tabindex="0" aria-label="选择 STL 或 GLB 模型文件">
+          <input id="model-import-file" type="file" accept=".stl,.glb,model/stl,model/gltf-binary" hidden>
+          <span class="upload-mark">＋</span><strong>选取 STL / GLB 文件</strong><span id="model-import-name">模型文件留在本地，点击导入后才会发送给本地服务。</span>
+        </div>
+        <div class="import-fields">
+          <label>目标最长边 <span class="import-input"><input id="import-target-edge" type="number" min="1" max="180" step="any" value="40"><i>mm</i></span></label>
+          <label>源模型单位<select id="import-source-units"><option value="target-scale" selected>按目标最长边缩放</option><option value="mm">mm</option></select></label>
+        </div>
+        <button class="button import-button" id="import-model-button" type="button" disabled>导入并检查几何</button>
+        <p class="import-status" id="model-import-status" role="status">仅检查几何尺寸、闭合性和服务提供的网格检查；不做切片、强度或实物可打印性判断。</p>
+      </section>
+    </aside>
+
+    <section class="work-column">
+      <div class="work-heading"><div><div class="page-kicker">候选几何 <span>/</span> 实际切片证据</div><h2>模型与路径</h2></div><div class="job-pill"><span class="pulse" id="job-pulse"></span><span id="job-stage">等待输入</span></div></div>
+      <section class="viewer-card">
+        <div class="viewer-bar"><div class="candidate-tabs" id="candidate-tabs"><button class="selected" type="button" disabled>等待候选</button></div><div class="viewer-controls"><button id="download-stl" type="button" disabled>下载候选 STL</button><button id="download-svg" type="button" disabled>下载路径 SVG</button><span>拖动旋转 · 滚轮缩放</span><button id="reset-view" type="button" aria-label="重置视角" title="重置视角">⟳</button></div></div>
+        <div class="viewer-stage" id="viewer-stage"><canvas id="mesh-canvas" aria-label="平面标牌毫米坐标三维预览"></canvas><div class="viewer-overlay" id="viewer-message"><div class="empty-icon">△</div><strong>等待候选网格</strong><span>选用白底黑字或载入程序样例开始验证</span></div><div class="axis"><b>X</b><b>Y</b><b>Z</b></div><span class="mm-tag">CAD · mm · Z 向上</span></div>
+        <div class="viewer-footer" id="viewer-footer"><span><i></i><span id="mesh-status">无活动候选</span></span><span id="mesh-info">底面 z=0 · XY 居中</span></div>
+      </section>
+      <section class="card imported-model-card" id="imported-model-result" hidden>
+        <div class="card-title"><div><span class="step import-step">G</span><h3>已导入网格 · 独立几何检查</h3></div><button id="download-imported-stl" type="button" disabled>下载归一化 STL</button></div>
+        <div class="imported-model-grid">
+          <div class="imported-preview"><canvas id="imported-mesh-canvas" aria-label="归一化导入网格三维预览"></canvas><div class="imported-preview-note">归一化网格 · mm · Z 向上</div></div>
+          <div class="imported-summary">
+            <div class="imported-size"><span>归一化尺寸</span><strong id="imported-dimensions">—</strong></div>
+            <div id="imported-summary-extra" class="imported-summary-extra"></div>
+            <div class="import-geometry-note">几何检查范围：尺寸、拓扑与闭合性。这里不会给出切片、强度或实际打印通过结论。</div>
+            <div id="imported-checks" class="check-list"></div>
+            <div id="imported-warnings" class="metric-warnings" hidden></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="evidence-grid">
+        <section class="card detail-card"><div class="card-title"><div><span class="step">04</span><h3>切片结果</h3></div><span id="slice-profile" class="small-note">等待切片</span></div>
+          <div class="metric-grid"><div><span>体积</span><strong id="metric-volume">—</strong><small>mm³</small></div><div><span>耗材</span><strong id="metric-filament">—</strong><small>g</small></div><div><span>路径长度</span><strong id="metric-length">—</strong><small>mm</small></div><div><span>估算时间</span><strong id="metric-time">—</strong><small>min</small></div></div>
+          <div id="metric-warnings" class="metric-warnings" hidden></div>
+          <div class="path-heading"><strong>实际切片路径 · 凸起区域</strong><span id="path-meta">尚无路径证据</span></div>
+          <div class="path-box" id="path-box"><div class="path-empty" id="path-empty">候选完成实际切片和路径复核后，在此查看凸起区域挤出路径。</div><img id="path-image" alt="目标凸起区域的实际切片路径 SVG" hidden></div>
+        </section>
+        <section class="card verify-card"><div class="card-title"><div><span class="step">05</span><h3>几何与细节检查</h3></div><span id="verification-pill" class="result-pill idle">待验证</span></div>
+          <div id="verification-summary" class="verification-summary">尚未收到切片后的路径复核结果。</div>
+          <div id="verification-metrics" class="verification-metrics"></div>
+          <div id="candidate-checks" class="check-list"></div>
+          <div class="light-rule">原始白底黑色底板只用于几何对照。彩色差异标识不会替代网格凸起，也不会表示已通过验证。</div>
+        </section>
+      </div>
+
+      <section class="card run-card" id="run-card"><div class="run-header"><div><span class="step">06</span><h3>任务执行与记录</h3></div><span id="run-id" class="run-id">尚未启动任务</span></div>
+        <div class="run-summary" id="run-summary">真实 AGH 工具步骤只会标记带有 <code>source: agh</code> 的事件。</div>
+        <div id="events" class="event-list"><div class="event-empty">执行进度和候选历史会显示在这里。</div></div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

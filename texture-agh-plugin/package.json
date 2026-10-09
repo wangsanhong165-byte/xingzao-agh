@@ -1,0 +1,15 @@
+{
+  "name": "@photo-cad/texture-tools",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "Apache-2.0",
+  "exports": "./index.mjs",
+  "agnes": {
+    "plugins": [
+      { "export": "textureInspectTool", "id": "ext:photo-cad/texture-inspect", "inject": ["extension"] },
+      { "export": "textureGenerateTool", "id": "ext:photo-cad/texture-generate", "inject": ["extension"] },
+      { "export": "textureVerifyTool", "id": "ext:photo-cad/texture-verify", "inject": ["extension"] },
+      { "export": "textureSubmitTool", "id": "ext:photo-cad/texture-submit", "inject": ["extension"] }
+    ]
+  }
+}

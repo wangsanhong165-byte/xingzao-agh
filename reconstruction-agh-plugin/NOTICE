@@ -1,0 +1,6 @@
+photo-cad reconstruction tools
+Copyright 2026 the photo-cad project contributors
+
+Licensed under the Apache License, Version 2.0. This package contains original reconstruction
+service integration code and does not bundle Agnes Harness source files. Its native plugin entry
+uses the public extension API; no third-party model weights are included.

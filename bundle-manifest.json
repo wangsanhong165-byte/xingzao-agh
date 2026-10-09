@@ -1,0 +1,2253 @@
+{
+  "schema": "xingzao-review-bundle/v1",
+  "createdAt": "2026-10-09T10:38:14.498Z",
+  "evidenceBytes": 20580038,
+  "payloadBytes": 23116024,
+  "summary": {
+    "task": "versioned-five-pose-original-delivery-and-historical-repair",
+    "source": "team-original-parametric-design; not a photograph",
+    "scope": "cached files and toolpath re-evaluation, not model execution replay",
+    "physicalPrintVerified": false
+  },
+  "claims": {
+    "cachedEvidenceVerification": true,
+    "liveModelRequestVerified": false,
+    "inferenceVerified": false,
+    "physicalPrintVerified": false
+  },
+  "files": [
+    {
+      "path": "case/source-original.stl",
+      "kind": "evidence",
+      "bytes": 77784,
+      "sha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129"
+    },
+    {
+      "path": "case/probes-original.json",
+      "kind": "evidence",
+      "bytes": 588545,
+      "sha256": "ab784037ceb6b97cf721fb58ea2c351e5cd0c7a4ae6e05db9ef37487d2276106"
+    },
+    {
+      "path": "case/baseline-pose.stl",
+      "kind": "evidence",
+      "bytes": 77784,
+      "sha256": "793f146429d4e88dbe83a0b2a39955aceb6abece403311b8b74595e3b0fb78f4"
+    },
+    {
+      "path": "case/baseline.gcode",
+      "kind": "evidence",
+      "bytes": 175768,
+      "sha256": "fb82fecf364fc32b293dfc0a928c0025acc0d2994f16958c0b276cbe88debf8b"
+    },
+    {
+      "path": "case/boundary-source.stl",
+      "kind": "evidence",
+      "bytes": 77784,
+      "sha256": "2c00ca76d21f68a636acc833f67c4c6a5cff4c582ef2658a412065ba8a4395db"
+    },
+    {
+      "path": "case/boundary-pose.stl",
+      "kind": "evidence",
+      "bytes": 77784,
+      "sha256": "ea7f64a1f7c0e9dafbe39f70d4f8df496ae97417f8f86fa2b82d8ddc8a34a4da"
+    },
+    {
+      "path": "case/boundary.gcode",
+      "kind": "evidence",
+      "bytes": 215393,
+      "sha256": "b83de4594ff21b94ce7bce02c0ad1eac8229d08e72941617897f864d4f856145"
+    },
+    {
+      "path": "case/boundary-probes.json",
+      "kind": "evidence",
+      "bytes": 598513,
+      "sha256": "0fb0df445c1c0258a84dfb5cc88f39285fa4c9f3c3ab825c39da5dc02603e629"
+    },
+    {
+      "path": "case/normal-source.stl",
+      "kind": "evidence",
+      "bytes": 77784,
+      "sha256": "a029a555ce54a5d74ee608184e4f61174bc36976c92ef6e14f377e9220561019"
+    },
+    {
+      "path": "case/normal-pose.stl",
+      "kind": "evidence",
+      "bytes": 77784,
+      "sha256": "6f7d020c532f6b21b87e89397b1a4fe4313f608388341497be5eb75f13696023"
+    },
+    {
+      "path": "case/normal.gcode",
+      "kind": "evidence",
+      "bytes": 230644,
+      "sha256": "743b2288b0eb78436d2469d70ff9c108150b64ef2d3fc3cd8c8f8fa23b71c942"
+    },
+    {
+      "path": "case/normal-probes.json",
+      "kind": "evidence",
+      "bytes": 598502,
+      "sha256": "ccce3ce50e079bbdedf8cf4bf967d5c67c9c4dfb09bd1316c41aac3c2460c580"
+    },
+    {
+      "path": "case/face-up-pose.stl",
+      "kind": "evidence",
+      "bytes": 77784,
+      "sha256": "2c44e5007ba417f036aa8b35c14e3bb5fed30da271992381e976a19a5572f4b7"
+    },
+    {
+      "path": "case/face-up.gcode",
+      "kind": "evidence",
+      "bytes": 81620,
+      "sha256": "3539cae6766380df2937b5808c53f9627644f2e88d2d3685e69b88db79014c1c"
+    },
+    {
+      "path": "case/cases.json",
+      "kind": "evidence",
+      "bytes": 6140,
+      "sha256": "f1aa03bd2b8087ba14f6bda852ba923f6534be2f3f37a1a988a7e057adced15a"
+    },
+    {
+      "path": "case/native-summary.json",
+      "kind": "evidence",
+      "bytes": 3352,
+      "sha256": "e6d428c07a32e334e38dbf8d6abe6006498bc0ce203f8e2debd9e4df7dcad190"
+    },
+    {
+      "path": "case/visual-selection.png",
+      "kind": "evidence",
+      "bytes": 97971,
+      "sha256": "e2c04b0b7cf630980ed3f16c05513e7dca84cd06f1b9e5a9b507d110c30bf47c"
+    },
+    {
+      "path": "case/skull-source.stl",
+      "kind": "evidence",
+      "bytes": 12000084,
+      "sha256": "f7ca276d0715bb1110ef264d318ca5da655bd7a1615f44654ed228431a2feee3"
+    },
+    {
+      "path": "case/skull-input-front.png",
+      "kind": "evidence",
+      "bytes": 562841,
+      "sha256": "037559a477d25b5cc6c6a92ba0d668df3154692ed60e2066b39a9cfc29c23a53"
+    },
+    {
+      "path": "case/skull-input-left.png",
+      "kind": "evidence",
+      "bytes": 596916,
+      "sha256": "c9e01f7189e5687fbf61a6468776dc9d927f8620d5a529386404b92d48b8f287"
+    },
+    {
+      "path": "case/skull-input-back.png",
+      "kind": "evidence",
+      "bytes": 540781,
+      "sha256": "1496fea794abd591ad1acc536186d6611547f8cbc2de766d7291c662fe86b771"
+    },
+    {
+      "path": "case/skull-render.png",
+      "kind": "evidence",
+      "bytes": 397799,
+      "sha256": "2d317a563483f2fb95cbfb13912e37eb51456670c500046d6b058b9464573fd6"
+    },
+    {
+      "path": "case/skull-input-manifest.json",
+      "kind": "evidence",
+      "bytes": 2311,
+      "sha256": "d327c8b24a58c31853fb2e85a889e9aa080fc703ab70e64452c0669e293c0005"
+    },
+    {
+      "path": "case/skull-raw-quality-proxy.json",
+      "kind": "evidence",
+      "bytes": 3942,
+      "sha256": "8ec1b5079476311ef05b0079218ced92d5c3854a05c1601be9c03302b05a0d08"
+    },
+    {
+      "path": "case/skull/reference/front.png",
+      "kind": "evidence",
+      "bytes": 562841,
+      "sha256": "037559a477d25b5cc6c6a92ba0d668df3154692ed60e2066b39a9cfc29c23a53"
+    },
+    {
+      "path": "case/skull/delivered-alpha/front.png",
+      "kind": "evidence",
+      "bytes": 342396,
+      "sha256": "a1596402df549b3dc66c97b986ccb46c795e80936cbb319ec44d91a5a3fedbc1"
+    },
+    {
+      "path": "case/skull/reference/left.png",
+      "kind": "evidence",
+      "bytes": 596916,
+      "sha256": "c9e01f7189e5687fbf61a6468776dc9d927f8620d5a529386404b92d48b8f287"
+    },
+    {
+      "path": "case/skull/delivered-alpha/left.png",
+      "kind": "evidence",
+      "bytes": 343474,
+      "sha256": "98471cdb814294e1a81df44de79117990fae2e6dfc23f19d7e6b42e1257b49be"
+    },
+    {
+      "path": "case/skull/reference/back.png",
+      "kind": "evidence",
+      "bytes": 540781,
+      "sha256": "1496fea794abd591ad1acc536186d6611547f8cbc2de766d7291c662fe86b771"
+    },
+    {
+      "path": "case/skull/delivered-alpha/back.png",
+      "kind": "evidence",
+      "bytes": 301845,
+      "sha256": "95afe92224df5bd3b03bf04e79751d3146b66b64e0ce365f5f0d9c636d10362d"
+    },
+    {
+      "path": "case/skull/delivered-alpha/blender-checks.json",
+      "kind": "evidence",
+      "bytes": 965,
+      "sha256": "336efc92b9a3fb33ab7b6c3ac4b59eef154778d7b8ad98cc42dfb6a8874dca41"
+    },
+    {
+      "path": "case/skull/delivered-quality-proxy.json",
+      "kind": "evidence",
+      "bytes": 3934,
+      "sha256": "ad00b109196ee2a1e45c8d27a82b7acdd42d9cbbf95e46208fda65ae7a685411"
+    },
+    {
+      "path": "case/five/normal-workflow.json",
+      "kind": "evidence",
+      "bytes": 43121,
+      "sha256": "460c84b14097e98e0e39814506d76ca38e378046e71f249f87fb2c13b1116091"
+    },
+    {
+      "path": "case/five/normal-native.json",
+      "kind": "evidence",
+      "bytes": 43513,
+      "sha256": "4f84874b5d623daf66e4457007686f566ba139e8bc42b3e21c8a6e4f79984958"
+    },
+    {
+      "path": "case/five/posed.stl",
+      "kind": "evidence",
+      "bytes": 77784,
+      "sha256": "2c44e5007ba417f036aa8b35c14e3bb5fed30da271992381e976a19a5572f4b7"
+    },
+    {
+      "path": "case/five/result.gcode",
+      "kind": "evidence",
+      "bytes": 81620,
+      "sha256": "0e8b25af7ef7b6b19a11f011f4f4a2d8795d07ddddeaf87df1c64179e31d496c"
+    },
+    {
+      "path": "case/five/probes.json",
+      "kind": "evidence",
+      "bytes": 260691,
+      "sha256": "006c242f3c12ca6034bbb5212cbd3219123c2fd354b8a59b9c67561af17bb6ac"
+    },
+    {
+      "path": "case/five/tiny-growth-workflow.json",
+      "kind": "evidence",
+      "bytes": 43121,
+      "sha256": "a0b9e996e4797c97c8fb5c4237badb17fe06f91626ded3c10df077e7deae4058"
+    },
+    {
+      "path": "case/five/tiny-growth-native.json",
+      "kind": "evidence",
+      "bytes": 43513,
+      "sha256": "e7d68b5de66ea4b9adac251a889bd08cdaa30d157999730a4de90646c5e973b0"
+    },
+    {
+      "path": "case/five/startup-failure.json",
+      "kind": "evidence",
+      "bytes": 4279,
+      "sha256": "f5c3b455f6a853ec93a63f73239943814d1697cc0fe744d1973c53e19a692a81"
+    },
+    {
+      "path": "case/five/schema-failure.json",
+      "kind": "evidence",
+      "bytes": 42764,
+      "sha256": "0983c042e890a5d84b4dba46a4f2b12c90c0ac75aa9950a059b874196496340c"
+    },
+    {
+      "path": "case/five/summary.json",
+      "kind": "evidence",
+      "bytes": 870,
+      "sha256": "cdf028145fcefc0d513268275d6efddda7d85d578b39c502b0824165b9b7d13d"
+    },
+    {
+      "path": "evidence/review-snapshot.json",
+      "kind": "snapshot",
+      "bytes": 10438,
+      "sha256": "4458b6e6974bff5fa583d5237a6f2a4c649359d8d1da44517cdebe782505d9d3"
+    },
+    {
+      "path": "README.md",
+      "kind": "source",
+      "bytes": 3369,
+      "sha256": "5f54fdf0682ef2bbf64dbfee34c204b3aa3930ad94f1501af235a3183504439c"
+    },
+    {
+      "path": "agh-plugin/README.md",
+      "kind": "source",
+      "bytes": 2900,
+      "sha256": "aac83037d34090d8c6be90f32b2c1e0430f89d5bb62eb8783dcd8a4f3f0f3e9b"
+    },
+    {
+      "path": "agh-plugin/index.mjs",
+      "kind": "source",
+      "bytes": 11877,
+      "sha256": "1aa9107b58c33621916e582fc6c88d8fa3bac9ab5211fd4cca77a3f1d9f07c76"
+    },
+    {
+      "path": "agh-plugin/package.json",
+      "kind": "source",
+      "bytes": 306,
+      "sha256": "b174f87173f0cf965ad7216c4019714b90bfc3e0ac8f73148a7c07b7253a04e7"
+    },
+    {
+      "path": "agh-plugin/plugin.test.mjs",
+      "kind": "source",
+      "bytes": 1016,
+      "sha256": "0031ff2c0f6e09e15aa71a755f80364906070a60e564c83ce3158b3a694f5234"
+    },
+    {
+      "path": "agh-plugin/setup.ps1",
+      "kind": "source",
+      "bytes": 1338,
+      "sha256": "382f6a1860a7fb118855656ff870027d17bb38ff6b356c6c558e4ed4a19c3817"
+    },
+    {
+      "path": "docs/agh-integration-findings.md",
+      "kind": "source",
+      "bytes": 4053,
+      "sha256": "1f3a384671ca2caec794cb54f3b9dab9f801a8144095e0f744016e1545600038"
+    },
+    {
+      "path": "docs/agh-v2-tool-probe-2026-10-02.md",
+      "kind": "source",
+      "bytes": 3411,
+      "sha256": "4d0dfffa95c8e8f07b9d72e497ecdb942968c0a322af22af4a1feced3ed49c72"
+    },
+    {
+      "path": "docs/agnes-native-evidence-2026-10-02.md",
+      "kind": "source",
+      "bytes": 2244,
+      "sha256": "17d6a9c8d77bece68c77dc4c641bdd6743a7d3fe3ce8bcf9830225849d3393b2"
+    },
+    {
+      "path": "docs/application-report-review-2026-10-04.md",
+      "kind": "source",
+      "bytes": 6980,
+      "sha256": "97acfad9cf15438612c6c709a88399f9240007bcf5ebe10a5c94569b4a288d8f"
+    },
+    {
+      "path": "docs/closeout-2026-10-04.md",
+      "kind": "source",
+      "bytes": 2980,
+      "sha256": "6c64cd948fbc3fae46819c20ddb59ae0f0afd80b521f36dc20075fa3943e3790"
+    },
+    {
+      "path": "docs/color-projection-experiment-2026-10-04.md",
+      "kind": "source",
+      "bytes": 2747,
+      "sha256": "bc24243f87e15ae849d636402b7b311a77baa2d2725aeac39084814aa1170018"
+    },
+    {
+      "path": "docs/competitiveness-priorities-2026-10-07.md",
+      "kind": "source",
+      "bytes": 10817,
+      "sha256": "cb24b789cf5d251350e9121c4f79798584e105c864469d6ff916800cfbc2f4a0"
+    },
+    {
+      "path": "docs/complete-object-validation-2026-10-05.md",
+      "kind": "source",
+      "bytes": 7068,
+      "sha256": "f4cbfc0ca290d0bdb2a46c7d056c65c29a7bbc1f048b3e3eff2ae79f73f3e43c"
+    },
+    {
+      "path": "docs/critical-feature-audit-2026-10-03.md",
+      "kind": "source",
+      "bytes": 5440,
+      "sha256": "bee3a08a81eba03c43f4c3eb426bd2471a6f90377424f73fe05fc23358583cb6"
+    },
+    {
+      "path": "docs/execution-checkpoint-2026-10-02.md",
+      "kind": "source",
+      "bytes": 3186,
+      "sha256": "533437a07a1281a13cefaaab78a809b8afe36da300cc33a06c5bacc749d3c180"
+    },
+    {
+      "path": "docs/first-delegation-validation-2026-10-08.md",
+      "kind": "source",
+      "bytes": 4085,
+      "sha256": "a1a919db8722f354841404e2645031f4a150b3b0aadb0b231771530316bb2565"
+    },
+    {
+      "path": "docs/five-pose-validation-2026-10-08.md",
+      "kind": "source",
+      "bytes": 3709,
+      "sha256": "2f7f5503bce5e79ee90186f055288c39973b253432270eefdae1fd42256c11b0"
+    },
+    {
+      "path": "docs/gemini-research-review-2026-10-02.md",
+      "kind": "source",
+      "bytes": 6547,
+      "sha256": "44c789072a86e4d53ac59dffb23cf0497714388994a7776d04708dc33f63eb21"
+    },
+    {
+      "path": "docs/hair-quality-investigation-2026-10-03.md",
+      "kind": "source",
+      "bytes": 4817,
+      "sha256": "2d058e68620374435976ec584459f18aa15340d3f439c3b47ee4c232df268126"
+    },
+    {
+      "path": "docs/image-blaster-competitive-review-2026-10-04.md",
+      "kind": "source",
+      "bytes": 5109,
+      "sha256": "6e54982d4fbce8f9232f9407e39df7d3c611be3711298884d872922d201e5195"
+    },
+    {
+      "path": "docs/local-rod-repair-validation-2026-10-04.md",
+      "kind": "source",
+      "bytes": 5026,
+      "sha256": "bd2c3d0ae08d19a385d9f30aa10387d10e0f813e18b29379730998984eddc176"
+    },
+    {
+      "path": "docs/material-validation-2026-10-02.md",
+      "kind": "source",
+      "bytes": 1911,
+      "sha256": "606b1ce6bcbcec194c8ec33fd5623dfdf11cd227aaeb80100ea0cfc3581d301d"
+    },
+    {
+      "path": "docs/meeting-rule-audit-2026-10-08.md",
+      "kind": "source",
+      "bytes": 7185,
+      "sha256": "f2b2808c22314cb02d0f8d497c22e6b3a6db9b9857c24d014442a5856f466a2d"
+    },
+    {
+      "path": "docs/model-import.md",
+      "kind": "source",
+      "bytes": 2670,
+      "sha256": "34f799a026e4cecf9747cd7e3ec1dd66d62a45aab0222f238d0b0cc776cfcf92"
+    },
+    {
+      "path": "docs/model-policy-update-2026-10-03.md",
+      "kind": "source",
+      "bytes": 3188,
+      "sha256": "a9fd112b847efced94cf2dd524535596d4547373b88a640d16adcefdea9a9ec0"
+    },
+    {
+      "path": "docs/photo-and-baseline-validation-2026-10-07.md",
+      "kind": "source",
+      "bytes": 4240,
+      "sha256": "887e60cec065bbbbd3d6c919e963b9e97c2100c5cdbe008afe398cf7cf3aeb8c"
+    },
+    {
+      "path": "docs/planar-validation-2026-10-02.md",
+      "kind": "source",
+      "bytes": 3129,
+      "sha256": "c093059b2b8350a7b5fd21e310db83a2f5b88462589699942665b2a1d55e54d6"
+    },
+    {
+      "path": "docs/pose-comparison-2026-10-03.md",
+      "kind": "source",
+      "bytes": 5068,
+      "sha256": "c11b471e2cace56dc5b36f26334849687fb658a0408101b579b0cc6b176149ae"
+    },
+    {
+      "path": "docs/print-detail.md",
+      "kind": "source",
+      "bytes": 4476,
+      "sha256": "5a54f2b99d53c945576d026add8ee4ade04c57724e8f20966afa42740cd9050d"
+    },
+    {
+      "path": "docs/product-and-narrative-audit-2026-10-08.md",
+      "kind": "source",
+      "bytes": 3610,
+      "sha256": "c23c4ee2e8e405a6ea2bd8040602fb2d9927f3a899c37bcc68c531615ed71b00"
+    },
+    {
+      "path": "docs/product-closure-2026-10-09.md",
+      "kind": "source",
+      "bytes": 5954,
+      "sha256": "71e2f7228f7a79f2b9d4c2fcb2d52e49db8d05d2d32e2d4479a718de272a164d"
+    },
+    {
+      "path": "docs/product-gap-validation-2026-10-09.md",
+      "kind": "source",
+      "bytes": 5527,
+      "sha256": "3dfbf30613ba736cd9072dbd749ab8674764a61d307af8707d2de7575f2d4ee4"
+    },
+    {
+      "path": "docs/professional-model-actual-slice-2026-10-02.md",
+      "kind": "source",
+      "bytes": 1986,
+      "sha256": "7a0af90293901aa605496aae2bd9a3f769cfec082865b53d3e53f42a59478f9c"
+    },
+    {
+      "path": "docs/protection-recovery-validation-2026-10-09.md",
+      "kind": "source",
+      "bytes": 4536,
+      "sha256": "d17a1c0e9f0bb337f3add2a1a78c843d94248439de5ae3d0f4fe8fa51be44463"
+    },
+    {
+      "path": "docs/public-photo-probe-2026-10-04.md",
+      "kind": "source",
+      "bytes": 2781,
+      "sha256": "99f3c6106d5e0264695d6e381dfc592e34fd7ffb9442b012c749c2505766c515"
+    },
+    {
+      "path": "docs/reconstruction-model-quality-review-2026-10-04.md",
+      "kind": "source",
+      "bytes": 8013,
+      "sha256": "056a3f642f56109148791c97faf46f73d80c6e3f5e2fd2fb191b9ed5751a6b22"
+    },
+    {
+      "path": "docs/reconstruction-workflow-2026-10-03.md",
+      "kind": "source",
+      "bytes": 3513,
+      "sha256": "abe6991fa3c69e9e54e860559a33cd869761b0cd78a9b508eeb6b911a88bb194"
+    },
+    {
+      "path": "docs/review-bundle-2026-10-07.md",
+      "kind": "source",
+      "bytes": 2962,
+      "sha256": "e842bb2bd19a8e261621d51a354e75cbda7c262783d0bdc3f7a242fb1e78d11f"
+    },
+    {
+      "path": "docs/review-cached-check-2026-10-07.md",
+      "kind": "source",
+      "bytes": 1766,
+      "sha256": "bc8920ce9e5004a8c0a020f699ce92ed2dcc709a6a6a5cbda8c183662059953a"
+    },
+    {
+      "path": "docs/review-preflight-2026-10-07.md",
+      "kind": "source",
+      "bytes": 3360,
+      "sha256": "7af0a85be067aec0a852dd6362067ab88cb77475b3b031ed5c162a69031c1436"
+    },
+    {
+      "path": "docs/rules-and-project-gap-review-2026-10-05.md",
+      "kind": "source",
+      "bytes": 7043,
+      "sha256": "0dfaed9f729ba02531bbf736571a187dd4420a38b6234f115ee96a19d275904c"
+    },
+    {
+      "path": "docs/spec-print-detail.md",
+      "kind": "source",
+      "bytes": 5928,
+      "sha256": "22f8357727034a6745dc3d7a5e21a26e2d63057564b0e1caa009aaa730050d50"
+    },
+    {
+      "path": "docs/spec.md",
+      "kind": "source",
+      "bytes": 4475,
+      "sha256": "ba660467072f213a687edfea8a52159b9b27661d8e0b96796636917f9a8d27bc"
+    },
+    {
+      "path": "docs/submission-audit-2026-10-09.md",
+      "kind": "source",
+      "bytes": 4232,
+      "sha256": "25e15f08c4bc90c77f0ac0cc5d5c40308c09e011aabb0cd736e507863061b194"
+    },
+    {
+      "path": "docs/submission-draft-2026-10-07.md",
+      "kind": "source",
+      "bytes": 4755,
+      "sha256": "120202d39e1fd43342985865af7798de457902aee52fcf4731577c07cfe3fb44"
+    },
+    {
+      "path": "docs/submission-readiness-2026-10-07.md",
+      "kind": "source",
+      "bytes": 11862,
+      "sha256": "0a718eb80b2df825ccb82d8a6f972bfe935776fd01d7b092c74d067530baa318"
+    },
+    {
+      "path": "docs/submission-requirements-2026-10-01.md",
+      "kind": "source",
+      "bytes": 3358,
+      "sha256": "c4f33b22ab0c23ad2eb9b6835db3247b637c88b25331729c1260c50e28f48e2d"
+    },
+    {
+      "path": "docs/submission-requirements-2026-10-02.md",
+      "kind": "source",
+      "bytes": 5042,
+      "sha256": "f625d1fad34111d112686df6b90f235ea75089c1b74af58252fcabfbb3256f14"
+    },
+    {
+      "path": "docs/submission-requirements-2026-10-05.md",
+      "kind": "source",
+      "bytes": 1486,
+      "sha256": "420675daf7ca2574bfca2fb2f31bff777c072a0f14a3bcb25d114db83abd9f1f"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-01-agh-print-detail.md",
+      "kind": "source",
+      "bytes": 2610,
+      "sha256": "b4254b3993a3054738e57fc9b7ca70dff372dda8e13e9d208e459195c968560d"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-01-photo-cad.md",
+      "kind": "source",
+      "bytes": 3224,
+      "sha256": "6a9740e519cfbc3cabb45fbc3c78d19a18fce29b5b08a3779c9d92d04bbc2e23"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-01-submission-preparation.md",
+      "kind": "source",
+      "bytes": 1065,
+      "sha256": "14c61f085327a28f6941a114e5f1ddad22327b249770e12dd037201efad340d0"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-02-competition-roadmap.md",
+      "kind": "source",
+      "bytes": 23859,
+      "sha256": "595ae5da08f909a336d815c15e4294480c8454d93e35d30b04ab9814801dae8e"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-02-multiview-agh-integration.md",
+      "kind": "source",
+      "bytes": 4330,
+      "sha256": "c47b7326d39b694812fa063d315533a62fdee85cc0bc201ef436ccc60697b300"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-03-constrained-pose-comparison.md",
+      "kind": "source",
+      "bytes": 3413,
+      "sha256": "58ac41b1b6bbd75b52077e6deacaa36daca3ed5ad17987f6707c603eb55cbbc2"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-03-critical-feature-audit.md",
+      "kind": "source",
+      "bytes": 4871,
+      "sha256": "ab21150e7a453c449a443a7b2b2be01370b43fd37a525644c3b9e08f4af7d862"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-03-local-rod-repair.md",
+      "kind": "source",
+      "bytes": 3473,
+      "sha256": "c2d7d4d4be4d720669864f2cca957c7e9160c1872bf2168694e8004a76e88089"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-04-reconstruction-quality-probe.md",
+      "kind": "source",
+      "bytes": 3590,
+      "sha256": "e0874fd70e286dd8a213c68bcec71538366723ecbd68073512591b1d25f83341"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-04-texture-agh-integration.md",
+      "kind": "source",
+      "bytes": 8186,
+      "sha256": "cde3a8c950a6a080f4422f97b15e96d855dd64b1ffecf05d95ae96872cad4720"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-05-complete-object-validation.md",
+      "kind": "source",
+      "bytes": 5159,
+      "sha256": "f39688b3633bb8911287d72520f506bc838ed8b8c5f3dbdb4b3925869684782e"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-05-visual-rod-selection.md",
+      "kind": "source",
+      "bytes": 1410,
+      "sha256": "b1e18bd6aef676ba83349f9c93afc2cf96746510f782f51bb7377c86cd9840de"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-07-real-photo-and-review-bundle.md",
+      "kind": "source",
+      "bytes": 3497,
+      "sha256": "c4df0d64b03bb9d5c8734093d244bce179d06d8afb832f88af87fa8f37e24567"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-08-first-delegation.md",
+      "kind": "source",
+      "bytes": 2508,
+      "sha256": "febf314a50400087ecc14719e3616bc1f58602c36bf193469f74a70dbd1b8c06"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-08-five-pose-policy.md",
+      "kind": "source",
+      "bytes": 1818,
+      "sha256": "2d91857c214ea48ed420b031f6699d23bd8ed3ffa245158297153d06882df1f4"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-08-submission-closeout.md",
+      "kind": "source",
+      "bytes": 1323,
+      "sha256": "f63d8703342fe03e6b8fb5002c7b4e3b95a5b4a0b1d901f1f882342afbf9b0e0"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-08-video-refresh.md",
+      "kind": "source",
+      "bytes": 2208,
+      "sha256": "e07bfaf71fcca6f8047444396e898970971f7888a76bad436ecaae0f1b8ec2d6"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-09-product-closure-plan.md",
+      "kind": "source",
+      "bytes": 1022,
+      "sha256": "bfecd2832279a16cfadccf133a57b6be37dd02e8c95e0d11d76e72250a53c063"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-09-product-gap-plan.md",
+      "kind": "source",
+      "bytes": 2031,
+      "sha256": "1357373c5e2dae28e8235c842683a03eb885f5f2ff4046373cd4084142e167ab"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-09-protection-recovery-plan.md",
+      "kind": "source",
+      "bytes": 1421,
+      "sha256": "39f98d64181c5b6d139d56bf32c1ef245d3767d6d500db47a1785217c4965a97"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-09-user-character-tests.md",
+      "kind": "source",
+      "bytes": 1193,
+      "sha256": "4fdf8e9c06d1bc4c0981d09235ebd4d02a405a65f77c41970a3d651c4362b408"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-03-constrained-manufacturing-design.md",
+      "kind": "source",
+      "bytes": 2281,
+      "sha256": "138245b3e57e6f1077dd15f4f483cc9cd916ab45b39d588d52c8159fdaf12af1"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-03-local-rod-repair-design.md",
+      "kind": "source",
+      "bytes": 4265,
+      "sha256": "ffd23ac52e1c64be0a27c1aba9bef5af59a5731875d87c0780e6fa2d4607226c"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-09-product-closure-design.md",
+      "kind": "source",
+      "bytes": 1561,
+      "sha256": "c4e97f98ea92b60dfb8ed7a6986c9627ef6c6e929b5c46647821d3be573a503c"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-09-product-gap-design.md",
+      "kind": "source",
+      "bytes": 2255,
+      "sha256": "6f664f9e56363a3bc495ade7e1ad20e0ca9a07516d8bcf78e368722c19ee6a68"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-09-protection-recovery-design.md",
+      "kind": "source",
+      "bytes": 1435,
+      "sha256": "d24c128826808d7ae0fef5d7a8b723b9871e460ae89b1533b4f2cdb199c1bb6b"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-09-texture-uv-scale-design.md",
+      "kind": "source",
+      "bytes": 962,
+      "sha256": "d348b24ca427eb6ed1107d6a685b0515c6cb1737ae46aa5495c7e62af008f234"
+    },
+    {
+      "path": "docs/texture-agh-integration-validation-2026-10-05.md",
+      "kind": "source",
+      "bytes": 7230,
+      "sha256": "009db387ebbde920795f37e3a9b8673475d8b8821ed1a737a43a114aa69365ff"
+    },
+    {
+      "path": "docs/texture-feasibility-checkpoint-2026-10-04.md",
+      "kind": "source",
+      "bytes": 6493,
+      "sha256": "1552bfa21437e2a7ff5fee608d1df589330ce6cd7fe6193a1aa7ced6cc2fb560"
+    },
+    {
+      "path": "docs/texture-model-first-run-2026-10-04.md",
+      "kind": "source",
+      "bytes": 11038,
+      "sha256": "c4135735503bd6e56eb05ef19440736621f8cc3c4bcd03ea1f80e1ee2baa8c0b"
+    },
+    {
+      "path": "docs/user-character-validation-2026-10-09.md",
+      "kind": "source",
+      "bytes": 6849,
+      "sha256": "17bd36038a3c46f216a821027ecd57f857623e3c542f86f689155cc27aa8c535"
+    },
+    {
+      "path": "docs/visual-rod-selection-validation-2026-10-05.md",
+      "kind": "source",
+      "bytes": 3913,
+      "sha256": "46151eba5d2a85bc8c5426351ef0bf672949d6e5527263d477d9da322017f775"
+    },
+    {
+      "path": "docs/下一阶段执行计划-2026-10-03.md",
+      "kind": "source",
+      "bytes": 7578,
+      "sha256": "5c18ec510616591fbb3a3a99f5d625442cfa684717775e2d081514d1ffbda080"
+    },
+    {
+      "path": "package-lock.json",
+      "kind": "source",
+      "bytes": 1831,
+      "sha256": "3109d3b43c82371169ecd225ff16e6e7e0eb70878a46ca3c452cc562bce0b4d7"
+    },
+    {
+      "path": "package.json",
+      "kind": "source",
+      "bytes": 484,
+      "sha256": "ae4aef97e7cc6c9532c8670b8b5b3b1dd6928a85784e143f4db336127996bb10"
+    },
+    {
+      "path": "pose-agh-plugin/LICENSE",
+      "kind": "source",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "pose-agh-plugin/README.md",
+      "kind": "source",
+      "bytes": 1365,
+      "sha256": "3cd80b47a4191229919b7075aece5ebd21d6a11cb9538b5ea5afa1832d91dd7b"
+    },
+    {
+      "path": "pose-agh-plugin/index.mjs",
+      "kind": "source",
+      "bytes": 6031,
+      "sha256": "c110a5ad81fd085a04679c421258dc82cc053e464f2aa544a74becbc1417da64"
+    },
+    {
+      "path": "pose-agh-plugin/package.json",
+      "kind": "source",
+      "bytes": 671,
+      "sha256": "53f0962489f0aa5d5d31e3d3e856aaef0538b37486983027608ce20ac82ac839"
+    },
+    {
+      "path": "print-agh-plugin/LICENSE",
+      "kind": "source",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "print-agh-plugin/NOTICE",
+      "kind": "source",
+      "bytes": 507,
+      "sha256": "5e740e8c3f0b5e6fbd108499c65f5088c1ea2edacc55e2fb96ac5e935a11d296"
+    },
+    {
+      "path": "print-agh-plugin/README.md",
+      "kind": "source",
+      "bytes": 2056,
+      "sha256": "60d23cf8797d80fdb2d4ac6aa807ae1bb1dccaf124d1242d30b99bf57bd8a868"
+    },
+    {
+      "path": "print-agh-plugin/index.mjs",
+      "kind": "source",
+      "bytes": 6204,
+      "sha256": "01323421d8404eb4e6426760906e976ed6baf56e5127ad51ae1aeb81237b9180"
+    },
+    {
+      "path": "print-agh-plugin/package.json",
+      "kind": "source",
+      "bytes": 691,
+      "sha256": "e5391e9075629fd20c58da830fb4eaf7d349aab7c2f2bb25b57d53b0e1fff3e0"
+    },
+    {
+      "path": "public/app.js",
+      "kind": "source",
+      "bytes": 32384,
+      "sha256": "184ee8b6414cd5791ea904e01f83776a7d6824c110263f817d82e0d6426cd205"
+    },
+    {
+      "path": "public/application-case.css",
+      "kind": "source",
+      "bytes": 3200,
+      "sha256": "d773b5a8ac8060e4d54abf1d8790a84d04f50ff81d73088dddc3abd7912c9b8f"
+    },
+    {
+      "path": "public/application-case.html",
+      "kind": "source",
+      "bytes": 3207,
+      "sha256": "a616c76ff06c624e5525dc4f4ec85770ce7219744e2a86f5ea219dc0da1919c4"
+    },
+    {
+      "path": "public/application-case.js",
+      "kind": "source",
+      "bytes": 6089,
+      "sha256": "8f4b0cf0e6bdc2e845a40ce06182aa410db80bfeaf64a25b932cffcacb739164"
+    },
+    {
+      "path": "public/character-test.html",
+      "kind": "source",
+      "bytes": 4850,
+      "sha256": "4ea09b3cdee5786805b57f5b3719a1326fcd7b3a0659ca942c3833d2492416f6"
+    },
+    {
+      "path": "public/character-test.js",
+      "kind": "source",
+      "bytes": 6444,
+      "sha256": "8d2a20623954260f5ab5141bfe2c3582c27e2f4e23520958ca29143991f1f2c2"
+    },
+    {
+      "path": "public/index.html",
+      "kind": "source",
+      "bytes": 9568,
+      "sha256": "f9e8249478280aee923002092a8403b391c1f9171fd71f5e2b6873a36ef19ec4"
+    },
+    {
+      "path": "public/poses.css",
+      "kind": "source",
+      "bytes": 11469,
+      "sha256": "d6bb7a79d7e2e7d72b650a1ec864a43846344fe56d53d210e133cd7275707048"
+    },
+    {
+      "path": "public/poses.html",
+      "kind": "source",
+      "bytes": 10835,
+      "sha256": "42200f6e3de5e4bf5e8996a246c13573c0a000cad0bb57ac21f0adf0f1ffe900"
+    },
+    {
+      "path": "public/poses.js",
+      "kind": "source",
+      "bytes": 44963,
+      "sha256": "52ca3a3e0a3866d7cb6251334bec1f2db26997a58b24ed7845e1fea9086594b0"
+    },
+    {
+      "path": "public/print-detail.css",
+      "kind": "source",
+      "bytes": 16881,
+      "sha256": "496e658d3c13a53648d76ac960bcc9eb2b908e94a7323cf0bfe048987c395bb8"
+    },
+    {
+      "path": "public/print-detail.html",
+      "kind": "source",
+      "bytes": 11565,
+      "sha256": "9040711487356923de8f0274ad5df01f2a408eb83fd0ac5468da6e6ca5991fac"
+    },
+    {
+      "path": "public/print-detail.js",
+      "kind": "source",
+      "bytes": 51649,
+      "sha256": "e1b981297a9e5c1bd70a4d1508ce91bb6e9d4497b438ee3c5753357ba770ff4d"
+    },
+    {
+      "path": "public/protect.html",
+      "kind": "source",
+      "bytes": 6322,
+      "sha256": "126caa04a0ba9c95a8b05604a19f1653361933593ce6ee735e72696ee509d66e"
+    },
+    {
+      "path": "public/protect.js",
+      "kind": "source",
+      "bytes": 31291,
+      "sha256": "61bccb28c15364eefaf9b1ad6a26e01e9c5a900e9f7f32674239349ed88037bb"
+    },
+    {
+      "path": "public/reconstruct.css",
+      "kind": "source",
+      "bytes": 11221,
+      "sha256": "494ef29d6011bbf749e55ef8ab8d6cc5aecab04ed9f3035ad1be945f8420e5a1"
+    },
+    {
+      "path": "public/reconstruct.html",
+      "kind": "source",
+      "bytes": 5065,
+      "sha256": "9659b5ca751d9a537d7ad8e30a285d746de46ce56a4c782e9ef155ec3379da8b"
+    },
+    {
+      "path": "public/reconstruct.js",
+      "kind": "source",
+      "bytes": 26508,
+      "sha256": "550b9db42aeed6f159cb19d24aeece6a23d833253ffd3f999642b04a96cb8f6c"
+    },
+    {
+      "path": "public/repair.css",
+      "kind": "source",
+      "bytes": 4096,
+      "sha256": "3600ec10e8d29a7cd01dbd1a0b618db87a1fc0f24c19deb27a8d781e4f2adf43"
+    },
+    {
+      "path": "public/repair.html",
+      "kind": "source",
+      "bytes": 8766,
+      "sha256": "d3f0a098daf0fd7ac9a399a43f31b915567250bb3e4f25498c40a84acd0960ae"
+    },
+    {
+      "path": "public/repair.js",
+      "kind": "source",
+      "bytes": 54811,
+      "sha256": "410bd2e012dc1594995c86a7f2610c97f3a01497ad2bb8a25458c2bafc9ec739"
+    },
+    {
+      "path": "public/styles.css",
+      "kind": "source",
+      "bytes": 16129,
+      "sha256": "095ee169ed585ee7c3260f53a41278d77bdb10b75251efca957bdf92cc30be11"
+    },
+    {
+      "path": "public/texture.css",
+      "kind": "source",
+      "bytes": 3712,
+      "sha256": "762067201820891ebef97c989bd44a71a04ba920f1e6443abeba782680c38dbe"
+    },
+    {
+      "path": "public/texture.html",
+      "kind": "source",
+      "bytes": 5907,
+      "sha256": "853c0818d86d342c32ae4c3c89c502abc1acdc9c8c4c46ade8f880ae7e9e7c36"
+    },
+    {
+      "path": "public/texture.js",
+      "kind": "source",
+      "bytes": 27843,
+      "sha256": "ab17b99a50a7523ff9ae299348778989434e6c83e53d2dd61330e059cdcda6c0"
+    },
+    {
+      "path": "public/workbench.css",
+      "kind": "source",
+      "bytes": 2546,
+      "sha256": "aa94ea72486c0ced04a33ff60adaeb49b4f3b8bfc0d0ed7879330a43e1000c87"
+    },
+    {
+      "path": "public/workbench.html",
+      "kind": "source",
+      "bytes": 3347,
+      "sha256": "fd8b4f0a4f11d572d78eaa0a44c1b92b62062b1bf2ef0797d0d3ef93939f759e"
+    },
+    {
+      "path": "public/workbench.js",
+      "kind": "source",
+      "bytes": 1421,
+      "sha256": "18640286701b0f93f48713836ddd9f591d76392a4b3eec37891a5957e29c6df5"
+    },
+    {
+      "path": "public/workflow.css",
+      "kind": "source",
+      "bytes": 4746,
+      "sha256": "2b9e95df6baf18a8bc84b0dc5dd92e9f76fcf7673884105c87ffb7f6fd05ab08"
+    },
+    {
+      "path": "public/workflow.html",
+      "kind": "source",
+      "bytes": 6179,
+      "sha256": "f7e9f1d3b126d307cf54ef92ad56857062185a11bc3f1a5ee8fa2cc0bb5afa5a"
+    },
+    {
+      "path": "public/workflow.js",
+      "kind": "source",
+      "bytes": 36294,
+      "sha256": "ce41e2bb8cddaafebe52cc89e784eeaa502117ff4b8b38ccc2244a3da14be276"
+    },
+    {
+      "path": "reconstruction-agh-plugin/LICENSE",
+      "kind": "source",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "reconstruction-agh-plugin/NOTICE",
+      "kind": "source",
+      "bytes": 347,
+      "sha256": "9de53530bc290d8450dcffc594cc77a2ed7512f7c218d9472c5127d61199ca6b"
+    },
+    {
+      "path": "reconstruction-agh-plugin/README.md",
+      "kind": "source",
+      "bytes": 3309,
+      "sha256": "1fb3fae91dcd8921354b190a1877a28f9137e9f237d365434e462a5b2cba8adb"
+    },
+    {
+      "path": "reconstruction-agh-plugin/index.mjs",
+      "kind": "source",
+      "bytes": 7272,
+      "sha256": "062c6fa397e389d0b1185fdde25b75d745616b5b5f713b52f7c3d4bdcf83f03c"
+    },
+    {
+      "path": "reconstruction-agh-plugin/package.json",
+      "kind": "source",
+      "bytes": 683,
+      "sha256": "55b5726722fa394663c0f6b1078f2d16145c87b92667ddaae053e47b57a3cec9"
+    },
+    {
+      "path": "repair-agh-plugin/README.md",
+      "kind": "source",
+      "bytes": 2428,
+      "sha256": "ee4640e9afb26948bc73d43cd4c310f5d7fe53ba170f05aa92d8a37719a24541"
+    },
+    {
+      "path": "repair-agh-plugin/index.mjs",
+      "kind": "source",
+      "bytes": 8098,
+      "sha256": "5b3c8d3ad9fd8990fd1639d0cd0ba36ba8d57b41398bf63545eb135a50e1c69d"
+    },
+    {
+      "path": "repair-agh-plugin/package.json",
+      "kind": "source",
+      "bytes": 699,
+      "sha256": "96fbd6d0c0f7265c9ec1ddcc984a1660b52deeff99f3f998d26025a0f1ccc7f9"
+    },
+    {
+      "path": "src/agh-runner.mjs",
+      "kind": "source",
+      "bytes": 16922,
+      "sha256": "873cdd50066c5ac8d61ae758b27ad4d3aa0569f9ea701090d09030e281e9fbe3"
+    },
+    {
+      "path": "src/agh-runner.test.mjs",
+      "kind": "source",
+      "bytes": 6412,
+      "sha256": "0e120243e9599a37c760e7b5c4e802d903bf48503ee43067b7e95f811168b496"
+    },
+    {
+      "path": "src/application-case-http.mjs",
+      "kind": "source",
+      "bytes": 1078,
+      "sha256": "be71dc3ee9a79347b40a443897f4df00fafe048500c481380410f760de8439f6"
+    },
+    {
+      "path": "src/application-case-http.test.mjs",
+      "kind": "source",
+      "bytes": 1786,
+      "sha256": "40112501265721790e7bb40f897ceccdaae26fdfcd90ce7e44048db008177dd3"
+    },
+    {
+      "path": "src/application-case.mjs",
+      "kind": "source",
+      "bytes": 8123,
+      "sha256": "8840a55ad2eb5295004c4d381b96bef5db790f0a4341b7b05e017cd7ed094081"
+    },
+    {
+      "path": "src/application-case.test.mjs",
+      "kind": "source",
+      "bytes": 7745,
+      "sha256": "07b9d470fe6e8f6aa720bc5c7fab53f5ee02fe6e9c872a5faf8357b3ef1a0815"
+    },
+    {
+      "path": "src/blender.mjs",
+      "kind": "source",
+      "bytes": 3451,
+      "sha256": "8884e2764302dee28a9f7559f311ca353fbe231134b8d5e711b766ca330b1ded"
+    },
+    {
+      "path": "src/continuous-rod-policy.mjs",
+      "kind": "source",
+      "bytes": 1430,
+      "sha256": "f40a062d875c25d18222bbdaea7dbeec4f1438c421d4a0b4034977e391cf2bbb"
+    },
+    {
+      "path": "src/continuous-rod-policy.test.mjs",
+      "kind": "source",
+      "bytes": 1435,
+      "sha256": "c29756f878b7c3045baf571ca4b875bbf959bdea39b307b18204069f186add2f"
+    },
+    {
+      "path": "src/critical-feature-audit.mjs",
+      "kind": "source",
+      "bytes": 28844,
+      "sha256": "530589364b68cf4d63103d59ddf1e3d9d9a405f0371f5d96e8913989e5f2be0c"
+    },
+    {
+      "path": "src/critical-feature-audit.test.mjs",
+      "kind": "source",
+      "bytes": 17721,
+      "sha256": "6d2bff1bb2549f887a52fed5d942ccf2aa527d9c388f2b69f43eae078aba7150"
+    },
+    {
+      "path": "src/critical-feature-service.mjs",
+      "kind": "source",
+      "bytes": 11458,
+      "sha256": "f3adfddf3967d921892f3250d8aeed6814192bac08c7d7239d2bc1264eaf6e2c"
+    },
+    {
+      "path": "src/critical-feature-service.test.mjs",
+      "kind": "source",
+      "bytes": 5571,
+      "sha256": "78c9746686b62a7807cec3c25717619a9b6675d36099aa1e23c4a5ceb1e7a0fe"
+    },
+    {
+      "path": "src/detail-evaluation.mjs",
+      "kind": "source",
+      "bytes": 23223,
+      "sha256": "064b593097b020de37dde1cb732cc30c7e180471d1e04b8eed011d29d665acee"
+    },
+    {
+      "path": "src/detail-evaluation.test.mjs",
+      "kind": "source",
+      "bytes": 8529,
+      "sha256": "a9dfbf69202580681c7bbe91ebf2cde328e7f3f700a112db767e775df7c0e80e"
+    },
+    {
+      "path": "src/detail-geometry.mjs",
+      "kind": "source",
+      "bytes": 25442,
+      "sha256": "0e9e802757fa64c34678ac62d031b739315bf01aef881e4a2a5d1f7a9ab01a64"
+    },
+    {
+      "path": "src/detail-geometry.test.mjs",
+      "kind": "source",
+      "bytes": 7979,
+      "sha256": "7d093e27debe3f655f017f4897b4e3820c95e4ebaefacc07d020b12475ab0334"
+    },
+    {
+      "path": "src/dev-runner.mjs",
+      "kind": "source",
+      "bytes": 33791,
+      "sha256": "9d26af481b15101be400277c83a62744b8b2d32a2944687e863363c723ddca47"
+    },
+    {
+      "path": "src/dev-runner.test.mjs",
+      "kind": "source",
+      "bytes": 20649,
+      "sha256": "fdc11411c0c889f89e7c93b9897bcb15ad1ab72b8bf790ba0d700b01e5bb8519"
+    },
+    {
+      "path": "src/gcode-height-state.test.mjs",
+      "kind": "source",
+      "bytes": 1413,
+      "sha256": "730c8ebbff497994d3f2e55ec1ea6d8f7ccecb1e9952c8a57d0c35ac92091f29"
+    },
+    {
+      "path": "src/gcode-width-state.test.mjs",
+      "kind": "source",
+      "bytes": 925,
+      "sha256": "833dfbdab7b06722e57e09fd2d87ac93c39aa1fb771245b55ffd84e8b48b2461"
+    },
+    {
+      "path": "src/geometry.mjs",
+      "kind": "source",
+      "bytes": 11493,
+      "sha256": "b388123a3f67a3750de7fdae109b1f3d9c9b485a7cc9092587bd12381c18df64"
+    },
+    {
+      "path": "src/geometry.test.mjs",
+      "kind": "source",
+      "bytes": 10740,
+      "sha256": "cc8675904000293e97aed3d4767060ff395972c18df18b8fd5c4d4d4c73cbdcb"
+    },
+    {
+      "path": "src/local-repair-compat.test.mjs",
+      "kind": "source",
+      "bytes": 1585,
+      "sha256": "75b68d192dd21c74dfd4414cebc8dfc11cc40681e5c68aeab791677319c0f9c3"
+    },
+    {
+      "path": "src/local-repair-service.mjs",
+      "kind": "source",
+      "bytes": 9700,
+      "sha256": "253768223c495f023aa88bcb2dec18eafaad9ccaa0731c57e00c5b8460ec075d"
+    },
+    {
+      "path": "src/local-repair-service.test.mjs",
+      "kind": "source",
+      "bytes": 1947,
+      "sha256": "a92e9ab8072d64bc63875253a3da61bc272c55353a6b6b247629ca5f128d6bf9"
+    },
+    {
+      "path": "src/measure.mjs",
+      "kind": "source",
+      "bytes": 3635,
+      "sha256": "67848d6c4e48a1180a44dc4ff17788ce1a29d49b75219fba7fdee4b01539225b"
+    },
+    {
+      "path": "src/model-import.mjs",
+      "kind": "source",
+      "bytes": 17742,
+      "sha256": "54bce296c459d5861db0f28c9e7aaefac585f774749e6e57bb906b6f869feeba"
+    },
+    {
+      "path": "src/model-import.test.mjs",
+      "kind": "source",
+      "bytes": 11131,
+      "sha256": "8e897422c1db09a474aeb8832436cafc829d74007b583b73a2d79dfdf8fa6089"
+    },
+    {
+      "path": "src/pose-agh.mjs",
+      "kind": "source",
+      "bytes": 10139,
+      "sha256": "da6c4fea3e6791fd44332580af3a880a3c66f155b939d0eaaab481d785526a07"
+    },
+    {
+      "path": "src/pose-agh.test.mjs",
+      "kind": "source",
+      "bytes": 12826,
+      "sha256": "f33e1b6e6455d108eb6b8b47c7ffbe4beab80056ae898cde9c7c7a25894b7e78"
+    },
+    {
+      "path": "src/pose-comparison.mjs",
+      "kind": "source",
+      "bytes": 16976,
+      "sha256": "e27adfe740063ec42543e07eb4c0c912c6d490cd97176e953f8bbf6b8e931697"
+    },
+    {
+      "path": "src/pose-comparison.test.mjs",
+      "kind": "source",
+      "bytes": 10049,
+      "sha256": "b7a5dddeed590599236f24dcde6ff46cf61dec55885507dfc59871fd1a3db2db"
+    },
+    {
+      "path": "src/pose-geometry.mjs",
+      "kind": "source",
+      "bytes": 8287,
+      "sha256": "b043fba9213342219539649698411a7d692b847423c769f009ad842b11a9e26d"
+    },
+    {
+      "path": "src/pose-geometry.test.mjs",
+      "kind": "source",
+      "bytes": 5500,
+      "sha256": "780bc9f43e8010a98f171c376a554baa5f2fc09833412cda89e0f1a51139cb14"
+    },
+    {
+      "path": "src/pose-http.mjs",
+      "kind": "source",
+      "bytes": 3319,
+      "sha256": "8dfef5945ca9a8f3320bc4b7f4ebbd00e572e60940817cb404394441155037f0"
+    },
+    {
+      "path": "src/pose-jobs.mjs",
+      "kind": "source",
+      "bytes": 14175,
+      "sha256": "5a9e8d1471d43e7019dbcb00a594bf656ec34954adb47d534a8c95649c938b19"
+    },
+    {
+      "path": "src/pose-jobs.test.mjs",
+      "kind": "source",
+      "bytes": 6447,
+      "sha256": "710f279acbe2da8fb50141924876cc151744072838edaa5e17d8ef926f5536a2"
+    },
+    {
+      "path": "src/pose-policy.test.mjs",
+      "kind": "source",
+      "bytes": 5076,
+      "sha256": "c4ad703ad461029db73137ed0b6fe628f73a72b9d1db35d3eec2060db1f7387e"
+    },
+    {
+      "path": "src/print-agh.mjs",
+      "kind": "source",
+      "bytes": 17506,
+      "sha256": "f997aa266d970ae811eb2be68c1f1a34aad77c55fbec6d6b19cef84842caf891"
+    },
+    {
+      "path": "src/print-agh.test.mjs",
+      "kind": "source",
+      "bytes": 25833,
+      "sha256": "db1f2b547850b4922d2116b9313f41174839a49c5a8a5ea8ef66df80e1c6d97c"
+    },
+    {
+      "path": "src/print-server.mjs",
+      "kind": "source",
+      "bytes": 25693,
+      "sha256": "a603ef71213b65721a5b65d7a67c6cb6f8f71a15351b40e1064a6250c8cd2299"
+    },
+    {
+      "path": "src/reconstruction-agh.mjs",
+      "kind": "source",
+      "bytes": 10342,
+      "sha256": "75e2e3a7cd0c910afcac8d79a52d0bbe96381417ae74e2eb5e4bb365e834e9d4"
+    },
+    {
+      "path": "src/reconstruction-agh.test.mjs",
+      "kind": "source",
+      "bytes": 13927,
+      "sha256": "f494c13d5cd0a1c371fa16fabb9f32e8a8c4eb3b9b54ea8790db9e3803d8772c"
+    },
+    {
+      "path": "src/reconstruction-http.mjs",
+      "kind": "source",
+      "bytes": 4621,
+      "sha256": "b978f25a0c5685ab5346eedf1bdd5da5e74e447711b3638035cd2b26242a05fa"
+    },
+    {
+      "path": "src/reconstruction-jobs.mjs",
+      "kind": "source",
+      "bytes": 24278,
+      "sha256": "8e6183917d54d3520b27d74b992e938549c58510f05458dddcd43ec37eb49ecb"
+    },
+    {
+      "path": "src/repair-agh.mjs",
+      "kind": "source",
+      "bytes": 10324,
+      "sha256": "9a5a2257e3c80d7f10c45bc4c9f1cccb14468c0dc31ffa77bc5d193c6a653074"
+    },
+    {
+      "path": "src/repair-agh.test.mjs",
+      "kind": "source",
+      "bytes": 11166,
+      "sha256": "c2f31a6e22b5dc0e64c91eda2b74bd5e01059efd225ab949b5145b61fd38ab6c"
+    },
+    {
+      "path": "src/repair-delivery.test.mjs",
+      "kind": "source",
+      "bytes": 1676,
+      "sha256": "513730d37479021ddc5387e84a42158d292f75a1e1fef01537c31557b587cc77"
+    },
+    {
+      "path": "src/repair-http.mjs",
+      "kind": "source",
+      "bytes": 4801,
+      "sha256": "f2c6aaf762ed5f834c6076e0c106d6e809e7331dc3f4a912e9f6899e8207fd5f"
+    },
+    {
+      "path": "src/repair-jobs.mjs",
+      "kind": "source",
+      "bytes": 23311,
+      "sha256": "c65afec7c76189d55e012f124dc73dc01823563896118caecddc8dd639eddb98"
+    },
+    {
+      "path": "src/repair-jobs.test.mjs",
+      "kind": "source",
+      "bytes": 12353,
+      "sha256": "4b5b5934f191d951cb494d18b0b311ce5d7cf9796759c5973402bdf5d3527eac"
+    },
+    {
+      "path": "src/repair-preview.mjs",
+      "kind": "source",
+      "bytes": 2585,
+      "sha256": "7118a39539b7e87bfc71398eced8822c0d1651f8c890070cc62fda8aba2155a4"
+    },
+    {
+      "path": "src/repair-preview.test.mjs",
+      "kind": "source",
+      "bytes": 1259,
+      "sha256": "4531cb737945a02dfec4e2e9579731ff2c272c32958ccd733293c063149a76b9"
+    },
+    {
+      "path": "src/rod-target-proposal.mjs",
+      "kind": "source",
+      "bytes": 3771,
+      "sha256": "2e289fddc256ba56ec7095d5f30aa13f66820092115d2a59f2eb2edd47b5d393"
+    },
+    {
+      "path": "src/rod-target-proposal.test.mjs",
+      "kind": "source",
+      "bytes": 780,
+      "sha256": "17a9651da141d8cd1b8ac475a2261f633b09a8b330da17c29b16aa8350a93901"
+    },
+    {
+      "path": "src/rod-toolpath-continuity.mjs",
+      "kind": "source",
+      "bytes": 4984,
+      "sha256": "b26dbb5d104a82b5dc91ab2388f8583e9b29a56190c974123dee62cd81aca9f0"
+    },
+    {
+      "path": "src/rod-toolpath-continuity.test.mjs",
+      "kind": "source",
+      "bytes": 3333,
+      "sha256": "b616942324421e1b6a9cffed1a58071212f6e016ef1b19e0ae9e9737a03eed96"
+    },
+    {
+      "path": "src/server.mjs",
+      "kind": "source",
+      "bytes": 12092,
+      "sha256": "0af5a35d327e43da461204fe11c85f43f846bf13facb8ed3aa249c53d5be31ed"
+    },
+    {
+      "path": "src/slicer-profile.test.mjs",
+      "kind": "source",
+      "bytes": 3173,
+      "sha256": "7cb26d7d99cce96d474276a91e12400e39784df6de4ea188231cd5a49fbd8096"
+    },
+    {
+      "path": "src/slicer.mjs",
+      "kind": "source",
+      "bytes": 24271,
+      "sha256": "058b5aca95d6a4b68836ee209bbefcb809c5b842cbc296720c47782260d68bb7"
+    },
+    {
+      "path": "src/slicer.test.mjs",
+      "kind": "source",
+      "bytes": 5693,
+      "sha256": "e3ca582636b7c97fa96137cdac8c4e9a557a0bb51d0adfbc99168dc64c6ab7be"
+    },
+    {
+      "path": "src/support-evaluation.mjs",
+      "kind": "source",
+      "bytes": 8482,
+      "sha256": "819664df5aa258edf621596f2d71e4cd0be5a028bd57090006b6f24c7494d95d"
+    },
+    {
+      "path": "src/support-evaluation.test.mjs",
+      "kind": "source",
+      "bytes": 5290,
+      "sha256": "7c9b825d982e398f046bc7054b3c28e5dabb5df1407c15675801c65782fdc88e"
+    },
+    {
+      "path": "src/surface-protection-http.mjs",
+      "kind": "source",
+      "bytes": 2520,
+      "sha256": "de2d2bce7cab1d75782d32c19bcd3bd68da07d74081e103f658d65c8b42b9a3a"
+    },
+    {
+      "path": "src/surface-protection-http.test.mjs",
+      "kind": "source",
+      "bytes": 2771,
+      "sha256": "5ee0fd5ca1277d4c10c95949b94e2828bdf30c17740e694c72bb71035965f50f"
+    },
+    {
+      "path": "src/surface-protection-jobs.mjs",
+      "kind": "source",
+      "bytes": 11657,
+      "sha256": "780cf0c80a5cc23c8c9e91c2ef81b7a7997969bea296660768d4d84394f8e3fe"
+    },
+    {
+      "path": "src/surface-protection-jobs.test.mjs",
+      "kind": "source",
+      "bytes": 12881,
+      "sha256": "90f57686dcbae9fefb3e9f759762b6b22019e473354999a91412281e8c4392a8"
+    },
+    {
+      "path": "src/texture-agh.mjs",
+      "kind": "source",
+      "bytes": 11268,
+      "sha256": "062438180b353643e1cdc7d5c307148f82a4d7a29d68c532dd3943b7d437ddda"
+    },
+    {
+      "path": "src/texture-agh.test.mjs",
+      "kind": "source",
+      "bytes": 13533,
+      "sha256": "683e1c17ca1f5c842fa5b62bb10ce0a1e504098eca908a0cb7b1041da4158b1c"
+    },
+    {
+      "path": "src/texture-http.mjs",
+      "kind": "source",
+      "bytes": 3728,
+      "sha256": "96e07af642623266dcd0dcfea8d53e9d5b57ec6abc8e0c7736cc16eb931da8e3"
+    },
+    {
+      "path": "src/texture-jobs.mjs",
+      "kind": "source",
+      "bytes": 15770,
+      "sha256": "1a0e8ed08aa17519ee783d7e10773f790458d96ce8b84f37a83d5842f0723479"
+    },
+    {
+      "path": "src/texture-jobs.test.mjs",
+      "kind": "source",
+      "bytes": 7318,
+      "sha256": "63ef4772f32a181f72c16203a78e0e15a0b32d9877e85eb5dba3fbcfb1c7c6fc"
+    },
+    {
+      "path": "src/texture-owned-process.mjs",
+      "kind": "source",
+      "bytes": 1471,
+      "sha256": "9429f6e82fde29b05ecc9c278a16e81ca99141412d56a5991773b7963df8e79f"
+    },
+    {
+      "path": "src/texture-owned-process.test.mjs",
+      "kind": "source",
+      "bytes": 1545,
+      "sha256": "0beda6f6d57ae745ab4878916d4b54490b3d632c04730c987b54d1e88a8bc8fd"
+    },
+    {
+      "path": "src/texture-service.mjs",
+      "kind": "source",
+      "bytes": 3689,
+      "sha256": "8a811ee815c557c772395ba97877e188ae2e8bf08c29a0e72be893b3ee6e3649"
+    },
+    {
+      "path": "src/texture-service.test.mjs",
+      "kind": "source",
+      "bytes": 1700,
+      "sha256": "25d74a72373f11afe8c9fb0b0c38878dbada4d351e7b049b0ac6b32983566ccd"
+    },
+    {
+      "path": "src/workflow-http.mjs",
+      "kind": "source",
+      "bytes": 2363,
+      "sha256": "afafc9713b54876a64574085ba83cbd9e82f0c429a1b3ab7e3f7a40f9c4e2e92"
+    },
+    {
+      "path": "src/workflow-http.test.mjs",
+      "kind": "source",
+      "bytes": 1797,
+      "sha256": "76d02f25e5c562bed3ad399ff1f3fe40f4dad5cdaa7fd59216ee8651d638376b"
+    },
+    {
+      "path": "src/workflow-jobs.mjs",
+      "kind": "source",
+      "bytes": 14301,
+      "sha256": "003ed59c911c494e1a6d23b5c5bde8964faa9f1758614fdda26133445d99da51"
+    },
+    {
+      "path": "src/workflow-jobs.test.mjs",
+      "kind": "source",
+      "bytes": 13624,
+      "sha256": "248c211f8b39a031de875db713e98936eb85bffede2db25de75a8445a1cb3734"
+    },
+    {
+      "path": "src/workflow-source.mjs",
+      "kind": "source",
+      "bytes": 3792,
+      "sha256": "7ed817bb140eccf90af5360a70f3f522cab629f384e6cc85ae5aa6016baf88c0"
+    },
+    {
+      "path": "src/workflow-source.test.mjs",
+      "kind": "source",
+      "bytes": 1180,
+      "sha256": "38416f8057222d8fe044ebadd3dc4884972dc3978552f1e40a22a163e4411910"
+    },
+    {
+      "path": "tests/model-import-http.test.mjs",
+      "kind": "source",
+      "bytes": 2098,
+      "sha256": "b8a3c707e349b6554e3291682061bac72a5d6dabd497b32c391674ffd5cec657"
+    },
+    {
+      "path": "tests/pose-http.test.mjs",
+      "kind": "source",
+      "bytes": 1837,
+      "sha256": "9d2962acdb7092dfe80eaf97e12c78a85446e16a86841b486e0ed6a45021f467"
+    },
+    {
+      "path": "tests/print-server.test.mjs",
+      "kind": "source",
+      "bytes": 8403,
+      "sha256": "6fa99c85ae1f33e7301b8c1562e7c99b369eb3ea56cf233baa19bcc944904e67"
+    },
+    {
+      "path": "tests/profile-sensitivity.test.mjs",
+      "kind": "source",
+      "bytes": 1425,
+      "sha256": "e33a9b2609968b72c823ad1b979c17d7874a5a2a29345d11de70b76d7e7b7763"
+    },
+    {
+      "path": "tests/reconstruction-http.test.mjs",
+      "kind": "source",
+      "bytes": 22941,
+      "sha256": "36b413f027a065b28e5b3abc90bfe6eefbaba9e1be02928cf4f2d59dc5d35524"
+    },
+    {
+      "path": "tests/server.test.mjs",
+      "kind": "source",
+      "bytes": 4279,
+      "sha256": "2ccf3420d57c814623dad67e25e25bd7758de80ea99af283ea34ddfdd0bef08b"
+    },
+    {
+      "path": "tests/slicer-fixtures/base-only.gcode",
+      "kind": "source",
+      "bytes": 387,
+      "sha256": "8c15564a0ea19e4eceac1af7e37bffd2a97dd78031fda5f999df58ad3eea4502"
+    },
+    {
+      "path": "tests/slicer-fixtures/raised.gcode",
+      "kind": "source",
+      "bytes": 370,
+      "sha256": "22c47a7701f5aa182126c704b93a5f53db5f0c88eab89b4ac2fb96ff8ab6b609"
+    },
+    {
+      "path": "tests/test_unicode_measure.py",
+      "kind": "source",
+      "bytes": 1163,
+      "sha256": "6b52f159d811b92f5c2be5a3d6e631c288a86856db369a8f30ffbe59f56c04b0"
+    },
+    {
+      "path": "tests/texture-http.test.mjs",
+      "kind": "source",
+      "bytes": 2679,
+      "sha256": "95e00f21e96ad970a115dfe1f403d2af6e4f4e3ead477a2397c27911129f53a3"
+    },
+    {
+      "path": "texture-agh-plugin/index.mjs",
+      "kind": "source",
+      "bytes": 9019,
+      "sha256": "d9b4e6b9a93a7aef615ba03bc6ff893847b1b3b8ad9e546ff30a3b92ac948ad2"
+    },
+    {
+      "path": "texture-agh-plugin/package.json",
+      "kind": "source",
+      "bytes": 600,
+      "sha256": "b80237331b36b3e6d2f866a962e3bbc1ecd760a5e086d01e5afb0d49f9237259"
+    },
+    {
+      "path": "tools/agh-patches/README.md",
+      "kind": "source",
+      "bytes": 3537,
+      "sha256": "a1ebebf664acf413d8ade6c5c5a0bf829722fcb104c8d56d7c3a45e113140be1"
+    },
+    {
+      "path": "tools/agh-patches/command-code-v41.patch",
+      "kind": "source",
+      "bytes": 19818,
+      "sha256": "e2c61febd9c5c27af99dd766eeb3a77ba08649ef855238d6ef956133eb44f246"
+    },
+    {
+      "path": "tools/agh-patches/plugin-tool-generation.md",
+      "kind": "source",
+      "bytes": 3251,
+      "sha256": "a5ca2341231096ffa74ff486c97f644bfdbe0a7f58c3af400308cc4e17972795"
+    },
+    {
+      "path": "tools/agh-patches/plugin-tool-generation.patch",
+      "kind": "source",
+      "bytes": 11144,
+      "sha256": "bee05e7b314938b915cc819c6a3f861756e0d4bed379004f762321f0ac8ca308"
+    },
+    {
+      "path": "tools/agh-patches/standalone-plugin-snapshots.patch",
+      "kind": "source",
+      "bytes": 5740,
+      "sha256": "6aad09da3361d18d0085b85df99f14c55f6687fdf49c936c3966fc83e1955b2f"
+    },
+    {
+      "path": "tools/agh-patches/texture-tool-boundary.patch",
+      "kind": "source",
+      "bytes": 1734,
+      "sha256": "f1680c34513734786370f3075ce24ad268c17ae72ed187b88fbb548d8b2fc169"
+    },
+    {
+      "path": "tools/agh-patches/texture-tool-boundary.test.ts",
+      "kind": "source",
+      "bytes": 1623,
+      "sha256": "e2a774aec94a3aa832289452070b1b830b69ce7e1c06a5a292b3c2787e91a44e"
+    },
+    {
+      "path": "tools/build_character.py",
+      "kind": "source",
+      "bytes": 16228,
+      "sha256": "84366d3f926f7959aa5171438e82a3ec91105bde69c97cde6baaeeec67cb9351"
+    },
+    {
+      "path": "tools/build_hull.py",
+      "kind": "source",
+      "bytes": 4049,
+      "sha256": "f4aa5f6ea87cd3520590d2c93858c07d53582dbbb888e6a1e18daf76265023d5"
+    },
+    {
+      "path": "tools/character_request.mjs",
+      "kind": "source",
+      "bytes": 4568,
+      "sha256": "2ea2e9b3fadc70f27878fe8ace1bdf3ac05b1a4ec7531a0cf01b08516e9405fd"
+    },
+    {
+      "path": "tools/check-box-preservation.py",
+      "kind": "source",
+      "bytes": 3210,
+      "sha256": "6023162d280445167bbbb400255cae1189b01bbb312e55dda0367d6e19c5fd90"
+    },
+    {
+      "path": "tools/check_render_scores.py",
+      "kind": "source",
+      "bytes": 3096,
+      "sha256": "8273551e32eade77075bd2e47fd6a2ba29038ccfd8d58f9d385373146c5830fa"
+    },
+    {
+      "path": "tools/compare-print-poses.mjs",
+      "kind": "source",
+      "bytes": 4055,
+      "sha256": "96d872b262a5b13ad86c5c03075a477baf9b71a5366c78b8d3983b55f8ff11cf"
+    },
+    {
+      "path": "tools/critical-feature-fixtures.mjs",
+      "kind": "source",
+      "bytes": 325,
+      "sha256": "b6f63a8aa70539253469fa545a1e1762346a663a48fc86cce06928b66d0465f8"
+    },
+    {
+      "path": "tools/diagnostics/audit-pose-job.mjs",
+      "kind": "source",
+      "bytes": 4041,
+      "sha256": "eba7b66c4334b3c8ededfae79e9bdc2adb8c8795e721b784d5f5b4f216073f06"
+    },
+    {
+      "path": "tools/diagnostics/audit-repair-job.mjs",
+      "kind": "source",
+      "bytes": 3656,
+      "sha256": "098b728eacf61228507b1345887ee0478acf04d1ae9ed5d9cfb8d12737ea2d2e"
+    },
+    {
+      "path": "tools/diagnostics/audit-texture-job.mjs",
+      "kind": "source",
+      "bytes": 3165,
+      "sha256": "54b4e93ab8497cae27504c71dec9b551c32cf83dec58790a396d428db842f8bf"
+    },
+    {
+      "path": "tools/diagnostics/credential-health.mjs",
+      "kind": "source",
+      "bytes": 1675,
+      "sha256": "b069465d3eb711db8461fad9ba77e92f002701f0884144c0b8725add32b6d9b1"
+    },
+    {
+      "path": "tools/diagnostics/offline-agnes-tools.mjs",
+      "kind": "source",
+      "bytes": 3760,
+      "sha256": "deb753d38a9a70fe22e006ac141af83582206abf90d3b7fd004469ffe49f7c70"
+    },
+    {
+      "path": "tools/diagnostics/probe-pose-tools.mjs",
+      "kind": "source",
+      "bytes": 2283,
+      "sha256": "98fc943175c7d8efaf63ea1e090ea9704dd2fc470190175bba32010f7bedd015"
+    },
+    {
+      "path": "tools/diagnostics/trace-tool-names.mjs",
+      "kind": "source",
+      "bytes": 1624,
+      "sha256": "5cbc721a519dea8ca583c9a4b3c2cc3da9e88a00852b1b3d86d4b6c3de172b0e"
+    },
+    {
+      "path": "tools/extract_detail.py",
+      "kind": "source",
+      "bytes": 12193,
+      "sha256": "c1ffe6d0eb0af9d88f46b394d39b62668304d918c718547bac4329b5d03c2730"
+    },
+    {
+      "path": "tools/fit_character.py",
+      "kind": "source",
+      "bytes": 19062,
+      "sha256": "73504801e6a49e0b2eb38ad31b77194f058db91dfb7cb873f269cf8b7806749b"
+    },
+    {
+      "path": "tools/measure_plate.py",
+      "kind": "source",
+      "bytes": 13083,
+      "sha256": "f2f90f718bf505e1ebe40ea7aa516bb58f4da6e0d235a82982031e916aeed7b0"
+    },
+    {
+      "path": "tools/print-tool-bridge.mjs",
+      "kind": "source",
+      "bytes": 5125,
+      "sha256": "59615f37dbccd2f4d1487f7e40b9ece91b2487c4eb98f5e230a0ac65ee6d1a75"
+    },
+    {
+      "path": "tools/reconstruction/README.md",
+      "kind": "source",
+      "bytes": 10112,
+      "sha256": "bf2801da6c80acd98c67ed2ba92a3106f3a182995296395a24aadeaa64141cdb"
+    },
+    {
+      "path": "tools/reconstruction/compare_shape_silhouettes.py",
+      "kind": "source",
+      "bytes": 17151,
+      "sha256": "8688b29057d8f0271e20c3a584b0608dad9ac7f701668739a34f16514c08852d"
+    },
+    {
+      "path": "tools/reconstruction/download_shape.py",
+      "kind": "source",
+      "bytes": 13744,
+      "sha256": "89a1ded167ba3ac78dc244bd870a4af7d21a48be2b8d5e7b1eb36d39561ccced"
+    },
+    {
+      "path": "tools/reconstruction/feature_fixture.py",
+      "kind": "source",
+      "bytes": 1882,
+      "sha256": "9b4177dafadc79670b1b813914fdeb84c41fb18c089bd1806844e11adebaffeb"
+    },
+    {
+      "path": "tools/reconstruction/feature_probes.py",
+      "kind": "source",
+      "bytes": 19281,
+      "sha256": "4e23c7b3852d68ccd30097dadda3f7d87da57415e1c5084478a4799a51b2a86c"
+    },
+    {
+      "path": "tools/reconstruction/generate_hunyuan_multiview.py",
+      "kind": "source",
+      "bytes": 13869,
+      "sha256": "c2af32cdbada9851be3cd651ad6e1f470ecf59e73ef0841a7adfe21b7ae2febf"
+    },
+    {
+      "path": "tools/reconstruction/gpu_reservation.py",
+      "kind": "source",
+      "bytes": 10884,
+      "sha256": "409d4792ebc9b1310a8cdda83441d43adfed66977e9ee5f56b58338fba7de691"
+    },
+    {
+      "path": "tools/reconstruction/hunyuan_core.py",
+      "kind": "source",
+      "bytes": 9131,
+      "sha256": "999462e01630a35524923748c3f4cf01465d1c75453fbe2b2d18215a58c5a407"
+    },
+    {
+      "path": "tools/reconstruction/inspect_mesh.py",
+      "kind": "source",
+      "bytes": 20458,
+      "sha256": "b1bc733e212fdcd97b9c30b794fcf0aad837eb59cba46b874b1b31cc4d220279"
+    },
+    {
+      "path": "tools/reconstruction/inspect_views.py",
+      "kind": "source",
+      "bytes": 1145,
+      "sha256": "c4a8ca1a7d906f63723e8b40f1d4235733253c64bb704777a29f246538a659ad"
+    },
+    {
+      "path": "tools/reconstruction/local_rod_repair.py",
+      "kind": "source",
+      "bytes": 26047,
+      "sha256": "572f3246f3927b1fbadedef6b0ecd25bd57ca4eaf40defc1a1b6858c14ba15bb"
+    },
+    {
+      "path": "tools/reconstruction/local_rod_repair_v2.py",
+      "kind": "source",
+      "bytes": 27506,
+      "sha256": "e5cf104d24f3445c51bd4aac93d94bb6602b7b1639750c0a1161d77bccfe21bf"
+    },
+    {
+      "path": "tools/reconstruction/prepare_character_sheet.py",
+      "kind": "source",
+      "bytes": 4430,
+      "sha256": "938e484bfe0b96a0a882d48240100d8f05d409a151334f208552aa0d1517690c"
+    },
+    {
+      "path": "tools/reconstruction/prepare_user_sheet.py",
+      "kind": "source",
+      "bytes": 4699,
+      "sha256": "a7d1db331b58326443970b3eac906172662fa8a1eecef1ba0c9c7b0fe84eab0b"
+    },
+    {
+      "path": "tools/reconstruction/project_vertex_color.py",
+      "kind": "source",
+      "bytes": 24434,
+      "sha256": "c3af0168ac6222ccd0d764644ab508029a414145987df115dd109a8d76ae12ed"
+    },
+    {
+      "path": "tools/reconstruction/render_hair_comparison.py",
+      "kind": "source",
+      "bytes": 4594,
+      "sha256": "ebd994024c49d042810d331205e1f0b1c804037a41ec3a143e47f93a3d340a9e"
+    },
+    {
+      "path": "tools/reconstruction/render_hunyuan_views.py",
+      "kind": "source",
+      "bytes": 5371,
+      "sha256": "8f538c2b5e055acf7716c179f7a196065782166977facaab6d5a39b42c40a515"
+    },
+    {
+      "path": "tools/reconstruction/render_object_review.py",
+      "kind": "source",
+      "bytes": 3766,
+      "sha256": "3aff1cac7eca1681daf5981a060c5746d363484982971c883f1fca097435d947"
+    },
+    {
+      "path": "tools/reconstruction/render_texture_review.py",
+      "kind": "source",
+      "bytes": 3589,
+      "sha256": "13c83d32893d2a82b4beb0b0392f4be7889e4c652b4975db871d96794551454a"
+    },
+    {
+      "path": "tools/reconstruction/render_verified_stl_views.py",
+      "kind": "source",
+      "bytes": 3634,
+      "sha256": "ad97e7192c8b771175a34cb354fab111d435bf0ceaee31beb992d43370e43214"
+    },
+    {
+      "path": "tools/reconstruction/rod_target_proposal.py",
+      "kind": "source",
+      "bytes": 12656,
+      "sha256": "a78613b9c2277ac7798b502b27b5bbf366f8bb2bb5b15209f8969238b26550e4"
+    },
+    {
+      "path": "tools/reconstruction/run_texture_probe.py",
+      "kind": "source",
+      "bytes": 13255,
+      "sha256": "8c2f81820d1bc650dfdd155270251f58e311a8274f7f3ae641382b158e827a1c"
+    },
+    {
+      "path": "tools/reconstruction/scale_lamppost_case.py",
+      "kind": "source",
+      "bytes": 5280,
+      "sha256": "d42a622c321ab177c1f99edd108f9f7b8eec8b158471175cfdd5b9f6eb6b572d"
+    },
+    {
+      "path": "tools/reconstruction/test_compare_shape_silhouettes.py",
+      "kind": "source",
+      "bytes": 12693,
+      "sha256": "5528e0b76cf1f5cf0b3b288b884a7b78ba39d1a9941e618a33fe8135c7643dfe"
+    },
+    {
+      "path": "tools/reconstruction/test_download_shape.py",
+      "kind": "source",
+      "bytes": 5392,
+      "sha256": "5ec1fd567e0ce5987a96990e4ed57cbd1006b91167874b574d53a328109acb5a"
+    },
+    {
+      "path": "tools/reconstruction/test_feature_fixture.py",
+      "kind": "source",
+      "bytes": 856,
+      "sha256": "d95dfc2b52db309efc601544fd2fee0ea28e813f1a5211694a3b6dac38b8751b"
+    },
+    {
+      "path": "tools/reconstruction/test_feature_probes.py",
+      "kind": "source",
+      "bytes": 7873,
+      "sha256": "58ccaaaf9bbdba3bf3e96ac754c6f32e8bcc385eba07d6867db34889caa95b0e"
+    },
+    {
+      "path": "tools/reconstruction/test_gpu_reservation.py",
+      "kind": "source",
+      "bytes": 7479,
+      "sha256": "130a3b12b9b70bcc55de0a324e4511705a8afc61ef153463ea636fa25186102d"
+    },
+    {
+      "path": "tools/reconstruction/test_hunyuan_core.py",
+      "kind": "source",
+      "bytes": 4539,
+      "sha256": "61ec4737f3846f0a5b63b61525de54d2a8de607c43597e8040ac6d9be14d9fea"
+    },
+    {
+      "path": "tools/reconstruction/test_local_rod_repair.py",
+      "kind": "source",
+      "bytes": 10521,
+      "sha256": "9ec099e718ba46f56b3835a13c334987e6c9b74f0aa0fe36f74d7502f230639d"
+    },
+    {
+      "path": "tools/reconstruction/test_local_rod_repair_v2.py",
+      "kind": "source",
+      "bytes": 4322,
+      "sha256": "b89739b40b3b8e2edf56cb7f92e98688f56b179e19604242326e0d2c92bb6afc"
+    },
+    {
+      "path": "tools/reconstruction/test_model_preflight.py",
+      "kind": "source",
+      "bytes": 2387,
+      "sha256": "22002b05fbb9a0fe28e76a86f8247c5b15b4f6a274f9d939401cdfa157fec414"
+    },
+    {
+      "path": "tools/reconstruction/test_multiview_side.py",
+      "kind": "source",
+      "bytes": 1358,
+      "sha256": "4dee8f283ed5c688d4da045648b91126200e992f95af12f2807b6d8a7a64b4d3"
+    },
+    {
+      "path": "tools/reconstruction/test_project_vertex_color.py",
+      "kind": "source",
+      "bytes": 5471,
+      "sha256": "fa64e4d777f31aad73020ae10a51c8e312dba62a768953c1a5595f35291ce57f"
+    },
+    {
+      "path": "tools/reconstruction/test_rod_proposal_complex.py",
+      "kind": "source",
+      "bytes": 2983,
+      "sha256": "438ea5ba1615b9fd4e3e3b24d0aaf384921d96a252383163eb2aeb765033f1a6"
+    },
+    {
+      "path": "tools/reconstruction/test_rod_target_proposal.py",
+      "kind": "source",
+      "bytes": 8305,
+      "sha256": "1b021d860ecc46131cfcbfb040b816ca62722d1b892eb6591c4bfdcd42a87386"
+    },
+    {
+      "path": "tools/reconstruction/test_scale_lamppost_case.py",
+      "kind": "source",
+      "bytes": 4583,
+      "sha256": "ca3b14656deff868de91b53d4bce69f42e9539325cf3d73b82b7d05b1ad78eea"
+    },
+    {
+      "path": "tools/reconstruction/test_texture_delivery_core.py",
+      "kind": "source",
+      "bytes": 19269,
+      "sha256": "fc835888546b7d0202ebc10371fa602a99f6889839a51bff5e07baa958f82bee"
+    },
+    {
+      "path": "tools/reconstruction/test_texture_probe_core.py",
+      "kind": "source",
+      "bytes": 10882,
+      "sha256": "f294fcb6013a8ab3be5caa046201f911c54c56e1cfeb4ed9398333d7094a3225"
+    },
+    {
+      "path": "tools/reconstruction/test_texture_source_pins.py",
+      "kind": "source",
+      "bytes": 2804,
+      "sha256": "a3ae6cb807102b9dc10b7e9711fb8eeeae069077e9317de4185f0b1da2c7434a"
+    },
+    {
+      "path": "tools/reconstruction/test_texture_uv_scale.py",
+      "kind": "source",
+      "bytes": 2985,
+      "sha256": "1d4cc0941ac2fc336d8d04dc8f34f91c20ddb01bffe3e967b4281b8069c74617"
+    },
+    {
+      "path": "tools/reconstruction/texture_delivery_core.py",
+      "kind": "source",
+      "bytes": 18050,
+      "sha256": "66a6dec39759a07c9335fecf77bcac1faceafdcc85b7a04cdf4c3a81f460b8e6"
+    },
+    {
+      "path": "tools/reconstruction/texture_model_manifest.json",
+      "kind": "source",
+      "bytes": 6687,
+      "sha256": "bb605c65364be494253e404db49fc8898c461244260045a2776f30068c56047c"
+    },
+    {
+      "path": "tools/reconstruction/texture_probe_core.py",
+      "kind": "source",
+      "bytes": 10549,
+      "sha256": "d54abc6eb0ede0f6d774cd6072d92a1aef406ae8e20451b2a49086d0034a992d"
+    },
+    {
+      "path": "tools/reconstruction/texture_source_manifest.json",
+      "kind": "source",
+      "bytes": 8979,
+      "sha256": "033adcbee995c0d76f84f774f3c66621994ee7d86ba760f01f29e4cb7d3cbca7"
+    },
+    {
+      "path": "tools/reconstruction/texture_source_pins.py",
+      "kind": "source",
+      "bytes": 3572,
+      "sha256": "79181a5ce8e2e90050587cc5461c0cb16af75f67dd2ed85c9ea8944a7126ca96"
+    },
+    {
+      "path": "tools/reconstruction/texture_uv_scale.py",
+      "kind": "source",
+      "bytes": 2607,
+      "sha256": "2e656c84c7bea9a2b4dbaecfc23f6908272806de401fbdf1d88bc5efdd9d044b"
+    },
+    {
+      "path": "tools/reconstruction/texture_worker.py",
+      "kind": "source",
+      "bytes": 20064,
+      "sha256": "496054b4fe1e3f0eba85c9d042b1e99db3d855c5211bc50d9422ecabbb1ba7c2"
+    },
+    {
+      "path": "tools/render_views.py",
+      "kind": "source",
+      "bytes": 4496,
+      "sha256": "ee2f601c3a5aebcfc1d64225a04dbd123498a192ec9ec0dd4bc918913306b8e5"
+    },
+    {
+      "path": "tools/review/bundle.mjs",
+      "kind": "source",
+      "bytes": 16090,
+      "sha256": "8cc9df405ee4e568d703c45adff6386cd61ab062da7f4ad3340ee022c9b079ee"
+    },
+    {
+      "path": "tools/review/bundle.test.mjs",
+      "kind": "source",
+      "bytes": 6090,
+      "sha256": "afec165599626c1d027a4c360493e66d4bb73ea28df081289d1641e85f3a328f"
+    },
+    {
+      "path": "tools/review/check.mjs",
+      "kind": "source",
+      "bytes": 16668,
+      "sha256": "7722e7b5fb9d9bb877f674e1e3a70168d25b3ce19f52b9df7ee98e1e53bc56a8"
+    },
+    {
+      "path": "tools/review/check.test.mjs",
+      "kind": "source",
+      "bytes": 8706,
+      "sha256": "e210c05a91229bdd8e951a134703d8a3d4918f009bc6b2b43996f8a51930d19c"
+    },
+    {
+      "path": "tools/review/preflight.mjs",
+      "kind": "source",
+      "bytes": 9686,
+      "sha256": "b951437d9f29cdef01ef166c19f73ccd66927201e8fb86477b7ba661351a5aa4"
+    },
+    {
+      "path": "tools/review/preflight.test.mjs",
+      "kind": "source",
+      "bytes": 4076,
+      "sha256": "2e92957342a685afba659abebfebc70d72150f9c106aea2037cfba58b6f82589"
+    },
+    {
+      "path": "tools/setup-agnes-print.mjs",
+      "kind": "source",
+      "bytes": 3532,
+      "sha256": "7e93b82f6db90e611c8fadd5abfa10edff94c2eba56bf6a7ddcfe2e3a3fe0742"
+    },
+    {
+      "path": "tools/setup-pose-agh.mjs",
+      "kind": "source",
+      "bytes": 3522,
+      "sha256": "c031bef9338f2ef47835e8f6486557a1c44cb3d9b07935972e57e3f0da750b66"
+    },
+    {
+      "path": "tools/setup-print-agh.mjs",
+      "kind": "source",
+      "bytes": 2092,
+      "sha256": "86b4d06b0360bbd1e063d72abe799df4b8efcff430bc2e84314ce0a90634e298"
+    },
+    {
+      "path": "tools/setup-repair-agh.mjs",
+      "kind": "source",
+      "bytes": 4170,
+      "sha256": "4b461e8707d16e1d7220fb11b16591a962771437485395c44a73e637d4567389"
+    },
+    {
+      "path": "tools/setup-texture-agh.mjs",
+      "kind": "source",
+      "bytes": 4154,
+      "sha256": "5a9436069f933fdc6ab66fb2b28fd09f9e60e61e23dbb9774f1175dcdc6fe752"
+    },
+    {
+      "path": "tools/slicer/README.md",
+      "kind": "source",
+      "bytes": 1576,
+      "sha256": "197bf31114e802beb80e071b6c45250bb03016eea07d2e013ac83d275e3fe624"
+    },
+    {
+      "path": "tools/slicer/fdm-pla-04-auto-support.ini",
+      "kind": "source",
+      "bytes": 10290,
+      "sha256": "c66018a382f03d459a77e8e0018d0998594907cfa693e8a3665a3b21d55c4fd5"
+    },
+    {
+      "path": "tools/slicer/fdm-pla-04.ini",
+      "kind": "source",
+      "bytes": 10290,
+      "sha256": "ed23bee94f51eede8d428123d2e718d632d2b98c8af28db4ce7b42a2ac2f99ba"
+    },
+    {
+      "path": "tools/slicer/profile-sensitivity.mjs",
+      "kind": "source",
+      "bytes": 1029,
+      "sha256": "fe883445df494f5862d8bb39bfaad392bdb4a9f0c6f9a01bd6ae8ad61cf8a3f3"
+    },
+    {
+      "path": "tools/start-feature-demo.mjs",
+      "kind": "source",
+      "bytes": 998,
+      "sha256": "c222dd417270548c5d2ac7b1e08cad631ab1a75d8e184790e0c7e53e97942b32"
+    },
+    {
+      "path": "tools/submission/finalize.mjs",
+      "kind": "source",
+      "bytes": 10109,
+      "sha256": "9be2586f2a72069fce8b418feb3d9311ae997e8500fb9bef71f640a039a15a4c"
+    },
+    {
+      "path": "tools/submission/finalize.test.mjs",
+      "kind": "source",
+      "bytes": 5188,
+      "sha256": "882ca69c5549e63eff7b3e1bf245253287c5f016a724c651fa2343dab6196f5c"
+    },
+    {
+      "path": "tools/test_extract_detail.py",
+      "kind": "source",
+      "bytes": 4373,
+      "sha256": "0b3f58bb194e4b87925258fef80c296712db983906cd048a9f1ae5e7a8faff7e"
+    },
+    {
+      "path": "tools/test_measure_plate.py",
+      "kind": "source",
+      "bytes": 10480,
+      "sha256": "f18c428306364346d5fb43754f666536a933e722aca432f474f5d85410ef2603"
+    },
+    {
+      "path": "tools/validate-box-material.mjs",
+      "kind": "source",
+      "bytes": 1956,
+      "sha256": "20f8963035cc13f336454c4a78c5aa7fed39ef496bcee2fc87d36204f31faf26"
+    },
+    {
+      "path": "tools/validate-complete-object.mjs",
+      "kind": "source",
+      "bytes": 6421,
+      "sha256": "0ab490b616f0e8385adac88a1572ae73759752778b55eb22f0b9ddf6ad907885"
+    },
+    {
+      "path": "tools/validate-critical-features.mjs",
+      "kind": "source",
+      "bytes": 3203,
+      "sha256": "65f8d31410fd41c5f660167245058d3eea5210190ee7508fb9dc648c6202583a"
+    },
+    {
+      "path": "tools/validate-feature-poses.mjs",
+      "kind": "source",
+      "bytes": 2462,
+      "sha256": "5ebea67a34e4b0fdbc10f8a28ef556ba80ec9f7f4e74e9978e3f83f335b135bc"
+    },
+    {
+      "path": "tools/validate-planar-cases.mjs",
+      "kind": "source",
+      "bytes": 4400,
+      "sha256": "021f946dfbfe92750ecc81b20e11e0c8e2b48641dc3281d2aef5bbfc5b1df3e7"
+    },
+    {
+      "path": "tools/validate-rod-selection.mjs",
+      "kind": "source",
+      "bytes": 3802,
+      "sha256": "5fda463585e3df05a9fda1b2d77cd97782e134cebde46ebe5c2640b69bb9147a"
+    },
+    {
+      "path": "tools/visual_hull.py",
+      "kind": "source",
+      "bytes": 18563,
+      "sha256": "47a19be737c8ca9b3e4935bc808267fc9321b657d3c554d489ce1a3a034e4221"
+    }
+  ],
+  "manifestExcludesSelf": true
+}

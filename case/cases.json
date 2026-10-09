@@ -1,0 +1,242 @@
+{
+  "schema": "xingzao-cached-cases/v1",
+  "cases": [
+    {
+      "id": "baseline",
+      "poseId": "upright",
+      "source": "case/source-original.stl",
+      "posed": "case/baseline-pose.stl",
+      "gcode": "case/baseline.gcode",
+      "probes": "case/probes-original.json",
+      "originalProbes": "case/probes-original.json",
+      "originalSource": "case/source-original.stl",
+      "originalSourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+      "centerLineMm": [
+        [
+          -3.000000255666444,
+          1.366566575455863e-7,
+          2
+        ],
+        [
+          -3.000000255666444,
+          1.366566575455863e-7,
+          28
+        ]
+      ],
+      "placementOffsetMm": {
+        "x": 90,
+        "y": 90,
+        "z": 0
+      },
+      "expectedToolpathFeasible": false,
+      "historicalMetrics": {
+        "filamentMm": 225.98,
+        "filamentG": 0.67,
+        "estimatedTimeSeconds": 365
+      }
+    },
+    {
+      "id": "boundary",
+      "poseId": "upright",
+      "source": "case/boundary-source.stl",
+      "posed": "case/boundary-pose.stl",
+      "gcode": "case/boundary.gcode",
+      "probes": "case/boundary-probes.json",
+      "originalProbes": "case/probes-original.json",
+      "originalSource": "case/source-original.stl",
+      "originalSourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+      "centerLineMm": [
+        [
+          -3.000000255666444,
+          1.366566575455863e-7,
+          2
+        ],
+        [
+          -3.000000255666444,
+          1.366566575455863e-7,
+          28
+        ]
+      ],
+      "placementOffsetMm": {
+        "x": 90,
+        "y": 90,
+        "z": 0
+      },
+      "expectedToolpathFeasible": false,
+      "historicalMetrics": {
+        "filamentMm": 229.26,
+        "filamentG": 0.68,
+        "estimatedTimeSeconds": 532
+      }
+    },
+    {
+      "id": "normal",
+      "poseId": "upright",
+      "source": "case/normal-source.stl",
+      "posed": "case/normal-pose.stl",
+      "gcode": "case/normal.gcode",
+      "probes": "case/normal-probes.json",
+      "originalProbes": "case/probes-original.json",
+      "originalSource": "case/source-original.stl",
+      "originalSourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+      "centerLineMm": [
+        [
+          -3.000000255666444,
+          1.366566575455863e-7,
+          2
+        ],
+        [
+          -3.000000255666444,
+          1.366566575455863e-7,
+          28
+        ]
+      ],
+      "placementOffsetMm": {
+        "x": 90,
+        "y": 90,
+        "z": 0
+      },
+      "expectedToolpathFeasible": true,
+      "historicalMetrics": {
+        "filamentMm": 232.19,
+        "filamentG": 0.69,
+        "estimatedTimeSeconds": 557
+      }
+    },
+    {
+      "id": "strong-baseline-face-up",
+      "poseId": "face-up",
+      "source": "case/source-original.stl",
+      "originalSource": "case/source-original.stl",
+      "posed": "case/face-up-pose.stl",
+      "gcode": "case/face-up.gcode",
+      "probes": "case/probes-original.json",
+      "originalProbes": "case/probes-original.json",
+      "originalSourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+      "centerLineMm": [
+        [
+          -3.000000255666444,
+          1.366566575455863e-7,
+          2
+        ],
+        [
+          -3.000000255666444,
+          1.366566575455863e-7,
+          28
+        ]
+      ],
+      "placementOffsetMm": {
+        "x": 90,
+        "y": 90,
+        "z": 0
+      },
+      "expectedToolpathFeasible": true,
+      "historicalMetrics": {
+        "filamentMm": 267.05,
+        "filamentG": 0.8,
+        "estimatedTimeSeconds": 346
+      },
+      "nativeAgent": false,
+      "scope": "explicit additional rigid-pose experiment, not exposed by production agent"
+    },
+    {
+      "id": "native-five-original-side-up",
+      "poseId": "face-up",
+      "source": "case/source-original.stl",
+      "originalSource": "case/source-original.stl",
+      "originalSourceSha256": "7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129",
+      "posed": "case/five/posed.stl",
+      "gcode": "case/five/result.gcode",
+      "probes": "case/five/probes.json",
+      "originalProbes": "case/five/probes.json",
+      "centerLineMm": [
+        [
+          -3.0000002556948613,
+          1.366718418438495e-7,
+          2
+        ],
+        [
+          -3.0000002556948613,
+          1.366718418438495e-7,
+          28
+        ]
+      ],
+      "placementOffsetMm": {
+        "x": 90,
+        "y": 90,
+        "z": 0
+      },
+      "expectedToolpathFeasible": true,
+      "historicalMetrics": {
+        "filamentMm": 267.05,
+        "filamentG": 0.8,
+        "estimatedTimeSeconds": 346
+      }
+    }
+  ],
+  "budgetFailure": {
+    "spec": {
+      "axis": "z",
+      "centerLineMm": [
+        [
+          -3,
+          0,
+          2
+        ],
+        [
+          -3,
+          0,
+          28
+        ]
+      ],
+      "allowedBoundsMm": [
+        [
+          -3.48,
+          -0.48,
+          2
+        ],
+        [
+          -2.52,
+          0.48,
+          28
+        ]
+      ],
+      "maxRadialGrowthMm": 0.02,
+      "maxAddedVolumeMm3": 20
+    },
+    "inspection": {
+      "axisEventCount": 2,
+      "fitToleranceMm": 0.02,
+      "maxCenterlineOffsetMm": 0.000972762645914403,
+      "measuredRadiusMm": 0.24996966630060571,
+      "sectionCount": 9,
+      "sectionRadiusRangeMm": [
+        0.2499596651024719,
+        0.24998366744696776
+      ],
+      "sourceBoundsMm": [
+        [
+          -6,
+          -4,
+          0
+        ],
+        [
+          6,
+          4,
+          30
+        ]
+      ],
+      "sourceComponents": 1,
+      "sourceTopology": {
+        "watertight": true,
+        "windingConsistent": true
+      },
+      "sourceVolumeMm3": 230.0765153293223,
+      "verified": true
+    },
+    "expectedOptions": [],
+    "historicalJobId": "237c9b0e-86b8-4cce-b055-947ff1aee014"
+  },
+  "scope": "provided mesh probes and actual G-code; source surface membership and geometry budgets not recomputed by the Node-only checker",
+  "physicalPrintVerified": false
+}

@@ -1,0 +1,253 @@
+diff --git a/packages/host/src/assemble.ts b/packages/host/src/assemble.ts
+index 49173fd..84dd918 100644
+--- a/packages/host/src/assemble.ts
++++ b/packages/host/src/assemble.ts
+@@ -1776,6 +1776,18 @@ export async function assemble(profile: ResolvedProfile, deps: AssembleDeps): Pr
+       activationBarrier,
+       publicationDispatch,
+     )
++    // A row tool may register after a session has cached this generation's Kernel snapshot.
++    // Replace only that owner so new turns see the registration while existing turn snapshots
++    // remain immutable. Revocation uses the same callback after the Kernel disposer runs.
++    const mirrorGenerationOwner = (id: string) => {
++      const current = runtimeTargetPublisher.current().value.current
++      if (!current) return
++      const seed = { tools: kernel.tools, resources: kernel.resources }
++      const generation = generationRegistries(generationViews, current.runtimeRegistryRevision, seed)
++      const replacement = prepareGenerationOwnerReplacement(generation, id, seed)
++      replacement.commit()
++      replacement.finalize()
++    }
+     rowServices.activate(extPorts)
+     // One snapshot for factory contexts and the isolated bootstrap; hooks get theirs from the kernel.
+     const extensionPlatform = platformFacts(seams.platform)
+@@ -1980,6 +1992,7 @@ export async function assemble(profile: ResolvedProfile, deps: AssembleDeps): Pr
+     rowExtensions.activate({
+       ports: extPorts,
+       platform: extensionPlatform,
++      onRegistrationChange: mirrorGenerationOwner,
+       shutdown: (source, context) => dispatchExtensionShutdown(source, context),
+       reservedTool: (name, rowId) => {
+         const owner = reservedTools.get(reservedToolName(name))
+@@ -2003,17 +2016,6 @@ export async function assemble(profile: ResolvedProfile, deps: AssembleDeps): Pr
+     // Extensions that exist only at runtime (one per resource), keyed by extension id. Registered by
+     // `prepare`, dropped again once an apply no longer carries their row.
+     const dynamicExtensionIds = new Set<string>()
+-    // Copies one owner's current Kernel registrations into the published generation sessions are
+-    // bound to, which otherwise keeps the copy it took when it was created.
+-    const mirrorGenerationOwner = (id: string) => {
+-      const current = runtimeTargetPublisher.current().value.current
+-      if (!current) return
+-      const seed = { tools: kernel.tools, resources: kernel.resources }
+-      const generation = generationRegistries(generationViews, current.runtimeRegistryRevision, seed)
+-      const replacement = prepareGenerationOwnerReplacement(generation, id, seed)
+-      replacement.commit()
+-      replacement.finalize()
+-    }
+     const extRowLoader: ExtRowLoader = Object.freeze({
+       load: async (extensionId: string) => ({
+         id: extensionId,
+diff --git a/packages/host/src/ext-host/row-extension-host.ts b/packages/host/src/ext-host/row-extension-host.ts
+index 2da4216..cf054ef 100644
+--- a/packages/host/src/ext-host/row-extension-host.ts
++++ b/packages/host/src/ext-host/row-extension-host.ts
+@@ -46,6 +46,8 @@ export type RowExtensionHostOptions = Readonly<{
+ export type RowExtensionActivation = Readonly<{
+   ports: KernelPorts
+   platform: ExtensionContext['platform']
++  /** Refresh the published session generation after this row adds or removes Kernel registrations. */
++  onRegistrationChange?(source: string): void
+   /**
+    * Starts `shutdown` for every open session with the source's handlers as they are at call time,
+    * so the caller may release them right after the synchronous part returns.
+@@ -149,7 +151,42 @@ export function createRowExtensionHost(options: RowExtensionHostOptions) {
+     if (r.state !== 'dormant') book.set(view(r))
+   }
+   const registrationOf = (r: RowRecord, entry: Pending) => {
+-    entry.release = r.bag.add(entry.create(activation?.ports as KernelPorts))
++    const release = entry.create(activation?.ports as KernelPorts)
++    let suppressReleaseRefresh = false
++    const refresh = () => activation?.onRegistrationChange?.(r.source)
++    const mirroredRelease = () => {
++      const result = release()
++      if (result instanceof Promise)
++        return result.finally(() => {
++          if (!suppressReleaseRefresh) refresh()
++        })
++      if (!suppressReleaseRefresh) refresh()
++      return result
++    }
++    entry.release = r.bag.add(mirroredRelease)
++    try {
++      refresh()
++    } catch (error) {
++      // A failed refresh must not leave the Kernel registration live or make its disposer fail
++      // again. Refresh once more after rollback in case the callback failed after committing.
++      suppressReleaseRefresh = true
++      try {
++        const rollback = entry.release()
++        if (rollback instanceof Promise) {
++          void rollback.then(
++            () => {
++              try { refresh() } catch {}
++            },
++            () => {
++              try { refresh() } catch {}
++            },
++          )
++        } else {
++          try { refresh() } catch {}
++        }
++      } catch {}
++      throw error
++    }
+     say('extension.registered', {
+       id: r.source,
+       row: r.rowId,
+diff --git a/packages/host/test/ext-host/row-extension-host.test.ts b/packages/host/test/ext-host/row-extension-host.test.ts
+index 778634b..04102e1 100644
+--- a/packages/host/test/ext-host/row-extension-host.test.ts
++++ b/packages/host/test/ext-host/row-extension-host.test.ts
+@@ -1,4 +1,5 @@
+ import { Context, type Fiber } from '@agnes/cordis'
++import { ResourceRegistry, ToolRegistry } from '@agnes/core'
+ import {
+   EXTENSION_ID_PATTERN,
+   type PluginExtensionAPI,
+@@ -17,6 +18,7 @@ import {
+ } from '../../src/ext-host/row-extension-host.js'
+ import type { SkillInstallBridge } from '../../src/resources/skill-install-port.js'
+ import { fixtureTool } from '../fixtures/tool.js'
++import { generationRegistries, prepareGenerationOwnerReplacement } from '../../src/runtime-generation-view.js'
+ 
+ const log = { debug() {}, info() {}, warn() {}, error() {} }
+ const platform = Object.freeze({
+@@ -30,17 +32,24 @@ const tick = () => new Promise((resolve) => setTimeout(resolve, 5))
+ function fakeKernel() {
+   const tools = new Map<string, string>()
+   const definitions = new Map<string, ToolDef>()
++  const registry = new ToolRegistry()
++  const resources = new ResourceRegistry()
+   const hooks: { event: string; source: string; hookRank?: number }[] = []
+   const events: { type: string; source: string }[] = []
+   const leak = new Set<string>()
+   const ports = {
+     tools: {
+-      add(def: ToolDef, meta: { source: string }) {
++      add(def: ToolDef, meta: Parameters<ToolRegistry['add']>[1]) {
+         if (tools.has(def.name)) throw new Error(`E_REGISTRY_DUPLICATE: ${def.name}`)
++        const release = registry.add(def, meta)
+         tools.set(def.name, meta.source)
+         definitions.set(def.name, def)
+         return () => {
+-          if (!leak.has(def.name)) tools.delete(def.name)
++          if (leak.has(def.name)) return
++          const result = release()
++          tools.delete(def.name)
++          definitions.delete(def.name)
++          return result
+         }
+       },
+     },
+@@ -66,11 +75,11 @@ function fakeKernel() {
+       },
+     },
+     registrations: (source: string) => [
+-      ...[...tools].filter(([, owner]) => owner === source).map(([name]) => `tool:${name}`),
++      ...registry.registrations(source),
+       ...hooks.filter((entry) => entry.source === source).map((entry) => `hook:${entry.event}`),
+     ],
+   } as unknown as KernelPorts
+-  return { ports, tools, definitions, hooks, events, leak }
++  return { ports, tools, definitions, registry, resources, hooks, events, leak }
+ }
+ 
+ function setup(
+@@ -563,6 +572,87 @@ describe('registration and wind-down', () => {
+     expect(() => dispose?.()).not.toThrow()
+     expect(t.kernel.ports.registrations(pluginRowSource('ext:acme/a'))).toEqual([])
+   })
++
++  it('mirrors late row registrations into new generations without changing existing turn snapshots', async () => {
++    const t = setup()
++    const cache = new Map()
++    const generation = generationRegistries(cache, 'runtime-1', {
++      tools: t.kernel.registry,
++      resources: t.kernel.resources,
++    })
++    const beforeRegistration = generation.tools.snapshot(0)
++    const source = pluginRowSource('ext:acme/late-tools')
++    t.host.activate({
++      ...t.activation,
++      onRegistrationChange(changedSource) {
++        const replacement = prepareGenerationOwnerReplacement(generation, changedSource, {
++          tools: t.kernel.registry,
++          resources: t.kernel.resources,
++        })
++        replacement.commit()
++        replacement.finalize()
++      },
++    })
++
++    const fiber = await t.mount('row-late-tools', 'ext:acme/late-tools', (_ctx, agnes) => {
++      agnes.registerTool(tool('detail_inspect') as never)
++    })
++
++    expect(generation.tools.resolve('detail_inspect')?.source.source).toBe(source)
++    expect(beforeRegistration.byName.has('detail_inspect')).toBe(false)
++
++    await fiber.dispose()
++    await tick()
++    expect(generation.tools.resolve('detail_inspect')).toBeUndefined()
++    expect(beforeRegistration.byName.has('detail_inspect')).toBe(false)
++    expect(generation.tools.registrations(source)).toEqual([])
++  })
++
++  it('includes a row registered before activation in the first generation', async () => {
++    const t = setup()
++    const fiber = await t.mount('row-dormant-tools', 'ext:acme/dormant-tools', (_ctx, agnes) => {
++      agnes.registerTool(tool('detail_build') as never)
++    })
++    const cache = new Map()
++    const generation = generationRegistries(cache, 'runtime-2', {
++      tools: t.kernel.registry,
++      resources: t.kernel.resources,
++    })
++    const source = pluginRowSource('ext:acme/dormant-tools')
++
++    t.host.activate({
++      ...t.activation,
++      onRegistrationChange(changedSource) {
++        const replacement = prepareGenerationOwnerReplacement(generation, changedSource, {
++          tools: t.kernel.registry,
++          resources: t.kernel.resources,
++        })
++        replacement.commit()
++        replacement.finalize()
++      },
++    })
++
++    expect(generation.tools.resolve('detail_build')?.source.source).toBe(source)
++    await fiber.dispose()
++    await tick()
++    expect(generation.tools.resolve('detail_build')).toBeUndefined()
++  })
++
++  it('releases a registration if generation refresh fails without leaving a failed disposer', async () => {
++    const onRegistrationChange = vi.fn(() => {
++      throw new Error('generation refresh failed')
++    })
++    const t = setup({ onRegistrationChange })
++    t.host.activate(t.activation)
++    const fiber = await t.mount('row-refresh-failure', 'ext:acme/refresh-failure', (_ctx, agnes) => {
++      agnes.registerTool(tool('detail_inspect') as never)
++    })
++
++    expect(t.kernel.ports.registrations(pluginRowSource('ext:acme/refresh-failure'))).toEqual([])
++    await fiber.dispose()
++    await tick()
++    expect(t.kinds('extension.revoke_failed')).toHaveLength(0)
++  })
+ })
+ 
+ describe('who may call ctx.extension()', () => {

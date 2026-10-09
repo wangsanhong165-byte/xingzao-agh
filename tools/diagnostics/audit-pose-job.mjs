@@ -1,0 +1,27 @@
+import { DatabaseSync } from 'node:sqlite';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { printAghInternals } from '../../src/print-agh.mjs';
+
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'../..');
+const id=process.argv[2];
+if(!/^[a-f0-9-]{36}$/u.test(id??''))throw new Error('POSE_AUDIT_ID_INVALID');
+const response=await fetch(`http://127.0.0.1:4337/api/poses/jobs/${id}`);if(!response.ok)throw new Error('POSE_AUDIT_JOB_UNAVAILABLE');
+const job=await response.json();
+if(!job.execution?.sessionId||job.agentRunActive)throw new Error('POSE_AUDIT_SESSION_NOT_FINISHED');
+const home=printAghInternals.reconstructionHome(process.env),db=new DatabaseSync(join(home,'data/sessions.db'),{readOnly:true});
+const rows=db.prepare('SELECT seq,type,ts,data FROM events WHERE session_key=? AND seq<=? ORDER BY seq').all(job.execution.sessionId,job.execution.lastSeq).map(r=>({...r,data:JSON.parse(r.data)}));db.close();
+const byType=type=>rows.filter(r=>r.type===type);
+const results=new Map(byType('tool/result').map(r=>[r.data.toolUseId,r]));
+const calls=byType('tool/call').filter(r=>/^pose_(?:inspect|evaluate|select|verify|submit)$/u.test(r.data.name)).map(r=>{const result=results.get(r.data.toolUseId);return {name:r.data.name,poseId:r.data.args?.poseId??null,seq:r.seq,resultSeq:result?.seq??null,success:result?.data.structured?.success===true,code:result?.data.structured?.code??(result?.data.structured?.success?'OK':null),durationMs:result?Date.parse(result.ts)-Date.parse(r.ts):null};});
+if(byType('tool/call').length!==calls.length)throw new Error('POSE_UNEXPECTED_NATIVE_TOOL');
+const requests=byType('request/sent').map(r=>({seq:r.seq,model:r.data.model?.id??null,route:r.data.model?.route??null}));
+const start=byType('session/start')[0],end=byType('turn/end').at(-1);
+const expectedModel=job.execution.model,expectedRoute=job.execution.route??job.execution.provider;
+if(!expectedModel||!expectedRoute||start?.data.preset!=='pose-tools'||!requests.length||requests.some(r=>r.model!==expectedModel||r.route!==expectedRoute)||calls.length!==job.events.length||calls.some(c=>c.success!==(job.events.find(e=>e.tool===c.name.replace('pose_','')&&e.poseId===c.poseId)?.success===true)))throw new Error('POSE_NATIVE_EVIDENCE_MISMATCH');
+const requestTrace=await readFile(join(root,'data/agnes-poses-tool-names.jsonl'),'utf8').then(text=>text.trim().split(/\r?\n/).map(line=>JSON.parse(line)).filter(r=>Date.parse(r.at)>=Date.parse(job.execution.startedAt)&&Date.parse(r.at)<=Date.parse(job.execution.endedAt)),()=>[]);
+const toolBearingTrace=requestTrace.filter(r=>r.toolNames.length);
+const proof={schema:'pose-native-evidence/v1',job, native:{sessionId:job.execution.sessionId,preset:start.data.preset,firstSeq:rows[0].seq,lastSeq:rows.at(-1).seq,turnEndReason:end?.data.reason??null,businessCalls:calls,requests,requestCount:requests.length,requiredToolsOfferedOnEveryToolBearingRequest:toolBearingTrace.length>0&&toolBearingTrace.every(r=>['pose_inspect','pose_evaluate','pose_select','pose_verify','pose_submit'].every(name=>r.toolNames.includes(name))),toolBearingRequestTraceCount:toolBearingTrace.length,toolLessRequestTraceCount:requestTrace.filter(r=>!r.toolNames.length).length},scope:'sanitized-public-job-and-native-ledger-cross-check',physicalPrintVerified:false,redaction:'No API keys, task access tokens, prompts, reasoning, original images, credential references or raw private database rows.'};
+const output=join(root,'data/print-validation',`pose-native-${id}.json`);await mkdir(dirname(output),{recursive:true});await writeFile(output,JSON.stringify(proof,null,2));
+console.log(JSON.stringify({id,stage:job.stage,submittedPoseId:job.submittedPoseId,preset:proof.native.preset,actualNativeCalls:calls.length,actualDurableModelRequests:requests.length,model:expectedModel,route:expectedRoute,requiredToolsOffered:proof.native.requiredToolsOfferedOnEveryToolBearingRequest,proof:output}));

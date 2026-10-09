@@ -1,0 +1,50 @@
+{
+  "schema": "verified-stl-alpha-review/v1",
+  "sourceSha256": "f7ca276d0715bb1110ef264d318ca5da655bd7a1615f44654ed228431a2feee3",
+  "sourceName": "7d037589dfdeb98054bb5de76fd504b70efcb44ea555ee10cd841ccfb6cc1852.stl",
+  "frame": "normalized source Z-up/mm",
+  "boundsMm": [
+    [
+      -25.97430419921875,
+      -30.0,
+      0.0
+    ],
+    [
+      25.97430419921875,
+      30.0,
+      55.72642135620117
+    ]
+  ],
+  "triangles": 240000,
+  "cameraDirections": {
+    "front": [
+      0,
+      -1,
+      0
+    ],
+    "left": [
+      1,
+      0,
+      0
+    ],
+    "back": [
+      0,
+      1,
+      0
+    ],
+    "perspective": [
+      1.4,
+      -1.8,
+      1.4
+    ]
+  },
+  "projection": "ORTHO",
+  "orthoScale": 78.0,
+  "resolution": [
+    640,
+    640
+  ],
+  "silhouetteMethod": "render-alpha",
+  "physicalPrintVerified": false,
+  "scope": "supplied STL geometry with fixed cameras, no reshaping or image retouch"
+}
