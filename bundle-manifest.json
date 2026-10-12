@@ -2,7 +2,7 @@
   "schema": "xingzao-review-bundle/v1",
   "createdAt": "2026-10-09T10:38:14.498Z",
   "evidenceBytes": 20580038,
-  "payloadBytes": 25118412,
+  "payloadBytes": 25126824,
   "summary": {
     "task": "versioned-five-pose-original-delivery-and-historical-repair",
     "source": "team-original-parametric-design; not a photograph",
@@ -889,14 +889,14 @@
     {
       "path": "public/poses.html",
       "kind": "source",
-      "bytes": 10835,
-      "sha256": "42200f6e3de5e4bf5e8996a246c13573c0a000cad0bb57ac21f0adf0f1ffe900"
+      "bytes": 10924,
+      "sha256": "caef575d4ae4ded1e111abde2fbbcc0f7d8fa7f357967e16a560d3726ca3de93"
     },
     {
       "path": "public/poses.js",
       "kind": "source",
-      "bytes": 44963,
-      "sha256": "52ca3a3e0a3866d7cb6251334bec1f2db26997a58b24ed7845e1fea9086594b0"
+      "bytes": 46253,
+      "sha256": "8dcb78f005ac4748b943cf54b36baac9ce7eb423c40667f01a1a8c3a093d21a3"
     },
     {
       "path": "public/print-detail.css",
@@ -1285,20 +1285,20 @@
     {
       "path": "src/pose-http.mjs",
       "kind": "source",
-      "bytes": 3319,
-      "sha256": "8dfef5945ca9a8f3320bc4b7f4ebbd00e572e60940817cb404394441155037f0"
+      "bytes": 3864,
+      "sha256": "eaf4bc06bb01fef46c7584fa44c8e6eb220f10b8d38d85ae0f2fc8b79517826b"
     },
     {
       "path": "src/pose-jobs.mjs",
       "kind": "source",
-      "bytes": 14175,
-      "sha256": "5a9e8d1471d43e7019dbcb00a594bf656ec34954adb47d534a8c95649c938b19"
+      "bytes": 15348,
+      "sha256": "6b36a21dac927c1837423d259607ffac43b270f1a87451af4e1f1835c9b4bfbf"
     },
     {
       "path": "src/pose-jobs.test.mjs",
       "kind": "source",
-      "bytes": 6447,
-      "sha256": "710f279acbe2da8fb50141924876cc151744072838edaa5e17d8ef926f5536a2"
+      "bytes": 7980,
+      "sha256": "dbcf303081fe0bd62f5aa2d8d3077c387835a323d71a092d8f5cc7922c03c7e4"
     },
     {
       "path": "src/pose-policy.test.mjs",
@@ -1579,8 +1579,8 @@
     {
       "path": "tests/pose-http.test.mjs",
       "kind": "source",
-      "bytes": 1837,
-      "sha256": "9d2962acdb7092dfe80eaf97e12c78a85446e16a86841b486e0ed6a45021f467"
+      "bytes": 3354,
+      "sha256": "9af71457a1a4200ebe9cbb57a852763462da75cb712d8634d7576b9ca1b7aa2c"
     },
     {
       "path": "tests/print-server.test.mjs",
@@ -2113,14 +2113,14 @@
     {
       "path": "tools/review/preflight.mjs",
       "kind": "source",
-      "bytes": 9686,
-      "sha256": "b951437d9f29cdef01ef166c19f73ccd66927201e8fb86477b7ba661351a5aa4"
+      "bytes": 9678,
+      "sha256": "1194be2a8a993533cd9987f7e1520ef23b6c6540b0c2a2ee460de7e3e1668879"
     },
     {
       "path": "tools/review/preflight.test.mjs",
       "kind": "source",
-      "bytes": 4076,
-      "sha256": "2e92957342a685afba659abebfebc70d72150f9c106aea2037cfba58b6f82589"
+      "bytes": 4715,
+      "sha256": "bc75209190b2436ad4952b9598fc6e76beebd91d72fe386c713c047f7ea1b064"
     },
     {
       "path": "tools/setup-agnes-print.mjs",
@@ -2305,8 +2305,8 @@
     {
       "path": "运行与模型配置.md",
       "kind": "source",
-      "bytes": 15521,
-      "sha256": "4f449da70ec46a8e4236ed0f2c4c53c36478f412698b7f80e35d8d47b8a13e98"
+      "bytes": 16265,
+      "sha256": "53993d5809f0fa45f6921238d890daf7f0483213d4e49ca4790b10337fcaea9a"
     },
     {
       "path": ".env.example",
@@ -2443,8 +2443,8 @@
     {
       "path": "运行与模型配置.html",
       "kind": "source",
-      "bytes": 17906,
-      "sha256": "07f7b5eb3b25adaa155c61240dd5883ce00588805d93d81832f621798f91fcf7"
+      "bytes": 18796,
+      "sha256": "67304165408d0bcb58193cf34feeb759247a78c3e28f77b3932d015c261b42e4"
     },
     {
       "path": "evidence/agh/失败任务/events.jsonl",

@@ -12,6 +12,7 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const jobsRoot=path.join(root,'data/pose-jobs');
 const uuid=/^[a-f0-9]{8}-[a-f0-9]{4}-[1-8][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/u;
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
+const gcodeDelivered=(job,result)=>job.stage==='completed'&&job.submittedPoseId===result?.poseId&&job.recheck?.verified===true&&/^[a-f0-9]{64}$/u.test(result?.slice?.proof?.gcodeSha256??'')&&job.recheck.gcodeSha256===result.slice.proof.gcodeSha256;
 const safeCode=e=>/^[A-Z0-9_]{1,64}$/u.test(e?.message??'')?e.message:'POSE_TASK_FAILED';
 const safeExecution=e=>e?Object.fromEntries(['mode','toolTransport','profile','provider','route','model','modelBinding','sessionId','lastSeq','turnReason','startedAt','endedAt','exitCode'].filter(k=>e[k]!==undefined).map(k=>[k,e[k]])):null;
 
@@ -71,7 +72,7 @@ export class PoseJobStore {
   publicJob(job){
     const base=`/api/poses/jobs/${job.id}`;
     const declared=assertPoseResultsForJob(job);
-    return {posePolicy:job.posePolicy??'fixed-four-v1',poseIds:declared.map(p=>p.id),id:job.id,stage:job.stage,agentRunActive:job.agentRunActive,source:job.source,protectedRegions:job.protectedRegions,regionSource:job.regionSource,criticalFeatures:job.criticalFeatures??[],featureSource:job.featureSource??'none',constraints:job.constraints,profileId:job.profileId,decision:job.decision,selectedPoseId:job.selectedPoseId,submittedPoseId:job.submittedPoseId,recheck:job.recheck,error:job.error,events:job.events,execution:safeExecution(job.execution),results:Object.values(job.results).map(r=>({poseId:r.poseId,status:r.status,reason:r.reason??null,poseProof:r.poseProof??null,slice:r.slice?{metrics:r.slice.metrics,proof:r.slice.proof,execution:r.slice.execution,placementVerification:r.slice.placementVerification}:null,supportAudit:r.supportAudit??null,featureAudit:r.featureAudit??null,featureProbeEvidence:r.featureProbeEvidence?Object.fromEntries(['sourceSha256','definitionsSha256','recipeSha256','probesSha256','execution'].map(k=>[k,r.featureProbeEvidence[k]])):null,protectionVerified:r.protectionVerified===true,stlUrl:r.stlPath&&r.poseProof?`${base}/stl/${r.poseId}?sha=${r.poseProof.candidateSha256}`:null}))};
+    return {posePolicy:job.posePolicy??'fixed-four-v1',poseIds:declared.map(p=>p.id),id:job.id,stage:job.stage,agentRunActive:job.agentRunActive,source:job.source,protectedRegions:job.protectedRegions,regionSource:job.regionSource,criticalFeatures:job.criticalFeatures??[],featureSource:job.featureSource??'none',constraints:job.constraints,profileId:job.profileId,decision:job.decision,selectedPoseId:job.selectedPoseId,submittedPoseId:job.submittedPoseId,recheck:job.recheck,error:job.error,events:job.events,execution:safeExecution(job.execution),results:Object.values(job.results).map(r=>({poseId:r.poseId,status:r.status,reason:r.reason??null,poseProof:r.poseProof??null,slice:r.slice?{metrics:r.slice.metrics,proof:r.slice.proof,execution:r.slice.execution,placementVerification:r.slice.placementVerification}:null,supportAudit:r.supportAudit??null,featureAudit:r.featureAudit??null,featureProbeEvidence:r.featureProbeEvidence?Object.fromEntries(['sourceSha256','definitionsSha256','recipeSha256','probesSha256','execution'].map(k=>[k,r.featureProbeEvidence[k]])):null,protectionVerified:r.protectionVerified===true,stlUrl:r.stlPath&&r.poseProof?`${base}/stl/${r.poseId}?sha=${r.poseProof.candidateSha256}`:null,gcodeUrl:gcodeDelivered(job,r)?`${base}/gcode/${r.poseId}?sha=${r.slice.proof.gcodeSha256}`:null}))};
   }
   decisionForJob(job){
     assertPoseResultsForJob(job);
@@ -80,6 +81,18 @@ export class PoseJobStore {
     return buildPoseDecision(Object.values(job.results),job.constraints);
   }
   async readStl(job,poseId){const allowed=assertPoseResultsForJob(job),result=job.results[poseId];if(!result?.stlPath||!allowed.some(p=>p.id===poseId))throw new Error('POSE_NOT_FOUND');const bytes=await readFile(result.stlPath);if(hash(bytes)!==result.poseProof.candidateSha256)throw new Error('POSE_HASH_MISMATCH');return bytes;}
+  async readGcode(job,poseId,expectedSha){
+    const allowed=assertPoseResultsForJob(job),result=job.results[poseId];
+    if(!allowed.some(p=>p.id===poseId)||!gcodeDelivered(job,result))throw new Error('POSE_DELIVERY_REQUIRED');
+    const sha=result.slice.proof.gcodeSha256;
+    if(expectedSha!==sha)throw new Error('POSE_STALE_SHA');
+    const recheck=await this.verify(result);
+    if(!recheck?.verified)throw new Error(recheck?.reason??'POSE_RECHECK_FAILED');
+    if(recheck.gcodeSha256!==sha)throw new Error('POSE_EVIDENCE_HASH_MISMATCH');
+    const bytes=await readFile(result.slice.gcodePath);
+    if(hash(bytes)!==sha)throw new Error('POSE_EVIDENCE_HASH_MISMATCH');
+    return bytes;
+  }
   async startAgent(id,runAgent=this.runAgent){
     const job=this.get(id);if(!job||job.agentRunActive)throw new Error('POSE_TASK_UNAVAILABLE');job.agentRunActive=true;job.stage='agent-running';await this.save(job);
     try{if(!runAgent)runAgent=(await import('./pose-agh.mjs')).runPoseTask;const result=await runAgent({jobId:job.id,accessToken:job.accessToken,task:{sourceSha256:job.source.sourceSha256,sourceKind:job.source.kind,protectedRegions:job.protectedRegions,regionSource:job.regionSource,criticalFeatures:job.criticalFeatures??[],featureSource:job.featureSource??'none',constraints:job.constraints},serviceUrl:'http://127.0.0.1:4337'});await this.finish(id,result);}catch(error){await this.finish(id,{success:false,reason:safeCode(error)});}

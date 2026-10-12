@@ -9,7 +9,7 @@ export function createPoseRouter({store=new PoseJobStore(),runAgent,status}={}){
   return {store,async handle(req,res){
     const url=new URL(req.url,'http://127.0.0.1'),p=url.pathname;
     const tools=p.match(/^\/api\/poses\/tool\/(inspect|evaluate|select|verify|submit)$/u);
-    const jobs=p.match(/^\/api\/poses\/jobs\/([a-f0-9-]{36})(?:\/stl\/(upright|tilt-x-plus|tilt-x-minus|tilt-y-plus|face-up))?$/u);
+    const jobs=p.match(/^\/api\/poses\/jobs\/([a-f0-9-]{36})(?:\/(stl|gcode)\/(upright|tilt-x-plus|tilt-x-minus|tilt-y-plus|face-up))?$/u);
     if(!['/api/poses/start','/api/poses/status'].includes(p)&&!tools&&!jobs)return false;
     if(req.headers.origin&&!['http://127.0.0.1:4337','http://localhost:4337'].includes(req.headers.origin))return json(res,403,{error:'ORIGIN_DENIED'});
     try{
@@ -26,9 +26,15 @@ export function createPoseRouter({store=new PoseJobStore(),runAgent,status}={}){
       if(jobs&&UUID.test(jobs[1])&&req.method==='GET'){
         const job=await store.load(jobs[1]);if(!job)return json(res,404,{error:'POSE_JOB_NOT_FOUND'});
         if(!jobs[2])return json(res,200,store.publicJob(job));
-        const candidate=job.results[jobs[2]],sha=url.searchParams.get('sha');if(!candidate?.poseProof)return json(res,404,{error:'POSE_NOT_FOUND'});
+        const poseId=jobs[3],candidate=job.results[poseId],sha=url.searchParams.get('sha');
+        if(jobs[2]==='gcode'){
+          if(!candidate?.slice?.proof?.gcodeSha256)return json(res,404,{error:'POSE_NOT_FOUND'});
+          if(sha!==candidate.slice.proof.gcodeSha256)return json(res,409,{error:'POSE_STALE_SHA'});
+          const bytes=await store.readGcode(job,poseId,sha);res.writeHead(200,{'Content-Type':'text/plain; charset=utf-8','Content-Disposition':`attachment; filename="${poseId}.gcode"`,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(bytes);return true;
+        }
+        if(!candidate?.poseProof)return json(res,404,{error:'POSE_NOT_FOUND'});
         if(sha!==candidate.poseProof.candidateSha256)return json(res,409,{error:'POSE_STALE_SHA'});
-        const bytes=await store.readStl(job,jobs[2]);res.writeHead(200,{'Content-Type':'model/stl','Content-Disposition':`attachment; filename="${jobs[2]}.stl"`,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(bytes);return true;
+        const bytes=await store.readStl(job,poseId);res.writeHead(200,{'Content-Type':'model/stl','Content-Disposition':`attachment; filename="${poseId}.stl"`,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(bytes);return true;
       }
       return json(res,404,{error:'POSE_RESOURCE_NOT_FOUND'});
     }catch(error){return json(res,400,{error:/^[A-Z0-9_]{1,64}$/u.test(error?.message??'')?error.message:'POSE_REQUEST_FAILED'});}

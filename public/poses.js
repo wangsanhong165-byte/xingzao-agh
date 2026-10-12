@@ -116,6 +116,7 @@ function clearMesh(message = '尚无网格') {
   if (mesh) { scene.remove(mesh); mesh.geometry.dispose(); mesh.material.dispose(); mesh = null; }
   clearRoi();
   $('viewer-message').hidden = false; $('reset-view').disabled = true; $('download-stl').disabled = true; $('download-stl').hidden = true;
+  $('download-gcode').disabled = true; $('download-gcode').hidden = true;
   $('mesh-dot').classList.remove('good'); setText('mesh-status', message); setText('mesh-info', 'Z-up · 单位 mm');
 }
 function resultFor(id) { return currentJob?.results?.find(r => r && r.poseId === id) || null; }
@@ -155,6 +156,8 @@ function renderTabs(job) {
   const selected = resultFor(selectedPoseId), selectedRejected = rejectionFor(job, selectedPoseId);
   setText('candidate-title', selected ? `${poseLabel(selectedPoseId)} · ${selectedRejected ? '不满足约束' : qualityLabel(selected.status)}` : '等待该姿态的候选网格');
   $('download-stl').hidden = !isDelivered(selected); $('download-stl').disabled = !isDelivered(selected);
+  const gcodeReady = isDelivered(selected) && typeof selected.gcodeUrl === 'string';
+  $('download-gcode').hidden = !gcodeReady; $('download-gcode').disabled = !gcodeReady;
   if (selected?.stlUrl) { clearRoi(); const version = ++loadVersion; showStl(selected.stlUrl, version).then(() => { if (version === loadVersion) renderRoi(selected); }).catch(err => { if (version === loadVersion) clearMesh(err.message); }); }
   else clearMesh(selected ? '该姿态没有可预览 STL' : '等待真实候选网格');
 }
@@ -408,6 +411,18 @@ function bind() {
       const response = await fetch(parsed.href, { cache: 'no-store', credentials: 'same-origin' }); if (!response.ok) throw new Error(`STL 下载失败（${response.status}）。`);
       const blob = await response.blob(), objectUrl = URL.createObjectURL(blob), anchor = document.createElement('a'); anchor.href = objectUrl; anchor.download = `pose-${String(selectedPoseId).replace(/[^a-zA-Z0-9_-]/g, '_')}.stl`; anchor.click(); setTimeout(() => URL.revokeObjectURL(objectUrl), 1500);
     } catch (error) { $('job-error').hidden = false; $('job-error').textContent = safeError(error.message, 'STL 下载失败。'); }
+  });
+  $('download-gcode').addEventListener('click', async () => {
+    const result = resultFor(selectedPoseId); if (!isDelivered(result) || typeof result.gcodeUrl !== 'string') return;
+    try {
+      const parsed = new URL(result.gcodeUrl, location.origin);
+      if (parsed.origin !== location.origin || parsed.username || parsed.password) throw new Error('下载地址不是本站资源。');
+      const response = await fetch(parsed.href, { cache: 'no-store', credentials: 'same-origin' });
+      if (!response.ok) throw new Error(`G-code 下载失败（${response.status}）。`);
+      const blob = await response.blob(), objectUrl = URL.createObjectURL(blob), anchor = document.createElement('a');
+      anchor.href = objectUrl; anchor.download = `pose-${String(selectedPoseId).replace(/[^a-zA-Z0-9_-]/g, '_')}.gcode`; anchor.click();
+      setTimeout(() => URL.revokeObjectURL(objectUrl), 1500);
+    } catch (error) { $('job-error').hidden = false; $('job-error').textContent = safeError(error.message, 'G-code 下载失败。'); }
   });
 }
 

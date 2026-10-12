@@ -45,7 +45,7 @@ export function buildPreflightReport(mode, checks) {
   const meshReady = nodeSupported(runtime.nodeVersion) && runtime.pythonAvailable === true
     && ['numpy', 'trimesh', 'rtree', 'manifold3d'].every(name => runtime.meshPackages?.[name]?.available === true)
     && slicer.available === true && slicer.profileAvailable === true;
-  const liveReady = checks?.printAgh?.ready === true && checks?.repairAgh?.ready === true;
+  const liveReady = checks?.poseAgh?.ready === true && checks?.repairAgh?.ready === true;
   const hunyuanReady = checks?.hunyuan?.productionStatus === 'configured'
     && checks.hunyuan.aghReady === true && checks.hunyuan.engineConfigured === true;
   const readiness = {
@@ -58,7 +58,7 @@ export function buildPreflightReport(mode, checks) {
   return {
     mode, overall, readiness, checks,
     basis: {
-      liveAgh: 'getPrintAghStatus and getRepairAghStatus accessors',
+      liveAgh: 'getPoseAghStatus and getRepairAghStatus accessors',
       hunyuanShape: 'getReconstructionAghStatus accessor and six production component path checks',
     },
     verification: {
@@ -106,8 +106,8 @@ async function defaultProviders(env) {
         return { available: false, version: null, executable: null, profileId: 'fdm-pla-04', profilePath: null, profileAvailable: false };
       }
     },
-    printAgh: async () => {
-      try { const { getPrintAghStatus } = await import('../../src/print-agh.mjs'); return { ready: (await getPrintAghStatus({ env })).ready === true }; }
+    poseAgh: async () => {
+      try { const { getPoseAghStatus } = await import('../../src/pose-agh.mjs'); return { ready: (await getPoseAghStatus({ env })).ready === true }; }
       catch { return { ready: false }; }
     },
     repairAgh: async () => {
@@ -137,7 +137,7 @@ export async function collectPreflight({ mode = 'offline', env = process.env, pr
   checks.runtime = await selected.runtime();
   checks.slicer = await selected.slicer();
   if (mode === 'live') {
-    checks.printAgh = await selected.printAgh();
+    checks.poseAgh = await selected.poseAgh();
     checks.repairAgh = await selected.repairAgh();
   }
   if (mode === 'shape') checks.hunyuan = await selected.hunyuan();
