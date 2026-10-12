@@ -8,6 +8,7 @@ if errorlevel 1 goto MissingNode
 if not exist "node_modules\three\package.json" goto Install
 if not exist "node_modules\@jscad\modeling\package.json" goto Install
 if not exist "node_modules\@jscad\stl-serializer\package.json" goto Install
+if not exist "node_modules\@jscad\array-utils\package.json" goto Install
 goto Run
 :Install
 echo 首次运行，正在安装固定版本的前端依赖...

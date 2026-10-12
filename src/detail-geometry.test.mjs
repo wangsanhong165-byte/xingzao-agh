@@ -4,9 +4,10 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildDetail, exportDetailStl, inspectDetail } from './detail-geometry.mjs';
+import {resolveCpuPython} from './python-runtime.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const python = path.join(root, '.venv', 'Scripts', 'python.exe');
+const python = resolveCpuPython(root);
 const png = (holeRadius = 17) => execFileSync(python, ['-c', [
   'import base64,cv2,numpy as np',
   'im=np.full((90,120,3),255,np.uint8)',

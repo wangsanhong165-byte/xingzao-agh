@@ -3,9 +3,10 @@ import { mkdir, mkdtemp, writeFile, readFile, access } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { generateModel } from './geometry.mjs';
+import {resolveCpuPython} from './python-runtime.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-const python = process.env.PHOTO_CAD_PYTHON || path.join(root, '.venv', 'Scripts', 'python.exe');
+const python = resolveCpuPython(root);
 
 export async function measurePhoto(payload) {
   const { photo, widthMm, thicknessMm } = payload;

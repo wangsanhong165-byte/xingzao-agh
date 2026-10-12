@@ -2,7 +2,7 @@
   "schema": "xingzao-review-bundle/v1",
   "createdAt": "2026-10-09T10:38:14.498Z",
   "evidenceBytes": 20580038,
-  "payloadBytes": 25111856,
+  "payloadBytes": 25118412,
   "summary": {
     "task": "versioned-five-pose-original-delivery-and-historical-repair",
     "source": "team-original-parametric-design; not a photograph",
@@ -1165,14 +1165,14 @@
     {
       "path": "src/detail-geometry.mjs",
       "kind": "source",
-      "bytes": 25442,
-      "sha256": "0e9e802757fa64c34678ac62d031b739315bf01aef881e4a2a5d1f7a9ab01a64"
+      "bytes": 25438,
+      "sha256": "6f6f20dc68e3d2dfc9b38dd63a53ab09d7520d40e6bed8bf6687eda39e205e10"
     },
     {
       "path": "src/detail-geometry.test.mjs",
       "kind": "source",
-      "bytes": 7979,
-      "sha256": "7d093e27debe3f655f017f4897b4e3820c95e4ebaefacc07d020b12475ab0334"
+      "bytes": 8007,
+      "sha256": "65d3215aa69ca435a05528dd5d93cfd068f71f053f18c6dfe03a2a2651525977"
     },
     {
       "path": "src/dev-runner.mjs",
@@ -1231,8 +1231,8 @@
     {
       "path": "src/measure.mjs",
       "kind": "source",
-      "bytes": 3635,
-      "sha256": "67848d6c4e48a1180a44dc4ff17788ce1a29d49b75219fba7fdee4b01539225b"
+      "bytes": 3632,
+      "sha256": "2b7e0cc9a4f6667b182f59bad0b978f276ff7ce2677fb450ac4784a9c15e1428"
     },
     {
       "path": "src/model-import.mjs",
@@ -1525,14 +1525,14 @@
     {
       "path": "src/texture-service.mjs",
       "kind": "source",
-      "bytes": 3689,
-      "sha256": "8a811ee815c557c772395ba97877e188ae2e8bf08c29a0e72be893b3ee6e3649"
+      "bytes": 3717,
+      "sha256": "2b5eaab5b6a0427e1c415fee3ed6f64a9e6c91f1a55ced626b1d0a039f9b8852"
     },
     {
       "path": "src/texture-service.test.mjs",
       "kind": "source",
-      "bytes": 1700,
-      "sha256": "25d74a72373f11afe8c9fb0b0c38878dbada4d351e7b049b0ac6b32983566ccd"
+      "bytes": 1786,
+      "sha256": "e2caed0540e8413038db3e90bc767e6b505ac21ac9e43833af93247650fdd8a1"
     },
     {
       "path": "src/workflow-http.mjs",
@@ -2551,8 +2551,8 @@
     {
       "path": "tools/setup/bundled-runtime-files.json",
       "kind": "source",
-      "bytes": 904997,
-      "sha256": "ce3cab5d5f45115dfda8fd473296ec89e4a8badd32b3e6d06a788c02b2ada875"
+      "bytes": 910052,
+      "sha256": "6329f24ec4136570ecce9fb15bdaa28d0d2cfceb5d41e06fd0811672c9ef1c89"
     },
     {
       "path": "tools/setup/node-runtime-manifest.json",
@@ -2587,8 +2587,20 @@
     {
       "path": "tools/setup/workbench.bat",
       "kind": "source",
-      "bytes": 1122,
-      "sha256": "6f4d7ddfa2f5a38ae7738b4e82be2ea79a98c9bedb32e53b696cfcbfe1a5d894"
+      "bytes": 1196,
+      "sha256": "9f75bac3ad198dbc3d66cf8ffe09a6865d43ddc6bb4551f3fec1d1bda83ba53f"
+    },
+    {
+      "path": "src/python-runtime.mjs",
+      "kind": "source",
+      "bytes": 465,
+      "sha256": "f8c687f7b457c4b6e3d856b7fd6eb34e22aaa7a98a1cd321799a57e93c904739"
+    },
+    {
+      "path": "src/python-runtime.test.mjs",
+      "kind": "source",
+      "bytes": 827,
+      "sha256": "cfebb7b8358d1c067b18662189777552af7e05ee09820b908f9dc200606d5768"
     }
   ],
   "manifestExcludesSelf": true

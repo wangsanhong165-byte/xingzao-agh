@@ -4,6 +4,141 @@
   "nodeOfficialExeSha256": "b3094d0b49f9ad602262a9921551737bb97637c05dd357a06ae98188d7290aa3",
   "files": [
     {
+      "path": "node_modules/@jscad/array-utils/CHANGELOG.md",
+      "bytes": 3409,
+      "sha256": "6f431f41e3c6d9d1c3221635f7ef52f56b64f019fde490e6577536ab082c1ab7"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/LICENSE",
+      "bytes": 1091,
+      "sha256": "5938dd3f117cf272f899ab78c0a69572d580f508667696fe9f461d20105c5d32"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/package.json",
+      "bytes": 692,
+      "sha256": "5e1b1560f867ccdfd8fbf9654972dfedce269504e510473d1017ca7aed2254da"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/README.md",
+      "bytes": 3649,
+      "sha256": "c65b91ecdd43929608f9d040b644ad71db042560cc9facd4158b58c960dd1c25"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/flatten.d.ts",
+      "bytes": 133,
+      "sha256": "3303d7c8f9bf1ac8724de88a15459707bc3062be088a266756a374dd083c8e2b"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/flatten.js",
+      "bytes": 529,
+      "sha256": "15edc82b6df81bc30d0ad79d036b22d810e4ed6333f5182f4c3d9b64c9ca7c1e"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/flatten.test.js",
+      "bytes": 819,
+      "sha256": "1c50a896b16372860ad74b3660aeb8fede9a3e5e760ef02da7aeec5ed6525de5"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/fnNumberSort.d.ts",
+      "bytes": 89,
+      "sha256": "c0e3dca3640c53733e1a47407b1c41de568a011f3e7e13e20962a20d9e24d856"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/fnNumberSort.js",
+      "bytes": 385,
+      "sha256": "b1ab92a3220a1062f78acf26eef75fab15b131fbde785c3acea4b5b76fbfc160"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/fnNumberSort.test.js",
+      "bytes": 504,
+      "sha256": "164249b1693390da4407230f31b65741ee57ef0584e7e7ed1d4ce918c8dadd92"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/head.d.ts",
+      "bytes": 68,
+      "sha256": "f12c1fbfb14d669abf41c4e3c0a25159b426f8d2ee6dd1fc6b61391b2793fe8f"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/head.js",
+      "bytes": 367,
+      "sha256": "6958ebe524097cd07f6aa3b4807b3f9ea924c668ef73eff6591bbeba09305eb3"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/head.test.js",
+      "bytes": 621,
+      "sha256": "18ca6a1dba2bf16a86459e5f579926b689b2cab43d639dcab9d56616c73ecd60"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/index.js",
+      "bytes": 401,
+      "sha256": "7e163f72a002e2834d3dd349222e018e993e9be57812f02c11123f63d1aa74d7"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/insertSorted.d.ts",
+      "bytes": 134,
+      "sha256": "5ced808e4ed37d23e8fe4a994046cc3b884fe87c36d5727f5ec048acf02b7036"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/insertSorted.js",
+      "bytes": 957,
+      "sha256": "3db146e31118f328af61172efed9696dbe143e097cc557a91d684c167e3c474e"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/insertSorted.test.js",
+      "bytes": 604,
+      "sha256": "74f609241c07e870ff98413039794dff2e3506eaa8db7b65d2d78d8d63c09bbf"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/nth.d.ts",
+      "bytes": 81,
+      "sha256": "a9d8dd34e1630fe221b83c703498818c1dbd9718507dd5eaa7d4b98aa451bc4d"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/nth.js",
+      "bytes": 485,
+      "sha256": "3e7f5ab19763eccf359866463376f3138d11c41e58819f5b22ddcaea98b103c2"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/nth.test.js",
+      "bytes": 695,
+      "sha256": "53a42d822cc54a8c1d0903af9eeba9516c5d03cc8a695d31cb91b2d8c13c3b0c"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/padToLength.d.ts",
+      "bytes": 132,
+      "sha256": "935ff08e9be269f8e53651f3b0ca04d786a3f67b7de218033553896ba9a7faf0"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/padToLength.js",
+      "bytes": 823,
+      "sha256": "59f92820ca0b36c8102aeb4abe17422f5de10b8bd9786550cef3f20121cfc3ed"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/padToLength.test.js",
+      "bytes": 837,
+      "sha256": "454679ba7fd5ccc753553a7c6d0b1be575f25e5c4e20863169d9cd51fbfa2e66"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/recursiveArray.d.ts",
+      "bytes": 107,
+      "sha256": "61ee6c1eca2f5b1a62f1ccd9c7fbeba9502f8e9d414694b5326adc21af9d1eb9"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/toArray.d.ts",
+      "bytes": 78,
+      "sha256": "67d59aaf641a7b4458a38b45dcc102717509f8853e608152f837d0bbc40e2a6a"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/toArray.js",
+      "bytes": 386,
+      "sha256": "25771fe7b56fb6d8e1f069c65afc254e38482b470bd5f250f98d5140c5b9c65b"
+    },
+    {
+      "path": "node_modules/@jscad/array-utils/src/toArray.test.js",
+      "bytes": 456,
+      "sha256": "8bc3dcb1c72095fcbdd92b7b062c03dc1a9ab6e9f5099d211cd920a031afaad0"
+    },
+    {
       "path": "node_modules/@jscad/modeling/bench/booleans.bench.js",
       "bytes": 5037,
       "sha256": "842b17ceacf65210c9b20cef8b57a09ffbfea9686b4d685666f691a05c1bcb48"

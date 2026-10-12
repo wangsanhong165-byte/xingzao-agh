@@ -32,14 +32,14 @@ export async function getTextureEngineStatus(){
  const files=[python,worker,path.join(root,'tools/reconstruction/run_texture_probe.py'),path.join(root,'tools/reconstruction/texture_source_manifest.json'),path.join(root,'tools/reconstruction/texture_model_manifest.json'),path.join(root,'data/reconstruction/modelcache/hunyuan3d-paint-probe/hunyuan3d-paint-v2-0-turbo/unet/diffusion_pytorch_model.bin')];
  return {available:(await Promise.all(files.map(exists))).every(Boolean),scope:'flat-illustration-existing-stl'};
 }
-export async function runTextureWorker(request,{spawn=runOwnedTextureProcess,signal}={}){
+export async function runTextureWorker(request,{spawn=runOwnedTextureProcess,signal,selectRuntime=runtime}={}){
  const directory=path.resolve(request.outputDir),data=path.join(root,'data'),relative=path.relative(data,directory);
  if(!relative||relative==='..'||relative.startsWith(`..${path.sep}`)||path.isAbsolute(relative))return {success:false,code:'TEXTURE_INPUT_INVALID'};
  try{
   const stat=await lstat(directory);if(!stat.isDirectory()||stat.isSymbolicLink()||path.resolve(await realpath(directory))!==directory)return {success:false,code:'TEXTURE_INPUT_INVALID'};
   const requestFile=path.join(directory,`request-${request.mode}-${randomUUID()}.json`);await writeFile(requestFile,JSON.stringify(request),{flag:'wx'});
   const env=Object.fromEntries(['PATH','SYSTEMROOT','WINDIR','TEMP','TMP','CUDA_VISIBLE_DEVICES'].filter(k=>typeof process.env[k]==='string').map(k=>[k,process.env[k]]));
-  const selected=await runtime();env.__PYVENV_LAUNCHER__=selected.launcher;
+  const selected=await selectRuntime();env.__PYVENV_LAUNCHER__=selected.launcher;
   const result=await spawn(selected.executable,['-X','utf8',worker,'--owned-start','--request',requestFile],{cwd:root,env,windowsHide:true,shell:false,timeout:735000,maxBuffer:64*1024,encoding:'utf8',...(signal?{signal}: {})});
   return parseWorker(result.stdout);
  }catch(error){return typeof error?.stdout==='string'?parseWorker(error.stdout):{success:false,code:'TEXTURE_ENGINE_FAILURE'};}

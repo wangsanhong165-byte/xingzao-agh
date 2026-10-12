@@ -7,10 +7,11 @@ import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 
 import modeling from '@jscad/modeling';
+import {resolveCpuPython} from './python-runtime.mjs';
 
 const execFile = promisify(execFileCallback);
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const pythonPath = process.env.PHOTO_CAD_PYTHON ?? path.join(projectRoot, '.venv', 'Scripts', 'python.exe');
+const pythonPath = resolveCpuPython(projectRoot);
 const extractScript = path.join(projectRoot, 'tools', 'extract_detail.py');
 const jobsRoot = path.join(projectRoot, 'data', 'detail-jobs');
 const { primitives, measurements } = modeling;
