@@ -2,7 +2,7 @@
   "schema": "xingzao-review-bundle/v1",
   "createdAt": "2026-10-09T10:38:14.498Z",
   "evidenceBytes": 20580038,
-  "payloadBytes": 23116024,
+  "payloadBytes": 23173102,
   "summary": {
     "task": "versioned-five-pose-original-delivery-and-historical-repair",
     "source": "team-original-parametric-design; not a photograph",
@@ -277,8 +277,8 @@
     {
       "path": "README.md",
       "kind": "source",
-      "bytes": 3369,
-      "sha256": "5f54fdf0682ef2bbf64dbfee34c204b3aa3930ad94f1501af235a3183504439c"
+      "bytes": 3722,
+      "sha256": "bc161d2e6b08077b10c819979a06be3ba33c30f92bedb5455b234d7b06e72c0e"
     },
     {
       "path": "agh-plugin/README.md",
@@ -781,8 +781,8 @@
     {
       "path": "package.json",
       "kind": "source",
-      "bytes": 484,
-      "sha256": "ae4aef97e7cc6c9532c8670b8b5b3b1dd6928a85784e143f4db336127996bb10"
+      "bytes": 559,
+      "sha256": "c06358d9bcfa28000096d5e87ad439c39d201e195f54a3c6a4277511535f6126"
     },
     {
       "path": "pose-agh-plugin/LICENSE",
@@ -793,8 +793,8 @@
     {
       "path": "pose-agh-plugin/README.md",
       "kind": "source",
-      "bytes": 1365,
-      "sha256": "3cd80b47a4191229919b7075aece5ebd21d6a11cb9538b5ea5afa1832d91dd7b"
+      "bytes": 1623,
+      "sha256": "9a74207cc27f84228b568ca8b0fec7eceed256ce99d21c26b39d89ed8ac4c702"
     },
     {
       "path": "pose-agh-plugin/index.mjs",
@@ -2247,6 +2247,90 @@
       "kind": "source",
       "bytes": 18563,
       "sha256": "47a19be737c8ca9b3e4935bc808267fc9321b657d3c554d489ce1a3a034e4221"
+    },
+    {
+      "path": ".gitattributes",
+      "kind": "source",
+      "bytes": 227,
+      "sha256": "2b6eb9c7faa28cf5ba1eead42737be0aea40b6f8f9a7e796721b8d00fec8d197"
+    },
+    {
+      "path": "agh-adaptation/LICENSE",
+      "kind": "source",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "agh-adaptation/README.md",
+      "kind": "source",
+      "bytes": 1459,
+      "sha256": "6c0431e522cd9eb0e88f1ad011b58441f4d317bed4304a002689ca60b0d0d76c"
+    },
+    {
+      "path": "agh-adaptation/agh-local-adaptations.patch",
+      "kind": "source",
+      "bytes": 36803,
+      "sha256": "b85ae9b30518a01a4d3d459b48fd3eb03efc7e727e3603f8f34c32a76c309b0c"
+    },
+    {
+      "path": "agh-adaptation/files/docs/develop/standalone-plugin-snapshots.md",
+      "kind": "source",
+      "bytes": 1206,
+      "sha256": "d5b3b197542b1e2c8b05ad0f675c50b9fe82422ddf194298bd2e239d9588e248"
+    },
+    {
+      "path": "agh-adaptation/files/packages/ai/src/adapters/pi/providers/command-code.ts",
+      "kind": "source",
+      "bytes": 1313,
+      "sha256": "9c8793629dce8705b3f4ea3276a42e63075fef2e4f31878bee92a6c433b06367"
+    },
+    {
+      "path": "agh-adaptation/files/packages/core/test/texture-tool-boundary.test.ts",
+      "kind": "source",
+      "bytes": 1623,
+      "sha256": "e2a774aec94a3aa832289452070b1b830b69ce7e1c06a5a292b3c2787e91a44e"
+    },
+    {
+      "path": "tools/review/run.mjs",
+      "kind": "source",
+      "bytes": 1283,
+      "sha256": "f582ff741354b40e936f0639b127c31a6675e43f4985104e99426ef91553cddc"
+    },
+    {
+      "path": "启动.bat",
+      "kind": "source",
+      "bytes": 1298,
+      "sha256": "09bc1e7c0729072cf58e3dfa0fd32aa2dad1e23003d3111d3fdf2a1b3483dda8"
+    },
+    {
+      "path": "复核已有结果.bat",
+      "kind": "source",
+      "bytes": 369,
+      "sha256": "c4c851f436b1a0373018f42d42e38109ea1f5de1bb830255a523a6eb73352180"
+    },
+    {
+      "path": "运行与模型配置.md",
+      "kind": "source",
+      "bytes": 6424,
+      "sha256": "d9fbccbf96aedcc5850c8bd4944e4b5af24d74fb516f63253a5ec09f6c1d1ff6"
+    },
+    {
+      "path": ".env.example",
+      "kind": "source",
+      "bytes": 240,
+      "sha256": "66650f0b138fbe0f40a04c4abbb3cc4790bedfa87e24669da4c34c4a2cdeb46d"
+    },
+    {
+      "path": "requirements.txt",
+      "kind": "source",
+      "bytes": 48,
+      "sha256": "a4b2f9cd0044e0aa67916badedb9835ff8450556cc5a68eab7170174e0acf557"
+    },
+    {
+      "path": "requirements-mesh.txt",
+      "kind": "source",
+      "bytes": 137,
+      "sha256": "7b247c0a3cba289280a9d678c8763f66e342902919c89d4bba3e98e89f5ea57d"
     }
   ],
   "manifestExcludesSelf": true

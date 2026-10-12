@@ -1,0 +1,5 @@
+# Tested CPU geometry importer dependencies; no Torch/model weights are needed.
+numpy==2.4.6
+trimesh==4.9.0
+scipy==1.17.1
+pillow==12.2.0

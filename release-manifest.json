@@ -1,11 +1,61 @@
 {
-  "schema": "xingzao-submission-ready/v1",
-  "createdAt": "2026-10-09T15:36:12.006586+00:00",
+  "schema": "xingzao-public-snapshot/v1",
+  "sourceRevision": "d3bc0127a13862d6832f70d141ae7025c386cfaf",
   "files": [
+    {
+      "path": ".env.example",
+      "bytes": 240,
+      "sha256": "66650f0b138fbe0f40a04c4abbb3cc4790bedfa87e24669da4c34c4a2cdeb46d"
+    },
+    {
+      "path": ".gitattributes",
+      "bytes": 227,
+      "sha256": "2b6eb9c7faa28cf5ba1eead42737be0aea40b6f8f9a7e796721b8d00fec8d197"
+    },
     {
       "path": ".gitignore",
       "bytes": 72,
       "sha256": "82b047bdd5747939149260e6799d6be0bbfbde83f3a241ae39984f1a4987368f"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3722,
+      "sha256": "bc161d2e6b08077b10c819979a06be3ba33c30f92bedb5455b234d7b06e72c0e"
+    },
+    {
+      "path": "agh-adaptation/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "agh-adaptation/README.md",
+      "bytes": 1459,
+      "sha256": "6c0431e522cd9eb0e88f1ad011b58441f4d317bed4304a002689ca60b0d0d76c"
+    },
+    {
+      "path": "agh-adaptation/agh-local-adaptations.patch",
+      "bytes": 36803,
+      "sha256": "b85ae9b30518a01a4d3d459b48fd3eb03efc7e727e3603f8f34c32a76c309b0c"
+    },
+    {
+      "path": "agh-adaptation/files/docs/develop/standalone-plugin-snapshots.md",
+      "bytes": 1206,
+      "sha256": "d5b3b197542b1e2c8b05ad0f675c50b9fe82422ddf194298bd2e239d9588e248"
+    },
+    {
+      "path": "agh-adaptation/files/packages/ai/src/adapters/pi/providers/command-code.ts",
+      "bytes": 1313,
+      "sha256": "9c8793629dce8705b3f4ea3276a42e63075fef2e4f31878bee92a6c433b06367"
+    },
+    {
+      "path": "agh-adaptation/files/packages/core/test/texture-tool-boundary.test.ts",
+      "bytes": 1623,
+      "sha256": "e2a774aec94a3aa832289452070b1b830b69ce7e1c06a5a292b3c2787e91a44e"
+    },
+    {
+      "path": "agh-plugin/README.md",
+      "bytes": 2900,
+      "sha256": "aac83037d34090d8c6be90f32b2c1e0430f89d5bb62eb8783dcd8a4f3f0f3e9b"
     },
     {
       "path": "agh-plugin/index.mjs",
@@ -23,19 +73,14 @@
       "sha256": "0031ff2c0f6e09e15aa71a755f80364906070a60e564c83ce3158b3a694f5234"
     },
     {
-      "path": "agh-plugin/README.md",
-      "bytes": 2900,
-      "sha256": "aac83037d34090d8c6be90f32b2c1e0430f89d5bb62eb8783dcd8a4f3f0f3e9b"
-    },
-    {
       "path": "agh-plugin/setup.ps1",
       "bytes": 1338,
       "sha256": "382f6a1860a7fb118855656ff870027d17bb38ff6b356c6c558e4ed4a19c3817"
     },
     {
       "path": "bundle-manifest.json",
-      "bytes": 74385,
-      "sha256": "46b6bdf4f4c963acfba461eb12b6c4241d7a4aa7081db02e92f0bf442daceb2c"
+      "bytes": 77125,
+      "sha256": "6bdbf55d8dee8c121cec6730306c17da7ec2910430128c081566e80aa4aecc4a"
     },
     {
       "path": "case/baseline-pose.stl",
@@ -163,6 +208,41 @@
       "sha256": "ab784037ceb6b97cf721fb58ea2c351e5cd0c7a4ae6e05db9ef37487d2276106"
     },
     {
+      "path": "case/skull-input-back.png",
+      "bytes": 540781,
+      "sha256": "1496fea794abd591ad1acc536186d6611547f8cbc2de766d7291c662fe86b771"
+    },
+    {
+      "path": "case/skull-input-front.png",
+      "bytes": 562841,
+      "sha256": "037559a477d25b5cc6c6a92ba0d668df3154692ed60e2066b39a9cfc29c23a53"
+    },
+    {
+      "path": "case/skull-input-left.png",
+      "bytes": 596916,
+      "sha256": "c9e01f7189e5687fbf61a6468776dc9d927f8620d5a529386404b92d48b8f287"
+    },
+    {
+      "path": "case/skull-input-manifest.json",
+      "bytes": 2311,
+      "sha256": "d327c8b24a58c31853fb2e85a889e9aa080fc703ab70e64452c0669e293c0005"
+    },
+    {
+      "path": "case/skull-raw-quality-proxy.json",
+      "bytes": 3942,
+      "sha256": "8ec1b5079476311ef05b0079218ced92d5c3854a05c1601be9c03302b05a0d08"
+    },
+    {
+      "path": "case/skull-render.png",
+      "bytes": 397799,
+      "sha256": "2d317a563483f2fb95cbfb13912e37eb51456670c500046d6b058b9464573fd6"
+    },
+    {
+      "path": "case/skull-source.stl",
+      "bytes": 12000084,
+      "sha256": "f7ca276d0715bb1110ef264d318ca5da655bd7a1615f44654ed228431a2feee3"
+    },
+    {
       "path": "case/skull/delivered-alpha/back.png",
       "bytes": 301845,
       "sha256": "95afe92224df5bd3b03bf04e79751d3146b66b64e0ce365f5f0d9c636d10362d"
@@ -201,41 +281,6 @@
       "path": "case/skull/reference/left.png",
       "bytes": 596916,
       "sha256": "c9e01f7189e5687fbf61a6468776dc9d927f8620d5a529386404b92d48b8f287"
-    },
-    {
-      "path": "case/skull-input-back.png",
-      "bytes": 540781,
-      "sha256": "1496fea794abd591ad1acc536186d6611547f8cbc2de766d7291c662fe86b771"
-    },
-    {
-      "path": "case/skull-input-front.png",
-      "bytes": 562841,
-      "sha256": "037559a477d25b5cc6c6a92ba0d668df3154692ed60e2066b39a9cfc29c23a53"
-    },
-    {
-      "path": "case/skull-input-left.png",
-      "bytes": 596916,
-      "sha256": "c9e01f7189e5687fbf61a6468776dc9d927f8620d5a529386404b92d48b8f287"
-    },
-    {
-      "path": "case/skull-input-manifest.json",
-      "bytes": 2311,
-      "sha256": "d327c8b24a58c31853fb2e85a889e9aa080fc703ab70e64452c0669e293c0005"
-    },
-    {
-      "path": "case/skull-raw-quality-proxy.json",
-      "bytes": 3942,
-      "sha256": "8ec1b5079476311ef05b0079218ced92d5c3854a05c1601be9c03302b05a0d08"
-    },
-    {
-      "path": "case/skull-render.png",
-      "bytes": 397799,
-      "sha256": "2d317a563483f2fb95cbfb13912e37eb51456670c500046d6b058b9464573fd6"
-    },
-    {
-      "path": "case/skull-source.stl",
-      "bytes": 12000084,
-      "sha256": "f7ca276d0715bb1110ef264d318ca5da655bd7a1615f44654ed228431a2feee3"
     },
     {
       "path": "case/source-original.stl",
@@ -399,8 +444,8 @@
     },
     {
       "path": "docs/project-runtime-guide.md",
-      "bytes": 10871,
-      "sha256": "83525e9c9aa3b0db2923aec2d389231d62aa0582d1e6313336f9a20f84902d74"
+      "bytes": 11106,
+      "sha256": "29582574904a2555208bbd0b156efc93204d4c727c0ded80b1832b3f0008062a"
     },
     {
       "path": "docs/protection-recovery-validation-2026-10-09.md",
@@ -694,13 +739,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 484,
-      "sha256": "ae4aef97e7cc6c9532c8670b8b5b3b1dd6928a85784e143f4db336127996bb10"
-    },
-    {
-      "path": "pose-agh-plugin/index.mjs",
-      "bytes": 6031,
-      "sha256": "c110a5ad81fd085a04679c421258dc82cc053e464f2aa544a74becbc1417da64"
+      "bytes": 559,
+      "sha256": "c06358d9bcfa28000096d5e87ad439c39d201e195f54a3c6a4277511535f6126"
     },
     {
       "path": "pose-agh-plugin/LICENSE",
@@ -708,19 +748,19 @@
       "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
     },
     {
+      "path": "pose-agh-plugin/README.md",
+      "bytes": 1623,
+      "sha256": "9a74207cc27f84228b568ca8b0fec7eceed256ce99d21c26b39d89ed8ac4c702"
+    },
+    {
+      "path": "pose-agh-plugin/index.mjs",
+      "bytes": 6031,
+      "sha256": "c110a5ad81fd085a04679c421258dc82cc053e464f2aa544a74becbc1417da64"
+    },
+    {
       "path": "pose-agh-plugin/package.json",
       "bytes": 671,
       "sha256": "53f0962489f0aa5d5d31e3d3e856aaef0538b37486983027608ce20ac82ac839"
-    },
-    {
-      "path": "pose-agh-plugin/README.md",
-      "bytes": 1365,
-      "sha256": "3cd80b47a4191229919b7075aece5ebd21d6a11cb9538b5ea5afa1832d91dd7b"
-    },
-    {
-      "path": "print-agh-plugin/index.mjs",
-      "bytes": 6204,
-      "sha256": "01323421d8404eb4e6426760906e976ed6baf56e5127ad51ae1aeb81237b9180"
     },
     {
       "path": "print-agh-plugin/LICENSE",
@@ -733,14 +773,19 @@
       "sha256": "5e740e8c3f0b5e6fbd108499c65f5088c1ea2edacc55e2fb96ac5e935a11d296"
     },
     {
-      "path": "print-agh-plugin/package.json",
-      "bytes": 691,
-      "sha256": "e5391e9075629fd20c58da830fb4eaf7d349aab7c2f2bb25b57d53b0e1fff3e0"
-    },
-    {
       "path": "print-agh-plugin/README.md",
       "bytes": 2056,
       "sha256": "60d23cf8797d80fdb2d4ac6aa807ae1bb1dccaf124d1242d30b99bf57bd8a868"
+    },
+    {
+      "path": "print-agh-plugin/index.mjs",
+      "bytes": 6204,
+      "sha256": "01323421d8404eb4e6426760906e976ed6baf56e5127ad51ae1aeb81237b9180"
+    },
+    {
+      "path": "print-agh-plugin/package.json",
+      "bytes": 691,
+      "sha256": "e5391e9075629fd20c58da830fb4eaf7d349aab7c2f2bb25b57d53b0e1fff3e0"
     },
     {
       "path": "public/app.js",
@@ -898,16 +943,6 @@
       "sha256": "ce41e2bb8cddaafebe52cc89e784eeaa502117ff4b8b38ccc2244a3da14be276"
     },
     {
-      "path": "README.md",
-      "bytes": 3369,
-      "sha256": "5f54fdf0682ef2bbf64dbfee34c204b3aa3930ad94f1501af235a3183504439c"
-    },
-    {
-      "path": "reconstruction-agh-plugin/index.mjs",
-      "bytes": 7272,
-      "sha256": "062c6fa397e389d0b1185fdde25b75d745616b5b5f713b52f7c3d4bdcf83f03c"
-    },
-    {
       "path": "reconstruction-agh-plugin/LICENSE",
       "bytes": 11358,
       "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
@@ -918,14 +953,24 @@
       "sha256": "9de53530bc290d8450dcffc594cc77a2ed7512f7c218d9472c5127d61199ca6b"
     },
     {
+      "path": "reconstruction-agh-plugin/README.md",
+      "bytes": 3309,
+      "sha256": "1fb3fae91dcd8921354b190a1877a28f9137e9f237d365434e462a5b2cba8adb"
+    },
+    {
+      "path": "reconstruction-agh-plugin/index.mjs",
+      "bytes": 7272,
+      "sha256": "062c6fa397e389d0b1185fdde25b75d745616b5b5f713b52f7c3d4bdcf83f03c"
+    },
+    {
       "path": "reconstruction-agh-plugin/package.json",
       "bytes": 683,
       "sha256": "55b5726722fa394663c0f6b1078f2d16145c87b92667ddaae053e47b57a3cec9"
     },
     {
-      "path": "reconstruction-agh-plugin/README.md",
-      "bytes": 3309,
-      "sha256": "1fb3fae91dcd8921354b190a1877a28f9137e9f237d365434e462a5b2cba8adb"
+      "path": "repair-agh-plugin/README.md",
+      "bytes": 2428,
+      "sha256": "ee4640e9afb26948bc73d43cd4c310f5d7fe53ba170f05aa92d8a37719a24541"
     },
     {
       "path": "repair-agh-plugin/index.mjs",
@@ -938,9 +983,14 @@
       "sha256": "96fbd6d0c0f7265c9ec1ddcc984a1660b52deeff99f3f998d26025a0f1ccc7f9"
     },
     {
-      "path": "repair-agh-plugin/README.md",
-      "bytes": 2428,
-      "sha256": "ee4640e9afb26948bc73d43cd4c310f5d7fe53ba170f05aa92d8a37719a24541"
+      "path": "requirements-mesh.txt",
+      "bytes": 137,
+      "sha256": "7b247c0a3cba289280a9d678c8763f66e342902919c89d4bba3e98e89f5ea57d"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 48,
+      "sha256": "a4b2f9cd0044e0aa67916badedb9835ff8450556cc5a68eab7170174e0acf557"
     },
     {
       "path": "src/agh-runner.mjs",
@@ -1418,6 +1468,11 @@
       "sha256": "b80237331b36b3e6d2f866a962e3bbc1ecd760a5e086d01e5afb0d49f9237259"
     },
     {
+      "path": "tools/agh-patches/README.md",
+      "bytes": 3537,
+      "sha256": "a1ebebf664acf413d8ade6c5c5a0bf829722fcb104c8d56d7c3a45e113140be1"
+    },
+    {
       "path": "tools/agh-patches/command-code-v41.patch",
       "bytes": 19818,
       "sha256": "e2c61febd9c5c27af99dd766eeb3a77ba08649ef855238d6ef956133eb44f246"
@@ -1431,11 +1486,6 @@
       "path": "tools/agh-patches/plugin-tool-generation.patch",
       "bytes": 11144,
       "sha256": "bee05e7b314938b915cc819c6a3f861756e0d4bed379004f762321f0ac8ca308"
-    },
-    {
-      "path": "tools/agh-patches/README.md",
-      "bytes": 3537,
-      "sha256": "a1ebebf664acf413d8ade6c5c5a0bf829722fcb104c8d56d7c3a45e113140be1"
     },
     {
       "path": "tools/agh-patches/standalone-plugin-snapshots.patch",
@@ -1543,6 +1593,11 @@
       "sha256": "59615f37dbccd2f4d1487f7e40b9ece91b2487c4eb98f5e230a0ac65ee6d1a75"
     },
     {
+      "path": "tools/reconstruction/README.md",
+      "bytes": 10112,
+      "sha256": "bf2801da6c80acd98c67ed2ba92a3106f3a182995296395a24aadeaa64141cdb"
+    },
+    {
       "path": "tools/reconstruction/compare_shape_silhouettes.py",
       "bytes": 17151,
       "sha256": "8688b29057d8f0271e20c3a584b0608dad9ac7f701668739a34f16514c08852d"
@@ -1611,11 +1666,6 @@
       "path": "tools/reconstruction/project_vertex_color.py",
       "bytes": 24434,
       "sha256": "c3af0168ac6222ccd0d764644ab508029a414145987df115dd109a8d76ae12ed"
-    },
-    {
-      "path": "tools/reconstruction/README.md",
-      "bytes": 10112,
-      "sha256": "bf2801da6c80acd98c67ed2ba92a3106f3a182995296395a24aadeaa64141cdb"
     },
     {
       "path": "tools/reconstruction/render_hair_comparison.py",
@@ -1818,6 +1868,11 @@
       "sha256": "2e92957342a685afba659abebfebc70d72150f9c106aea2037cfba58b6f82589"
     },
     {
+      "path": "tools/review/run.mjs",
+      "bytes": 1283,
+      "sha256": "f582ff741354b40e936f0639b127c31a6675e43f4985104e99426ef91553cddc"
+    },
+    {
       "path": "tools/setup-agnes-print.mjs",
       "bytes": 3532,
       "sha256": "7e93b82f6db90e611c8fadd5abfa10edff94c2eba56bf6a7ddcfe2e3a3fe0742"
@@ -1843,6 +1898,11 @@
       "sha256": "5a9436069f933fdc6ab66fb2b28fd09f9e60e61e23dbb9774f1175dcdc6fe752"
     },
     {
+      "path": "tools/slicer/README.md",
+      "bytes": 1576,
+      "sha256": "197bf31114e802beb80e071b6c45250bb03016eea07d2e013ac83d275e3fe624"
+    },
+    {
       "path": "tools/slicer/fdm-pla-04-auto-support.ini",
       "bytes": 10290,
       "sha256": "c66018a382f03d459a77e8e0018d0998594907cfa693e8a3665a3b21d55c4fd5"
@@ -1856,11 +1916,6 @@
       "path": "tools/slicer/profile-sensitivity.mjs",
       "bytes": 1029,
       "sha256": "fe883445df494f5862d8bb39bfaad392bdb4a9f0c6f9a01bd6ae8ad61cf8a3f3"
-    },
-    {
-      "path": "tools/slicer/README.md",
-      "bytes": 1576,
-      "sha256": "197bf31114e802beb80e071b6c45250bb03016eea07d2e013ac83d275e3fe624"
     },
     {
       "path": "tools/start-feature-demo.mjs",
@@ -1921,9 +1976,21 @@
       "path": "tools/visual_hull.py",
       "bytes": 18563,
       "sha256": "47a19be737c8ca9b3e4935bc808267fc9321b657d3c554d489ce1a3a034e4221"
+    },
+    {
+      "path": "启动.bat",
+      "bytes": 1298,
+      "sha256": "09bc1e7c0729072cf58e3dfa0fd32aa2dad1e23003d3111d3fdf2a1b3483dda8"
+    },
+    {
+      "path": "复核已有结果.bat",
+      "bytes": 369,
+      "sha256": "c4c851f436b1a0373018f42d42e38109ea1f5de1bb830255a523a6eb73352180"
+    },
+    {
+      "path": "运行与模型配置.md",
+      "bytes": 6424,
+      "sha256": "d9fbccbf96aedcc5850c8bd4944e4b5af24d74fb516f63253a5ec09f6c1d1ff6"
     }
-  ],
-  "sourceRevision": "562483953615a36ce6e3fad3a1df124fe6a267f6",
-  "videoVersion": "qiong-final-20261009",
-  "publicationUrl": "https://github.com/wangsanhong165-byte/xingzao-agh"
+  ]
 }

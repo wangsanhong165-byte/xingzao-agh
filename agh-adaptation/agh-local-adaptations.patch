@@ -1,0 +1,678 @@
+diff --git a/docs/reference/configuration.md b/docs/reference/configuration.md
+index febc024..9e5bd7e 100644
+--- a/docs/reference/configuration.md
++++ b/docs/reference/configuration.md
+@@ -60,6 +60,8 @@ The configuration service supports account lists, per-account routes, and a defa
+ 
+ Credentials use `secret://namespace/name` references. File, environment, and vault adapters are different deployment options. Do not copy fake demo tokens into real services or expose real values in browser `publicConfig`, tool output, or environment dumps.
+ 
++The reviewed `command-code` API-key route is pinned to `https://api.commandcode.ai/provider/v1` and exposes only the static `deepseek/deepseek-v4.1-flash` text-input record through OpenAI Responses. Configuration still verifies the credential's model directory and accepts the route only when that exact ID is returned; other remote IDs do not become runtime models. The endpoint override is refused for this provider.
++
+ An exported [preset definition](../../packages/protocol/schema/preset.json) may set `model.max_tokens` to a positive safe integer, for example `model: { max_tokens: 32768 }`. This sets the primary model's per-request output allowance, independently of catalog capacity; omitting it preserves the provider default. Request hooks may override it, and tree budgets may lower it. Use a value supported by the selected provider. This field belongs to the preset definition, not the profile's `presets` selection or a top-level profile `model` field. Existing sessions retain their resolved preset.
+ 
+ For the official Agnes China gateway, the adapter explicitly sends the built-in models' catalog allowance of 65536 as `max_tokens` when no request override is present. Official specifications list 65536 for [3.0 Flash](https://agnes-ai.com/zh-Hans/docs/agnes-30-flash), [2.5 Pro](https://agnes-ai.com/zh-Hans/docs/agnes-25-pro), and [Pro Alpha](https://agnes-ai.com/zh-Hans/docs/agnes-25-pro-alpha). [Pro Beta](https://agnes-ai.com/en/docs/agnes-25-pro-beta) uses the Pro family allowance of 65536; its gateway capacity has not been independently verified. The [2.5 Flash](https://agnes-ai.com/zh-Hans/docs/agnes-25-flash) and [2.0 Flash](https://agnes-ai.com/zh-Hans/docs/agnes-20-flash) docs publish a rounded 65.5K, interpreted here as 65536. Deprecated models remain registered for configuration compatibility; gateway availability still applies. Explicit request allowances take precedence. Catalog metadata alone does not set the raw OpenAI-compatible stream's request allowance. Large generated files should still be built across multiple small write/edit calls; the default is an allowance, not a guarantee that an arbitrarily large call completes.
+diff --git a/docs/reference/configuration.zh-CN.md b/docs/reference/configuration.zh-CN.md
+index 441ed85..30f81f0 100644
+--- a/docs/reference/configuration.zh-CN.md
++++ b/docs/reference/configuration.zh-CN.md
+@@ -52,6 +52,8 @@ builtin 模板是基础，用户 profile 与 Host configuration overlay 合并
+ 
+ 凭据形式为 `secret://namespace/name`；文件/env/vault adapter 是不同部署面。不要将演示配置里的假 token 复制到真实服务，也不要在 browser `publicConfig`、工具输出或环境 dump 中暴露真实值。
+ 
++经审核的 `command-code` API Key 路由固定使用 `https://api.commandcode.ai/provider/v1`，只提供静态的 `deepseek/deepseek-v4.1-flash` 文本输入模型，并通过 OpenAI Responses 协议调用。配置时仍会验证凭据对应的模型目录，只有该目录精确包含此模型 ID 才能保存；远端目录中的其他 ID 不会自动成为运行时模型。该 Provider 拒绝覆盖 endpoint。
++
+ 包导出的 [preset 定义](../../packages/protocol/schema/preset.json) 可用正安全整数配置 `model.max_tokens`，例如 `model: { max_tokens: 32768 }`。它设置主模型单次请求的输出额度，与模型目录容量分开；省略时沿用 Provider 默认值。请求 hook 可覆盖它，任务树预算仍可压低额度，应使用所选 Provider 支持的值。该字段属于 preset 定义，不属于 profile 的 `presets` 选择字段或 profile 顶层 `model` 字段。现有会话保留创建时解析的 preset。
+ 
+ 使用 Agnes 中国官方网关时，若请求未覆盖额度，adapter 会明确将内置模型的目录额度 65536 作为 `max_tokens` 发送。[3.0 Flash](https://agnes-ai.com/zh-Hans/docs/agnes-30-flash)、[2.5 Pro](https://agnes-ai.com/zh-Hans/docs/agnes-25-pro)和 [Pro Alpha](https://agnes-ai.com/zh-Hans/docs/agnes-25-pro-alpha) 的官方规格为 65536；[Pro Beta](https://agnes-ai.com/en/docs/agnes-25-pro-beta) 按 Pro 同系额度配置为 65536，尚未单独验证网关容量；[2.5 Flash](https://agnes-ai.com/zh-Hans/docs/agnes-25-flash) 和 [2.0 Flash](https://agnes-ai.com/zh-Hans/docs/agnes-20-flash) 的官方说明使用约数 65.5K，此处按 65536 配置。已废弃模型保留注册以兼容现有配置，其可用性取决于网关。请求中明确设置的额度仍优先。仅修改目录元数据不会设置底层 OpenAI 兼容流请求的额度。大文件仍应通过多次小型 write/edit 调用分段构建；默认额度不能保证任意大的单次调用都能完成。
+diff --git a/packages/ai/src/adapters/pi/api-key-providers.ts b/packages/ai/src/adapters/pi/api-key-providers.ts
+index f1982f3..0c5fb3d 100644
+--- a/packages/ai/src/adapters/pi/api-key-providers.ts
++++ b/packages/ai/src/adapters/pi/api-key-providers.ts
+@@ -8,6 +8,7 @@ import {
+ import { isUsableCredential } from '../../credentials.js'
+ import { PiAdapter, type PiStream } from './index.js'
+ import { KNOWN_THINKING_CORRECTIONS } from './known-thinking-corrections.js'
++import { COMMAND_CODE_BASE_URL } from './providers/command-code.js'
+ 
+ export type ApiKeyProviderId =
+   | 'deepseek'
+@@ -22,6 +23,7 @@ export type ApiKeyProviderId =
+   | 'minimax'
+   | 'xai'
+   | 'agnes-ai'
++  | 'command-code'
+ 
+ export type ApiKeyProviderErrorCode =
+   | 'UNKNOWN_PROVIDER'
+@@ -208,6 +210,14 @@ const specs: readonly ProviderSpec[] = [
+     sourceProviderId: 'agnes-ai',
+     load: () => load(import('./providers/agnes-ai.js'), 'agnesAiProvider'),
+   },
++  {
++    id: 'command-code',
++    displayName: 'Command Code',
++    api: 'openai-responses',
++    baseUrl: COMMAND_CODE_BASE_URL,
++    sourceProviderId: 'command-code',
++    load: () => load(import('./providers/command-code.js'), 'commandCodeProvider'),
++  },
+ ] as const
+ 
+ const protocolThinkingLevels = ['off', 'minimal', 'low', 'medium', 'high', 'xhigh', 'max'] as const
+@@ -339,7 +349,7 @@ export const API_KEY_PROVIDER_REGISTRY: readonly ApiKeyProviderRegistryEntry[] =
+ /**
+  * The only credential references that an API-key client may leave unbound at startup.  Supplying
+  * this set to `createProvider` preserves fail-fast assembly for every other route while letting a
+- * first-run UI register all eleven choices before the user has entered any keys.
++ * first-run UI register all provider choices before the user has entered any keys.
+  */
+ export const API_KEY_CREDENTIAL_REFS: ReadonlySet<string> = new Set(
+   API_KEY_PROVIDER_REGISTRY.map((entry) => entry.credentialRef),
+diff --git a/packages/ai/test/api-key-provider-registry.test.ts b/packages/ai/test/api-key-provider-registry.test.ts
+index 20fd940..3ffa64a 100644
+--- a/packages/ai/test/api-key-provider-registry.test.ts
++++ b/packages/ai/test/api-key-provider-registry.test.ts
+@@ -31,6 +31,7 @@ const expected = [
+   ['minimax', 'MiniMax'],
+   ['xai', 'xAI'],
+   ['agnes-ai', 'Agnes AI'],
++  ['command-code', 'Command Code'],
+ ] as const
+ 
+ function assistant(): AssistantMessage {
+@@ -67,13 +68,34 @@ const streamOptions = () => ({
+ })
+ 
+ describe('API-key provider registry', () => {
+-  it('publishes exactly the twelve first-screen providers with stable friendly names', () => {
++  it('publishes the API-key providers with stable friendly names', () => {
+     expect(API_KEY_PROVIDER_REGISTRY.map(({ id, displayName }) => [id, displayName])).toEqual(expected)
+-    expect(new Set(API_KEY_PROVIDER_REGISTRY.map((entry) => entry.id)).size).toBe(12)
++    expect(new Set(API_KEY_PROVIDER_REGISTRY.map((entry) => entry.id)).size).toBe(13)
+     expect(API_KEY_PROVIDER_REGISTRY.every((entry) => entry.availability === 'available')).toBe(true)
+   })
+ 
+-  it('pre-registers all twelve providers without keys, then fails closed with AUTH only on selection', async () => {
++  it('pins Command Code to its reviewed OpenAI Responses endpoint and exact V4.1 model id', async () => {
++    const entry = getApiKeyProvider('command-code')
++    expect(entry).toMatchObject({
++      id: 'command-code',
++      api: 'openai-responses',
++      baseUrl: 'https://api.commandcode.ai/provider/v1',
++      credentialRef: 'secret://command-code/default',
++    })
++    const adapter = await entry?.createAdapter()
++    expect(adapter?.models('command-code')).toEqual([
++      expect.objectContaining({
++        id: 'deepseek/deepseek-v4.1-flash',
++        route: 'command-code',
++        api: 'openai-responses',
++        baseUrl: 'https://api.commandcode.ai/provider/v1',
++        input: ['text'],
++        toolCallFormats: ['native'],
++      }),
++    ])
++  })
++
++  it('pre-registers all thirteen providers without keys, then fails closed with AUTH only on selection', async () => {
+     const adapters = await createApiKeyProviderAdapters({
+       adapters: {
+         deepseek: { modelIds: ['deepseek-v4-pro'] },
+@@ -95,7 +117,7 @@ describe('API-key provider registry', () => {
+       clock: () => 0,
+     })
+ 
+-    // All eleven lookups were attempted, but none prevented route-table assembly.
++    // Every provider lookup was attempted, but none prevented route-table assembly.
+     expect(requested).toEqual(expected.map(([id]) => `secret://${id}/default`))
+     expect(provider.models().map((model) => model.route)).toContain('deepseek')
+     const events = await collect(
+@@ -256,6 +278,35 @@ describe('API-key provider registry', () => {
+     expect(calls[0]).toMatchObject({ body: { reasoning_effort: 'max' } })
+   })
+ 
++  it('sends the Command Code V4.1 request through the pinned OpenAI Responses endpoint and account credential', async () => {
++    const originalFetch = globalThis.fetch
++    const calls: Array<{ url: string; authorization: string | null; body: Record<string, unknown> }> = []
++    globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
++      const request = new Request(input, init)
++      calls.push({
++        url: request.url,
++        authorization: request.headers.get('authorization'),
++        body: JSON.parse(await request.clone().text()) as Record<string, unknown>,
++      })
++      throw new Error('test blocked network')
++    }) as typeof globalThis.fetch
++    try {
++      const entry = getApiKeyProvider('command-code')
++      const adapter = await entry?.createAdapter({ modelIds: ['deepseek/deepseek-v4.1-flash'], maxRetries: 0 })
++      if (!adapter) throw new Error('missing Command Code adapter')
++      adapter.bindCredential('command-code', 'command-code-test-key')
++      await collect(adapter.stream('command-code', fakeRequest({ route: 'command-code', model: 'deepseek/deepseek-v4.1-flash' }), streamOptions()))
++    } finally {
++      globalThis.fetch = originalFetch
++    }
++    expect(calls).toHaveLength(1)
++    expect(calls[0]).toMatchObject({
++      url: 'https://api.commandcode.ai/provider/v1/responses',
++      authorization: 'Bearer command-code-test-key',
++      body: { model: 'deepseek/deepseek-v4.1-flash' },
++    })
++  })
++
+   it('filters the trusted pi catalogue by the key-specific DeepSeek /models result', async () => {
+     const entry = getApiKeyProvider('deepseek')
+     const adapter = await entry?.createAdapter({ modelIds: ['deepseek-v4-pro', 'invented-model'] })
+diff --git a/packages/cli/src/boot/local.ts b/packages/cli/src/boot/local.ts
+index 8de66d0..549be66 100644
+--- a/packages/cli/src/boot/local.ts
++++ b/packages/cli/src/boot/local.ts
+@@ -39,6 +39,7 @@ import {
+   verifyLockIntegrity,
+ } from '@agnes/host'
+ import { createClient, memoryJournal } from '@agnes/sdk'
++import { createPackageManager } from '@agnes/package-manager'
+ import { packagedPackages } from '../../launch/packaged-host.js'
+ import { resolveLaunchResources } from '../../launch/resources.js'
+ import { BootError } from '../errors.js'
+@@ -131,6 +132,18 @@ export async function assembleLocalHost(
+     !deps.createHostImpl && process.getBuiltinModule('node:sea').isSea()
+       ? resolveLaunchResources().runtimeNode
+       : undefined
++  // Match the daemon worker: explicit third-party references execute only attested active pins.
++  // The installed directory is mutable and must not substitute for a verified runtime snapshot.
++  const bootPackages = new Map(
++    profile.packages.filter(pkg => pkg.enabled && pkg.trust !== 'builtin').map(pkg => [pkg.id, pkg.integrity]),
++  )
++  const installed = bootPackages.size && !deps.createHostImpl
++    ? createPackageManager({ dataDir: profile.dataDir, agnesVersion: deps.agnesVersion })
++    : undefined
++  const runtimePluginSources = installed ? () => installed.runtimePluginSnapshots(profileDir) : undefined
++  const runtimePluginSnapshots = runtimePluginSources
++    ? (await runtimePluginSources()).filter(source => source.trusted && source.snapshot.profile === profile.name && bootPackages.get(source.snapshot.packageId) === source.snapshot.integrity)
++    : undefined
+   return deps.createHostImpl
+     ? deps.createHostImpl(profile, prompter)
+     : createHost(profile, {
+@@ -140,6 +153,7 @@ export async function assembleLocalHost(
+         hostRoot,
+         log: hostLogger(deps.log),
+         prompter,
++        ...(runtimePluginSources && runtimePluginSnapshots ? { runtimePluginSources, runtimePluginSnapshots } : {}),
+         ...(deps.requestMedia ? { requestMedia: deps.requestMedia } : {}),
+         agnesVersion: deps.agnesVersion,
+         ...(windowsNodeExecutable !== undefined ? { windowsNodeExecutable } : {}),
+diff --git a/packages/cli/src/onboarding/provider-registry.ts b/packages/cli/src/onboarding/provider-registry.ts
+index 89c2b9b..984c519 100644
+--- a/packages/cli/src/onboarding/provider-registry.ts
++++ b/packages/cli/src/onboarding/provider-registry.ts
+@@ -13,6 +13,7 @@ export type OnboardingProviderId =
+   | 'minimax'
+   | 'xai'
+   | 'agnes-ai'
++  | 'command-code'
+ 
+ export type AiRegistryProviderId =
+   | 'moonshot'
+@@ -27,6 +28,7 @@ export type AiRegistryProviderId =
+   | 'minimax'
+   | 'xai'
+   | 'agnes-ai'
++  | 'command-code'
+ 
+ export type OnboardingProvider = {
+   /** Stable source provider identity from the pinned Pi catalogue. */
+@@ -110,6 +112,12 @@ const PROVIDERS = [
+     aiRegistryId: 'agnes-ai',
+     credentialRef: 'secret://agnes-ai/default',
+   },
++  {
++    id: 'command-code',
++    label: 'Command Code',
++    aiRegistryId: 'command-code',
++    credentialRef: 'secret://command-code/default',
++  },
+ ] as const satisfies readonly OnboardingProvider[]
+ 
+ function assertUniqueProviders(providers: readonly OnboardingProvider[]): void {
+diff --git a/packages/cli/test/local-runtime.test.ts b/packages/cli/test/local-runtime.test.ts
+index bf729ce..036ee70 100644
+--- a/packages/cli/test/local-runtime.test.ts
++++ b/packages/cli/test/local-runtime.test.ts
+@@ -2,6 +2,7 @@ import { mkdtempSync, rmSync } from 'node:fs'
+ import { tmpdir } from 'node:os'
+ import { join } from 'node:path'
+ import { createHost, resolveProfile } from '@agnes/host'
++import { createPackageManager, type RuntimePluginSnapshot } from '@agnes/package-manager'
+ import { expect, it, vi } from 'vitest'
+ import { resolveLaunchResources } from '../launch/resources.js'
+ import { assembleLocalHost } from '../src/boot/local.js'
+@@ -14,6 +15,45 @@ vi.mock('@agnes/host', async (original) => ({
+   }),
+ }))
+ vi.mock('../launch/resources.js', () => ({ resolveLaunchResources: vi.fn() }))
++vi.mock('@agnes/package-manager', async (original) => ({
++  ...(await original<typeof import('@agnes/package-manager')>()),
++  createPackageManager: vi.fn(() => ({ runtimePluginSnapshots: async () => [] })),
++}))
++
++it('hands standalone Host only active immutable snapshots matching enabled profile packages', async () => {
++  const root = mkdtempSync(join(tmpdir(), 'agnes-local-plugins-'))
++  const integrity = `sha256-${'a'.repeat(64)}`
++  const item = (id: string, trusted = true, hash = integrity): RuntimePluginSnapshot => ({
++    generation: 1, trusted,
++    snapshot: { snapshotId: integrity, profile: 'local-dev', packageId: id, version: '1.0.0',
++      integrity: hash, treeIntegrity: integrity, capabilityHash: 'test', directory: join(root, id.replaceAll('/', '_')), contributions: [] },
++  })
++  const accepted = item('@acme/valid')
++  const sources = [accepted, item('@acme/disabled'), item('@acme/untrusted', false), item('@acme/stale', true, `sha256-${'b'.repeat(64)}`), item('@acme/not-declared')]
++  const readSnapshots = vi.fn(async () => sources)
++  vi.mocked(createPackageManager).mockReturnValue({ runtimePluginSnapshots: readSnapshots } as unknown as ReturnType<typeof createPackageManager>)
++  try {
++    const resolved = await resolveProfile({ builtin: 'local-dev', lock: TEST_LOCK }, {
++      platform: { os: 'win32', arch: 'x64', capabilities: {} }, agnesVersion: '0.0.0', now: '2026-10-02T00:00:00Z',
++    })
++    const profile = { ...resolved, packages: [...resolved.packages, ...['valid', 'disabled', 'untrusted', 'stale'].map(name => ({
++      id: `@acme/${name}`, version: '1.0.0', source: 'file:./fixture', integrity,
++      trust: 'trusted' as const, enabled: name !== 'disabled',
++    }))] }
++    const { createHostImpl: _drop, ...deps } = testDeps(root)
++    await expect(assembleLocalHost(profile, 'local-dev', root, {
++      ...deps, loader: { importPackage: async () => { throw new Error('unused loader') } },
++    }, { ask: async () => { throw new Error('unused prompter') } })).rejects.toThrow('assembly reached')
++    const options = vi.mocked(createHost).mock.calls.at(-1)?.[1]
++    expect(options?.runtimePluginSnapshots).toEqual([accepted])
++    expect(options?.runtimePluginSources).toBeTypeOf('function')
++    expect(readSnapshots).toHaveBeenCalledWith(join(root, 'profiles', 'local-dev'))
++  } finally {
++    vi.clearAllMocks()
++    if (!root.startsWith(join(tmpdir(), 'agnes-local-plugins-'))) throw new Error('Unexpected disposable test path')
++    rmSync(root, { recursive: true, force: true })
++  }
++})
+ 
+ it.each([false, true])('passes the packaged Node runtime only for SEA=%s', async (seaMode) => {
+   const root = mkdtempSync(join(tmpdir(), 'agnes-local-runtime-'))
+diff --git a/packages/cli/test/provider-registry.test.ts b/packages/cli/test/provider-registry.test.ts
+index 1d913f2..df5ac50 100644
+--- a/packages/cli/test/provider-registry.test.ts
++++ b/packages/cli/test/provider-registry.test.ts
+@@ -75,17 +75,23 @@ const EXPECTED_PROVIDERS = [
+     aiRegistryId: 'agnes-ai',
+     credentialRef: 'secret://agnes-ai/default',
+   },
++  {
++    id: 'command-code',
++    label: 'Command Code',
++    aiRegistryId: 'command-code',
++    credentialRef: 'secret://command-code/default',
++  },
+ ] as const
+ 
+ describe('API-key onboarding provider registry', () => {
+-  it('exports the twelve reviewed Pi provider IDs in a stable product order', () => {
++  it('exports reviewed provider IDs in a stable product order', () => {
+     expect(ONBOARDING_PROVIDERS).toEqual(EXPECTED_PROVIDERS)
+   })
+ 
+   it('maps each Pi identity one-to-one onto the AI registry credential identity', () => {
+-    expect(new Set(ONBOARDING_PROVIDERS.map(({ id }) => id))).toHaveLength(12)
+-    expect(new Set(ONBOARDING_PROVIDERS.map(({ aiRegistryId }) => aiRegistryId))).toHaveLength(12)
+-    expect(new Set(ONBOARDING_PROVIDERS.map(({ credentialRef }) => credentialRef))).toHaveLength(12)
++    expect(new Set(ONBOARDING_PROVIDERS.map(({ id }) => id))).toHaveLength(13)
++    expect(new Set(ONBOARDING_PROVIDERS.map(({ aiRegistryId }) => aiRegistryId))).toHaveLength(13)
++    expect(new Set(ONBOARDING_PROVIDERS.map(({ credentialRef }) => credentialRef))).toHaveLength(13)
+     for (const provider of ONBOARDING_PROVIDERS) {
+       expect(provider.credentialRef).toBe(`secret://${provider.aiRegistryId}/default`)
+       expect(Object.keys(provider).sort()).toEqual(['aiRegistryId', 'credentialRef', 'id', 'label'])
+diff --git a/packages/core/src/step/inference.ts b/packages/core/src/step/inference.ts
+index 453ab52..7c3f3ae 100644
+--- a/packages/core/src/step/inference.ts
++++ b/packages/core/src/step/inference.ts
+@@ -363,6 +363,8 @@ export function resolveModel(s: SessionImpl, slot: string): { route: string; mod
+ export function discloseTools(s: SessionImpl): string[] {
+   const snap = s.turn?.snapshot
+   if (!snap) return []
++  if (s.preset.name === 'texture-tools')
++    return snap.defs.filter((d) => d.meta.deferLoading !== true && ['texture_inspect', 'texture_generate', 'texture_verify', 'texture_submit'].includes(d.name)).map((d) => d.name)
+   const eager = (): string[] => snap.defs.filter((d) => d.meta.deferLoading !== true).map((d) => d.name)
+   let names: string[]
+   switch (s.preset.disclosure) {
+diff --git a/packages/core/src/step/tools.ts b/packages/core/src/step/tools.ts
+index dcdc5eb..5fd5e04 100644
+--- a/packages/core/src/step/tools.ts
++++ b/packages/core/src/step/tools.ts
+@@ -261,6 +261,8 @@ export async function approveAndExecute(
+   const op = s.op() as OpStateObj
+   const t = s.turn
+   if (!t) return { result: errorResult('no open turn') }
++  if (s.preset.name === 'texture-tools' && !['texture_inspect', 'texture_generate', 'texture_verify', 'texture_submit'].includes(call.name))
++    return { result: await refuse(s, call.toolUseId, 'TOOL_NOT_ALLOWED_BY_PRESET', 'tool is outside the texture task boundary') }
+   // A recovered attempt may already have reached the OS and must finish its exactly-once
+   // settlement. New/planned calls are still refused before hooks, approval, or effect intent.
+   if (!o.resumeDispatch && call.name === 'computer_use' && !s.computerUseAllowed())
+diff --git a/packages/host/src/assemble.ts b/packages/host/src/assemble.ts
+index 49173fd..84dd918 100644
+--- a/packages/host/src/assemble.ts
++++ b/packages/host/src/assemble.ts
+@@ -1776,6 +1776,18 @@ export async function assemble(profile: ResolvedProfile, deps: AssembleDeps): Pr
+       activationBarrier,
+       publicationDispatch,
+     )
++    // A row tool may register after a session has cached this generation's Kernel snapshot.
++    // Replace only that owner so new turns see the registration while existing turn snapshots
++    // remain immutable. Revocation uses the same callback after the Kernel disposer runs.
++    const mirrorGenerationOwner = (id: string) => {
++      const current = runtimeTargetPublisher.current().value.current
++      if (!current) return
++      const seed = { tools: kernel.tools, resources: kernel.resources }
++      const generation = generationRegistries(generationViews, current.runtimeRegistryRevision, seed)
++      const replacement = prepareGenerationOwnerReplacement(generation, id, seed)
++      replacement.commit()
++      replacement.finalize()
++    }
+     rowServices.activate(extPorts)
+     // One snapshot for factory contexts and the isolated bootstrap; hooks get theirs from the kernel.
+     const extensionPlatform = platformFacts(seams.platform)
+@@ -1980,6 +1992,7 @@ export async function assemble(profile: ResolvedProfile, deps: AssembleDeps): Pr
+     rowExtensions.activate({
+       ports: extPorts,
+       platform: extensionPlatform,
++      onRegistrationChange: mirrorGenerationOwner,
+       shutdown: (source, context) => dispatchExtensionShutdown(source, context),
+       reservedTool: (name, rowId) => {
+         const owner = reservedTools.get(reservedToolName(name))
+@@ -2003,17 +2016,6 @@ export async function assemble(profile: ResolvedProfile, deps: AssembleDeps): Pr
+     // Extensions that exist only at runtime (one per resource), keyed by extension id. Registered by
+     // `prepare`, dropped again once an apply no longer carries their row.
+     const dynamicExtensionIds = new Set<string>()
+-    // Copies one owner's current Kernel registrations into the published generation sessions are
+-    // bound to, which otherwise keeps the copy it took when it was created.
+-    const mirrorGenerationOwner = (id: string) => {
+-      const current = runtimeTargetPublisher.current().value.current
+-      if (!current) return
+-      const seed = { tools: kernel.tools, resources: kernel.resources }
+-      const generation = generationRegistries(generationViews, current.runtimeRegistryRevision, seed)
+-      const replacement = prepareGenerationOwnerReplacement(generation, id, seed)
+-      replacement.commit()
+-      replacement.finalize()
+-    }
+     const extRowLoader: ExtRowLoader = Object.freeze({
+       load: async (extensionId: string) => ({
+         id: extensionId,
+diff --git a/packages/host/src/configuration.ts b/packages/host/src/configuration.ts
+index 2acb87b..583323a 100644
+--- a/packages/host/src/configuration.ts
++++ b/packages/host/src/configuration.ts
+@@ -267,6 +267,8 @@ function providerFor(value: unknown, authType?: 'api-key' | 'oauth'): Configurat
+ 
+ function providerEndpoint(entry: ConfigurationProvider, value: unknown): string {
+   const baseUrl = value === undefined ? entry.baseUrl : parseBaseUrl(value)
++  if (entry.id === 'command-code' && baseUrl !== entry.baseUrl)
++    throw new ConfigurationError('CONFIG_ENDPOINT_OVERRIDE_UNSUPPORTED')
+   const defaultUrl = entry.baseUrl.endsWith('/') ? entry.baseUrl.slice(0, -1) : entry.baseUrl
+   const requestedUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
+   if (requestedUrl !== defaultUrl && !COMPATIBLE_APIS.has(entry.api))
+diff --git a/packages/host/src/ext-host/row-extension-host.ts b/packages/host/src/ext-host/row-extension-host.ts
+index 2da4216..cf054ef 100644
+--- a/packages/host/src/ext-host/row-extension-host.ts
++++ b/packages/host/src/ext-host/row-extension-host.ts
+@@ -46,6 +46,8 @@ export type RowExtensionHostOptions = Readonly<{
+ export type RowExtensionActivation = Readonly<{
+   ports: KernelPorts
+   platform: ExtensionContext['platform']
++  /** Refresh the published session generation after this row adds or removes Kernel registrations. */
++  onRegistrationChange?(source: string): void
+   /**
+    * Starts `shutdown` for every open session with the source's handlers as they are at call time,
+    * so the caller may release them right after the synchronous part returns.
+@@ -149,7 +151,42 @@ export function createRowExtensionHost(options: RowExtensionHostOptions) {
+     if (r.state !== 'dormant') book.set(view(r))
+   }
+   const registrationOf = (r: RowRecord, entry: Pending) => {
+-    entry.release = r.bag.add(entry.create(activation?.ports as KernelPorts))
++    const release = entry.create(activation?.ports as KernelPorts)
++    let suppressReleaseRefresh = false
++    const refresh = () => activation?.onRegistrationChange?.(r.source)
++    const mirroredRelease = () => {
++      const result = release()
++      if (result instanceof Promise)
++        return result.finally(() => {
++          if (!suppressReleaseRefresh) refresh()
++        })
++      if (!suppressReleaseRefresh) refresh()
++      return result
++    }
++    entry.release = r.bag.add(mirroredRelease)
++    try {
++      refresh()
++    } catch (error) {
++      // A failed refresh must not leave the Kernel registration live or make its disposer fail
++      // again. Refresh once more after rollback in case the callback failed after committing.
++      suppressReleaseRefresh = true
++      try {
++        const rollback = entry.release()
++        if (rollback instanceof Promise) {
++          void rollback.then(
++            () => {
++              try { refresh() } catch {}
++            },
++            () => {
++              try { refresh() } catch {}
++            },
++          )
++        } else {
++          try { refresh() } catch {}
++        }
++      } catch {}
++      throw error
++    }
+     say('extension.registered', {
+       id: r.source,
+       row: r.rowId,
+diff --git a/packages/host/test/configuration.test.ts b/packages/host/test/configuration.test.ts
+index 24e01d5..f9d3e6f 100644
+--- a/packages/host/test/configuration.test.ts
++++ b/packages/host/test/configuration.test.ts
+@@ -108,6 +108,54 @@ it('tests a real provider catalogue, saves an atomic non-secret record, and expo
+   await expect(createCredentialStore({ root }).read(ref)).resolves.toMatchObject({ value: 'sk-test-value' })
+ })
+ 
++it('configures only the reviewed Command Code V4.1 catalogue entry and pins its endpoint', async () => {
++  const model = 'deepseek/deepseek-v4.1-flash'
++  const requested: Array<{ url: string; authorization: string | null }> = []
++  let offeredModel = model
++  const request: typeof fetch = async (input, init) => {
++    const request = new Request(input, init)
++    requested.push({ url: request.url, authorization: request.headers.get('authorization') })
++    return new Response(JSON.stringify({ object: 'list', data: [{ id: offeredModel }] }), {
++      status: 200,
++      headers: { 'content-type': 'application/json' },
++    })
++  }
++  const root = await home()
++  const service = createConfigurationService({ home: root, profile: 'local-dev', request })
++  const entry = getApiKeyProvider('command-code')
++  if (!entry) throw new Error('command-code registry entry missing')
++  expect(entry.baseUrl).toBe('https://api.commandcode.ai/provider/v1')
++
++  await expect(service.test({ providerId: entry.id, apiKey: 'sk-test-value' })).resolves.toEqual({
++    models: [{ id: model, name: 'DeepSeek V4.1 Flash (Command Code)' }],
++    verified: true,
++  })
++  expect(requested.at(-1)).toEqual({
++    url: 'https://api.commandcode.ai/provider/v1/models',
++    authorization: 'Bearer sk-test-value',
++  })
++
++  await service.save({ providerId: entry.id, apiKey: 'sk-test-value', model, expectedRevision: 0 })
++  const overlay = await service.profileInput()
++  expect(overlay.provider?.routes?.[0]).toMatchObject({
++    route: 'command-code',
++    api: 'openai-responses',
++    baseUrl: 'https://api.commandcode.ai/provider/v1',
++    models: [expect.objectContaining({ id: model, input: ['text'] })],
++  })
++  expect(JSON.stringify(overlay)).not.toContain('sk-test-value')
++
++  offeredModel = 'deepseek/deepseek-v4-pro'
++  await expect(service.test({ providerId: entry.id, apiKey: 'sk-test-value' })).resolves.toMatchObject({
++    verified: false,
++  })
++  await expect(service.test({
++    providerId: entry.id,
++    baseUrl: 'https://attacker.example/v1',
++    apiKey: 'sk-test-value',
++  })).rejects.toMatchObject({ code: 'CONFIG_ENDPOINT_OVERRIDE_UNSUPPORTED' })
++})
++
+ it('discovers, saves and reloads the current DeepSeek Flash id', async () => {
+   const server = await fixture('deepseek-flash')
+   const root = await home()
+diff --git a/packages/host/test/ext-host/row-extension-host.test.ts b/packages/host/test/ext-host/row-extension-host.test.ts
+index 778634b..04102e1 100644
+--- a/packages/host/test/ext-host/row-extension-host.test.ts
++++ b/packages/host/test/ext-host/row-extension-host.test.ts
+@@ -1,4 +1,5 @@
+ import { Context, type Fiber } from '@agnes/cordis'
++import { ResourceRegistry, ToolRegistry } from '@agnes/core'
+ import {
+   EXTENSION_ID_PATTERN,
+   type PluginExtensionAPI,
+@@ -17,6 +18,7 @@ import {
+ } from '../../src/ext-host/row-extension-host.js'
+ import type { SkillInstallBridge } from '../../src/resources/skill-install-port.js'
+ import { fixtureTool } from '../fixtures/tool.js'
++import { generationRegistries, prepareGenerationOwnerReplacement } from '../../src/runtime-generation-view.js'
+ 
+ const log = { debug() {}, info() {}, warn() {}, error() {} }
+ const platform = Object.freeze({
+@@ -30,17 +32,24 @@ const tick = () => new Promise((resolve) => setTimeout(resolve, 5))
+ function fakeKernel() {
+   const tools = new Map<string, string>()
+   const definitions = new Map<string, ToolDef>()
++  const registry = new ToolRegistry()
++  const resources = new ResourceRegistry()
+   const hooks: { event: string; source: string; hookRank?: number }[] = []
+   const events: { type: string; source: string }[] = []
+   const leak = new Set<string>()
+   const ports = {
+     tools: {
+-      add(def: ToolDef, meta: { source: string }) {
++      add(def: ToolDef, meta: Parameters<ToolRegistry['add']>[1]) {
+         if (tools.has(def.name)) throw new Error(`E_REGISTRY_DUPLICATE: ${def.name}`)
++        const release = registry.add(def, meta)
+         tools.set(def.name, meta.source)
+         definitions.set(def.name, def)
+         return () => {
+-          if (!leak.has(def.name)) tools.delete(def.name)
++          if (leak.has(def.name)) return
++          const result = release()
++          tools.delete(def.name)
++          definitions.delete(def.name)
++          return result
+         }
+       },
+     },
+@@ -66,11 +75,11 @@ function fakeKernel() {
+       },
+     },
+     registrations: (source: string) => [
+-      ...[...tools].filter(([, owner]) => owner === source).map(([name]) => `tool:${name}`),
++      ...registry.registrations(source),
+       ...hooks.filter((entry) => entry.source === source).map((entry) => `hook:${entry.event}`),
+     ],
+   } as unknown as KernelPorts
+-  return { ports, tools, definitions, hooks, events, leak }
++  return { ports, tools, definitions, registry, resources, hooks, events, leak }
+ }
+ 
+ function setup(
+@@ -563,6 +572,87 @@ describe('registration and wind-down', () => {
+     expect(() => dispose?.()).not.toThrow()
+     expect(t.kernel.ports.registrations(pluginRowSource('ext:acme/a'))).toEqual([])
+   })
++
++  it('mirrors late row registrations into new generations without changing existing turn snapshots', async () => {
++    const t = setup()
++    const cache = new Map()
++    const generation = generationRegistries(cache, 'runtime-1', {
++      tools: t.kernel.registry,
++      resources: t.kernel.resources,
++    })
++    const beforeRegistration = generation.tools.snapshot(0)
++    const source = pluginRowSource('ext:acme/late-tools')
++    t.host.activate({
++      ...t.activation,
++      onRegistrationChange(changedSource) {
++        const replacement = prepareGenerationOwnerReplacement(generation, changedSource, {
++          tools: t.kernel.registry,
++          resources: t.kernel.resources,
++        })
++        replacement.commit()
++        replacement.finalize()
++      },
++    })
++
++    const fiber = await t.mount('row-late-tools', 'ext:acme/late-tools', (_ctx, agnes) => {
++      agnes.registerTool(tool('detail_inspect') as never)
++    })
++
++    expect(generation.tools.resolve('detail_inspect')?.source.source).toBe(source)
++    expect(beforeRegistration.byName.has('detail_inspect')).toBe(false)
++
++    await fiber.dispose()
++    await tick()
++    expect(generation.tools.resolve('detail_inspect')).toBeUndefined()
++    expect(beforeRegistration.byName.has('detail_inspect')).toBe(false)
++    expect(generation.tools.registrations(source)).toEqual([])
++  })
++
++  it('includes a row registered before activation in the first generation', async () => {
++    const t = setup()
++    const fiber = await t.mount('row-dormant-tools', 'ext:acme/dormant-tools', (_ctx, agnes) => {
++      agnes.registerTool(tool('detail_build') as never)
++    })
++    const cache = new Map()
++    const generation = generationRegistries(cache, 'runtime-2', {
++      tools: t.kernel.registry,
++      resources: t.kernel.resources,
++    })
++    const source = pluginRowSource('ext:acme/dormant-tools')
++
++    t.host.activate({
++      ...t.activation,
++      onRegistrationChange(changedSource) {
++        const replacement = prepareGenerationOwnerReplacement(generation, changedSource, {
++          tools: t.kernel.registry,
++          resources: t.kernel.resources,
++        })
++        replacement.commit()
++        replacement.finalize()
++      },
++    })
++
++    expect(generation.tools.resolve('detail_build')?.source.source).toBe(source)
++    await fiber.dispose()
++    await tick()
++    expect(generation.tools.resolve('detail_build')).toBeUndefined()
++  })
++
++  it('releases a registration if generation refresh fails without leaving a failed disposer', async () => {
++    const onRegistrationChange = vi.fn(() => {
++      throw new Error('generation refresh failed')
++    })
++    const t = setup({ onRegistrationChange })
++    t.host.activate(t.activation)
++    const fiber = await t.mount('row-refresh-failure', 'ext:acme/refresh-failure', (_ctx, agnes) => {
++      agnes.registerTool(tool('detail_inspect') as never)
++    })
++
++    expect(t.kernel.ports.registrations(pluginRowSource('ext:acme/refresh-failure'))).toEqual([])
++    await fiber.dispose()
++    await tick()
++    expect(t.kinds('extension.revoke_failed')).toHaveLength(0)
++  })
+ })
+ 
+ describe('who may call ctx.extension()', () => {

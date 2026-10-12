@@ -45,4 +45,7 @@ npm.cmd run start:print
 
 公开摄影数据来自 alansartlog 的 [CC BY 4.0 摄影数据集](https://github.com/AlansCodeLog/photogrammetry-test-sets)，文件身份、裁切和署名随案例保存。灯柱是原创参数化设计。视频中的角色演示用于展示实际生成效果，角色原图、私人资产和语音模型不随源码发布；视频旁白使用本地 GPT-SoVITS 穹声线。
 
-功能源码来源版本：`562483953615a36ce6e3fad3a1df124fe6a267f6`。公开快照新增本说明、演示视频和公开摄影复核入口，保留各历史任务原本的日期与策略。
+功能源码来源版本：`d3bc0127a13862d6832f70d141ae7025c386cfaf`。公开快照新增本说明、演示视频和公开摄影复核入口，保留各历史任务原本的日期与策略。
+
+
+启动入口修正：`启动.bat`和`npm start`启动正式4337工作台，旧4317原型由`npm run start:photo`进入。`复核已有结果.bat`可核对仓库内已有样例。完整模型与环境步骤见[运行与模型配置](运行与模型配置.md)，实际AGH本地适配源码及许可证在[agh-adaptation](agh-adaptation/README.md)。
