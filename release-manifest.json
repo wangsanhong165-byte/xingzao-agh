@@ -1,6 +1,6 @@
 {
   "schema": "xingzao-public-snapshot/v1",
-  "sourceRevision": "d3bc0127a13862d6832f70d141ae7025c386cfaf",
+  "sourceRevision": "6230f0618d91ea388422e5e19788119349e8d48c",
   "files": [
     {
       "path": ".env.example",
@@ -19,8 +19,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3722,
-      "sha256": "bc161d2e6b08077b10c819979a06be3ba33c30f92bedb5455b234d7b06e72c0e"
+      "bytes": 3992,
+      "sha256": "8c2d3a17968a1b8e0504e7ba39a2d955bc602c198b3487834c2466fbadc4c887"
     },
     {
       "path": "agh-adaptation/LICENSE",
@@ -79,8 +79,8 @@
     },
     {
       "path": "bundle-manifest.json",
-      "bytes": 77125,
-      "sha256": "6bdbf55d8dee8c121cec6730306c17da7ec2910430128c081566e80aa4aecc4a"
+      "bytes": 77506,
+      "sha256": "a8dbb953f2ea6ea2f2d81fae8449db1c45e1c424daa650587a97d14f9a774d09"
     },
     {
       "path": "case/baseline-pose.stl",
@@ -444,8 +444,8 @@
     },
     {
       "path": "docs/project-runtime-guide.md",
-      "bytes": 11106,
-      "sha256": "29582574904a2555208bbd0b156efc93204d4c727c0ded80b1832b3f0008062a"
+      "bytes": 11458,
+      "sha256": "565804e65d921a72e649fa19fe80d2b3e21c402762a692fade2e28d6d4d310fb"
     },
     {
       "path": "docs/protection-recovery-validation-2026-10-09.md",
@@ -1868,9 +1868,19 @@
       "sha256": "2e92957342a685afba659abebfebc70d72150f9c106aea2037cfba58b6f82589"
     },
     {
+      "path": "tools/review/report.mjs",
+      "bytes": 6336,
+      "sha256": "2c320923c13fa3a54a84da239c2f7c66cbaabe06eca4c0d2a104ef31611f9cf5"
+    },
+    {
+      "path": "tools/review/report.test.mjs",
+      "bytes": 1641,
+      "sha256": "0c6ebf92c959603d704eb6cb9c20a89faf594edaf36e8ba731567f860e77c950"
+    },
+    {
       "path": "tools/review/run.mjs",
-      "bytes": 1283,
-      "sha256": "f582ff741354b40e936f0639b127c31a6675e43f4985104e99426ef91553cddc"
+      "bytes": 3279,
+      "sha256": "56a3d34bb9a1ed7352e39ba5e5b4f8aec2187d285cfa22f38c92dc0b72fee9f9"
     },
     {
       "path": "tools/setup-agnes-print.mjs",
@@ -1984,13 +1994,13 @@
     },
     {
       "path": "复核已有结果.bat",
-      "bytes": 369,
-      "sha256": "c4c851f436b1a0373018f42d42e38109ea1f5de1bb830255a523a6eb73352180"
+      "bytes": 376,
+      "sha256": "058256c0a8a473a69a6a0e9317699c0c96ecc6d6f6aaeaa096e21fb955072f79"
     },
     {
       "path": "运行与模型配置.md",
-      "bytes": 6424,
-      "sha256": "d9fbccbf96aedcc5850c8bd4944e4b5af24d74fb516f63253a5ec09f6c1d1ff6"
+      "bytes": 6768,
+      "sha256": "bc213e2df24e22bf039b50460d244ad2be83d5d6f3b80e550f7af72ff27f9bd9"
     }
   ]
 }

@@ -9,7 +9,7 @@ if errorlevel 1 (
   pause
   exit /b 1
 )
-node tools/review/run.mjs %*
+node tools/review/run.mjs --open %*
 set "XINGZAO_REVIEW_EXIT=%ERRORLEVEL%"
 pause
 exit /b %XINGZAO_REVIEW_EXIT%
