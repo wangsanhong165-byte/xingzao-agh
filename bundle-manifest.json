@@ -2,7 +2,7 @@
   "schema": "xingzao-review-bundle/v1",
   "createdAt": "2026-10-09T10:38:14.498Z",
   "evidenceBytes": 20580038,
-  "payloadBytes": 24072605,
+  "payloadBytes": 24080007,
   "summary": {
     "task": "versioned-five-pose-original-delivery-and-historical-repair",
     "source": "team-original-parametric-design; not a photograph",
@@ -277,8 +277,8 @@
     {
       "path": "README.md",
       "kind": "source",
-      "bytes": 3860,
-      "sha256": "f6664566c1c798d6a98ca93db43a5a7a13f8eed313f366bf3550cec57649e732"
+      "bytes": 4012,
+      "sha256": "bbcecc15c457188bc96be03853afd55701ffd4c32153f871b8f2f5f7585e4f32"
     },
     {
       "path": "agh-plugin/README.md",
@@ -2311,8 +2311,8 @@
     {
       "path": "运行与模型配置.md",
       "kind": "source",
-      "bytes": 12219,
-      "sha256": "79983f14952f8148ea820ac7edba76797720c097b567f6f165009051d42839bd"
+      "bytes": 14187,
+      "sha256": "5e607b46fd489f28782b4322f40cd59c16fa1b982041e9bd5c003468f24353e4"
     },
     {
       "path": ".env.example",
@@ -2347,8 +2347,8 @@
     {
       "path": "tools/setup/submission-start.html",
       "kind": "source",
-      "bytes": 4339,
-      "sha256": "239f5a391b99d737143051ebdf6e6fc1f5f8a23df059b79707f97aba4d24d993"
+      "bytes": 4583,
+      "sha256": "dd50257000c7e8a7bd5eb030d9c7598194d3deea87bc077199c5fb8c6f412a9f"
     },
     {
       "path": "evidence/agh/失败任务/trace.json",
@@ -2407,8 +2407,8 @@
     {
       "path": "tools/setup/reproduce.py",
       "kind": "source",
-      "bytes": 12560,
-      "sha256": "4e660670813b6f55ee25156400cd2ec5dd05f7ec858c44551179c51d1e3fc141"
+      "bytes": 13101,
+      "sha256": "9f3820142bcd387d23a1f608868f0f4229a33340cee878e991747c8b1f5c4aab"
     },
     {
       "path": "evidence/agh/小预算任务/index.html",
@@ -2449,8 +2449,8 @@
     {
       "path": "运行与模型配置.html",
       "kind": "source",
-      "bytes": 14294,
-      "sha256": "ed84db28530c7e0d4fea9786b2ab3ae18abc9ee485c88b801d69be948b60f051"
+      "bytes": 16381,
+      "sha256": "edfc885afe2e10f7025acbcded9033e80143064c4a57b9bc56e12ae4ae628f53"
     },
     {
       "path": "evidence/agh/失败任务/events.jsonl",
@@ -2461,8 +2461,8 @@
     {
       "path": "开始.html",
       "kind": "source",
-      "bytes": 4296,
-      "sha256": "ca7d5d83d0afa359f37e87525c01fa8ccb981412174a0c9ddf1fb081f936537e"
+      "bytes": 4542,
+      "sha256": "ae3dd3e96acce27e0e718e62ea1a0264a090872d1d4fad887d4eed763d4ceef1"
     },
     {
       "path": "tools/setup/requirements-cpu.txt",
@@ -2479,8 +2479,20 @@
     {
       "path": "tools/setup/check_runtime.py",
       "kind": "source",
-      "bytes": 3025,
-      "sha256": "98cc9ea23e9dd4393edf798d7476a3ce7eee602e520aea6c6217380e8b0f49e8"
+      "bytes": 3154,
+      "sha256": "5bbd7aca9e48f4b9cff9dbac91d5574409d3da17cba279a64a67014f64f82dbd"
+    },
+    {
+      "path": "tools/setup/requirements-cpu-review.txt",
+      "kind": "source",
+      "bytes": 189,
+      "sha256": "186f69f8bf6081796400233b0fa32aa0eb9e56912af0780365c5c96cba91dd63"
+    },
+    {
+      "path": "离线复核环境.bat",
+      "kind": "source",
+      "bytes": 1846,
+      "sha256": "48d02d4a013b6986cb47cfbda271150fbcb6d7afeaccd0573d328a459fb23e53"
     }
   ],
   "manifestExcludesSelf": true

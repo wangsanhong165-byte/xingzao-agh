@@ -1,0 +1,8 @@
+# Small offline Windows x64 / Python 3.12 environment for mesh and toolpath review.
+numpy==2.2.6
+packaging==26.0
+scipy==1.17.1
+trimesh==4.9.0
+networkx==3.6.1
+rtree==1.4.1
+manifold3d==3.2.1

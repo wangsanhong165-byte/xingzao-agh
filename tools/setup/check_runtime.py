@@ -9,21 +9,23 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--kind', choices=['cpu', 'shape', 'texture'], default='cpu')
+    parser.add_argument('--kind', choices=['cpu', 'cpu-review', 'shape', 'texture'], default='cpu')
     parser.add_argument('--gpu-smoke', action='store_true')
     args = parser.parse_args()
     import numpy as np
-    import cv2
     import trimesh
     import scipy
     import rtree
     import manifold3d
     box = trimesh.creation.box()
     assert box.is_watertight and float(box.volume) > 0
-    assert cv2.resize(np.zeros((2, 2, 3), dtype=np.uint8), (4, 4)).shape == (4, 4, 3)
+    if args.kind != 'cpu-review':
+        import cv2
+        assert cv2.resize(np.zeros((2, 2, 3), dtype=np.uint8), (4, 4)).shape == (4, 4, 3)
     report = dict(kind=args.kind, python=sys.version.split()[0], prefix=sys.prefix,
-                  meshImport=True, imageImport=True, modelWeightsLoaded=False)
-    if args.kind != 'cpu':
+                  meshImport=True, modelWeightsLoaded=False)
+    if args.kind != 'cpu-review': report['imageProcessingAvailable'] = True
+    if args.kind in ('shape', 'texture'):
         sys.path.insert(0, str(ROOT/'tools/reconstruction'))
         from texture_source_pins import verify_texture_source
         source = ROOT/'data/reconstruction/source-f8db630/Hunyuan3D-2-f8db63096c8282cb27354314d896feba5ba6ff8a'

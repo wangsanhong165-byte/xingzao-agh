@@ -1,6 +1,6 @@
 {
   "schema": "xingzao-public-snapshot/v1",
-  "sourceRevision": "3e69796f2a95c9b450c009d363cc98560007b2f6",
+  "sourceRevision": "f6d5107f909f6d3c11d511845c6bfa22aa7efece",
   "files": [
     {
       "path": ".env.example",
@@ -19,8 +19,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3860,
-      "sha256": "f6664566c1c798d6a98ca93db43a5a7a13f8eed313f366bf3550cec57649e732"
+      "bytes": 4012,
+      "sha256": "bbcecc15c457188bc96be03853afd55701ffd4c32153f871b8f2f5f7585e4f32"
     },
     {
       "path": "agh-adaptation/LICENSE",
@@ -79,8 +79,8 @@
     },
     {
       "path": "bundle-manifest.json",
-      "bytes": 82034,
-      "sha256": "b5bc156af673925ac74c1fb2b1ceafa02cc58f9dfdf685b18e1c283c2e04836c"
+      "bytes": 82424,
+      "sha256": "38a1e7dcf75e1da51a11927dcacd58d735166a6868424c72e63bd30abaa7c78e"
     },
     {
       "path": "case/baseline-pose.stl",
@@ -1964,8 +1964,8 @@
     },
     {
       "path": "tools/setup/check_runtime.py",
-      "bytes": 3025,
-      "sha256": "98cc9ea23e9dd4393edf798d7476a3ce7eee602e520aea6c6217380e8b0f49e8"
+      "bytes": 3154,
+      "sha256": "5bbd7aca9e48f4b9cff9dbac91d5574409d3da17cba279a64a67014f64f82dbd"
     },
     {
       "path": "tools/setup/constraints-runtime.txt",
@@ -1984,8 +1984,8 @@
     },
     {
       "path": "tools/setup/reproduce.py",
-      "bytes": 12560,
-      "sha256": "4e660670813b6f55ee25156400cd2ec5dd05f7ec858c44551179c51d1e3fc141"
+      "bytes": 13101,
+      "sha256": "9f3820142bcd387d23a1f608868f0f4229a33340cee878e991747c8b1f5c4aab"
     },
     {
       "path": "tools/setup/requirements-cpu.txt",
@@ -2004,8 +2004,8 @@
     },
     {
       "path": "tools/setup/submission-start.html",
-      "bytes": 4339,
-      "sha256": "239f5a391b99d737143051ebdf6e6fc1f5f8a23df059b79707f97aba4d24d993"
+      "bytes": 4583,
+      "sha256": "dd50257000c7e8a7bd5eb030d9c7598194d3deea87bc077199c5fb8c6f412a9f"
     },
     {
       "path": "tools/setup/test_reproduce.py",
@@ -2105,22 +2105,22 @@
     {
       "path": "复核报告.html",
       "bytes": 48262,
-      "sha256": "a238ca51c59330dd64cf31eb9c091d2b1096ab202369ebbaeeb35290bdd65ca0"
+      "sha256": "e5a80be4f9290c70eec321b766bb123f543c004f51c4f6c590f16b21c1bab1bb"
     },
     {
       "path": "开始.html",
-      "bytes": 4296,
-      "sha256": "ca7d5d83d0afa359f37e87525c01fa8ccb981412174a0c9ddf1fb081f936537e"
+      "bytes": 4542,
+      "sha256": "ae3dd3e96acce27e0e718e62ea1a0264a090872d1d4fad887d4eed763d4ceef1"
     },
     {
       "path": "运行与模型配置.html",
-      "bytes": 14294,
-      "sha256": "ed84db28530c7e0d4fea9786b2ab3ae18abc9ee485c88b801d69be948b60f051"
+      "bytes": 16381,
+      "sha256": "edfc885afe2e10f7025acbcded9033e80143064c4a57b9bc56e12ae4ae628f53"
     },
     {
       "path": "运行与模型配置.md",
-      "bytes": 12219,
-      "sha256": "79983f14952f8148ea820ac7edba76797720c097b567f6f165009051d42839bd"
+      "bytes": 14187,
+      "sha256": "5e607b46fd489f28782b4322f40cd59c16fa1b982041e9bd5c003468f24353e4"
     }
   ]
 }

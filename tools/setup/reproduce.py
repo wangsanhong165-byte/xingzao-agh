@@ -83,6 +83,12 @@ def invoke(arguments, plan=False, cwd=None):
 def prepare_environment(kind, wheelhouse=None, plan=False):
     if sys.platform != 'win32' or sys.version_info[:2] != (3, 12) or sys.maxsize <= 2**32:
         raise ValueError('Use Windows x64 and 64-bit Python 3.12 for these pinned dependencies')
+    if kind not in ('cpu', 'cpu-review', 'gpu'):
+        raise ValueError('Unknown environment kind')
+    if kind == 'cpu-review' and wheelhouse is None:
+        packaged = ROOT/'data/setup/wheels'
+        if packaged.is_dir():
+            wheelhouse = packaged
     environments = ['env-torch-readonly'] + (['env-texture-probe'] if kind == 'gpu' else [])
     for name in environments:
         directory = ROOT/'data/reconstruction'/name
@@ -110,6 +116,8 @@ def prepare_environment(kind, wheelhouse=None, plan=False):
 
 
 def prepare_wheels(kind, destination, plan=False):
+    if sys.platform != 'win32' or sys.version_info[:2] != (3, 12) or sys.maxsize <= 2**32:
+        raise ValueError('Wheelhouse creation targets Windows x64 and 64-bit Python 3.12')
     destination = Path(destination).resolve()
     if not plan:
         destination.mkdir(parents=True, exist_ok=True)
@@ -220,13 +228,13 @@ def main():
     parser.add_argument('--plan', action='store_true', help='Print commands without installing or downloading')
     sub = parser.add_subparsers(dest='action', required=True)
     environment = sub.add_parser('environment', help='Create isolated project venvs and install dependencies')
-    environment.add_argument('--kind', choices=['cpu', 'gpu'], default='cpu')
+    environment.add_argument('--kind', choices=['cpu', 'cpu-review', 'gpu'], default='cpu')
     environment.add_argument('--wheelhouse', type=Path)
     wheels = sub.add_parser('wheels', help='Download project pip dependencies for later offline installation')
-    wheels.add_argument('--kind', choices=['cpu', 'gpu'], default='gpu')
+    wheels.add_argument('--kind', choices=['cpu', 'cpu-review', 'gpu'], default='cpu-review')
     wheels.add_argument('--destination', type=Path, default=ROOT/'data/setup/wheels')
     assets = sub.add_parser('assets', help='Fetch fixed public source, slicer and model files')
-    assets.add_argument('--scope', choices=['core', 'shape', 'texture', 'all'], default='all')
+    assets.add_argument('--scope', choices=['core', 'slicer', 'shape', 'texture', 'all'], default='all')
     args = parser.parse_args()
     if args.action == 'environment':
         prepare_environment(args.kind, args.wheelhouse, args.plan)
@@ -235,6 +243,7 @@ def main():
     else:
         if args.scope in ('core', 'all'):
             prepare_source(args.plan)
+        if args.scope in ('core', 'slicer', 'all'):
             prepare_slicer(args.plan)
         if args.scope in ('shape', 'all'):
             prepare_model('shape', args.plan)
