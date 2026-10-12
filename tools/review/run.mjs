@@ -19,8 +19,8 @@ const reportPath=path.join(bundle===root?root:path.dirname(bundle),'复核报告
 let result;
 try{
  const review=await checkReviewBundle(bundle),dataset=JSON.parse(await readFile(path.join(bundle,'case/cases.json'),'utf8'));
- const photoPath=path.join(bundle,'摄影外观保护/复核支撑.mjs');let photo=null;
- if(existsSync(photoPath)){
+ const photoPath=[path.join(bundle,'摄影外观保护/复核支撑.mjs'),path.join(bundle,'examples/photo-protection/复核支撑.mjs')].find(p=>existsSync(p));let photo=null;
+ if(photoPath){
   const verified=spawnSync(process.execPath,[photoPath],{cwd:root,encoding:'utf8',shell:false,windowsHide:true,maxBuffer:1024*1024});
   if(verified.error||verified.status!==0)throw Error('摄影保护样例未通过：'+String(verified.stderr??verified.error?.message??'').trim());
   const values=new Map([...verified.stdout.matchAll(/^(upright|face-up): ([0-9.]+) mm verified$/gmu)].map(m=>[m[1],Number(m[2])]));

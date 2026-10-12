@@ -1,0 +1,1140 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>形造｜样例复核报告</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f4f7f8;color:#202e38;font-family:"Microsoft YaHei",sans-serif;line-height:1.65}main{max-width:1040px;margin:36px auto;padding:0 24px}header{margin-bottom:22px}.eyebrow{color:#536b76;font-size:14px;margin:0}h1{font-size:30px;margin:5px 0}h2{font-size:19px;margin:0 0 14px}.muted{color:#60737d;font-size:14px}.verdict,section{background:white;border:1px solid #dfe7eb;border-radius:12px;padding:22px;margin:18px 0}.verdict{border-left:6px solid #24816c}.verdict strong{font-size:23px;color:#1f715f}.verdict p{margin:6px 0 0}table{width:100%;border-collapse:collapse;font-size:14px}th{text-align:left;color:#526976;font-weight:500;background:#f3f6f7}th,td{padding:13px 12px;border-bottom:1px solid #e5ecef;vertical-align:top}small{display:block;font-size:12px;color:#657780;margin-top:3px}.match{color:#207260;background:#edf7f3;border-radius:6px;padding:4px 9px;white-space:nowrap}.photo{display:flex;gap:38px;flex-wrap:wrap}.photo span{display:block;color:#60737d;font-size:13px}.photo strong{display:block;font-size:22px;margin:4px 0}details{background:#fff;border:1px solid #dfe7eb;border-radius:9px;padding:14px 18px;margin:20px 0}summary{cursor:pointer;color:#516a77}pre{white-space:pre-wrap;word-break:break-all;font-size:12px;max-height:600px;overflow:auto}.scroll{overflow-x:auto}.note{font-size:13px;color:#617580}footer{padding:12px 0 30px;color:#71838d;font-size:12px}@media print{body{background:#fff}main{margin:0;max-width:none}details{display:none}.verdict,section{break-inside:avoid}}
+</style></head><body><main><header><p class="eyebrow">形造 · 提交样例</p><h1>离线复核报告</h1><p class="muted">复核时间：2026/10/12 22:01:32</p></header>
+<div class="verdict"><strong>复核通过</strong><p>5 个刀轨案例均与预期一致，411 个输入文件身份已核对。</p></div>
+<section><h2>案例结果</h2><p class="note">可行性按申报的关键特征和刀轨要求判断。失败、边界案例用于对照；“一致”表示实际结果符合预期。</p><div class="scroll"><table><thead><tr><th>案例</th><th>预期</th><th>本次结果</th><th>切片估算<br>耗材／时长</th><th>核验</th></tr></thead><tbody><tr><td>原件直立（0.5 mm）</td><td>不可行</td><td><strong>不可行</strong><small>关键特征保留未通过</small></td><td>0.67 g<small>6分5秒</small></td><td><span class="match">一致</span></td></tr><tr><td>边界修正（0.7 mm）</td><td>不可行</td><td><strong>不可行</strong><small>特征采样通过，细杆刀轨断段</small></td><td>0.68 g<small>8分52秒</small></td><td><span class="match">一致</span></td></tr><tr><td>正常修正（0.8 mm）</td><td>可行</td><td><strong>可行</strong><small>关键特征和细杆连续性通过</small></td><td>0.69 g<small>9分17秒</small></td><td><span class="match">一致</span></td></tr><tr><td>原件侧放对照（0.5 mm）</td><td>可行</td><td><strong>可行</strong><small>关键特征和细杆连续性通过</small></td><td>0.80 g<small>5分46秒</small></td><td><span class="match">一致</span></td></tr><tr><td>五姿态原件交付（0.5 mm）</td><td>可行</td><td><strong>可行</strong><small>关键特征和细杆连续性通过</small></td><td>0.80 g<small>5分46秒</small></td><td><span class="match">一致</span></td></tr></tbody></table></div><p class="note">修正选项边界：没有可用候选，符合预设预算限制。</p></section>
+<section><h2>摄影模型的外观保护</h2><div class="photo"><div><span>保护区支撑刀轨</span><strong>34898.41 → 7911.03 mm</strong></div><div><span>降幅</span><strong>77.33%</strong></div></div><p>切片估算耗材 39.01 → 33.81 g；时长 3小时1分48秒 → 2小时35分33秒。</p></section><p class="note">验证方式：重新核对已有文件、摆放与真实切片刀轨；网格探针采用随包记录。本次未重新生成模型或打印实物。</p>
+<details><summary>查看详细核验数据</summary><pre>{
+  &quot;valid&quot;: true,
+  &quot;schema&quot;: &quot;xingzao-review-bundle/v1&quot;,
+  &quot;fileCount&quot;: 411,
+  &quot;totalBytes&quot;: 24072605,
+  &quot;cases&quot;: [
+    {
+      &quot;id&quot;: &quot;baseline&quot;,
+      &quot;sourceSha256&quot;: &quot;7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129&quot;,
+      &quot;originalSourceSha256&quot;: &quot;7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129&quot;,
+      &quot;posedSha256&quot;: &quot;793f146429d4e88dbe83a0b2a39955aceb6abece403311b8b74595e3b0fb78f4&quot;,
+      &quot;poseId&quot;: &quot;upright&quot;,
+      &quot;placement&quot;: {
+        &quot;verified&quot;: true,
+        &quot;modelExtrusionBoundsMm&quot;: {
+          &quot;xMin&quot;: 84.2,
+          &quot;yMin&quot;: 86.2,
+          &quot;zMin&quot;: 0.2,
+          &quot;xMax&quot;: 95.8,
+          &quot;yMax&quot;: 93.8,
+          &quot;zMax&quot;: 30
+        },
+        &quot;observedCenterMm&quot;: {
+          &quot;x&quot;: 90,
+          &quot;y&quot;: 90
+        },
+        &quot;declaredOffsetMm&quot;: {
+          &quot;x&quot;: 90,
+          &quot;y&quot;: 90,
+          &quot;z&quot;: 0
+        }
+      },
+      &quot;metrics&quot;: {
+        &quot;filamentMm&quot;: 225.98,
+        &quot;filamentG&quot;: 0.67,
+        &quot;estimatedTimeSeconds&quot;: 365
+      },
+      &quot;audits&quot;: {
+        &quot;currentFeatures&quot;: {
+          &quot;verified&quot;: true,
+          &quot;passed&quot;: false,
+          &quot;scope&quot;: &quot;sampled-source-feature-vs-planned-model-extrusion&quot;,
+          &quot;features&quot;: [
+            {
+              &quot;id&quot;: &quot;lamp-post&quot;,
+              &quot;kind&quot;: &quot;solid&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: false,
+              &quot;code&quot;: &quot;RETENTION_BELOW_MINIMUM&quot;,
+              &quot;targetSampleCount&quot;: 3328,
+              &quot;retainedSampleCount&quot;: 208,
+              &quot;retentionFraction&quot;: 0.0625,
+              &quot;connected&quot;: null,
+              &quot;directionRetentions&quot;: [
+                {
+                  &quot;direction&quot;: &quot;-X&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 52,
+                  &quot;retentionFraction&quot;: 0.0625
+                },
+                {
+                  &quot;direction&quot;: &quot;+X&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 52,
+                  &quot;retentionFraction&quot;: 0.0625
+                },
+                {
+                  &quot;direction&quot;: &quot;-Y&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 52,
+                  &quot;retentionFraction&quot;: 0.0625
+                },
+                {
+                  &quot;direction&quot;: &quot;+Y&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 52,
+                  &quot;retentionFraction&quot;: 0.0625
+                }
+              ],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.01874999999999999,
+                  0.01875,
+                  0.796875
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            },
+            {
+              &quot;id&quot;: &quot;mounting-hole&quot;,
+              &quot;kind&quot;: &quot;void-channel&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: true,
+              &quot;code&quot;: &quot;PASS&quot;,
+              &quot;targetSampleCount&quot;: 13056,
+              &quot;retainedSampleCount&quot;: 12544,
+              &quot;retentionFraction&quot;: 0.9607843137254902,
+              &quot;connected&quot;: true,
+              &quot;directionRetentions&quot;: [],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.08750000000000001,
+                  0.0875,
+                  0.059375
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            }
+          ],
+          &quot;warnings&quot;: []
+        },
+        &quot;originalFeatures&quot;: {
+          &quot;verified&quot;: true,
+          &quot;passed&quot;: false,
+          &quot;scope&quot;: &quot;sampled-source-feature-vs-planned-model-extrusion&quot;,
+          &quot;features&quot;: [
+            {
+              &quot;id&quot;: &quot;lamp-post&quot;,
+              &quot;kind&quot;: &quot;solid&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: false,
+              &quot;code&quot;: &quot;RETENTION_BELOW_MINIMUM&quot;,
+              &quot;targetSampleCount&quot;: 3328,
+              &quot;retainedSampleCount&quot;: 208,
+              &quot;retentionFraction&quot;: 0.0625,
+              &quot;connected&quot;: null,
+              &quot;directionRetentions&quot;: [
+                {
+                  &quot;direction&quot;: &quot;-X&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 52,
+                  &quot;retentionFraction&quot;: 0.0625
+                },
+                {
+                  &quot;direction&quot;: &quot;+X&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 52,
+                  &quot;retentionFraction&quot;: 0.0625
+                },
+                {
+                  &quot;direction&quot;: &quot;-Y&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 52,
+                  &quot;retentionFraction&quot;: 0.0625
+                },
+                {
+                  &quot;direction&quot;: &quot;+Y&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 52,
+                  &quot;retentionFraction&quot;: 0.0625
+                }
+              ],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.01874999999999999,
+                  0.01875,
+                  0.796875
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            },
+            {
+              &quot;id&quot;: &quot;mounting-hole&quot;,
+              &quot;kind&quot;: &quot;void-channel&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: true,
+              &quot;code&quot;: &quot;PASS&quot;,
+              &quot;targetSampleCount&quot;: 13056,
+              &quot;retainedSampleCount&quot;: 12544,
+              &quot;retentionFraction&quot;: 0.9607843137254902,
+              &quot;connected&quot;: true,
+              &quot;directionRetentions&quot;: [],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.08750000000000001,
+                  0.0875,
+                  0.059375
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            }
+          ],
+          &quot;warnings&quot;: []
+        },
+        &quot;rodContinuity&quot;: {
+          &quot;verified&quot;: true,
+          &quot;passed&quot;: false,
+          &quot;scope&quot;: &quot;continuous-centreline-vs-planned-model-extrusion&quot;,
+          &quot;numericToleranceMm&quot;: 0.000002,
+          &quot;physicalPrintVerified&quot;: false,
+          &quot;code&quot;: &quot;ROD_TOOLPATH_DISCONNECTED&quot;,
+          &quot;lineLengthMm&quot;: 26,
+          &quot;coveredLengthMm&quot;: 1.199999999999998,
+          &quot;coverageFraction&quot;: 0.04615384615384607,
+          &quot;maxGapMm&quot;: 24.8,
+          &quot;gaps&quot;: [
+            {
+              &quot;fromT&quot;: 0.02307692307692308,
+              &quot;toT&quot;: 0.976923076923077,
+              &quot;lengthMm&quot;: 24.8
+            }
+          ]
+        }
+      },
+      &quot;toolpathFeasible&quot;: false
+    },
+    {
+      &quot;id&quot;: &quot;boundary&quot;,
+      &quot;sourceSha256&quot;: &quot;2c00ca76d21f68a636acc833f67c4c6a5cff4c582ef2658a412065ba8a4395db&quot;,
+      &quot;originalSourceSha256&quot;: &quot;7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129&quot;,
+      &quot;posedSha256&quot;: &quot;ea7f64a1f7c0e9dafbe39f70d4f8df496ae97417f8f86fa2b82d8ddc8a34a4da&quot;,
+      &quot;poseId&quot;: &quot;upright&quot;,
+      &quot;placement&quot;: {
+        &quot;verified&quot;: true,
+        &quot;modelExtrusionBoundsMm&quot;: {
+          &quot;xMin&quot;: 84.2,
+          &quot;yMin&quot;: 86.2,
+          &quot;zMin&quot;: 0.2,
+          &quot;xMax&quot;: 95.8,
+          &quot;yMax&quot;: 93.8,
+          &quot;zMax&quot;: 30
+        },
+        &quot;observedCenterMm&quot;: {
+          &quot;x&quot;: 90,
+          &quot;y&quot;: 90
+        },
+        &quot;declaredOffsetMm&quot;: {
+          &quot;x&quot;: 90,
+          &quot;y&quot;: 90,
+          &quot;z&quot;: 0
+        }
+      },
+      &quot;metrics&quot;: {
+        &quot;filamentMm&quot;: 229.26,
+        &quot;filamentG&quot;: 0.68,
+        &quot;estimatedTimeSeconds&quot;: 532
+      },
+      &quot;audits&quot;: {
+        &quot;currentFeatures&quot;: {
+          &quot;verified&quot;: true,
+          &quot;passed&quot;: true,
+          &quot;scope&quot;: &quot;sampled-source-feature-vs-planned-model-extrusion&quot;,
+          &quot;features&quot;: [
+            {
+              &quot;id&quot;: &quot;lamp-post&quot;,
+              &quot;kind&quot;: &quot;solid&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: true,
+              &quot;code&quot;: &quot;PASS&quot;,
+              &quot;targetSampleCount&quot;: 3584,
+              &quot;retainedSampleCount&quot;: 3584,
+              &quot;retentionFraction&quot;: 1,
+              &quot;connected&quot;: null,
+              &quot;directionRetentions&quot;: [
+                {
+                  &quot;direction&quot;: &quot;-X&quot;,
+                  &quot;targetSampleCount&quot;: 896,
+                  &quot;retainedSampleCount&quot;: 896,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;+X&quot;,
+                  &quot;targetSampleCount&quot;: 896,
+                  &quot;retainedSampleCount&quot;: 896,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;-Y&quot;,
+                  &quot;targetSampleCount&quot;: 896,
+                  &quot;retainedSampleCount&quot;: 896,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;+Y&quot;,
+                  &quot;targetSampleCount&quot;: 896,
+                  &quot;retainedSampleCount&quot;: 896,
+                  &quot;retentionFraction&quot;: 1
+                }
+              ],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.024999999999999994,
+                  0.024999999999999998,
+                  0.796875
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            },
+            {
+              &quot;id&quot;: &quot;mounting-hole&quot;,
+              &quot;kind&quot;: &quot;void-channel&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: true,
+              &quot;code&quot;: &quot;PASS&quot;,
+              &quot;targetSampleCount&quot;: 13056,
+              &quot;retainedSampleCount&quot;: 12544,
+              &quot;retentionFraction&quot;: 0.9607843137254902,
+              &quot;connected&quot;: true,
+              &quot;directionRetentions&quot;: [],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.08750000000000001,
+                  0.0875,
+                  0.059375
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            }
+          ],
+          &quot;warnings&quot;: []
+        },
+        &quot;originalFeatures&quot;: {
+          &quot;verified&quot;: true,
+          &quot;passed&quot;: true,
+          &quot;scope&quot;: &quot;sampled-source-feature-vs-planned-model-extrusion&quot;,
+          &quot;features&quot;: [
+            {
+              &quot;id&quot;: &quot;lamp-post&quot;,
+              &quot;kind&quot;: &quot;solid&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: true,
+              &quot;code&quot;: &quot;PASS&quot;,
+              &quot;targetSampleCount&quot;: 3328,
+              &quot;retainedSampleCount&quot;: 3328,
+              &quot;retentionFraction&quot;: 1,
+              &quot;connected&quot;: null,
+              &quot;directionRetentions&quot;: [
+                {
+                  &quot;direction&quot;: &quot;-X&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;+X&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;-Y&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;+Y&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                }
+              ],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.01874999999999999,
+                  0.01875,
+                  0.796875
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            },
+            {
+              &quot;id&quot;: &quot;mounting-hole&quot;,
+              &quot;kind&quot;: &quot;void-channel&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: true,
+              &quot;code&quot;: &quot;PASS&quot;,
+              &quot;targetSampleCount&quot;: 13056,
+              &quot;retainedSampleCount&quot;: 12544,
+              &quot;retentionFraction&quot;: 0.9607843137254902,
+              &quot;connected&quot;: true,
+              &quot;directionRetentions&quot;: [],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.08750000000000001,
+                  0.0875,
+                  0.059375
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            }
+          ],
+          &quot;warnings&quot;: []
+        },
+        &quot;rodContinuity&quot;: {
+          &quot;verified&quot;: true,
+          &quot;passed&quot;: false,
+          &quot;scope&quot;: &quot;continuous-centreline-vs-planned-model-extrusion&quot;,
+          &quot;numericToleranceMm&quot;: 0.000002,
+          &quot;physicalPrintVerified&quot;: false,
+          &quot;code&quot;: &quot;ROD_TOOLPATH_DISCONNECTED&quot;,
+          &quot;lineLengthMm&quot;: 26,
+          &quot;coveredLengthMm&quot;: 22.999998999999995,
+          &quot;coverageFraction&quot;: 0.884615346153846,
+          &quot;maxGapMm&quot;: 0.4,
+          &quot;gaps&quot;: [
+            {
+              &quot;fromT&quot;: 0.13846153846153844,
+              &quot;toT&quot;: 0.14615384615384613,
+              &quot;lengthMm&quot;: 0.2
+            },
+            {
+              &quot;fromT&quot;: 0.2076923076923077,
+              &quot;toT&quot;: 0.21538461538461537,
+              &quot;lengthMm&quot;: 0.1999999999999993
+            },
+            {
+              &quot;fromT&quot;: 0.25384615384615383,
+              &quot;toT&quot;: 0.26153846153846155,
+              &quot;lengthMm&quot;: 0.20000000000000073
+            },
+            {
+              &quot;fromT&quot;: 0.2846153846153846,
+              &quot;toT&quot;: 0.2923076923076924,
+              &quot;lengthMm&quot;: 0.20000000000000218
+            },
+            {
+              &quot;fromT&quot;: 0.3153846153846154,
+              &quot;toT&quot;: 0.3230769230769231,
+              &quot;lengthMm&quot;: 0.20000000000000073
+            },
+            {
+              &quot;fromT&quot;: 0.33076923076923076,
+              &quot;toT&quot;: 0.34615384615384615,
+              &quot;lengthMm&quot;: 0.4
+            },
+            {
+              &quot;fromT&quot;: 0.3538461538461538,
+              &quot;toT&quot;: 0.36153846153846153,
+              &quot;lengthMm&quot;: 0.20000000000000073
+            },
+            {
+              &quot;fromT&quot;: 0.3692307692307692,
+              &quot;toT&quot;: 0.37692307692307697,
+              &quot;lengthMm&quot;: 0.20000000000000218
+            },
+            {
+              &quot;fromT&quot;: 0.4,
+              &quot;toT&quot;: 0.40769230769230774,
+              &quot;lengthMm&quot;: 0.20000000000000073
+            },
+            {
+              &quot;fromT&quot;: 0.4153846153846154,
+              &quot;toT&quot;: 0.4230769230769231,
+              &quot;lengthMm&quot;: 0.1999999999999993
+            },
+            {
+              &quot;fromT&quot;: 0.7538461538461539,
+              &quot;toT&quot;: 0.7615384615384616,
+              &quot;lengthMm&quot;: 0.1999999999999993
+            },
+            {
+              &quot;fromT&quot;: 0.9461538461538462,
+              &quot;toT&quot;: 0.9538461538461539,
+              &quot;lengthMm&quot;: 0.1999999999999993
+            },
+            {
+              &quot;fromT&quot;: 0.9615384615384616,
+              &quot;toT&quot;: 0.9692307692307692,
+              &quot;lengthMm&quot;: 0.1999999999999993
+            },
+            {
+              &quot;fromT&quot;: 0.9769230769230769,
+              &quot;toT&quot;: 0.9846154230769232,
+              &quot;lengthMm&quot;: 0.20000100000000343
+            }
+          ]
+        }
+      },
+      &quot;toolpathFeasible&quot;: false
+    },
+    {
+      &quot;id&quot;: &quot;normal&quot;,
+      &quot;sourceSha256&quot;: &quot;a029a555ce54a5d74ee608184e4f61174bc36976c92ef6e14f377e9220561019&quot;,
+      &quot;originalSourceSha256&quot;: &quot;7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129&quot;,
+      &quot;posedSha256&quot;: &quot;6f7d020c532f6b21b87e89397b1a4fe4313f608388341497be5eb75f13696023&quot;,
+      &quot;poseId&quot;: &quot;upright&quot;,
+      &quot;placement&quot;: {
+        &quot;verified&quot;: true,
+        &quot;modelExtrusionBoundsMm&quot;: {
+          &quot;xMin&quot;: 84.2,
+          &quot;yMin&quot;: 86.2,
+          &quot;zMin&quot;: 0.2,
+          &quot;xMax&quot;: 95.8,
+          &quot;yMax&quot;: 93.8,
+          &quot;zMax&quot;: 30
+        },
+        &quot;observedCenterMm&quot;: {
+          &quot;x&quot;: 90,
+          &quot;y&quot;: 90
+        },
+        &quot;declaredOffsetMm&quot;: {
+          &quot;x&quot;: 90,
+          &quot;y&quot;: 90,
+          &quot;z&quot;: 0
+        }
+      },
+      &quot;metrics&quot;: {
+        &quot;filamentMm&quot;: 232.19,
+        &quot;filamentG&quot;: 0.69,
+        &quot;estimatedTimeSeconds&quot;: 557
+      },
+      &quot;audits&quot;: {
+        &quot;currentFeatures&quot;: {
+          &quot;verified&quot;: true,
+          &quot;passed&quot;: true,
+          &quot;scope&quot;: &quot;sampled-source-feature-vs-planned-model-extrusion&quot;,
+          &quot;features&quot;: [
+            {
+              &quot;id&quot;: &quot;lamp-post&quot;,
+              &quot;kind&quot;: &quot;solid&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: true,
+              &quot;code&quot;: &quot;PASS&quot;,
+              &quot;targetSampleCount&quot;: 3584,
+              &quot;retainedSampleCount&quot;: 3584,
+              &quot;retentionFraction&quot;: 1,
+              &quot;connected&quot;: null,
+              &quot;directionRetentions&quot;: [
+                {
+                  &quot;direction&quot;: &quot;-X&quot;,
+                  &quot;targetSampleCount&quot;: 896,
+                  &quot;retainedSampleCount&quot;: 896,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;+X&quot;,
+                  &quot;targetSampleCount&quot;: 896,
+                  &quot;retainedSampleCount&quot;: 896,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;-Y&quot;,
+                  &quot;targetSampleCount&quot;: 896,
+                  &quot;retainedSampleCount&quot;: 896,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;+Y&quot;,
+                  &quot;targetSampleCount&quot;: 896,
+                  &quot;retainedSampleCount&quot;: 896,
+                  &quot;retentionFraction&quot;: 1
+                }
+              ],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.02812500000000001,
+                  0.028125,
+                  0.796875
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            },
+            {
+              &quot;id&quot;: &quot;mounting-hole&quot;,
+              &quot;kind&quot;: &quot;void-channel&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: true,
+              &quot;code&quot;: &quot;PASS&quot;,
+              &quot;targetSampleCount&quot;: 13056,
+              &quot;retainedSampleCount&quot;: 12544,
+              &quot;retentionFraction&quot;: 0.9607843137254902,
+              &quot;connected&quot;: true,
+              &quot;directionRetentions&quot;: [],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.08750000000000001,
+                  0.0875,
+                  0.059375
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            }
+          ],
+          &quot;warnings&quot;: []
+        },
+        &quot;originalFeatures&quot;: {
+          &quot;verified&quot;: true,
+          &quot;passed&quot;: true,
+          &quot;scope&quot;: &quot;sampled-source-feature-vs-planned-model-extrusion&quot;,
+          &quot;features&quot;: [
+            {
+              &quot;id&quot;: &quot;lamp-post&quot;,
+              &quot;kind&quot;: &quot;solid&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: true,
+              &quot;code&quot;: &quot;PASS&quot;,
+              &quot;targetSampleCount&quot;: 3328,
+              &quot;retainedSampleCount&quot;: 3328,
+              &quot;retentionFraction&quot;: 1,
+              &quot;connected&quot;: null,
+              &quot;directionRetentions&quot;: [
+                {
+                  &quot;direction&quot;: &quot;-X&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;+X&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;-Y&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;+Y&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                }
+              ],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.01874999999999999,
+                  0.01875,
+                  0.796875
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            },
+            {
+              &quot;id&quot;: &quot;mounting-hole&quot;,
+              &quot;kind&quot;: &quot;void-channel&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: true,
+              &quot;code&quot;: &quot;PASS&quot;,
+              &quot;targetSampleCount&quot;: 13056,
+              &quot;retainedSampleCount&quot;: 12544,
+              &quot;retentionFraction&quot;: 0.9607843137254902,
+              &quot;connected&quot;: true,
+              &quot;directionRetentions&quot;: [],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.08750000000000001,
+                  0.0875,
+                  0.059375
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            }
+          ],
+          &quot;warnings&quot;: []
+        },
+        &quot;rodContinuity&quot;: {
+          &quot;verified&quot;: true,
+          &quot;passed&quot;: true,
+          &quot;scope&quot;: &quot;continuous-centreline-vs-planned-model-extrusion&quot;,
+          &quot;numericToleranceMm&quot;: 0.000002,
+          &quot;physicalPrintVerified&quot;: false,
+          &quot;code&quot;: &quot;PASS&quot;,
+          &quot;lineLengthMm&quot;: 26,
+          &quot;coveredLengthMm&quot;: 26,
+          &quot;coverageFraction&quot;: 1,
+          &quot;maxGapMm&quot;: 0,
+          &quot;gaps&quot;: []
+        }
+      },
+      &quot;toolpathFeasible&quot;: true
+    },
+    {
+      &quot;id&quot;: &quot;strong-baseline-face-up&quot;,
+      &quot;sourceSha256&quot;: &quot;7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129&quot;,
+      &quot;originalSourceSha256&quot;: &quot;7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129&quot;,
+      &quot;posedSha256&quot;: &quot;2c44e5007ba417f036aa8b35c14e3bb5fed30da271992381e976a19a5572f4b7&quot;,
+      &quot;poseId&quot;: &quot;face-up&quot;,
+      &quot;placement&quot;: {
+        &quot;verified&quot;: true,
+        &quot;modelExtrusionBoundsMm&quot;: {
+          &quot;xMin&quot;: 84.2,
+          &quot;yMin&quot;: 75.2,
+          &quot;zMin&quot;: 0.2,
+          &quot;xMax&quot;: 95.8,
+          &quot;yMax&quot;: 104.775,
+          &quot;zMax&quot;: 8
+        },
+        &quot;observedCenterMm&quot;: {
+          &quot;x&quot;: 90,
+          &quot;y&quot;: 89.98750000000001
+        },
+        &quot;declaredOffsetMm&quot;: {
+          &quot;x&quot;: 90,
+          &quot;y&quot;: 90,
+          &quot;z&quot;: 0
+        }
+      },
+      &quot;metrics&quot;: {
+        &quot;filamentMm&quot;: 267.05,
+        &quot;filamentG&quot;: 0.8,
+        &quot;estimatedTimeSeconds&quot;: 346
+      },
+      &quot;audits&quot;: {
+        &quot;currentFeatures&quot;: {
+          &quot;verified&quot;: true,
+          &quot;passed&quot;: true,
+          &quot;scope&quot;: &quot;sampled-source-feature-vs-planned-model-extrusion&quot;,
+          &quot;features&quot;: [
+            {
+              &quot;id&quot;: &quot;lamp-post&quot;,
+              &quot;kind&quot;: &quot;solid&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: true,
+              &quot;code&quot;: &quot;PASS&quot;,
+              &quot;targetSampleCount&quot;: 3328,
+              &quot;retainedSampleCount&quot;: 3328,
+              &quot;retentionFraction&quot;: 1,
+              &quot;connected&quot;: null,
+              &quot;directionRetentions&quot;: [
+                {
+                  &quot;direction&quot;: &quot;-X&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;+X&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;-Y&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;+Y&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                }
+              ],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.01874999999999999,
+                  0.01875,
+                  0.796875
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            },
+            {
+              &quot;id&quot;: &quot;mounting-hole&quot;,
+              &quot;kind&quot;: &quot;void-channel&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: true,
+              &quot;code&quot;: &quot;PASS&quot;,
+              &quot;targetSampleCount&quot;: 13056,
+              &quot;retainedSampleCount&quot;: 12344,
+              &quot;retentionFraction&quot;: 0.9454656862745098,
+              &quot;connected&quot;: true,
+              &quot;directionRetentions&quot;: [],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.08750000000000001,
+                  0.0875,
+                  0.059375
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            }
+          ],
+          &quot;warnings&quot;: []
+        },
+        &quot;originalFeatures&quot;: {
+          &quot;verified&quot;: true,
+          &quot;passed&quot;: true,
+          &quot;scope&quot;: &quot;sampled-source-feature-vs-planned-model-extrusion&quot;,
+          &quot;features&quot;: [
+            {
+              &quot;id&quot;: &quot;lamp-post&quot;,
+              &quot;kind&quot;: &quot;solid&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: true,
+              &quot;code&quot;: &quot;PASS&quot;,
+              &quot;targetSampleCount&quot;: 3328,
+              &quot;retainedSampleCount&quot;: 3328,
+              &quot;retentionFraction&quot;: 1,
+              &quot;connected&quot;: null,
+              &quot;directionRetentions&quot;: [
+                {
+                  &quot;direction&quot;: &quot;-X&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;+X&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;-Y&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;+Y&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                }
+              ],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.01874999999999999,
+                  0.01875,
+                  0.796875
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            },
+            {
+              &quot;id&quot;: &quot;mounting-hole&quot;,
+              &quot;kind&quot;: &quot;void-channel&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: true,
+              &quot;code&quot;: &quot;PASS&quot;,
+              &quot;targetSampleCount&quot;: 13056,
+              &quot;retainedSampleCount&quot;: 12344,
+              &quot;retentionFraction&quot;: 0.9454656862745098,
+              &quot;connected&quot;: true,
+              &quot;directionRetentions&quot;: [],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.08750000000000001,
+                  0.0875,
+                  0.059375
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            }
+          ],
+          &quot;warnings&quot;: []
+        },
+        &quot;rodContinuity&quot;: {
+          &quot;verified&quot;: true,
+          &quot;passed&quot;: true,
+          &quot;scope&quot;: &quot;continuous-centreline-vs-planned-model-extrusion&quot;,
+          &quot;numericToleranceMm&quot;: 0.000002,
+          &quot;physicalPrintVerified&quot;: false,
+          &quot;code&quot;: &quot;PASS&quot;,
+          &quot;lineLengthMm&quot;: 26,
+          &quot;coveredLengthMm&quot;: 26,
+          &quot;coverageFraction&quot;: 1,
+          &quot;maxGapMm&quot;: 0,
+          &quot;gaps&quot;: []
+        }
+      },
+      &quot;toolpathFeasible&quot;: true
+    },
+    {
+      &quot;id&quot;: &quot;native-five-original-side-up&quot;,
+      &quot;sourceSha256&quot;: &quot;7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129&quot;,
+      &quot;originalSourceSha256&quot;: &quot;7b018923c6e0350b774fec4e9ca3829dcc83e3b84bb043946684646fce781129&quot;,
+      &quot;posedSha256&quot;: &quot;2c44e5007ba417f036aa8b35c14e3bb5fed30da271992381e976a19a5572f4b7&quot;,
+      &quot;poseId&quot;: &quot;face-up&quot;,
+      &quot;placement&quot;: {
+        &quot;verified&quot;: true,
+        &quot;modelExtrusionBoundsMm&quot;: {
+          &quot;xMin&quot;: 84.2,
+          &quot;yMin&quot;: 75.2,
+          &quot;zMin&quot;: 0.2,
+          &quot;xMax&quot;: 95.8,
+          &quot;yMax&quot;: 104.775,
+          &quot;zMax&quot;: 8
+        },
+        &quot;observedCenterMm&quot;: {
+          &quot;x&quot;: 90,
+          &quot;y&quot;: 89.98750000000001
+        },
+        &quot;declaredOffsetMm&quot;: {
+          &quot;x&quot;: 90,
+          &quot;y&quot;: 90,
+          &quot;z&quot;: 0
+        }
+      },
+      &quot;metrics&quot;: {
+        &quot;filamentMm&quot;: 267.05,
+        &quot;filamentG&quot;: 0.8,
+        &quot;estimatedTimeSeconds&quot;: 346
+      },
+      &quot;audits&quot;: {
+        &quot;currentFeatures&quot;: {
+          &quot;verified&quot;: true,
+          &quot;passed&quot;: true,
+          &quot;scope&quot;: &quot;sampled-source-feature-vs-planned-model-extrusion&quot;,
+          &quot;features&quot;: [
+            {
+              &quot;id&quot;: &quot;selected-rod&quot;,
+              &quot;kind&quot;: &quot;solid&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: true,
+              &quot;code&quot;: &quot;PASS&quot;,
+              &quot;targetSampleCount&quot;: 3328,
+              &quot;retainedSampleCount&quot;: 3328,
+              &quot;retentionFraction&quot;: 1,
+              &quot;connected&quot;: null,
+              &quot;directionRetentions&quot;: [
+                {
+                  &quot;direction&quot;: &quot;-X&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;+X&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;-Y&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;+Y&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                }
+              ],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.018748104143787858,
+                  0.018748104143787858,
+                  0.796875
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            }
+          ],
+          &quot;warnings&quot;: []
+        },
+        &quot;originalFeatures&quot;: {
+          &quot;verified&quot;: true,
+          &quot;passed&quot;: true,
+          &quot;scope&quot;: &quot;sampled-source-feature-vs-planned-model-extrusion&quot;,
+          &quot;features&quot;: [
+            {
+              &quot;id&quot;: &quot;selected-rod&quot;,
+              &quot;kind&quot;: &quot;solid&quot;,
+              &quot;verified&quot;: true,
+              &quot;passed&quot;: true,
+              &quot;code&quot;: &quot;PASS&quot;,
+              &quot;targetSampleCount&quot;: 3328,
+              &quot;retainedSampleCount&quot;: 3328,
+              &quot;retentionFraction&quot;: 1,
+              &quot;connected&quot;: null,
+              &quot;directionRetentions&quot;: [
+                {
+                  &quot;direction&quot;: &quot;-X&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;+X&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;-Y&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                },
+                {
+                  &quot;direction&quot;: &quot;+Y&quot;,
+                  &quot;targetSampleCount&quot;: 832,
+                  &quot;retainedSampleCount&quot;: 832,
+                  &quot;retentionFraction&quot;: 1
+                }
+              ],
+              &quot;sampling&quot;: {
+                &quot;dimensions&quot;: [
+                  32,
+                  32,
+                  32
+                ],
+                &quot;stepMm&quot;: [
+                  0.018748104143787858,
+                  0.018748104143787858,
+                  0.796875
+                ],
+                &quot;surfaceToleranceMm&quot;: 0.05
+              },
+              &quot;layerHeightEvidence&quot;: &quot;per-extrusion-gcode-HEIGHT&quot;
+            }
+          ],
+          &quot;warnings&quot;: []
+        },
+        &quot;rodContinuity&quot;: {
+          &quot;verified&quot;: true,
+          &quot;passed&quot;: true,
+          &quot;scope&quot;: &quot;continuous-centreline-vs-planned-model-extrusion&quot;,
+          &quot;numericToleranceMm&quot;: 0.000002,
+          &quot;physicalPrintVerified&quot;: false,
+          &quot;code&quot;: &quot;PASS&quot;,
+          &quot;lineLengthMm&quot;: 26,
+          &quot;coveredLengthMm&quot;: 26,
+          &quot;coverageFraction&quot;: 1,
+          &quot;maxGapMm&quot;: 0,
+          &quot;gaps&quot;: []
+        }
+      },
+      &quot;toolpathFeasible&quot;: true
+    }
+  ],
+  &quot;budgetFailure&quot;: {
+    &quot;actualOptions&quot;: [],
+    &quot;expectedOptions&quot;: []
+  },
+  &quot;scope&quot;: &quot;cached-file-bindings-and-G-code-reaudit&quot;,
+  &quot;claims&quot;: {
+    &quot;sourceMembershipRecomputed&quot;: false,
+    &quot;geometryBudgetRecomputed&quot;: false,
+    &quot;liveModelRequestVerified&quot;: false,
+    &quot;physicalPrintVerified&quot;: false
+  }
+}</pre></details><footer>原始任务的模型与工具执行过程见提交包中的 AGH运行记录。</footer></main></body></html>

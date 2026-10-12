@@ -25,6 +25,7 @@ if not exist "node_modules\three\package.json" (
   )
 )
 if not defined PRINT_DETAIL_PORT set "PRINT_DETAIL_PORT=4337"
+if not defined PHOTO_CAD_AGH_HOME set "PHOTO_CAD_AGH_HOME=%USERPROFILE%\.agh-print-detail-v2"
 echo Xingzao workbench: http://127.0.0.1:%PRINT_DETAIL_PORT%/
 echo Open the address in your browser. See README.md for cached review.
 echo Live tasks require AGH, tools and model assets. See README.md.

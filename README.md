@@ -4,7 +4,7 @@
 
 ## 演示
 
-[观看演示视频（4 分 21 秒，1440p）](demo/xingzao-demo.mp4)
+[观看演示视频（4 分 20 秒，1440p）](demo/xingzao-demo.mp4)
 
 ![工作台与验证流程](demo/cover.png)
 
@@ -34,10 +34,11 @@ node examples/photo-protection/复核支撑.mjs
 
 ```powershell
 npm.cmd ci
+$env:PHOTO_CAD_AGH_HOME = Join-Path $env:USERPROFILE '.agh-print-detail-v2'
 npm.cmd run start:print
 ```
 
-打开 http://127.0.0.1:4337/ 。完整建模、上色和 AGH 执行还需按[运行与验证说明](docs/project-runtime-guide.md)、[模型取得说明](tools/reconstruction/README.md)配置依赖和自己的账号。仓库提供源码、锁定依赖、公开许可样例及复核记录，不附凭据、模型权重、Python 环境或私人任务数据库。
+打开 http://127.0.0.1:4337/ 。完整执行按[统一复现说明](运行与模型配置.md)准备环境、账号、模型、插件与上色扩展。仓库提供源码、锁定依赖、公开许可样例及复核记录，不附凭据、模型权重、Python 环境或私人任务数据库。
 
 ## 技术和来源
 
@@ -45,10 +46,10 @@ npm.cmd run start:print
 
 公开摄影数据来自 alansartlog 的 [CC BY 4.0 摄影数据集](https://github.com/AlansCodeLog/photogrammetry-test-sets)，文件身份、裁切和署名随案例保存。灯柱是原创参数化设计。视频中的角色演示用于展示实际生成效果，角色原图、私人资产和语音模型不随源码发布；视频旁白使用本地 GPT-SoVITS 穹声线。
 
-功能源码来源版本：`6230f0618d91ea388422e5e19788119349e8d48c`。公开快照新增本说明、演示视频和公开摄影复核入口，保留各历史任务原本的日期与策略。
+功能源码来源版本：`3e69796f2a95c9b450c009d363cc98560007b2f6`。公开快照新增本说明、演示视频和公开摄影复核入口，保留各历史任务原本的日期与策略。
 
+## 查看与完整复现
 
-启动入口修正：`启动.bat`和`npm start`启动正式4337工作台，旧4317原型由`npm run start:photo`进入。`复核已有结果.bat`可核对仓库内已有样例。完整模型与环境步骤见[运行与模型配置](运行与模型配置.md)，实际AGH本地适配源码及许可证在[agh-adaptation](agh-adaptation/README.md)。
+下载仓库后先打开“开始.html”：视频、中文报告、AGH轨迹与完整安装步骤集中在同一入口。四个业务插件及所有制作功能最终使用同一4337工作台。
 
-
-复核入口现在生成中文报告，按案例列出预期与实际结果、耗材和时长；双击“复核已有结果.bat”会重新验证后自动打开。详细核验数据保留在折叠区，可用`--details`查看。算法与失败判定没有改变。
+[完整复现步骤](运行与模型配置.md)按顺序给出环境准备、固定源码/权重下载、AGH构建、插件安装、GPU上色扩展及结果/trace导出。tools/setup/提供独立安装器和pip依赖批量下载、离线安装工具。

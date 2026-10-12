@@ -1,6 +1,6 @@
 {
   "schema": "xingzao-public-snapshot/v1",
-  "sourceRevision": "6230f0618d91ea388422e5e19788119349e8d48c",
+  "sourceRevision": "3e69796f2a95c9b450c009d363cc98560007b2f6",
   "files": [
     {
       "path": ".env.example",
@@ -19,8 +19,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3992,
-      "sha256": "8c2d3a17968a1b8e0504e7ba39a2d955bc602c198b3487834c2466fbadc4c887"
+      "bytes": 3860,
+      "sha256": "f6664566c1c798d6a98ca93db43a5a7a13f8eed313f366bf3550cec57649e732"
     },
     {
       "path": "agh-adaptation/LICENSE",
@@ -79,8 +79,8 @@
     },
     {
       "path": "bundle-manifest.json",
-      "bytes": 77506,
-      "sha256": "a8dbb953f2ea6ea2f2d81fae8449db1c45e1c424daa650587a97d14f9a774d09"
+      "bytes": 82034,
+      "sha256": "b5bc156af673925ac74c1fb2b1ceafa02cc58f9dfdf685b18e1c283c2e04836c"
     },
     {
       "path": "case/baseline-pose.stl",
@@ -691,6 +691,51 @@
       "path": "docs/下一阶段执行计划-2026-10-03.md",
       "bytes": 7578,
       "sha256": "5c18ec510616591fbb3a3a99f5d625442cfa684717775e2d081514d1ffbda080"
+    },
+    {
+      "path": "evidence/agh/失败任务/events.jsonl",
+      "bytes": 161318,
+      "sha256": "4b5aea11abd2bd1936f3fea666858e69ad3417f8ba7089282c4d9671beafe055"
+    },
+    {
+      "path": "evidence/agh/失败任务/index.html",
+      "bytes": 74594,
+      "sha256": "90d1394fa2c17185c95604459d2d5aef26fab407f28422d8e0b333fdad531aa6"
+    },
+    {
+      "path": "evidence/agh/失败任务/trace.json",
+      "bytes": 88421,
+      "sha256": "a784851757439da55cb9d7f7c681ca54442c479bd543631bfda5926493286dfd"
+    },
+    {
+      "path": "evidence/agh/小预算任务/events.jsonl",
+      "bytes": 125428,
+      "sha256": "3965aac34f53b267849ac4f4a3c78e6e887b810e36cefd920927175f2652e542"
+    },
+    {
+      "path": "evidence/agh/小预算任务/index.html",
+      "bytes": 59259,
+      "sha256": "f638cc129a8beed6b43e02cff8ea19a48bdee0213b7d6a2f1f94218193c2cf72"
+    },
+    {
+      "path": "evidence/agh/小预算任务/trace.json",
+      "bytes": 64584,
+      "sha256": "4295b7851c60e51984da8f7e4cd1bef9f76e915091f42d14707ca6e76242e9ce"
+    },
+    {
+      "path": "evidence/agh/正常任务/events.jsonl",
+      "bytes": 125776,
+      "sha256": "fab611ad8a1a16695576ac52186babd0edf0fe68808de9e5b3f28154fa323791"
+    },
+    {
+      "path": "evidence/agh/正常任务/index.html",
+      "bytes": 60160,
+      "sha256": "4db20ee13b71bc4de7f4a9dca2d43f8e256a576254050a4d3543d3df81530b57"
+    },
+    {
+      "path": "evidence/agh/正常任务/trace.json",
+      "bytes": 65513,
+      "sha256": "38d4dc4b9a6df7842b92d5a41895c884a43ed09806b9658f1c4c05bd08e9f9db"
     },
     {
       "path": "evidence/review-snapshot.json",
@@ -1879,8 +1924,8 @@
     },
     {
       "path": "tools/review/run.mjs",
-      "bytes": 3279,
-      "sha256": "56a3d34bb9a1ed7352e39ba5e5b4f8aec2187d285cfa22f38c92dc0b72fee9f9"
+      "bytes": 3355,
+      "sha256": "ef60dfa494dafd33349282dde3ae8e8758cf5cfb13a75adbec0b21a57959e0c0"
     },
     {
       "path": "tools/setup-agnes-print.mjs",
@@ -1906,6 +1951,66 @@
       "path": "tools/setup-texture-agh.mjs",
       "bytes": 4154,
       "sha256": "5a9436069f933fdc6ab66fb2b28fd09f9e60e61e23dbb9774f1175dcdc6fe752"
+    },
+    {
+      "path": "tools/setup/agh.ps1",
+      "bytes": 4498,
+      "sha256": "2295583ce10764f2d52a3d0328ab095835b6a0a6cb41a634deaf1005d5546127"
+    },
+    {
+      "path": "tools/setup/build_native.py",
+      "bytes": 3265,
+      "sha256": "1883c879485f0db95f3aa1bb317742f2747021f9edadbde911926ac2c0867c91"
+    },
+    {
+      "path": "tools/setup/check_runtime.py",
+      "bytes": 3025,
+      "sha256": "98cc9ea23e9dd4393edf798d7476a3ce7eee602e520aea6c6217380e8b0f49e8"
+    },
+    {
+      "path": "tools/setup/constraints-runtime.txt",
+      "bytes": 1048,
+      "sha256": "eaa7917347bb835820ddf8a50da0dfe48bee35fab1ecc8e29c937f8cf59dbce7"
+    },
+    {
+      "path": "tools/setup/download_torch.py",
+      "bytes": 4354,
+      "sha256": "3c3b1a852716465576407aef2c19c8890cb5962ddc850a54275d67be81ec4778"
+    },
+    {
+      "path": "tools/setup/plugins.mjs",
+      "bytes": 4065,
+      "sha256": "b1b46f840b4733aff614da27b60316393c199e68e23f61a7150673b044742f8b"
+    },
+    {
+      "path": "tools/setup/reproduce.py",
+      "bytes": 12560,
+      "sha256": "4e660670813b6f55ee25156400cd2ec5dd05f7ec858c44551179c51d1e3fc141"
+    },
+    {
+      "path": "tools/setup/requirements-cpu.txt",
+      "bytes": 253,
+      "sha256": "594df78898dc5aa7bbe46d08393e29afa69838ab1b945ed9cd70ec4b6b03ce32"
+    },
+    {
+      "path": "tools/setup/requirements-gpu.txt",
+      "bytes": 276,
+      "sha256": "4717baf00ac7930ac017431e878efc415507e6673d78b9fce9a077534836121b"
+    },
+    {
+      "path": "tools/setup/requirements-torch.txt",
+      "bytes": 134,
+      "sha256": "7c943e568fb9515b4ea93ec6483d1ad183d4df5d0b2cca54126b928e87727519"
+    },
+    {
+      "path": "tools/setup/submission-start.html",
+      "bytes": 4339,
+      "sha256": "239f5a391b99d737143051ebdf6e6fc1f5f8a23df059b79707f97aba4d24d993"
+    },
+    {
+      "path": "tools/setup/test_reproduce.py",
+      "bytes": 1959,
+      "sha256": "918fa842ece9e92f87819a8c2bc36ac639ab51016dc50fa43458bc7bf94364f2"
     },
     {
       "path": "tools/slicer/README.md",
@@ -1989,8 +2094,8 @@
     },
     {
       "path": "启动.bat",
-      "bytes": 1298,
-      "sha256": "09bc1e7c0729072cf58e3dfa0fd32aa2dad1e23003d3111d3fdf2a1b3483dda8"
+      "bytes": 1393,
+      "sha256": "9c7b09637052b9c21e5bc4d982be06b33f10eb00c3923179c81c4bc7d89a2415"
     },
     {
       "path": "复核已有结果.bat",
@@ -1998,9 +2103,24 @@
       "sha256": "058256c0a8a473a69a6a0e9317699c0c96ecc6d6f6aaeaa096e21fb955072f79"
     },
     {
+      "path": "复核报告.html",
+      "bytes": 48262,
+      "sha256": "a238ca51c59330dd64cf31eb9c091d2b1096ab202369ebbaeeb35290bdd65ca0"
+    },
+    {
+      "path": "开始.html",
+      "bytes": 4296,
+      "sha256": "ca7d5d83d0afa359f37e87525c01fa8ccb981412174a0c9ddf1fb081f936537e"
+    },
+    {
+      "path": "运行与模型配置.html",
+      "bytes": 14294,
+      "sha256": "ed84db28530c7e0d4fea9786b2ab3ae18abc9ee485c88b801d69be948b60f051"
+    },
+    {
       "path": "运行与模型配置.md",
-      "bytes": 6768,
-      "sha256": "bc213e2df24e22bf039b50460d244ad2be83d5d6f3b80e550f7af72ff27f9bd9"
+      "bytes": 12219,
+      "sha256": "79983f14952f8148ea820ac7edba76797720c097b567f6f165009051d42839bd"
     }
   ]
 }

@@ -1,0 +1,11 @@
+# Python 3.12 / Windows x64. NumPy 2.2.6 respects OpenCV 4.12's declared <2.3 bound.
+numpy==2.2.6
+scipy==1.17.1
+trimesh==4.9.0
+pillow==12.2.0
+opencv-python==4.12.0.88
+rtree==1.4.1
+manifold3d==3.2.1
+pymeshlab==2025.7.post1
+requests==2.34.2
+psutil==7.2.2

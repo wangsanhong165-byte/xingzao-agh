@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>形造｜查看与复现</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f6f8;color:#182838;font:16px/1.75 system-ui,"Microsoft YaHei",sans-serif}main{max-width:1060px;margin:auto;padding:48px 30px}h1{font-size:34px;margin:4px 0 12px}h2{font-size:22px;margin:0 0 12px}.tag{color:#276755;font-weight:650}p{margin:8px 0 16px}.flow{color:#3e596d;background:#e8eef2;padding:14px 18px;border-radius:10px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:30px 0}section,.card{background:white;border:1px solid #dee5eb;border-radius:12px;padding:24px}section{margin-bottom:20px}a{color:#146659}a.button{display:block;background:#146659;color:#fff;padding:9px 13px;border-radius:7px;text-decoration:none;margin:10px 0}a.secondary{display:block;padding:5px 0}small{color:#5d7181}table{border-collapse:collapse;width:100%}td,th{text-align:left;border-bottom:1px solid #e2e8ed;padding:11px 9px}ol{padding-left:23px}li{margin:6px 0}@media(max-width:800px){.cards{grid-template-columns:1fr}main{padding:26px 18px}}
+</style><main>
+<div class="tag">形造 · 照片建模与3D打印验证助手</div><h1>查看作品，再按需复现</h1>
+<p>AGH组织规划、工具调用与纠错，把图片和模型送入建模、彩色审阅与实际切片检查，最后给出可复核的文件。</p>
+<div class="flow">图片或模型 → AGH规划 → 建模与审阅 → 实际切片 → 反馈与修正 → 独立复核 → 文件交付</div>
+<div class="cards">
+<div class="card"><h2>① 先看成果</h2><p>视频展示操作；中文报告列出结果；AGH轨迹展示决策与工具调用。</p>
+<a class="button" href="demo/xingzao-demo.mp4">播放4分20秒演示</a><a class="secondary" href="复核报告.html">查看中文复核报告</a><a class="secondary" href="evidence/agh/正常任务/index.html">查看AGH任务记录</a><small>记录打开后点击“轨迹”或“对话”。无需安装软件。</small></div>
+<div class="card"><h2>② 重新复核结果</h2><p>核对随包模型、真实G-code与文件身份，重新计算比较结果。</p><p>安装Node.js24.10以上，双击源码中的<strong>复核已有结果.bat</strong>。</p><small>不调用模型，无需Key和GPU。使用随包缓存探针；重新计算后打开中文报告。</small></div>
+<div class="card"><h2>③ 完整执行任务</h2><p>配置本人环境和账号，从输入产生新模型、刀轨及AGH记录。</p><a class="button" href="运行与模型配置.html">完整安装与运行步骤</a><small>包含依赖安装、批量下载、AGH构建和四插件配置，最后回到同一工作台。</small></div>
+</div>
+<section><h2>文件分别做什么</h2><table><tr><th>位置</th><th>用途</th></tr>
+<tr><td>README.md</td><td>问题、实现方式、亮点和验证结果</td></tr><tr><td>仓库根目录</td><td>工作台、AGH插件、模型调用、几何和G-code检查，含安装与下载工具</td></tr><tr><td>case/</td><td>模型、真实刀轨、缓存探针和案例索引，保持原目录结构</td></tr><tr><td>evidence/agh/</td><td>正常、小预算、失败任务的trace.json、events.jsonl与可视记录</td></tr><tr><td>demo/</td><td>最终演示视频，直接播放</td></tr></table></section>
+<section><h2>完整复现顺序</h2><ol><li>准备Node.js、Python3.12和Git；脚本安装项目依赖及PrusaSlicer。</li><li>构建固定版本AGH，配置自己的模型账号，安装四个业务插件。</li><li>运行源码中的<strong>启动.bat</strong>，打开<strong>http://127.0.0.1:4337/</strong>，先导入STL执行制造任务。</li><li>需要照片建模和上色时，再批量下载模型，准备GPU环境与原生扩展。</li><li>结果页下载模型与刀轨，在AGH中导出本次执行日志。</li></ol><p>所有命令、下载地址、预期输出和排错统一在<a href="运行与模型配置.html">运行与模型配置.md</a>。模型按需下载，复现者自行配置账号。</p></section>
+<small>本科生组 U074 · 大肥鱼的奇妙冒险　|　<a href="https://github.com/wangsanhong165-byte/xingzao-agh">GitHub公开源码</a></small>
+</main></html>
