@@ -3,6 +3,8 @@ import importlib.util
 import tempfile
 import unittest
 import zipfile
+import json
+from unittest.mock import patch
 from pathlib import Path
 
 spec = importlib.util.spec_from_file_location('reproduce', Path(__file__).with_name('reproduce.py'))
@@ -40,6 +42,19 @@ class ReproductionBoundaries(unittest.TestCase):
         config = next(item for item in specs if item['path'].endswith('config.yaml'))
         self.assertEqual(config['gitBlobId'], '7a9b1f3b1ca62e16a24257b8e8328573d299c5e4')
         self.assertEqual(config['revision'], '3a761b539b29fe4ff64714813aa9560fd66f5de0')
+
+    def test_verified_cli_kit_works_without_network(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            (root/'data/setup').mkdir(parents=True)
+            (root/'tools/setup').mkdir(parents=True)
+            archive=root/'data/setup/PrusaSlicer-cli-2.9.6.zip'
+            with zipfile.ZipFile(archive,'w') as z:
+                z.writestr('PrusaSlicer-2.9.6/prusa-slicer-console.exe',b'fixture-exe')
+            (root/'tools/setup/slicer-cli-manifest.json').write_text(json.dumps({'sha256':hashlib.sha256(archive.read_bytes()).hexdigest()}))
+            with patch.object(module,'ROOT',root),patch.object(module,'download_archive',side_effect=AssertionError('Unexpected network download')),patch.object(module,'invoke'):
+                module.prepare_slicer()
+            self.assertEqual((root/'data/tools/prusaslicer-2.9.6/PrusaSlicer-2.9.6/prusa-slicer-console.exe').read_bytes(),b'fixture-exe')
 
 
 if __name__ == '__main__':

@@ -14,7 +14,14 @@ const validPng='iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAE0lEQVR4nGP8//8/
 async function fixture(options={}) {
   const store=new ReconstructionJobStore({persist:false,...options}); const router=createReconstructionRouter({store,runAgent:async()=>new Promise(()=>{})});
   const server=createServer(async(req,res)=>{ if(!await router.handle(req,res)){res.statusCode=404;res.end();} });
-  await new Promise(r=>server.listen(0,'127.0.0.1',r)); const base=`http://127.0.0.1:${server.address().port}`;
+  let base;
+  for(let attempt=0;attempt<8;attempt++){
+    await new Promise(r=>server.listen(0,'127.0.0.1',r));base=`http://127.0.0.1:${server.address().port}`;
+    try{await fetch(base+'/__fixture_ready');break;}catch(error){
+      if(error.cause?.message!=='bad port')throw error;
+      await new Promise(r=>server.close(r));if(attempt===7)throw error;
+    }
+  }
   return {store,server,base,close:()=>new Promise(r=>server.close(r))};
 }
 

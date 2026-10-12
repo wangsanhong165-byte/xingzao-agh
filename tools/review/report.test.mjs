@@ -16,3 +16,17 @@ test('mismatched or unknown results cannot be presented as verification passed',
  const html=renderReviewerReport({ok:false,error:'输入 <script> 被替换',checkedAt:new Date().toISOString()});
  assert.match(html,/复核未通过/u);assert.doesNotMatch(html,/<script>/u);assert.match(html,/&lt;script&gt;/u);
 });
+
+test('review report explains the input, task, comparison and reproduction path before raw data',()=>{
+ const html=renderReviewerReport(buildReviewerResult(fixture(),expected));
+ for(const text of ['输入模型','任务怎么完成','如何重新执行','0.4 mm','0.5 mm','AGH运行记录/正常任务/index.html'])assert.ok(html.includes(text),text);
+ assert.ok(html.indexOf('输入模型')<html.indexOf('查看详细核验数据'));
+});
+
+test('source-repository report uses its own sample, trace and guide paths',()=>{
+ const html=renderReviewerReport(buildReviewerResult(fixture(),expected),{flatBundle:true});
+ assert.match(html,/href="case\/source-original\.stl"/u);
+ assert.match(html,/href="evidence\/agh\/正常任务\/index\.html"/u);
+ assert.match(html,/href="运行与模型配置\.html"/u);
+ assert.doesNotMatch(html,/href="测试样例\//u);
+});

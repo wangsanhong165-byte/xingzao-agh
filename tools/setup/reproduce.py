@@ -169,8 +169,15 @@ def prepare_source(plan=False):
 def prepare_slicer(plan=False):
     destination = ROOT/'data/tools/prusaslicer-2.9.6'
     executable = destination/'PrusaSlicer-2.9.6/prusa-slicer-console.exe'
-    archive = ROOT/'data/setup/PrusaSlicer-2.9.6.zip'
-    download_archive(SLICER_URL, archive, SLICER_SHA, plan)
+    bundled = ROOT/'data/setup/PrusaSlicer-cli-2.9.6.zip'
+    if bundled.exists():
+        spec=json.loads((ROOT/'tools/setup/slicer-cli-manifest.json').read_text('utf8'))
+        if not file_matches(bundled,{'size':bundled.stat().st_size,'sha256':spec['sha256']}):
+            raise ValueError('Bundled PrusaSlicer CLI archive hash mismatch')
+        archive=bundled
+    else:
+        archive = ROOT/'data/setup/PrusaSlicer-2.9.6.zip'
+        download_archive(SLICER_URL, archive, SLICER_SHA, plan)
     if not plan:
         if executable.exists():
             with zipfile.ZipFile(archive) as stream:

@@ -30,7 +30,7 @@ try{
  }
  result=buildReviewerResult(review,dataset.cases,photo);
 }catch(error){result={ok:false,error:error.message??'复核无法完成',checkedAt:new Date().toISOString()};process.exitCode=1}
-await writeFile(reportPath,renderReviewerReport(result),'utf8');
+await writeFile(reportPath,renderReviewerReport(result,{flatBundle:bundle===root}),'utf8');
 console.log(consoleSummary(result));console.log('报告位置：'+reportPath);
 if(details)console.log(JSON.stringify(result.details??result,null,2));
 if(open&&process.platform==='win32'){

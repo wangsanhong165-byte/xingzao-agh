@@ -1,0 +1,2157 @@
+{
+  "version": "2.9.6",
+  "sha256": "b2d9a532c25a7a3291cb550ac59da709105a771fbb70065c05a21d80183cbe64",
+  "officialArchiveSha256": "5aaf22e42f95accecfa122d23a835911f289ecc2ff606db3e83d637ddcc0a209",
+  "sourceUrl": "https://github.com/prusa3d/PrusaSlicer/tree/version_2.9.6",
+  "files": [
+    {
+      "path": "PrusaSlicer-2.9.6/api-ms-win-crt-runtime-l1-1-0.dll",
+      "sha256": "5d8e35ef54c87d44c9c741af07146e8146749a6f5b947fd3b71a392c80049f89"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/libgmp-10.dll",
+      "sha256": "be4ef2bb951d1d38265d51e80768754d553bb38df0dc9eac7dc9f3e48246851f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/libmpfr-4.dll",
+      "sha256": "2ea2187b22043fb4ecc533637b1b1fc55f9683d2ef4c7e646e08500d19a5e5fd"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/msvcp140.dll",
+      "sha256": "a030dc2dfd2eca28a9375c92989adf4daf161f988db5e16b9e10678eb0dff4c7"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/msvcp140_codecvt_ids.dll",
+      "sha256": "945225e01a65e5199aa7372b893da3b42dbd99f315c345f0e7c136af88e897ef"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/prusa-gcodeviewer.exe",
+      "sha256": "31583ae0566026bb329e0998b0134af4b8b725a41a9e794a9210ba36d049118e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/prusa-slicer-console.exe",
+      "sha256": "7fd50b52d1cc3da87dbcb71e45e764412dd45688bea028f351333e86d9769704"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/prusa-slicer.exe",
+      "sha256": "53e5af3c0774278db0b6736e3f458c9bb69b61591c71bee8dedad4bcf2fe7997"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/PrusaSlicer.dll",
+      "sha256": "e3d33be039bddcb62a59de3a31193f9dff93777106f62d4fe32dd67738e8a351"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/data/embossed_text.obj",
+      "sha256": "deeff14126139129922ee9a866c81f30f6c5bcaa4378b921b9fb953827db40b0"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/data/hints.ini",
+      "sha256": "4c93b25a088be94e90357a72b77a26f456ffa3fe7d3a1b1ad960577101a5f0a8"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/data/sla_support.svg",
+      "sha256": "59bee329a822e3cce8e14261d8dc40cbea5518af1a0fec60d422f0d226e41965"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/fonts/NotoSans-Regular.ttf",
+      "sha256": "6b04c8dd65af6b73eb4279472ed1580b29102d6496a377340e80a40cdb3b22c9"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/fonts/README.txt",
+      "sha256": "91c07298fa71471fddb717e42fed0bd17f31c13851c61403d3ae1e4494fa4eee"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/add.svg",
+      "sha256": "4422e118ea7f4ce141cec69701c77d49ddab735a1bbff0ec7a068d6938a1e248"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/add_copies.svg",
+      "sha256": "56a69e5759446e90b9417e39423e7c658d2f71fc2f5336b0c95af8eecaa80e2a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/add_gcode.svg",
+      "sha256": "bbf327cc31e4796aef617bfe585efc3f32fd9942f266e307fc7a818a06109e52"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/add_modifier.svg",
+      "sha256": "c3f021d0be5cc638d5eae03cab482de2401d308b9b4deb85cabee32a0eacce7c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/add_negative.svg",
+      "sha256": "ddfc31482a395b1c209d55c4fe0117ef531a88383a92471a2dd700b6522b934d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/add_part.svg",
+      "sha256": "fc025f0659dc58a7d858c77885b90edfeb4e0d2a39a7498f0d86ccd46313334f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/add_text_modifier.svg",
+      "sha256": "fbb9f6c2796f41e5874cdf0c7eb231af383da78f5ba1209f90c9d81a47728e0d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/add_text_negative.svg",
+      "sha256": "6a4828c1094e6fe0afa519d56f771de40b03d2856551502c6c4f8913cf600abb"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/add_text_part.svg",
+      "sha256": "2e4845f7aa5cada82e492882ded8a5e522d9e0dc10c7ac6db64cf3520a1aacb1"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/advanced_plus.svg",
+      "sha256": "8e18a5100424f5a99b31617a9bae69dfcfccd8667d82e0b6da1a4e8164025ef7"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/align_horizontal_center.svg",
+      "sha256": "61f65fbdf47ececb12324c4c5957fe1c7991206d037a8c52da8dd78e6efd97b5"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/align_horizontal_left.svg",
+      "sha256": "92b98c5be2fac64547406c855cc0b29e40477d7f418f87c6adae83ba6942c30a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/align_horizontal_right.svg",
+      "sha256": "11160c3884dc3a28db3c1b33c25f43195e41ade704c5c904144f62279ae13726"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/align_vertical_bottom.svg",
+      "sha256": "8303bf8173a134e7b68b8e245ffc16994172b3b89e1ac6ca609b20026739451a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/align_vertical_center.svg",
+      "sha256": "e6c7ecc1c178dd1828a233edc4b5610dc923a42c7e08cc14fdc8343e0b2ee22f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/align_vertical_top.svg",
+      "sha256": "527bc3a36642126a685426267814df8405e50132bc5ddd9fccc21329f00488db"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/arrange.svg",
+      "sha256": "85dd9fadf0c4ed60441fe4d5cca1a1380064295e46a906b22810edb19a12889a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/arrange_current.svg",
+      "sha256": "4ee998d3ad5080ece55cc2d67be8c98433146f14b34a2a330a6f4affa0f8628a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/attention.svg",
+      "sha256": "d86eac40c9331dbebd92f5abc36880c5670432d07d4050ff4f4736628489910c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/browse.svg",
+      "sha256": "03abe9db40c611ff479da0f76ee06ecd501235857befac6f6e98ea12c48bc928"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/bullet_black.png",
+      "sha256": "2c407050cf5f0178e52ce71dc6fc8316efe4ed5e49061817b0890827a76cfe4f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/bullet_blue.png",
+      "sha256": "9d1ab9f628d083c6028c25e3333f0cff94cdee82cde993b0965c1a91bf6258e8"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/bullet_white.png",
+      "sha256": "04b9def8b771a198085c0cead8f3d3bdbd36906549980fc5240cba1700978d74"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/burn.svg",
+      "sha256": "9acd043bdcac94c9e2a65fb05278cfdc52e5f5c9ecaf04abb9ba2590007cb041"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/change_extruder.svg",
+      "sha256": "3e933db8a3cd885c724d9a74436c54ed9cffe98c269735fec1c9c6aa80a9e4f0"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/checked.svg",
+      "sha256": "ca06342f4870efc0d2d4f277d6c0dacb0fade374420d11017a4ffb082b008d2c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/check_off.svg",
+      "sha256": "9e968aba63b5c7b5c1ef7c710775d9030e109c9d52d0d18e27813016e65fd3ab"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/check_off_disabled.svg",
+      "sha256": "18b39432a5c05bf98fbfd7adb40bdca50b0f4571a42f8f46a56fdd0151ab5d11"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/check_off_focused.svg",
+      "sha256": "a3935d4c04a80ec041762b1a2fb8b7cc000216ed67ffcf8f30867e0ebbf301f9"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/check_on.svg",
+      "sha256": "c7e35fe3e5b5110684e04eddaabdfb9cae26cd3ba59f73ca2c8164f2e027a26e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/check_on_disabled.svg",
+      "sha256": "21202178b002d07cf2b12733698f68cbb95e20f994240878d78d1b405b7e8773"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/check_on_focused.svg",
+      "sha256": "4d035e6f123825c34b061e5d757d389bd9fc346b2c39f6dc7b03423b0c0cdc6f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/cog.svg",
+      "sha256": "5bd7ddd02248f94a22c2ba60c9ee6fa020723905254dbe8be1e5f5f087c4541e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/cog_.svg",
+      "sha256": "0da86b7036d875a3bf5b326aacfe0d99214907c3e60d2dc51f6c4b381d949465"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/cog_f.svg",
+      "sha256": "c6e6fa8ee05e1562dfe74690f46d92000ca384a7c6713df2b6cf34589323766f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/cog_go.png",
+      "sha256": "4043f2bafbc7df79ff6726a119bfb25d2087ae318d70eacbedc05819ef95935f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/collapse.svg",
+      "sha256": "5bbbe725d2678092f639aaf8647fbc59f0d53445e7ce2e9e25e54f9d7deda0f1"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/collapse_btn.svg",
+      "sha256": "84a6fe2b735da22f12d9eadd67ab5c20d18d032baafa930d62bc642bb779800c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/colorchange_add.svg",
+      "sha256": "8739a31cda0e40426485bd84d8b09d1a84bbffc41989d87ce6597138704eaf3c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/colorchange_add_f.svg",
+      "sha256": "70a31849ba4ac19d7bbb3e06b894f8f0f347171353ec8b266e7fd3da2aa9b44f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/colorchange_add_m.svg",
+      "sha256": "4526d7e12373c6389d49c344b32d82c55b5ba307217f64e255f7be14b839b068"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/colorchange_del.svg",
+      "sha256": "c62c6c63a2fdbf85479532e17e7835c3156aca8da6d065e9e7aca41f72279386"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/colorchange_del_f.svg",
+      "sha256": "c5b1ebe55e6b1af51830ea4b2bb4cd1acd6c8c2f44cc7945af0da68f2d05d7ab"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/compare.svg",
+      "sha256": "c859f9f7472174326e9527e0a02b2ff579725a7e8e18b6b74890811449f0bc81"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/connect_gcode.svg",
+      "sha256": "341add93e8542bb4f7720868ab57c9de9163e5fcff8d4f1ffcb5d32da592cebd"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/connect_status.svg",
+      "sha256": "85a256f0db8a06e2d5fc38db4aaaef7164bed3e973da4ddaa0f4123f935c5cc5"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/convert_file.svg",
+      "sha256": "327c63ee1137f3a69ad8c8e817ea134baf7e55622689bb28c6648620450b5695"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/cooling.svg",
+      "sha256": "c0f5910e4c0bd5a296317acb10075b2a1689b9f523b1b8bde0b2fdf5262331f7"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/copy.svg",
+      "sha256": "e5fe9c653c5f27540889a127dda9435c7b32a662c0052d568ac3b066ddc84b73"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/copy_menu.svg",
+      "sha256": "a26a0d2af9b98fef99f85973f98a8e72e735a242309a5856d88b5b26b76d48fd"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/cross.svg",
+      "sha256": "8aa673514b99bdf993fa6ce06d6f06db71161a1eb5c31141f2d124f20b5c5f1b"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/cross_focus.svg",
+      "sha256": "6446bce667d72d19726a91939cd79fc9e5e4914c04f5b0122e8e0c94be082544"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/cross_focus_large.svg",
+      "sha256": "913126168a8e27712a36925b865f698b15442ca2a5bfe37c49f2075fd1098e9d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/custom-gcode_gcode.svg",
+      "sha256": "ddd7ab4c71da6d117d7f791d672d591aa34466ef9f6b9fd07fb7d3c3a171ece8"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/custom-gcode_measure.svg",
+      "sha256": "53bfe620facab0950e4728d4e122ae24d91094603dae24e77b31be2541b41789"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/custom-gcode_object-info.svg",
+      "sha256": "6b3849f34553cc5d60eaaf40caab2e2bd13dbdf16e6eebb8bd3332311bdf1177"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/custom-gcode_single.svg",
+      "sha256": "ed7c8ba27ff8bdbbf9c33553a59086bfaf73064b5f18e7bd209df21ea3361a40"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/custom-gcode_slicing-state.svg",
+      "sha256": "5c2eaf22ab9dd537e6d7f97900f6154e6e9f7ed34199fa83f45f74770d401344"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/custom-gcode_slicing-state_global.svg",
+      "sha256": "900512130c51e122e53c4a97fa4cf0383fabf150a2ec73ce887bd641a0307523"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/custom-gcode_stats.svg",
+      "sha256": "69ce23aaacff26e83c3e043b1ab0e9131f841c587f151755a90466860c1b2898"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/custom-gcode_vector-index.svg",
+      "sha256": "9179a14c3362d113f6679268dc6d3e68fe99fe20a49d9a134eb005b9bf0f7061"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/custom-gcode_vector.svg",
+      "sha256": "7e5443c170d75646e5d44f3e327d25b129e37d981d61ef3a0939312c3baed1f5"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/cut.svg",
+      "sha256": "1ccd84b32f39b878eaafc64a79fe995dc450d73a93963e38872a4c28ac743c8b"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/cut_.svg",
+      "sha256": "b041bc373bc81fed30f58232467fd0c1af5cd0acee784214e7053c5ec1c77381"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/cut_connectors.svg",
+      "sha256": "b4e6b6116c980191e71a7d90fcd96131940ce67e2dc46f9305be37a9edd6d752"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/delete.svg",
+      "sha256": "9f1836d64fdec2a812cb6c1c0bdfa801e31f0d89e60001717aad519f0ddbaa76"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/delete_all.svg",
+      "sha256": "4db46d94c84ed83db572840f4d3ccdd3a37977efb6ee1e6de6f21fddb7730679"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/delete_all_menu.svg",
+      "sha256": "baf1632e6b9b7d383b7f3f49d25a634847660cda089989f901f804f2fd709ab9"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/dot.svg",
+      "sha256": "08fef5db8a441a78b7f1319793f7d361418a979da5ba9fbd6dbbf63fb2af3c85"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/dot_small.svg",
+      "sha256": "5ea1034a301efafe0e181c37bbbb4dfbaf04ea4d12a1b64e83c2810f3974d9fa"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/dot_white.svg",
+      "sha256": "9a36de5fb5cffc2be12ec43e3b606e1cbc5d5b684b2c2f5552137462e5529994"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/dowel.svg",
+      "sha256": "29f31d0f40fe3e4245469c45d089e838682d06786c5f55be63931ed49c88dcfd"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/drop_down.svg",
+      "sha256": "73caa0545891b43894086e6694c4bb9333a68f2e8c623669002c2d2c5a189fff"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/drop_to_bed.svg",
+      "sha256": "5d2e175ddbf3a274cd032f3dbbc2f1fe4f20c3a5d78a016c7b3e705e98737991"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/edit.svg",
+      "sha256": "4eb0e1a69cf9105f83d202dd1fc2b527a5f299b62cb900578c1337e86d2aa365"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/editor.svg",
+      "sha256": "63a20170e21879a09436a6f012845bb097f6d68fc741fe09df5bb5fd4593c905"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/editor_menu.svg",
+      "sha256": "62068a7f68a5ee14b46c44c2c036b0a53254df98b0ec4bd85abb71f19446fd75"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/edit_button.svg",
+      "sha256": "2b8b69583c9402218d03e5772a49d079ae3a451a1f6a57a927d6c75a54cf7f71"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/edit_button_pressed.svg",
+      "sha256": "f60f97a9157161a868f0f1dce6d375063f462913f0465b0061e62e4d30b1228e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/edit_gcode.svg",
+      "sha256": "6a5484149733f92824e1a1500b28e201f6e262f71854e26655eff2b815334ca8"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/edit_gcode_f.svg",
+      "sha256": "1eb6682205e1c2a70ce3124a0def7f86e1ee2c2e0df6a6a350cb15640bb37116"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/edit_layers_all.svg",
+      "sha256": "6b5e8de3c1d9aed0cf63e8bd21c092e16078bf55471cc31f42532ff8e6cc0528"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/edit_layers_some.svg",
+      "sha256": "a742173d399a97f2f25b07560fe3d651e6cf20a9e7bac8795a9454e08221a24b"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/edit_uni.svg",
+      "sha256": "fcf224e68f5971e6c039b5d4c8159dc25273421b79bfc645960e47ef12f6c153"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/eject_sd.svg",
+      "sha256": "fc5e938d073443f9617ee8ad8df0848c111befab8c8cc472c2b60bc5e590b4d1"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/empty.svg",
+      "sha256": "3fc3899cbd53e3ebfd93c640a4a2c94395eaf9e53c9b6e83b36bed45543f31df"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/equal.svg",
+      "sha256": "3d21bc08a27812fea61fb364463700890c5148a9d4543af11700e91847e1c188"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/error_tick.svg",
+      "sha256": "4adcdeba7aeeaad9785a540a128b185a49ae9b32a6656c07413849bd9ec317d5"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/error_tick_f.svg",
+      "sha256": "9e02843163017978bf0091cbbdad60302217e10574cac66c26a08cdc7aa9b195"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/exclamation.svg",
+      "sha256": "01dd4fb8ef7def84359fb9048c56b90596309edbe86253dc69edb2a1ac590147"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/exclamation_manifold.svg",
+      "sha256": "89febd55d4e71bc063d39d48a567bf0a8b6aaf04488799c3a9782543148081d6"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/exit.svg",
+      "sha256": "dbc12625d8cde7b09e8e505c690dd3a434a60d0ab4d5c7ca6932e609f2e9c1b5"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/expand_btn.svg",
+      "sha256": "27c71b085e082fbc0caa2248985fc511bda53d0043ab35c249f7e22f1d088aa8"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/export_config.svg",
+      "sha256": "d4245e3ff6586ca5bb35793475d1a4a93cdae759df37fc4cbc272cb8773ca993"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/export_config_bundle.svg",
+      "sha256": "e39592cbcd364145be00c72261e235a3117cd4fb904410712a263dae450d0b0c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/export_gcode.svg",
+      "sha256": "85208ec0305909ab650c1ef5380af3989f36285bb083cfeb82f9bf14ffd8d298"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/export_plater.svg",
+      "sha256": "cc68c371749d22c03b0618d9a3d42660636d19de8a7b79b240f96b8cf63bd851"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/export_to_sd.svg",
+      "sha256": "afbe1eb5ee6c9c8a9663878abdf6a1c686be87af9e9b6348b7229bb5879e2ba4"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/eye_closed.svg",
+      "sha256": "bbbfd96960dfd0c32212c8297bb3eba27c898bed6cd8542c8cc61abae388986c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/eye_open.svg",
+      "sha256": "c429fd83464c4b048b4345d3169e48edd2329fd5fd456668a4334cac9411e3ac"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/fdm_supports.svg",
+      "sha256": "f57fe99e56256b881a4633bb4d1756f430cdbc81aa4884acdfc555d5f1a20e89"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/fdm_supports_.svg",
+      "sha256": "999142cc4dbf1624fe002d6d357ddebf961ea74a76f240e0d0a3c952728e1e60"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/flag_green.svg",
+      "sha256": "eac96f1f49a6ac14b4f43b4d39946040d648b92f73b9d390d101b62a9424a298"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/flag_red.svg",
+      "sha256": "a5288cf58d51fc7dd2f356f074042130929c6f017ff943bc0ba3ec024875c1e9"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/funnel.svg",
+      "sha256": "b9c12dad59100a3738dd55d89a2e17a2ba58e22e22085e9ee7a75b840315ed3f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/fuzzy_skin.svg",
+      "sha256": "d47fd4d0c13f2cce9d7fa66dd26869dcf55799e944525dd66b3fd2b91009299d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/fuzzy_skin_painting.svg",
+      "sha256": "33b828d180eb5198e4f8bdcaf0d492924363d2dbf8ab4d1a4701ba95696e0190"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/fuzzy_skin_painting_.svg",
+      "sha256": "dc0be9790784ff6a56c4e6587234ee4d4dbe846d5b26a9c67b6663c36af889fc"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/gcode.icns",
+      "sha256": "4ef8788d09c04b604911e4f8d19052a8baaca8ebd5c637ade897661fdd99a86f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/hollow.svg",
+      "sha256": "cadb00b8b099fcffaab9045bb01f2dcc8c88603300957305842f29f58505d84d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/hollowing.svg",
+      "sha256": "d2eea3dd1fb35514532f2492ea45be40549f74675e8cbec73a7d0c15fbcf7870"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/horizontal_hide.svg",
+      "sha256": "9683d68fea4fdfc208e27e1930a9bf44fcb2d664a39826934ba6c3fb1e7af2e7"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/horizontal_show.svg",
+      "sha256": "f08871254cce0fed3268f2755b0d33df1e19cd582c3b5533c883da4f3768cf93"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/import_config.svg",
+      "sha256": "0de507971ec7a1efa62f7b19de998eeb7a19b892c89ea44bb06b76e579c722b8"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/import_config_bundle.svg",
+      "sha256": "eaa68fd52af8326cd7f51104fdae37f66a30692becb452782b2cd9da60beee3d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/import_plater.svg",
+      "sha256": "28d8ecae7c83cb6d2c4fc11496413dfd230b88781173470ef3846e48b239c7a3"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/infill.svg",
+      "sha256": "a6e2b32ad4e75bf5ec188f72db4e365c3a7bc77d790dc66101d8eca5655d92da"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/info.svg",
+      "sha256": "f26220ef56356437445272328c50ebf4bf951a2a446879d1328735228ca98ceb"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/instance_add.svg",
+      "sha256": "a9f3987d9d8d256569ecb4e0b6ba247013827e30a099a2d35de313393331c96a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/instance_remove.svg",
+      "sha256": "843516eb3b5ea5241ac9826718767a1a3500144a63a807a2cce891aa50c9c72e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/ironing.svg",
+      "sha256": "e31c43598ee69ba8f5d9b8252c935f7a74c656719e85d8eae0f68818850fb122"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/layers.svg",
+      "sha256": "276e31318abdf1d1639897f35a3743cc46a2d0b4f3c6b49307e0ab68e0b23812"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/layers_white.svg",
+      "sha256": "d85620bab2bb985229828dad3f09e04470f589c142282fc8ee6f6bae0b0ca04d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/legend_cog.svg",
+      "sha256": "b5dc1464d686d8e7d347d0a7cccbdebc73adf3197439d2edec5d1fff69dee98e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/legend_colorchanges.svg",
+      "sha256": "736499cb45127c0a629761cc6b223f50a3d20a89235aa56a7eb5a66cb62d1951"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/legend_customgcodes.svg",
+      "sha256": "4f41eab0fff7376f9afe3b0230f715dc34560eff328d35494dedade001737f1e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/legend_deretract.svg",
+      "sha256": "50e4ec164b23e6fb96190da5a807cfb6b6c021f3499b7b08b36a1920f385db09"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/legend_pauseprints.svg",
+      "sha256": "1ab22635fe797d2b816204a33478f9c57cc777d5eceb07da211601269e4f5be0"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/legend_retract.svg",
+      "sha256": "b1b41a1157e08b310947146c01de702a2c8311ca23d3c3722d39beead5ebea27"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/legend_seams.svg",
+      "sha256": "38734a6f5385e8883aac3fbe1e0c5fbb1cad6aac22f651ebcccc65f021420759"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/legend_shells.svg",
+      "sha256": "b2822d0ea515c00c30167b2a666bb0a15caf090683a27bf393b226674a4ef363"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/legend_toolchanges.svg",
+      "sha256": "05a2187ba5908440f5e5d756d1ba6f5a1440b71c0f6e13018a735b43f958dfd4"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/legend_toolmarker.svg",
+      "sha256": "e16522f3e300fb6a37308d69dc70e02fd6ee65c57f4c5163aa23137d84905fc9"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/legend_travel.svg",
+      "sha256": "d60178d037c30f0178302b3ece3e14273535c978885cfb3b18785047a7122112"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/legend_wipe.svg",
+      "sha256": "d9dca2501964a044c1a67152e2b4ced83b834be2cad61084bc52b014e0334d32"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/lock.svg",
+      "sha256": "b9c51f3c73c38ba4e2d6c04c12b47bf1280108667db4878ea48c2e95d0e789b1"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/lock_closed.svg",
+      "sha256": "a84f0a627638fd207b9c5a9c7ddc92004ce4274cab9aa6ff4491a6d60dc1b2f4"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/lock_closed_f.svg",
+      "sha256": "7d83f6809d624fb01ed786317ed41dfcf92649018e81262862d49dccdff00bd0"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/lock_closed_white.svg",
+      "sha256": "47449bbb642814bb4c433d20259ae804e4490a246cb969f9080f362e35da6727"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/lock_open.svg",
+      "sha256": "5f56466a681944ca396f240ca9b781bb3e288932dc1655a6a385a60748fe2e9b"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/lock_open_f.svg",
+      "sha256": "81b973b036cdf2dc5d85f4ce5bb36cd1dc8291a6227a2fdd399854e05143e698"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/lock_open_sys.svg",
+      "sha256": "cb023c73253584e0c285762a0d5402708188bf165d3b104ecc28f134414f2b40"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/login.svg",
+      "sha256": "b5071bcd6e268d5fce473760b6538a88337e4c38d9989f095987a7fc21c1331c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/logout.svg",
+      "sha256": "0e6be0c3b6ca1fa906f6a1266a779c39d80cfbf16a6721ef944e4359bd998a94"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/make_bold.svg",
+      "sha256": "bf7ecb6192e43b868adf15e6cada37d0509b637df2cb855906e448594de2fa50"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/make_italic.svg",
+      "sha256": "201ef1effe47f5fd836539888f821b8bc29fbaf99ceafb41a7eb10afcbe0e462"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/make_unbold.svg",
+      "sha256": "5ce519e987b97d7c419253da581b3f579bbcf4468040363a646b7f8be2e84961"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/make_unitalic.svg",
+      "sha256": "cb4bb6f73c703f2df29cfc0813241c53e4d4e6a3bf2a3a1beeebd2053879e6cc"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/mark_X.svg",
+      "sha256": "076d984ab947b6bc944a6f96d3f171ed7d8d3b2862bbcedc67197772eaf6f07f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/mark_Y.svg",
+      "sha256": "1858cfbe26c45df5ef245370ac17bd06840be71220eac9a091382ed4eb9d58bf"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/mark_Z.svg",
+      "sha256": "aa5d8cb5210226afeb7c827a7251aefe00e55355336acf3bce3a4304f987cc59"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/measure.svg",
+      "sha256": "b1f5acfe09a1c241bdf24e108dbfef39d8d5f87825e9ec1ff3428d214eabafc3"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/mirroring_off.svg",
+      "sha256": "f99694471b9b1641be00521f2ce50d1963172491553df6dc7882a5662fea96b5"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/mirroring_on.svg",
+      "sha256": "2ef52d5f9cb1e993495a60ab32ba3eeca2f02028fff0ba42e3725f00d52ce293"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/mirroring_transparent.svg",
+      "sha256": "3c49230a185ed48f6064548836903f8d08605e0c66ed98f497eed7ed4074d563"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/mmu_segmentation.svg",
+      "sha256": "599b5c6616daa86b3990ca53a6bd7d66b882232ddbc76349a9a1a609904f203f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/mmu_segmentation_.svg",
+      "sha256": "5d217058d8a58ebe7a6d1a8121e2c740c74296ddbb18218f87cd564817386f19"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/mode.svg",
+      "sha256": "f50a3d248f955061297a3c693799b3130ae129595bd1e864067bb4148e25ecf6"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/mode_advanced.svg",
+      "sha256": "8707d2141c0be6f48aa47dfcc3e1c1d674a2453fc6655870b22ee90582474b56"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/mode_expert.svg",
+      "sha256": "ab1be009d12710155a4378ce8e1f540c9b75bd823c8afe096068805492b94d4a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/mode_simple.svg",
+      "sha256": "0ba0bd5500efd1a3a2440ef2b98785aceed5d47e3fd45001234591b5f7a1176e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/move.svg",
+      "sha256": "c33f3cc3cb4dc2e9176225ac605855d74cb6bc560da5e9b5c1d4cf15327caf37"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/note.svg",
+      "sha256": "6b3c32593228f69febc8089d9ca105f91d3eb8bb5fee64efddebea2c5d935a05"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_cancel.svg",
+      "sha256": "653ab868382b1e64ab8e276dabf31348e12084e5d87ea640fd4bb5f93087949b"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_cancel_hover.svg",
+      "sha256": "f2158e2808c34a7623c737a40ae17e514407e0efa96c97106d027a24f3195974"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_clippy.svg",
+      "sha256": "ae8d57721bbd1ba1633e1c2cba9fb3984c58fcd05bd1fec2fd9456e11afdd6b5"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_close.svg",
+      "sha256": "706c7b08f348e7ffc9b0a0849778d053a4c91bf79a86d916af4872cc424a67e5"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_close_hover.svg",
+      "sha256": "2940d35c9cd7b3f5cc9a5574933f4053f4fe87802f6bc227a942fcf263dc310c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_documentation.svg",
+      "sha256": "a8eb4a354a44ba93d4a09035573e4b5a37799b76f96473d15e891015324f8e0e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_documentation_hover.svg",
+      "sha256": "64c9c5a1eb39068aee47ec90682bbf9c2004acc3dd00595c0f91bb758ec5f749"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_eject_sd.svg",
+      "sha256": "ee88ce5fac5e154a1372b9ff0d3251789689b9b0c99a97401e1db219877c0099"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_eject_sd_hover.svg",
+      "sha256": "425c15bbe101460cd01a182b2689a5685af63e355b15649fbbf9266e8d2fd863"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_error.svg",
+      "sha256": "7c372b321f3790d4f2179744387cb13284fdf26f7df86f3a50530f394ed883bb"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_info.svg",
+      "sha256": "28f8127910341aab00d7ea023093186a635a6f813ada3167ea929ee1aa2614d9"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_minimalize.svg",
+      "sha256": "904715990d5e2b014b14410fd26c0aab35165b75b0e8a8c4e7a554adc003fa42"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_minimalize_hover.svg",
+      "sha256": "fc1a955501cec0ab11f6a47dda5adbb5b28c3528d78e6147dd9f4194f13e7ba2"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_open.svg",
+      "sha256": "a36aa1b13e48c5f954d3b4d76b68ad0498bb7f58712e25768f0a3c73eb6fc236"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_open_hover.svg",
+      "sha256": "1f0e711053677ed7129461fc7ffe38ff8d5c14c94fb263d126fd1ba4470e6020"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_pause.svg",
+      "sha256": "116abec8e966b6282bc67d043c4b6fd94868c088de899b6db3d496550958c84c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_pause_hover.svg",
+      "sha256": "45c7abe3dff9870b30abe6af02d6557a3186d6416b2ea3e1259e82613dea1574"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_play.svg",
+      "sha256": "85cb6502227043cd992d87c707913ad66c67f4e01e3f2b11f33eb51a964ecb6d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_play_hover.svg",
+      "sha256": "5b420e0ecc7fc53ac205b3fa070d455e78f8c4096854e6dccf4a86cc773e07d4"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_preferences.svg",
+      "sha256": "103bec38ad6aa145561cbdb6a554c773ceb3225ce0d28bed5d8a3d4303132cb9"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_preferences_hover.svg",
+      "sha256": "8933a99a8461438cfe400318401f91eba9c2d9a014a629e53b1fc3ad0d2fd387"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_right.svg",
+      "sha256": "f0e3d3c6668ce2f61a797ce9cca2a2fcb635e0a3236216d6ac4bed79e6e7eb28"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_right_hover.svg",
+      "sha256": "e1205a641e8c15e2308a8c6fb01e594a8d10a0d06d0dcde59e3efbffc8185e61"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_warning.svg",
+      "sha256": "05fd189a541c9257d2f4490e07dafe9bb9d261d7e12774ca146d5b447106c8e8"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/notification_warning_grey.svg",
+      "sha256": "2c025d6beff898ccec211e5ebed677cc0d3ce463c4a11d39c451553d5383d90c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/not_equal.svg",
+      "sha256": "05d6d212249b3db07c799292c0bd478d34fe9eea67198c04d6586d4fbc3b4ae0"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/numbers.png",
+      "sha256": "dcf31368338f7c3e3585bb5edba88e4f7828c8e76ecd930870f8b06bbb506c08"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/number_of_copies.svg",
+      "sha256": "31b71eac754eda4ffc03430a7f9721fa3a1ce23a3bc0ef7d0e26a984b106594a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/objlist_info.svg",
+      "sha256": "d6947112fba0849107edd6fe300bbd9d80cbcc6d53029f68e6257acfb8931351"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/open.svg",
+      "sha256": "344d71a5e33bde143e8118e908d45a15fcf35d7b0089c11f7134af68eb3e2529"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/open_browser.svg",
+      "sha256": "97c0a8d7884562c39d7ba571c432ef10b0bf90fa287058d771dc4394f8ad528d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/output+page_white.svg",
+      "sha256": "0d2345b4cae6af4540823b91765fcdf894afb85c2080a6cb2fbbb1d90dc6dc47"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/pad.svg",
+      "sha256": "ebdab02d6ba033b0c08acb1b0b6e62acb2d9fae06640658e6b2fd69f674c18f2"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/paste.svg",
+      "sha256": "6cfe79d4cb13080084b566b0257a278c50d7cad8cb567b1e518821f48114e2e3"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/paste_menu.svg",
+      "sha256": "4ddf6df5cbe840b1367f728b8fd91f2b543ce4a70505a29199beda227d6b7752"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/pause_print.svg",
+      "sha256": "7833b6586ce045cc692c12b5d116161255b1518fd927e07f569ec5b3d07a8bbb"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/pause_print_f.svg",
+      "sha256": "252fca2315a6dcbc7c4011ace36154a8b3dc95ddf33a9465bbd7085e04addcef"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/place.svg",
+      "sha256": "ca9f2cb0498caa2532a44ca7fb9f025c300bfe854c51c21d6f21f8d5f4677ee0"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/plater.svg",
+      "sha256": "f47d39855053d8844bac0edce9a10ce558d1f4a18293322f18f095aace98e3b8"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/plug.svg",
+      "sha256": "87d72f5316cf17946de8ec26dfb252e365ac67ca238f18be2851fd72ca93409e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/Pmetal_001.png",
+      "sha256": "598539253b4ee25ace717bca6419a147469c3abcb5fa4c10cbd709c51e456995"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/preview.svg",
+      "sha256": "bf8e35e26ee64672b0823f4165ac89b6c2d18600a6bdca97ed5738c93523419a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/preview_menu.svg",
+      "sha256": "eacfb7a6fcf76dc3c54ba9ae19c99a77e121257a166859c51717b19c865c2d07"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/printer.svg",
+      "sha256": "8ab0a3009fb4f2589f480119cbc51c027901e74509cddbb97446150319711c61"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/printer_available.svg",
+      "sha256": "e275dd4e298079a0df6a65d85375f4c0d6b0f314256d9908b43fbe2a6e3fd7ac"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/printer_busy.svg",
+      "sha256": "c3657951f75e872c367f926603d71dade4a73b584b22abeec74b2059bbbe9355"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/printer_offline.svg",
+      "sha256": "9cb800ba058b4db3413bcf938ede1bfab3f1d61a33385cff740fb187780f30a2"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/printer_placeholder.png",
+      "sha256": "d255a2544797c324c78160095ef6d23e5bbe5c27d2769b1d3743b6822913fdc3"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/printer_white.svg",
+      "sha256": "435e78067cd7312a69fd60f4aa8fd7a4e725c159da08648c47578b7f9fad5d28"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/print_finished.svg",
+      "sha256": "fbf9bdf22ed2f5e66b143a671268cc4133558e0ac72d7cecf2e402b23afb26bb"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/print_idle.svg",
+      "sha256": "af2ed6a5d1fb3f4e2a3230f07eb7e4e9f0a6bc84888b55fd2a34d1439621dbee"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/print_running.svg",
+      "sha256": "4baeaad1b84a089029be736a95f586d7815f2166d2c6e702f5d5fca3a1b4908f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/PrusaSlicer-gcodeviewer-mac_128px.png",
+      "sha256": "738502da8a75eece9b098c37eb7dd0bfa9287e7545a6f2bd57ff8783f9acbec0"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/PrusaSlicer-gcodeviewer.ico",
+      "sha256": "fb44a2e346ebf550bcd0c25fb1a1c7313120d6cf552dbc16836e90610dbb79a3"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/PrusaSlicer-gcodeviewer.svg",
+      "sha256": "23040293dab9e101f85058f6457c1f24b36e7d0fb0a907aadcec4b395a9aa195"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/PrusaSlicer-gcodeviewer_128px.png",
+      "sha256": "abb3b5eba59a76c3ab67643090a8eae10a888d716f0150b7d01d12014a529550"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/PrusaSlicer-gcodeviewer_192px.png",
+      "sha256": "4ceaa143153102569d8c8ef7aa9f21ecee2517cb77dbe89910181ea5bad26457"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/PrusaSlicer-gcodeviewer_32px.png",
+      "sha256": "e2ac1b3bdd54ece978fbd30a378df4eea748370e8a87d7b8c3abfc29b4175553"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/PrusaSlicer-mac_128px.png",
+      "sha256": "d292b5285a09bda54c113262004f97aeb889b406a932af50f83bf8d259af328c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/PrusaSlicer.png",
+      "sha256": "484cf12a856f035d8c3ee12fd404d03c3012f815fb9e8fa334c5f7e4127b905a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/PrusaSlicer.svg",
+      "sha256": "4baeaad1b84a089029be736a95f586d7815f2166d2c6e702f5d5fca3a1b4908f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/PrusaSlicer_192px.png",
+      "sha256": "e8de677bd993fd55f3b6e16a6c33755a4afcaa5486160c88e1ccb7688e053914"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/PrusaSlicer_192px_grayscale.png",
+      "sha256": "8f1781a62dcb65cd0ca491fdc5eec59ab0de9fd6c163941cad516e966cd89b43"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/PrusaSlicer_192px_transparent.png",
+      "sha256": "bd42f7bcaf69ca29718fdb7871ea3fd325dc672a26e9165ad561869eb2a83ef6"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/PrusaSlicer_32px.png",
+      "sha256": "f589227a9b1a74d1f73fb7b1936ede9eb80e265573044b5f6030e8b00b9eb053"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/question.svg",
+      "sha256": "ddacdf4152dfe6d8133d9c04485691e292ab786873acce2f4248ef5855c3baef"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/recipe_add.svg",
+      "sha256": "9741ab6dfac0cb7821a399993bdba934e8fb105c15617395c5c98b57279a7600"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/redo.svg",
+      "sha256": "c33dfc8b6027a6552a913d5f1f3796871d34813bc8aa61a1c6f053dad94a28a2"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/redo_menu.svg",
+      "sha256": "6738f9ca1429a94c7b2842e40cefc71e0e36ea1f5c5be37223d16fe163a49ba9"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/redo_toolbar.svg",
+      "sha256": "96ee7e28ad820fd6b423ca1c3a1320624834ea33ab494cb00b3a722ba43db834"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/reflection_x.svg",
+      "sha256": "6c76a2e9157c761952625579e971e9f7a55692c99a69c7bc9c83f585586d2e63"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/reflection_y.svg",
+      "sha256": "6d9e77428f6beef812c64acbb7c3069dbe24876f846f55d56004fde4d6dbea5f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/refresh.svg",
+      "sha256": "1e628ece4b2eff89af5a270fc69fb6065abeb700973b5d85db03b21f85627ec9"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/remove.svg",
+      "sha256": "2d3464c31396b51788d1833e6b5c5b97b95c70ac3d53cb0cb9e82430e0e2b364"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/remove_copies.svg",
+      "sha256": "585bd1790a7f230e28b7503797c8dbcb9a2d489f2060c3871e40fe660bfe9b83"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/remove_menu.svg",
+      "sha256": "5672cdfda88982465333bd97e6e967332e6d9983fde1c905b3a3ced88f473b47"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/resin.svg",
+      "sha256": "cc3c6d383ede744822de88de9250957e094b09ef4cb89fa8abcf130c852a2dba"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/revert_all_.svg",
+      "sha256": "0ea1dae6cb345e793a76e3b0e18d325f232bdd9ed2966ed6768c9a5fd9873eec"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/re_slice.svg",
+      "sha256": "89939a20f197e46373324513154c229038a09e6fcbfdbe3e7ef6203d83890917"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/rotate.svg",
+      "sha256": "3cedac9820ee93929e6dd98c344a9cd7b62242decde1000353c6e35dc75abbcd"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/save.svg",
+      "sha256": "cef435030ef176ac3cf65398a890a2326fd93073f34c9fc7851fd1316b06997d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/scalar_param.svg",
+      "sha256": "d3ec3439b63444bdce1e0b94b52e2bbeee641ab44d0bcebb83a46f946a4ff85f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/scale.svg",
+      "sha256": "0400b3b3e36f0ba3a4b773ff2aaffa994dbc5e9b7406a027274da0cbf114a29c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/seam.svg",
+      "sha256": "08b0f91e8203594798fb6ff38a508529da7df04d6eaecac03f3362331b269875"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/seam_.svg",
+      "sha256": "1694347ae9c75b953e600152b354460739a924b502974d7a1a4ee04abb9ff75e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/search.svg",
+      "sha256": "80cee7c88dd96b3d28cedd85646f09826c75767aad344999547518dd13a14858"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/search_.svg",
+      "sha256": "8e3a7fc2fcb0e6f537647ba3fdbbb0d1751f2ad4fef3cb8a60655aab8367d639"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/search_blink.svg",
+      "sha256": "6a56f3289f6a547351610b3a8c1897f5598675412ef225c70c9d98f5ec8d7a2e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/search_gray.svg",
+      "sha256": "da127137f87a452299fe5eefad81dbb8b711b6028a9cdecfa0eddede21b09e76"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/settings.svg",
+      "sha256": "beb00b178fa9e322e38f9b7c925a199063754c3d9bbe1e554fea9bbb91adea1f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/set_separate_obj.svg",
+      "sha256": "55e2719143aeabc19191d095ded58a199f3757c3a72056422e3f163113d7fa25"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/shape_gallery.svg",
+      "sha256": "dc987e03046eef7d3304f1a640e6d76d2afac4908b0fc3b45cd9f75376dd4f1c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/sinking.svg",
+      "sha256": "d4437c1f63dec1883fb2adaf2a1a995bcac13a85c3d6295977f8eb0e10ea6c74"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/skirt+brim.svg",
+      "sha256": "a2ea814afcb16dadf99fd6632c3fd16b0d9a1cd5f2880bdb4b70998f4ad1238d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/sla_printer.svg",
+      "sha256": "d571165117597b3070cb5878b1e8885086d5d84da8d64491395f2d5fae4a5f20"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/sla_printer_available.svg",
+      "sha256": "b7773362e459368ac3826b6d34e3a123c08c8bcdc8ece7a13820e58b4c2bcd7d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/sla_printer_busy.svg",
+      "sha256": "a5e82860c75f229f59feb53ee8c4417e6e326a946832e370a16f1fad329d137a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/sla_printer_offline.svg",
+      "sha256": "106d82fbc18f9d059b866c46a58196c5c4a022fcc752571e957c74409ec1d8fd"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/sla_supports.svg",
+      "sha256": "0d9238aa8c8641bc3379a75f9bfac693490be147fd4b0d14e48de7f9551d2958"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/sla_view_original.svg",
+      "sha256": "e973572bfb162bcb002d51c8f7a188e56ecd14bada3b2859542173840b047a76"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/sla_view_processed.svg",
+      "sha256": "dba497e479b1bcc3b90ade22823506d87027748606a2c3c705c6363b27a82f37"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/slice_all.svg",
+      "sha256": "b4484542e838c0f35c1981dccf0e296dc5c6b0b8feb4c7b010e02ff18d5521b3"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/snap.svg",
+      "sha256": "f5c96e679aa8d60ee1b6fd97565a4fe56568b533261518cd6dc04d48e9574774"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/sphere_blueish.svg",
+      "sha256": "90c70f0b2b19b7c618c49077fe7fa7ae326068d593fa9cd3cf9017b86c735672"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/sphere_cyan.svg",
+      "sha256": "de441c133db34144b12027170ee3311154f99fd9e2d438489e0d0511ab0c925c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/sphere_lightgray.svg",
+      "sha256": "ccfb2ab00ceaefe77f60b8c3577e18351bba48888e512071ce02cb70fb431c83"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/sphere_orange.svg",
+      "sha256": "26441edd480be2284c9c13a558b42226f8e7f97fb9b0301c4bc13a543961a496"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/sphere_redish.svg",
+      "sha256": "42c33b0c30a49171137e7e8ffec188b2ce762498ef4a639946d38046bb0d1ddc"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/spin_dec.svg",
+      "sha256": "005c152768c65c63568bf3e892521ebd4b0886cadfd3aeb076c13e3b166224b6"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/spin_dec_act.svg",
+      "sha256": "9515d4ab9c14be8487352c7e6040f9ee75fc0d07f52a54a5f83c7a7355baa5ec"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/spin_inc.svg",
+      "sha256": "592642539ebea071ccf8e20f2817f33c138b1825a1b511ea4d9ba6135d8fb932"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/spin_inc_act.svg",
+      "sha256": "8bdbeaf18242a1445c8c020077d8d1c706bb19c93e7e9f830708ff1f8cb67a0c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/splashscreen-gcodepreview.jpg",
+      "sha256": "19ebb4192070f302ff1226201eec3c8d20b089ef3ece6e9a8acdf141f2e593f3"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/splashscreen.jpg",
+      "sha256": "19ebb4192070f302ff1226201eec3c8d20b089ef3ece6e9a8acdf141f2e593f3"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/split_objects.svg",
+      "sha256": "8d3184e82f32024519a2e5e575fa66cb71084a465daf9c0bccc9cbe2ec95e298"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/split_object_SMALL.svg",
+      "sha256": "8a05aa72c7e04c8b9a3045ab7678685ee431a612111bc71bc4d37fd0ac248b91"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/split_parts.svg",
+      "sha256": "c3a62f02f69a280c0c92605eea3367f05065e80172eb967884d30c4c076ced9e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/split_parts_SMALL.svg",
+      "sha256": "689affb6988e2ccbc572d5469d41b5c743f5cfaff54cdf37a8ddc5277229c6ed"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/spool.svg",
+      "sha256": "762ac81768b83488c56bb16291a29bf61f3fe8496ad637855174c2b6592e1057"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/stl.icns",
+      "sha256": "0e8d118fc326a795f991ef3422a3fab8829c0bcd0d69af7a217b1f974f779ac5"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/support.svg",
+      "sha256": "7793c09095e314979cfa146c64ff6c6fa453f528b4bb140b88e33577779462ef"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/support_blocker.svg",
+      "sha256": "47fcdadf7194c3b8202c23222e01ba5172163f23f1347a1b287de710f7dfee1b"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/support_enforcer.svg",
+      "sha256": "ca6ae4315eacdfe4902452b84d96f1f9f3d759fe518ed725d9d1ce1a922b00ba"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/support_structure.svg",
+      "sha256": "32afb922f4b32b7064919987c68d141be6b6c8eff9b298fe4e9d4bba93d69072"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/support_structure_invisible.svg",
+      "sha256": "54642ace9318d598b16eab2d289f648484fbb6171ecd26156f60e6db50c39735"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/svg_modifier.svg",
+      "sha256": "75787b88fa9a5a3c71f65b47cce90ef060c9a8391df20662a93bebba6a5b1542"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/svg_negative.svg",
+      "sha256": "58fc0c3424116da1a07c8bee57c4d6277d22b279431d591b0c1f2408f289a5a8"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/svg_part.svg",
+      "sha256": "bd842a2107c6df7488174393f22d040caca160e9e335b3ab7d9fac795a15dbc2"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/switch_presets.svg",
+      "sha256": "024a6858960e995d278e8899a8a26c2ccdeb0009824d0e95b2aefb41b704fa74"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/test.svg",
+      "sha256": "97a3834ca3eace21127fc5fa6ffe66fbeba5dc6cfa7641a28dc2a030175d493a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/thumb_down.svg",
+      "sha256": "77ffadd364469e5e22966e47a49842f98bec9c9fa5e9e2079c6b426d10692ea6"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/thumb_left.svg",
+      "sha256": "56518b9871de3e79184ffd9f8afa92cc235bbfd9ee856c7744fb9bb492b3fdcd"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/thumb_right.svg",
+      "sha256": "cbb52b3c88486d2f17d579aaa038847cae021ba7e9ac200d08e29a3f5742f518"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/thumb_up.svg",
+      "sha256": "ca5c924cebec63c1779c6716f4b9c9396cb8c7c392d85974c0850a21d11cf4f3"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/tick_mark.svg",
+      "sha256": "b2da9240e8c49828cc79d41a31c1490f4b500b346a753e5c92e99ae9ead8b860"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/time.svg",
+      "sha256": "3cee8b40ff3daa289441dce40134fe6a603058c0caef3c90803709643f06264d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/timer_dot.svg",
+      "sha256": "4d88cd22825c5e676158847b00eb6186e282e258fe4dcc0ab6f69c461f791826"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/timer_dot_empty.svg",
+      "sha256": "b75dbb0c75447310410df2f920f4d09f187e97631f1b501670af775b9b908ee8"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/toggle_off.svg",
+      "sha256": "911fac5a946905a9cbda10b910530d71cb51809f6d7a1ce6779030b7b2bea336"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/toggle_on.svg",
+      "sha256": "77432079589ee654774f30b2b5b33ea47809823281f86c67a65432516e63964a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/toolbar_arrow.svg",
+      "sha256": "f634dee523ea7dc0295ea0a848595ddcf3e93d8e98e6f227623a242ee59b3f0d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/toolbar_arrow_2.svg",
+      "sha256": "b032ea21a0366f45acb8559943e180d04793aec6d1d61056112e682701500c47"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/toolbar_background.png",
+      "sha256": "d88cd7626dedca92203fd79b55082531dfaa84a6e4a88c14b6ef3630ecc4e4fc"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/trash.svg",
+      "sha256": "9c047a6f350441941cb3ae5f9cafedb248b0a1ce22666781f45bd82c02f782a6"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/undo.svg",
+      "sha256": "7ce32dc284453980b8a57cc3b7e314c52d32facb9d48d29d65d930b5f60f7c34"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/undo_f.svg",
+      "sha256": "9077af6dbdd0d4901d36561d104af1f7dfc80a119ab0e1941a5ece267addf803"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/undo_menu.svg",
+      "sha256": "0f3627bd64df2d4b53ae578f19f81acf3103b62200e711cd867955b6fa259fc8"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/undo_toolbar.svg",
+      "sha256": "d936d5c5106595d12c7b70f489b4aca6ca40ef56670b2ab7877fd912de68c868"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/upload_queue.svg",
+      "sha256": "a636237e0dcb5acbe4f812041992a8638a6f7c4deaa87988cdc37717e2256214"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/user.svg",
+      "sha256": "3e99f48f3e1337cee5fe94484623b4d60b76d1ddba3ce760da950d922dc07c80"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/user_mask.svg",
+      "sha256": "9313b5499c6d3236d12618e08ab4e708428a511314f8240aa80b74b27d2bbc38"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/vector_filament_param.svg",
+      "sha256": "93c0798c7a509f2a703b477a35d836491a6267ee0191e483692dd59804e20e16"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/vector_param.svg",
+      "sha256": "31b71eac754eda4ffc03430a7f9721fa3a1ce23a3bc0ef7d0e26a984b106594a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/wrench.svg",
+      "sha256": "46be7505cf02264cc24ccc48c0ebc58b918addbcd5080d145d4db3402bba0589"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/icons/wrench_white.svg",
+      "sha256": "00fc9cf602bf8a4279073de02afecf04441d412a77d88a375e02668fb4224831"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/be/PrusaSlicer.mo",
+      "sha256": "f7c242bb89303d94a425eb0af8683f68a9122e7fefc457531fd2b3d97d5292e4"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/ca/PrusaSlicer.mo",
+      "sha256": "1070f03773dd7663daf5339ecf0ce6a129ab235e1df16874d3d1cd571d39dfda"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/cs/PrusaSlicer.mo",
+      "sha256": "a19e3f7d77f58c6ef705d11d094bc969ee7ac0a04c18ff3d75251e2e0f636a61"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/de/PrusaSlicer.mo",
+      "sha256": "e689928b712d95b3f0d0923780acce85fabfe21b6ffcc7a436781920b0180359"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/en/PrusaSlicer.mo",
+      "sha256": "276eb8a6287cc6a76af6bf20aadba2eda4b515e44169ef51407d095f69505f37"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/es/PrusaSlicer.mo",
+      "sha256": "6ad0c63e6ef898e215bc0af4d654e1a41d31173311b935908f72bc97843db517"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/fi/PrusaSlicer.mo",
+      "sha256": "10370433b4db7431a0260e80ed4679a7f9cc92c06ea126d70fbfb389da594e4c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/fr/PrusaSlicer.mo",
+      "sha256": "d19a4495a2f9275d077b40a3b8c46105538b53e391faf912cfac55036813f565"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/hu/PrusaSlicer.mo",
+      "sha256": "2f054eb15832ba8abd775ff90e17f16a0e5bf0f50e04a4f1cd0a92ee03dbe5fb"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/it/PrusaSlicer.mo",
+      "sha256": "e6c9feec63fe02d1c8aee2d8ac5b13996662b55e684cf469c0d72ef9819f0d6b"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/ja/PrusaSlicer.mo",
+      "sha256": "06cabb27322061f8a036971a337a82b85262ec81191127cece00d2f134458780"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/ko/PrusaSlicer.mo",
+      "sha256": "6448868cc9de4277241ea76ed02abbfe367de23af8187d26efcbbcb4bc864740"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/ko_KR/PrusaSlicer.mo",
+      "sha256": "7fa3b3ba32163c853c7dc8e2ad9af92a89214a27e26916554beea6b0ffb05096"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/ko_KR/PrusaSlicer_ko_KR.mo",
+      "sha256": "3aa7b4a498a18ed17d8110910224d7105f8f238fc2ce99f00eb0b6dd1a3a6bd7"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/list.txt",
+      "sha256": "c7555ad8f3c0305d66c2f2a6868950548c650af56447a810dd82b6386f3b5e84"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/nl/PrusaSlicer.mo",
+      "sha256": "1c7d5f496937d0b0fa4e9a1ea142305ed5b74f0d0ad061d69d795bd38c6408fe"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/pl/PrusaSlicer.mo",
+      "sha256": "1c216124e153179af8ccdea80bd3c6d89661255267778039751d2088de9f40c9"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/PrusaSlicer.pot",
+      "sha256": "f9576cc6eea2edf735783d73cdf509be4982918b295598deeb7d7274ffb026b5"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/pt_BR/PrusaSlicer.mo",
+      "sha256": "6bddf80d26541d505f5b6f3a1eb24a8583bf1f10583e811adc6389688446ecf4"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/ru/PrusaSlicer.mo",
+      "sha256": "746b94bf1339deb5fb66232f357696fe7dd4d7477140eea6eddf0a13efa6c813"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/sl/PrusaSlicer.mo",
+      "sha256": "b0ff8606349942bb07fe92b99e8c6feb7734fdbd9f7e54f3de9206d2975ebaa7"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/tr/PrusaSlicer.mo",
+      "sha256": "5e1beb71f9fd737e7db606fb5c32e5fe192f1950f7849e311514cbdc166002ed"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/uk/PrusaSlicer.mo",
+      "sha256": "4885892a4843c127164443378398b5b9e1168a0ae06275a7f8efa5772d3f5537"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/wx_locale/en.mo",
+      "sha256": "cfe9bd61369f4d6f39a3a170327cc98db23939b146aee59fbd696a84533adcb8"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/zh_CN/PrusaSlicer.mo",
+      "sha256": "1b3bb93044e8f3104b34ea66ac8bf7ccc5587685c8df2f7df90837bbea56bde1"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/localization/zh_TW/PrusaSlicer.mo",
+      "sha256": "6f3578d52be7e98b27a98ba05dc273bfdf0d08acfaee0d446f1ce34a23bc65dc"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Anker.idx",
+      "sha256": "0c5a63b96a0ce2dc121598f098e7e508198b9a904429b009dff795793474de3b"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Anker.ini",
+      "sha256": "815546eb698f33e0128b39cb59a5ab9daa150d42a848d5d491fcc3c20d2d72cf"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Anycubic.idx",
+      "sha256": "03d51b2817ed4b365e2b7fdbc925e3e561c3c85940848c5122a7629f3310f2cd"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Anycubic.ini",
+      "sha256": "0ea7cb17fb317c518f119bd7464505a6f6b14b9150e4a6a85b4fd8c307453c29"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/AnycubicSLA.idx",
+      "sha256": "74579d3589357bf5cfb4d3830d6089fb956c1c2a9c07cee4e76b782c1a89cda0"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/AnycubicSLA.ini",
+      "sha256": "50a4021a6e8cb34e250a91e7d993da191556fc861defd66535f42b1586cab0a1"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/ArchiveRepositoryManifest.json",
+      "sha256": "f14654440af7323f080e76d139f6db50a6445533ff0befcc47cbb3894e6f0020"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Artillery.idx",
+      "sha256": "71fd5bc6f07d71fb6aba2fbba03ee0b1681099bd8646e6abc7479120316150f9"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Artillery.ini",
+      "sha256": "7268ce47ae24cdbb4ea76ad98ef01dcb390ee342462f4ffb067eaf0bb1fd594e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/BIBO.idx",
+      "sha256": "aebd50623b408967f35e16a2a152614dc6c8142c2366ce47246c5a6a35c1a4b5"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/BIBO.ini",
+      "sha256": "dbcf7d4af9de1ba5d28330e4643afaeeec282953306a5f0d1441f559265b15c5"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/BIQU.idx",
+      "sha256": "e5888efd38ee1a95abcd4d7b715b8ab04a6cd5e8985b4ff0371dda8947d7feca"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/BIQU.ini",
+      "sha256": "bfaf5fe77828ec6d382e0f41b1227ff665a772e4db392d0432f78dfaf068ecbb"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/CocoaPress.idx",
+      "sha256": "15ea35b79c93f2f59abff7b2465f459bdbcbe019d61ff39e9e4a2a6d0894d96f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/CocoaPress.ini",
+      "sha256": "f2d6eaf0b85099ddbb615ddbcdbc594dcde5317df99294e44837d27d2133c5a1"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Creality.idx",
+      "sha256": "caf59637c779eb2147b0a9bf93f07c8b465f5f60d40646d36ab7d4174e554364"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Creality.ini",
+      "sha256": "79992570253bcde938819785e9c5fa7226b88f74188b3efa11c6e2d556a74040"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/E2D.idx",
+      "sha256": "71ca1d0560c2b2f3bfbf280ec4ecfd87c4127be48a26fbf387ad895cb85be55f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/E2D.ini",
+      "sha256": "94f20e26ad43e2abf93e72d6c619f99174e7c7dc72da99cc55d95ae5d25e97c9"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Elegoo.idx",
+      "sha256": "ac6664762833b55ace438bfba85d980d4f2969d9f162adbf3dc7a873b67a1495"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Elegoo.ini",
+      "sha256": "2013bdfbfb3ff258d8f66779836db285d37656e73c822582a6b7be9c5198119e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/FLSun.idx",
+      "sha256": "9814b73ebd679f31adfbc5f0e51a60f078a332ebad6551bf62a559a2f580a813"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/FLSun.ini",
+      "sha256": "7532bbc5a6535ce18ae3550033397e050e27b42c514d13fb437200cb496d0b33"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/gCreate.idx",
+      "sha256": "b1802c6c4ea35763df522ac4a595816581ea1dd17e1dd6b16eb839728abec0e9"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/gCreate.ini",
+      "sha256": "528369511c5e9b4edc93a3ee77f6cbec582251f9d4d4a9bb9483d814b86d4eb8"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Geeetech.idx",
+      "sha256": "59086e0caf1477922c48f8813426a368d0af490e38df8f914a67b5d38627a690"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Geeetech.ini",
+      "sha256": "c4d8af333a02f811620e01dd37670038c3293327f5926b849ab53aeec05663e0"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/HartSmartProducts.idx",
+      "sha256": "e71668b119a39136dfb6cf02526c0911bcbbf20b8e633baa42be015d9cd63d17"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/HartSmartProducts.ini",
+      "sha256": "cf768019d95aa72251745f00c1adc7a0d1557c5ce8189e195eb63cdcf4605ceb"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/INAT.idx",
+      "sha256": "8949284c9db05404eed144c9ec9d091f018f5de301b0a08c3157e912b4d957b5"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/INAT.ini",
+      "sha256": "d6e4611122ffb345d5bda453ce3fabfe3634143e6d04df88a2b536ea83c698a3"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Infinity3D.idx",
+      "sha256": "e9e6d286139dd6213f8e20b54427166a653b76c168d3e6288d9ce4bf9187e3da"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Infinity3D.ini",
+      "sha256": "90d09aa9213a92c966aba5e6da348eac0eece2d9c698bb68948a49924ec28ce7"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Jubilee.idx",
+      "sha256": "ce46579c91f28745673d742ee26137262626f2e6d788b1aa58c7a333102c77fe"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Jubilee.ini",
+      "sha256": "4424e6363f68965cb8a99964b0adf0e1a5446e853dd882fe3dac6db6c2dc46ba"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/LNL3D.idx",
+      "sha256": "146744c289ec69aa4f54fb88295921b2d453bfbd2dc6e8259be3359434024cec"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/LNL3D.ini",
+      "sha256": "24f89cb48ccf0e8c40295ae433023e8a6d6217767cfdd18cafb75390e843a7c1"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/LulzBot.idx",
+      "sha256": "1d3ac0ef301478aaaa1d3d1165497a821f474e5837cc935167bfece4bdae66d0"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/LulzBot.ini",
+      "sha256": "7c90184539424f6513165c9935006e21c7dfc384d2484581c3f76879e32b1dfc"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/MakerGear.idx",
+      "sha256": "b3c6f4fb9f15f667ad1c67400db81d33cb99cfccc9ab6bd5ec35a133b9b97ef3"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/MakerGear.ini",
+      "sha256": "089dc9c2055de915f94d3a4dc01e93a9ea1d0782946240b3f3bfa1702958b84d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/PapapiuLab.idx",
+      "sha256": "3d6e517c887d11c386e32edfeec45785dab4e0eb4862c764cf158ec4b523a6a6"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/PapapiuLab.ini",
+      "sha256": "5acd11863e98d6e56355ce49496c0186af95461e8fa0c3aceda39d909b9aa1a2"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Print4Taste.idx",
+      "sha256": "8235c594a9ca8fd4ff8ccb6e7352c2a49b04c31dc525daf214efda66dd25289b"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Print4Taste.ini",
+      "sha256": "9dbdd875bda6d1ef3b5d2710c744cabe0e24ad69b20ab79cdfe8e01ea0853a93"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/PrusaResearch.idx",
+      "sha256": "65fc21319b2954e5df36040e5a581a313fb409ad9337c2007b1d0f9f2b2352f1"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/PrusaResearch.ini",
+      "sha256": "24755bee83c549189fe3beb7318e95200a9382b6d90e58a7c2b03398a33484ee"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/PrusaResearchSLA.idx",
+      "sha256": "5f225fa98e41ac37444cb9432a4f0cbb4377f7049dc713fb21b9129435353d50"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/PrusaResearchSLA.ini",
+      "sha256": "ebc2343726d389c167586cbfd9d9fb18d7c8468800b34299b637dc238c7af63b"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/QIDITechnology.idx",
+      "sha256": "733c3a373cda64ce6807a45e735b56a6dca3c02d9da83c798f169b840a9f6804"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/QIDITechnology.ini",
+      "sha256": "f037eb949dfc000be684b0bb076363dc39826f1503b70cf77070d23cd5bb773a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/RatRig.idx",
+      "sha256": "4c8643d5a643bc30de4b4a0a0c7ea8afe57add5a6ed65bdea57f23f2e33fff6a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/RatRig.ini",
+      "sha256": "eafe1cefa89066565aeb8759e06c8292b628e7c0b460a88c6d9751d53a1d14d3"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Rigid3D.idx",
+      "sha256": "37b705c4842665525a834e002ad90d5eea91aae50bf393159b578c294ad2a79c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Rigid3D.ini",
+      "sha256": "52f37d8290c815baf77659ff02f023ff5e93499a7df7ff08a401405275003086"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Snapmaker.idx",
+      "sha256": "dee8a6daaf8c75778703c5188c9460c9e97a5cc7360879c2fdccadeb863b9b69"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Snapmaker.ini",
+      "sha256": "84ce6a90abfb8b210f7425c1eee9bc4bf06c89640012aa14bb1788a9b61c907b"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Sovol/Sovol.ini",
+      "sha256": "9d31cd393591c20f85151e3f521bb8871f584b9abd502a8a3a7f3e12031de6e7"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Sovol.idx",
+      "sha256": "748d72d255349fb6cf8a9f3181ebe5f9b0525bd0361833473d795d19489e20bb"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Sovol.ini",
+      "sha256": "e624d347e9ba11103310dafcd690c0ab932172a3a5e83ac4e2ca44ac33dd8357"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Templates.idx",
+      "sha256": "a439e3cb6b4f99548932f112796712206dd25268919c206f68599334dfd6467c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Templates.ini",
+      "sha256": "342c96ead2903d7a45454fd728637ce8826639238921c12a1ff39c95e356f943"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/TriLAB.idx",
+      "sha256": "2874d80d3cdf220ad8ffbf94071943e1ac35e9e5211492650444fe87e3433ad6"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/TriLAB.ini",
+      "sha256": "2bdd7174e754126b0e0030e675724263f37c484adc4fe7b694e4cbfebaef45e4"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Trimaker.idx",
+      "sha256": "eee290483c10d18f8f3798d20208a38c0cfa4a2d46455f364023eb1bb6fdf539"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Trimaker.ini",
+      "sha256": "353a178dd86df71bb6345ba1539134a94953a43833e50f798c911ead3012104d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Ultimaker.idx",
+      "sha256": "eebb23b65c2f50ac3fd84b31ebcb982402da53bcbd110ff1ce4d670ee51eb54f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Ultimaker.ini",
+      "sha256": "98197ac4392bef8ea2cd727ee26d3515b612a1ee895a3584fe7f2ee5cc983502"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Voron.idx",
+      "sha256": "0eaf991e3c457851e7b146f226fb40ce30b08bd2007c4474800b1df0a3dfcbb4"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Voron.ini",
+      "sha256": "9049f1fdfc28acb53c0c62ab37ae23ffd6e9c2ff1885609a7af9524b8794816c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Zonestar.idx",
+      "sha256": "35f6f7d4db98aac02e31bab4086322418371512f2e3ba537ef89c15f2f4529b7"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/profiles/Zonestar.ini",
+      "sha256": "80a47c7c577e576d95ec179ea1ef044ffa336739013c1335c79f55b2094c720c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/background.fs",
+      "sha256": "0994d86133f8a1c89f1c767fed9a59d46b610b2227cb3ea2fbaa7fd2234de677"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/background.vs",
+      "sha256": "24c00730e22d927e680590870b5e4a69bb3f98d4017b9341d452eb2e8ac4d77a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/flat.fs",
+      "sha256": "4270dcfe961843014f30fa6fac845dfc5de5f81c6e96a7289bd3daa9ca71e301"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/flat.vs",
+      "sha256": "27f2a5df15c7532bbe4f018f3b2932e77a1859ef63647e138eb9cbdde52c1078"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/flat_clip.fs",
+      "sha256": "8fba30e8ca100b6ed6c609d4682eaa1f00d7e7992966a6550eaa8aac76dfa6d5"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/flat_clip.vs",
+      "sha256": "8b4d3b43314feb4e56a3a18f52ff6c762df4cf4de4c2283ab39fc81ef2b3177e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/flat_texture.fs",
+      "sha256": "cb012cda39c0be4ca6850452f3e9595d50a3eb8993e82cac3e8cdc0a72741ac0"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/flat_texture.vs",
+      "sha256": "6cbef546b9cc280eea4d9dc14f2680158181392bb622f9a1f07f2776c6e430e8"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/gouraud.fs",
+      "sha256": "c97069da0dbf2f17307b6ab4bf0bbab76149dfc1df6f1c958e07e7be6a4cb4d4"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/gouraud.vs",
+      "sha256": "c085c3bcacfe22e97b30fcfed05642cf326b0ef317969f499b7877c45b6834d2"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/gouraud_light.fs",
+      "sha256": "dca6039c9fdb23226060511a276401d7610ab6e93bbe6191d29b2919f1770050"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/gouraud_light.vs",
+      "sha256": "89b8b264a67071487bde2de3ce2c3a4118a87cde22a0fe192724e1d3ce27e678"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/gouraud_light_clip.fs",
+      "sha256": "df1e3afccd7c8cf3fbedd8338ce5a886734dbadd47c552423c748a11371bf38a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/gouraud_light_clip.vs",
+      "sha256": "27a48fc47bb11987e7225fc9615312b78962c51bb766d4df58c95caa251cf6d7"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/gouraud_light_instanced.fs",
+      "sha256": "dca6039c9fdb23226060511a276401d7610ab6e93bbe6191d29b2919f1770050"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/gouraud_light_instanced.vs",
+      "sha256": "cf18a40bef9d55dcc3e325b74cca7422d7476d025dbf2a0d7d2cfd1916189f9b"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/imgui.fs",
+      "sha256": "8fbf201ea9956279f17ce8d6d042f44c3a02dfed3f18174dd803087ae183e8ad"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/imgui.vs",
+      "sha256": "07b6cd470a7c20a36afd1b0217268d12c03319925cef8325407aa0c1698d23b6"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/mm_contour.fs",
+      "sha256": "4270dcfe961843014f30fa6fac845dfc5de5f81c6e96a7289bd3daa9ca71e301"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/mm_contour.vs",
+      "sha256": "ac1069d47356ac8110ad4370015dfc4ab18ec44e2f3b9716095484651a6e8e9f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/mm_gouraud.fs",
+      "sha256": "4934a70bb738657cfed0ffc32572573ba34c2a6a6f23c1ab29d5e6203a414b80"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/mm_gouraud.vs",
+      "sha256": "140908b6317d87be8878c9857837863895ec28f78c576f2febff3e2269667ca2"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/printbed.fs",
+      "sha256": "12c7c3a3f54ade7ac1a6b5544c6c348f613fcff6c3cbb3cee886c1d82b861479"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/printbed.vs",
+      "sha256": "6cbef546b9cc280eea4d9dc14f2680158181392bb622f9a1f07f2776c6e430e8"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/toolpaths_cog.fs",
+      "sha256": "0785f73466e3ab21f15ab92adc20ad97f49597b669745aefc2957eb858a1101e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/toolpaths_cog.vs",
+      "sha256": "53f803b5106ea174ca67b2546620f9138c151e82922b20c2a2ad6f091291b3a8"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/tool_marker.fs",
+      "sha256": "4b35539e4d5ce3709bb5aef116b0d3336aad2e8c45dd4b6cc07f6f7c3f909fc3"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/tool_marker.vs",
+      "sha256": "f010602d7f0fea25b04b49089a7f781d2a78c1dd56b833baf486310ff3e2e75d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/variable_layer_height.fs",
+      "sha256": "0eb6e220c5928e2034dffcda010729862bbdee8f4a1192d0fb829122735a42d0"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/110/variable_layer_height.vs",
+      "sha256": "41c00c611687355fc663b971b16c935dd567c18a4e4bbeb2a6267761a625f8b7"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/background.fs",
+      "sha256": "c81350dc7f31d1ea9d07c9b3905594f61936e662f28f1cd73fdeb67dc4bac5c2"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/background.vs",
+      "sha256": "975a0bcd217d543836ac5bf180ffe0de28cc49ead44c59d76ca821330ec1f030"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/dashed_thick_lines.fs",
+      "sha256": "62f76e140bf4ce45d5d6a4148175971f74362a905a79691d3e281dbeb729a214"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/dashed_thick_lines.gs",
+      "sha256": "38a02f419cf97b08a4417c49a583db028816bd715bc7a71e888a1cfa98a310e4"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/dashed_thick_lines.vs",
+      "sha256": "5aebed3a3a40df58dbe80ff7da5dcb36132e6a5bb548b0bfd16286408cd84e99"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/flat.fs",
+      "sha256": "f5b2c3d7e72dddd3b45f551875eef168281f1ed0adc15a23f0f4ec5bdd907095"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/flat.vs",
+      "sha256": "3f3e1ddabf0adbb249c81003c1be96637a534b1d366d46ae9deea57b2cac4fd3"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/flat_clip.fs",
+      "sha256": "ae6c7c07eab9d724e27ea2d82a1ef85046ee2cf6341b8720acfea59ee3a80a9b"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/flat_clip.vs",
+      "sha256": "42404d58911e74d662040c85a136d22117dab671779c04944e906fc736eb1af2"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/flat_texture.fs",
+      "sha256": "c82bc18f41931dae41984ae2d7a72527383169dde0b6e144522fd13c4115bd3d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/flat_texture.vs",
+      "sha256": "ccea9d5bd34ccdd5dc6b5deab40de7756c38b960976bcec34249c71257955f36"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/gouraud.fs",
+      "sha256": "d759fbbe5ecf51f685522f1f36ce575f5da470bb654d73bbebcbe93f55927221"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/gouraud.vs",
+      "sha256": "a3c5abce60726f6b78b9f1bedc3a26f3c5253de2a652325699efbf9dc20bc4f9"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/gouraud_light.fs",
+      "sha256": "15ba4c810dd41d0eac4ac5f6042c2f646ea459ba0e69cd55ff00ee19e37b38a4"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/gouraud_light.vs",
+      "sha256": "4d6683b0f5b3e2cac9bb502aeae9272201b0dbeea2462d821d1bad4efff5f1b7"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/gouraud_light_clip.fs",
+      "sha256": "2c104ff683da352645f5b26d6191d172703e7d150d516fd2b61b4d4190a687af"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/gouraud_light_clip.vs",
+      "sha256": "0654d803766373de75235d3b45d719f77ec3561cfaecc75d76a60903fd4a5f57"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/gouraud_light_instanced.fs",
+      "sha256": "15ba4c810dd41d0eac4ac5f6042c2f646ea459ba0e69cd55ff00ee19e37b38a4"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/gouraud_light_instanced.vs",
+      "sha256": "3d1b27d6ba5dd4a6396954d4439505646597465de67665b3abadbee380ac7096"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/imgui.fs",
+      "sha256": "3ddacd5f808b3486315ec13d811bdd358cfd255940118b8d85440af4ba472b16"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/imgui.vs",
+      "sha256": "089b620ce8d063adaf670fe4b416eeb4ab5304930af1e6a564120612046ab001"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/mm_contour.fs",
+      "sha256": "f5b2c3d7e72dddd3b45f551875eef168281f1ed0adc15a23f0f4ec5bdd907095"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/mm_contour.vs",
+      "sha256": "c501ce4379827c3394f08cd8d5cbe1b23e895fe1843e1a82b1458f3c0cfc83db"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/mm_gouraud.fs",
+      "sha256": "defd0936f6dae048d52766555e2420102cff881898019e86a1eabf312a9a764e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/mm_gouraud.vs",
+      "sha256": "27151c67fa8b40178ed32222f07f966be07e6a0ed660da2eb6264762fbb3108a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/printbed.fs",
+      "sha256": "67f3762a1c63b1191b2e7104014fa01117598ee5e888c572dba71b00843c0544"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/printbed.vs",
+      "sha256": "ccea9d5bd34ccdd5dc6b5deab40de7756c38b960976bcec34249c71257955f36"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/toolpaths_cog.fs",
+      "sha256": "acef40d3e3e536c229d4c9bed58340e6ac64344766cf265a15f06e574c34ae48"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/toolpaths_cog.vs",
+      "sha256": "cdac0b3ee22bda6f12b480ae3a35ad2834d219b8ff4df2abb3b0c8ec2ca13504"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/tool_marker.fs",
+      "sha256": "0d4b37ea55d1ce056229526806077142730cbfa13bd7af0b8f40a73abad712a5"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/tool_marker.vs",
+      "sha256": "186d172d28006055b771c2478061857b26b170eccfc62c7e639460a4744c6234"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/variable_layer_height.fs",
+      "sha256": "1a440bb52709cfc99eebf9c30b4f5a71a2411306e9967c706eeada7c4a438e2e"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/140/variable_layer_height.vs",
+      "sha256": "6dbdeadf905a1950e245dc1f00dbcbe10dcefa9fb298108aceb5d10c924bfe11"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/background.fs",
+      "sha256": "7fada125e391b9e72433f027760c7c3ac7c25da569f7ef9ed7c5ffa1e1901447"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/background.vs",
+      "sha256": "e5ba9353f9d2b992c375374c064a70ee9a4ea86151cf5ab773607ab189b9ee0b"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/dashed_lines.fs",
+      "sha256": "461f75048a181e9a811864bb1f9bba0f576810f2242f7d73626ee7a44107871c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/dashed_lines.vs",
+      "sha256": "a4350ef10bfd5fbf83c18e1f590f445fa67b2cf572eea5e797d436944500c0c7"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/flat.fs",
+      "sha256": "c6769e5244e0a8a9f07ffe64b37602088ec9b221b75811a418acb5863a72bb4b"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/flat.vs",
+      "sha256": "4edc7edd8bcdacc45a37edeb7194e6c4f9f7c62263479a95aa157c7597a639e6"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/flat_clip.fs",
+      "sha256": "bb8882f2cb1c12ad03d561a28c9467ed4f99340860fedfc656262d4b0abb2d78"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/flat_clip.vs",
+      "sha256": "7bf4dac14b0a33471b785f2746c9981f3a33b27c16f8a0a6dd99d6ec22a95d5a"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/flat_texture.fs",
+      "sha256": "bac3d6312f1166a36fa89a84cc9d6a729ebd1bc92fb0982f24b57ea1d4b58d28"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/flat_texture.vs",
+      "sha256": "80232b9a2cf0f0f95800b73c0efab41933257602f30824749b4ffc08feb688aa"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/gouraud.fs",
+      "sha256": "2b300feb64806f96db5cd5162e11daeb6aeacda31ac241edc41cea3d4de6619f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/gouraud.vs",
+      "sha256": "6d7e62517280b9341a8af54c96f58c11e905d34d60dbdc8ae7d8afba365ef27f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/gouraud_light.fs",
+      "sha256": "8341f53a810af56856c126f0980d4413c688e20a263ce78fe8cb28055a4a2845"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/gouraud_light.vs",
+      "sha256": "b63462d4dfab9d07948bd85a919a46e0e4f42fc9f18d9c18906cb30dc0c16f8d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/gouraud_light_clip.fs",
+      "sha256": "7135b2e56a4466178084eccfb0a6eabeb572894abcc56f59680f4b2f67b49467"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/gouraud_light_clip.vs",
+      "sha256": "3fb6f24ff6c70122b19a3828c932429e8f23304f7a3d2931086ed56ca4ccbad8"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/gouraud_light_instanced.fs",
+      "sha256": "3653fe7a22085cf7245293de6b99d730ce320043e10a633cf0035a48d6401de9"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/gouraud_light_instanced.vs",
+      "sha256": "8c352a99da9ff6d092cba53b6acc663bb3f1e84aee3b59336458219a05dd945f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/imgui.fs",
+      "sha256": "ef4f2d38b87f3fa644b24f90dbe8907ff0664cd9e43d9869c80340a568f10368"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/imgui.vs",
+      "sha256": "6602df3deb6d9a0d59c3c425706985c67dbffb1d15b1daf7f4b34eb43269515c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/mm_contour.fs",
+      "sha256": "c6769e5244e0a8a9f07ffe64b37602088ec9b221b75811a418acb5863a72bb4b"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/mm_contour.vs",
+      "sha256": "b818550d4f5c567d0cb37d74e1ce2edca6d1d3e5746778cc2df04489e6e55089"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/mm_gouraud.fs",
+      "sha256": "01549113a29860d6fefab1d440876eb247f6efbea1422330ba16ef283bdfd56f"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/mm_gouraud.vs",
+      "sha256": "f67b0948498779350eaded73d0fc54bb32d6aae17e7158db86a4ef6d3b88a667"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/printbed.fs",
+      "sha256": "92f6558acb973ff5420e837038e215e905e6af0afeba028f1b3156cc63430e6d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/printbed.vs",
+      "sha256": "80232b9a2cf0f0f95800b73c0efab41933257602f30824749b4ffc08feb688aa"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/toolpaths_cog.fs",
+      "sha256": "ef9922bb43dd74e6db0ee534f11836a1857e72bcb526c85ed12c02909f72c39b"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/toolpaths_cog.vs",
+      "sha256": "94988ee4502535a876f89820881adb58ba0b2088a4babc5baddee0f9eaeeb5db"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/tool_marker.fs",
+      "sha256": "017e9fbccfcdcfcf1f149fbba469122c59744879dcd137d31e9b76dff47f3587"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/tool_marker.vs",
+      "sha256": "7a5bfcbb2efba995cac2791dad6c78029f8cdc67baccb84e540bfb54750f14e4"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/variable_layer_height.fs",
+      "sha256": "879dd2a7eb3536be66a0bef4796daec18ec7b6fbb78954cdfd78f087429d4070"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/variable_layer_height.vs",
+      "sha256": "6d660c284c66ade97fcf4cfac0ae94b0038a08257dd15f3c50fad59feb7ecd2d"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/wireframe.fs",
+      "sha256": "1ee101c2237173a224d066940da6ed652bbc3d0c5798262d3733fa43d6728609"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/shaders/ES/wireframe.vs",
+      "sha256": "b3f79ab5a2a718f52d5730d9867bcd92d673c8ab42c28259d292732fdde8e6ab"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/udev/90-3dconnexion.rules",
+      "sha256": "be283137d78f8bdb841be6c7e0d2fcfa5ee30a033e07bf2a37aeb9fe57a9cb3c"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/web/connect_error.html",
+      "sha256": "cf4c7b889925c9dbc1682ae89ec2557a10d61b873b828a4b31ac6d7e70a8cb39"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/web/connect_loading.html",
+      "sha256": "ea2c108279860399509ea2130997e05dc5ac6233a484413f73eb885b4a318161"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/web/error_no_reload.html",
+      "sha256": "7a7ce5ef237e7e3f1d36e077a89f4a037c97e8a72eaa85ecaecaf96578f3c4ac"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/web/other_error.html",
+      "sha256": "3a37f72f8fdaa7ff9d17f0c15d576ec99b0585ba8a715f47e1f5810b5a447920"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/web/other_loading.html",
+      "sha256": "7cc8b366fe6fba3b5b129e4f22e31528f3e249a8bc0703326ddc5b282af5b5de"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/resources/workflows/workflows.json",
+      "sha256": "c4c0966d5b73c5eab588698588b62ee2d188d86327184e69f73f531eaf587632"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/vcruntime140.dll",
+      "sha256": "f843cd00d9aff9a902dd7c98d6137639a10bd84904d81a085c28a3b29f8223c1"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/vcruntime140_1.dll",
+      "sha256": "e4e85eea1106d361923995e53a0b961a28d4fb58555f40945003f35e5bf2c273"
+    },
+    {
+      "path": "PrusaSlicer-2.9.6/WebView2Loader.dll",
+      "sha256": "6db06648a749eba26d859fad4d4e2625c28b8c60e8770bc76c7ea445424543f5"
+    }
+  ],
+  "scope": "STL FDM CLI runtime; GUI demo and STEP-import assets omitted"
+}

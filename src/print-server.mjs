@@ -11,6 +11,7 @@ import { TextureJobStore } from './texture-jobs.mjs';
 import {createWorkflowRouter} from './workflow-http.mjs';
 import {createProtectRouter} from './surface-protection-http.mjs';
 import {createApplicationCaseRouter} from './application-case-http.mjs';
+import {createSubmissionRouter} from './submission-assets-http.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const jobsRoot = path.join(root, 'data', 'print-jobs');
@@ -157,16 +158,18 @@ async function printStatus() {
   return { agh, slicer, profileId: 'fdm-pla-04', notice: '当前为真实切片验证，未连接打印机。' };
 }
 
-export function createPrintApp({ store = new PrintJobStore(), runAgent = async task => (await import('./print-agh.mjs')).runPrintTask(task), reconstruction = createReconstructionRouter(), poses = createPoseRouter(), repairs, textures, workflow, protect, applicationCases } = {}) {
+export function createPrintApp({ store = new PrintJobStore(), runAgent = async task => (await import('./print-agh.mjs')).runPrintTask(task), reconstruction = createReconstructionRouter(), poses = createPoseRouter(), repairs, textures, workflow, protect, applicationCases, submissionRoot } = {}) {
   repairs ??= createRepairRouter({parentStore:poses.store});
   textures ??= createTextureRouter({store:new TextureJobStore({parentStore:reconstruction.store})});
   workflow ??= createWorkflowRouter({poses:poses.store,repairs:repairs.store});
   protect ??= createProtectRouter({poses:poses.store});
   applicationCases ??= createApplicationCaseRouter({sources:reconstruction.store,textures:textures.store,protections:protect.store});
+  const submission=createSubmissionRouter({root:submissionRoot});
   let modelImportActive = false;
   return http.createServer(async (request, response) => {
     try {
       const pathname = new URL(request.url, 'http://127.0.0.1').pathname;
+      if(await submission.handle(request,response))return;
       if (request.method === 'POST' && request.headers.origin && ![`http://127.0.0.1:${request.socket.localPort}`, `http://localhost:${request.socket.localPort}`].includes(request.headers.origin)) return json(response, 403, { error: '仅接受本地工作台请求。' });
       if (await reconstruction.handle(request, response)) return;
       if (await poses.handle(request, response)) return;
@@ -244,6 +247,8 @@ export function createPrintApp({ store = new PrintJobStore(), runAgent = async t
         else if (pathname === '/' || pathname === '/workbench') file = path.join(root, 'public', 'workbench.html');
         else if (['/workbench.js','/workbench.css'].includes(pathname)) file = path.join(root,'public',pathname.slice(1));
         else if(pathname==='/case')file=path.join(root,'public','application-case.html');
+        else if(pathname==='/archive-preview')file=path.join(root,'public','archive-preview.html');
+        else if(pathname==='/archive-preview.js')file=path.join(root,'public','archive-preview.js');
         else if(['/application-case.js','/application-case.css'].includes(pathname))file=path.join(root,'public',pathname.slice(1));
         else if (pathname === '/print-detail.html') file = path.join(root, 'public', 'print-detail.html');
         else if (['/print-detail.js', '/print-detail.css'].includes(pathname)) file = path.join(root, 'public', pathname.slice(1));

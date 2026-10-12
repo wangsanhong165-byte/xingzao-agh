@@ -1,4 +1,4 @@
-# Native slicer exports keep a space after '=' for empty G-code fields.
-# Preserve those hashed configuration bytes; code files retain normal checks.
+* -text
+# Preserve the reviewed evidence and Windows launcher bytes across clones.
+*.bat whitespace=cr-at-eol
 tools/slicer/*.ini whitespace=-blank-at-eol
-*.bat -text whitespace=cr-at-eol
