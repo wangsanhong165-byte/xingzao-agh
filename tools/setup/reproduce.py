@@ -27,6 +27,16 @@ SLICER_URL = 'https://github.com/prusa3d/PrusaSlicer/releases/download/version_2
 SLICER_SHA = '5aaf22e42f95accecfa122d23a835911f289ecc2ff606db3e83d637ddcc0a209'
 
 
+def node_runtime(root=None):
+    bundled = Path(root or ROOT)/'data/tools/node-v24.16.0-win-x64/node.exe'
+    if bundled.is_file():
+        return str(bundled)
+    selected = shutil.which('node.exe') or shutil.which('node')
+    if not selected:
+        raise RuntimeError('Node.js 24.10+ is required; install Node or use the bundled runtime')
+    return selected
+
+
 def file_matches(path, item):
     path = Path(path)
     if not path.is_file() or path.is_symlink() or path.stat().st_size != item['size']:

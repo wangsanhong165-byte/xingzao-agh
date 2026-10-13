@@ -13,6 +13,22 @@ spec.loader.exec_module(module)
 
 
 class ReproductionBoundaries(unittest.TestCase):
+    def test_bundled_node_does_not_require_a_launcher_or_path(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);node=root/'data/tools/node-v24.16.0-win-x64/node.exe'
+            node.parent.mkdir(parents=True);node.write_bytes(b'fixture-node')
+            with patch.object(module.shutil,'which',side_effect=AssertionError('PATH must not be required')):
+                self.assertEqual(module.node_runtime(root),str(node))
+
+    def test_source_clone_can_use_system_node(self):
+        with tempfile.TemporaryDirectory() as folder, patch.object(module.shutil,'which',return_value='C:/node/node.exe'):
+            self.assertEqual(module.node_runtime(Path(folder)),'C:/node/node.exe')
+
+    def test_missing_node_has_an_installation_error(self):
+        with tempfile.TemporaryDirectory() as folder, patch.object(module.shutil,'which',return_value=None):
+            with self.assertRaisesRegex(RuntimeError,'Node.js'):
+                module.node_runtime(Path(folder))
+
     def test_wrong_asset_never_treated_as_ready(self):
         with tempfile.TemporaryDirectory() as folder:
             path = Path(folder)/'asset.bin'

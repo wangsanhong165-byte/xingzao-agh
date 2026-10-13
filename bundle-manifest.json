@@ -2,7 +2,7 @@
   "schema": "xingzao-review-bundle/v1",
   "createdAt": "2026-10-09T10:38:14.498Z",
   "evidenceBytes": 20580038,
-  "payloadBytes": 25126824,
+  "payloadBytes": 25121639,
   "summary": {
     "task": "versioned-five-pose-original-delivery-and-historical-repair",
     "source": "team-original-parametric-design; not a photograph",
@@ -277,8 +277,8 @@
     {
       "path": "README.md",
       "kind": "source",
-      "bytes": 1717,
-      "sha256": "5e6aafb32f2fe2acd102e112ee79ed0c17813997aa16c667c5002611f0f8d55b"
+      "bytes": 2091,
+      "sha256": "e203f85059a1b9d3d681dff5af42b1776df8eb0d48fdccf3212a63743db0f554"
     },
     {
       "path": "agh-plugin/README.md",
@@ -2293,20 +2293,14 @@
     {
       "path": "tools/review/run.mjs",
       "kind": "source",
-      "bytes": 3382,
-      "sha256": "a6ede407279843b07a78608e68b0287a9f1c06e16b540b6a15fd4037284126f3"
-    },
-    {
-      "path": "启动.bat",
-      "kind": "source",
-      "bytes": 2015,
-      "sha256": "c590e1a8495dc4d6138ff3d83724f2a641c41b9d7cb95fc14c2437d072862553"
+      "bytes": 3465,
+      "sha256": "8abf55710afcbb3414c677d4f57963ed31da77bda3a21caa26291b24b4a3568b"
     },
     {
       "path": "运行与模型配置.md",
       "kind": "source",
-      "bytes": 16265,
-      "sha256": "53993d5809f0fa45f6921238d890daf7f0483213d4e49ca4790b10337fcaea9a"
+      "bytes": 15108,
+      "sha256": "b9eadc68a17680d2de8085d1be7d70b2e7669fe10c923b5a11e1c3fed3b3663c"
     },
     {
       "path": ".env.example",
@@ -2329,20 +2323,14 @@
     {
       "path": "tools/review/report.mjs",
       "kind": "source",
-      "bytes": 8903,
-      "sha256": "422290dfd1c41eac5b8c7df7cae7bfd750e01ead84cce95213078421a5036c8c"
+      "bytes": 8468,
+      "sha256": "3cdf55d1ef0b3034ccf1e6ec92c0e5b1f0e791cd08e467bc6fe85054fea4ad86"
     },
     {
       "path": "tools/review/report.test.mjs",
       "kind": "source",
-      "bytes": 2501,
-      "sha256": "6e1f75dbf37cf477dd7341fd6903361d595f7443f44fbf8e6426f725a40ea452"
-    },
-    {
-      "path": "tools/setup/submission-start.html",
-      "kind": "source",
-      "bytes": 4206,
-      "sha256": "4dabb1bff6d7cad4114225809315f99fca8ea43e76d7d41242e62923aa46712d"
+      "bytes": 2515,
+      "sha256": "f5487d53fc0d018e7550dff23d87ebd42ebb15f8802c11a1abb9b7e49fb39049"
     },
     {
       "path": "evidence/agh/失败任务/trace.json",
@@ -2401,8 +2389,8 @@
     {
       "path": "tools/setup/reproduce.py",
       "kind": "source",
-      "bytes": 13487,
-      "sha256": "8a7936587b42c972bc5802c83e8727fbff605268875bc488d9ff26c0de0d44f0"
+      "bytes": 13852,
+      "sha256": "aadee5ebd3112e9db3b04b6cfb314c47e8af851eda0191066e8919d2b94ea2b3"
     },
     {
       "path": "evidence/agh/小预算任务/index.html",
@@ -2419,8 +2407,8 @@
     {
       "path": "tools/setup/test_reproduce.py",
       "kind": "source",
-      "bytes": 2956,
-      "sha256": "b45c0f7547c71eafb0fb556c76ea97adae970e7bec608b14f0afd9adc14d96b4"
+      "bytes": 3966,
+      "sha256": "7b8ac6132a6f864a138a41c88419f697957e99acebe9f10cfd87501f40fcb71f"
     },
     {
       "path": "tools/setup/download_torch.py",
@@ -2443,20 +2431,14 @@
     {
       "path": "运行与模型配置.html",
       "kind": "source",
-      "bytes": 18796,
-      "sha256": "67304165408d0bcb58193cf34feeb759247a78c3e28f77b3932d015c261b42e4"
+      "bytes": 16936,
+      "sha256": "4fb99be9f824c9b6dfc27883dec912ae21e52dff237e045d92c892981c9509be"
     },
     {
       "path": "evidence/agh/失败任务/events.jsonl",
       "kind": "source",
       "bytes": 161318,
       "sha256": "4b5aea11abd2bd1936f3fea666858e69ad3417f8ba7089282c4d9671beafe055"
-    },
-    {
-      "path": "开始.html",
-      "kind": "source",
-      "bytes": 1123,
-      "sha256": "aa03a78da70a412cc6283e770ba580d2f6d6e4a1d96d662be9e8d259fd81df81"
     },
     {
       "path": "tools/setup/requirements-cpu.txt",
@@ -2515,20 +2497,20 @@
     {
       "path": "src/submission-assets-http.mjs",
       "kind": "source",
-      "bytes": 3374,
-      "sha256": "79a1d6ba0eaec8160fdfce72c303a96d5dd9be5002ef5ef64842e69d4f9efa99"
+      "bytes": 3792,
+      "sha256": "c3e58ccd2ebac8d833c362b6b6ce3888b0a81a10ee07c79fe197f155da027c3f"
     },
     {
       "path": "tests/submission-reviewer-entry.test.mjs",
       "kind": "source",
-      "bytes": 2145,
-      "sha256": "afcd4076cd9dd76e1cb45973fc7bdb01e0ad90dddcd930ecde6d873640e19246"
+      "bytes": 3707,
+      "sha256": "3a5cc92c5d856c71344fb8ea60f993643ea26ca2d7346194d94b0ba3c13877be"
     },
     {
       "path": "tools/review/build-case-page.mjs",
       "kind": "source",
-      "bytes": 10925,
-      "sha256": "d5bc459880345b45caad88cc67dcf4d5c55e6ac467be2c73f9304e2311644830"
+      "bytes": 10025,
+      "sha256": "7470d5a8a3bc62267d00f73c37042da492fea1f46bf46c88c845cdb390a9fdaa"
     },
     {
       "path": "tools/review/export-character.mjs",
@@ -2561,12 +2543,6 @@
       "sha256": "c7acebb53a572a9daef65d54b47a2c19fcc74c5a1ad15387e86dd6648e319237"
     },
     {
-      "path": "tools/setup/offline-cpu.bat",
-      "kind": "source",
-      "bytes": 1536,
-      "sha256": "58b255bdef25f9d5a5d837c90274f135f5db905d1ac60601a8e29440be108d35"
-    },
-    {
       "path": "tools/setup/reslice-result.mjs",
       "kind": "source",
       "bytes": 2945,
@@ -2575,20 +2551,14 @@
     {
       "path": "tools/setup/reslice.py",
       "kind": "source",
-      "bytes": 2307,
-      "sha256": "ac0751e55d1569cd2421ddca300946ef6929a223bc742c7b24948f999516d9eb"
+      "bytes": 2211,
+      "sha256": "a034182bc387da6bfc9b9077e98e1406ecc772d438749bc451b54b6729955761"
     },
     {
       "path": "tools/setup/slicer-cli-manifest.json",
       "kind": "source",
       "bytes": 91275,
       "sha256": "9e84fae286f1d1982bb0311c7f5e5a59527f0b872f10af41aeb3397916880511"
-    },
-    {
-      "path": "tools/setup/workbench.bat",
-      "kind": "source",
-      "bytes": 1196,
-      "sha256": "9f75bac3ad198dbc3d66cf8ffe09a6865d43ddc6bb4551f3fec1d1bda83ba53f"
     },
     {
       "path": "src/python-runtime.mjs",
@@ -2601,6 +2571,18 @@
       "kind": "source",
       "bytes": 827,
       "sha256": "cfebb7b8358d1c067b18662189777552af7e05ee09820b908f9dc200606d5768"
+    },
+    {
+      "path": "tools/setup/submission-readme.html",
+      "kind": "source",
+      "bytes": 2773,
+      "sha256": "c90b2616fceae041c7442dc94119ffc1d8830550b92fd5cba70d074b49a72481"
+    },
+    {
+      "path": "README.html",
+      "kind": "source",
+      "bytes": 2740,
+      "sha256": "5a777f5aaf5674474ca107845504bef410387603adad3dcc7e504102de600549"
     }
   ],
   "manifestExcludesSelf": true

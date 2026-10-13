@@ -12,7 +12,7 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 const args=process.argv.slice(2),open=args.includes('--open'),details=args.includes('--details');
 const positionals=args.filter(x=>!['--open','--details'].includes(x));
 if(positionals.length>1||positionals.some(x=>x.startsWith('--'))){console.error('用法：node tools/review/run.mjs [样例目录] [--open] [--details]');process.exit(1)}
-const candidates=positionals[0]?[path.resolve(positionals[0])]:[path.resolve(root,'../测试样例'),root];
+const candidates=positionals[0]?[path.resolve(positionals[0])]:[path.resolve(root,'../案例/测试样例'),path.resolve(root,'../测试样例'),root];
 const bundle=candidates.find(p=>existsSync(path.join(p,'bundle-manifest.json')));
 if(!bundle){console.error('未找到测试样例，请完整解压提交包，或指定样例目录。');process.exit(1)}
 const reportPath=path.join(bundle===root?root:path.dirname(bundle),'复核报告.html');

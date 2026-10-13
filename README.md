@@ -1,31 +1,47 @@
-# 形造：照片建模与3D打印验证助手
+# 形造：图片建模与3D打印验证
 
-Agnes Harness组织任务规划、工具调用、切片反馈、受约束修正和交付复核。三视图形状由Hunyuan3D生成，真实刀轨由PrusaSlicer计算。
+基于Agnes Harness组织三视图建模、外观区域保护、细杆检查、实际切片与结果复核。规划模型使用DeepSeek V4.1，专业几何生成使用本地Hunyuan3D-2mv。
 
-[观看4分20秒演示](demo/xingzao-demo.mp4)
+本仓库提供完整源码与受控测试输入。[复核报告](复核报告.html)和evidence/agh记录可直接查看；完整演示视频随参赛包提供。完整环境、AGH和模型安装步骤见[运行与模型配置](运行与模型配置.md)。
 
-参赛ZIP包含完整角色案例、输入与交付文件、AGH trace以及Windows轻量运行组件，统一从“开始.html”或“开始.bat”进入。本仓库提供完整源码、原生AGH记录和受控切片样例；角色原始资产在参赛包中。
+## 启动工作台
 
-## 从源码复现
+Node.js 24.10以上。参赛包已附Node和JS依赖；GitHub源码用户先安装Node并执行npm.cmd ci。
 
-1. 安装Node.js 24.10以上；需要重新建模切片时安装Python 3.12 x64。
-2. 双击“启动.bat”。菜单1查看材料，2重新复核已有模型和G-code，3准备CPU环境并生成新的模型和刀轨，4启动工作台，5打开完整安装说明。
-3. 新AGH任务按“运行与模型配置.md”配置自己的账号与工具；图片生成和上色按固定清单下载模型权重。
-
-也可在仓库根目录执行：
+在本目录的PowerShell执行：
 
 ```powershell
-npm.cmd ci
-node tools/review/run.mjs
-npm.cmd start
+$env:PATH = (Join-Path $PWD 'data/tools/node-v24.16.0-win-x64') + ';' + $env:PATH
+$env:PHOTO_CAD_AGH_HOME = Join-Path $env:USERPROFILE '.agh-print-detail-v2'
+node src/print-server.mjs
 ```
 
-工作台地址：http://127.0.0.1:4337/ 。先导入STL检查，再进入外观保护或细杆工作流；也可以从自己的正、侧、背三视图开始。
+工作台：http://127.0.0.1:4337/。已有案例可直接查看，执行新任务需完成AGH及工具配置。
 
-## 已有结果
+## 复核与重新切片
 
-- 照片模型保护区计划支撑刀轨降低77.33%；切片估算耗材39.01 → 33.81 g。
-- 灯柱0.5 mm原杆侧放通过连续性检查，保留原形，估算0.80 g／346秒。
-- 0.7 mm边界修正仍断段，0.8 mm修正通过；失败和调整过程保留在AGH记录中。
+```powershell
+node tools/review/run.mjs
+```
 
-当前完成软件与真实切片验证，实物成型测试列为后续工作。完整配置与下载程序见tools/setup，AGH原生记录见evidence/agh。
+该命令复核随包模型和真实刀轨，输出中文报告。无需Key或GPU。
+
+Python3.12 x64可重新生成标准灯柱并实际切片：
+
+```powershell
+py -3.12 tools/setup/reproduce.py environment --kind cpu-review
+py -3.12 tools/setup/reproduce.py assets --scope slicer
+& .\data\reconstruction\env-torch-readonly\Scripts\python.exe tools/setup/reslice.py
+```
+
+新STL、G-code和结果页写入data/reproduction-runs。参赛包附CPU依赖及PrusaSlicer CLI；GitHub版本由安装器下载。
+
+## 主要目录
+
+- src、public：工作台服务和界面。
+- tools：模型调用、几何处理、切片审计和环境准备。
+- pose-agh-plugin、repair-agh-plugin、reconstruction-agh-plugin、texture-agh-plugin：四个业务插件。
+- agh-adaptation：固定版本AGH的适配补丁与新增源码。
+- tests：接口与流程测试。
+
+图片建模和上色需按运行说明下载权重。当前制造结果通过软件几何及真实刀轨验证，实物打印为后续测试。

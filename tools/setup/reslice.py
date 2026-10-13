@@ -3,6 +3,8 @@ from pathlib import Path
 import datetime,hashlib,json,math,os,shutil,subprocess,sys,uuid
 import trimesh
 ROOT=Path(__file__).resolve().parents[2]
+from reproduce import node_runtime
+node=node_runtime(ROOT)
 sys.path.insert(0,str(ROOT/'tools/reconstruction'))
 from scale_lamppost_case import create_lamppost
 out=ROOT/'data/reproduction-runs'/(datetime.datetime.now().strftime('%Y%m%d-%H%M%S')+'-'+uuid.uuid4().hex[:6])
@@ -24,7 +26,5 @@ for name,diameter,side in [('original-upright',.5,False),('repaired-upright',.8,
                  'stl':stl.name,'stlSha256':hashlib.sha256(stl.read_bytes()).hexdigest(),
                  'gcode':gcode.name,'gcodeSha256':hashlib.sha256(gcode.read_bytes()).hexdigest(),'watertight':bool(mesh.is_watertight)})
 (out/'inputs.json').write_text(json.dumps({'createdAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'plans':rows},indent=2)+'\n','utf8')
-node=shutil.which('node.exe') or shutil.which('node')
-if not node:raise RuntimeError('Node runtime not found; run this step through the unified launcher')
 subprocess.run([node,str(ROOT/'tools/setup/reslice-result.mjs'),str(out)],check=True,cwd=ROOT)
 if sys.platform=='win32' and not os.environ.get('XINGZAO_NO_OPEN'):os.startfile(out/'结果.html')

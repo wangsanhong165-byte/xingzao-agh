@@ -30,3 +30,21 @@ test('homepage historical cases link to shipped materials rather than private ta
  for(const name of ['character','photo','rod'])assert.ok(html.includes(`/examples#${name}`),`${name} has a portable case entry`);
  assert.doesNotMatch(html,/href="\/(?:protect|workflow)\?job=/u);
 });
+
+test('the compact submission resolves case-relative models and parent-level AGH links',async()=>{
+ const dir=await mkdtemp(path.join(os.tmpdir(),'xingzao-compact-'));
+ await mkdir(path.join(dir,'案例/评审案例'),{recursive:true});await mkdir(path.join(dir,'AGH运行记录/正常任务'),{recursive:true});
+ await writeFile(path.join(dir,'README.html'),'<h1>形造</h1>');
+ await writeFile(path.join(dir,'案例/index.html'),'<h1>案例</h1><a href="评审案例/model.stl">模型</a><a href="../AGH运行记录/正常任务/index.html">轨迹</a><a href="../README.html">说明</a>');
+ await writeFile(path.join(dir,'案例/评审案例/model.stl'),'solid compact\nendsolid');
+ await writeFile(path.join(dir,'AGH运行记录/正常任务/index.html'),'<h1>原始轨迹</h1>');
+ const server=createPrintApp({submissionRoot:dir});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+ const base=`http://127.0.0.1:${server.address().port}`;
+ try{
+  const response=await fetch(base+'/examples');assert.equal(response.status,200);
+  const html=await response.text(),links=[...html.matchAll(/href="([^"]+)"/gu)].map(m=>m[1]);assert.equal(links.length,3);
+  for(const link of links)assert.equal((await fetch(new URL(link,base+'/examples'))).status,200,link);
+  assert.equal((await fetch(base+'/api/submission/status').then(r=>r.json())).casesAvailable,true);
+  assert.equal((await fetch(base+'/review-files/完整源码/.env')).status,404);
+ }finally{await new Promise(resolve=>server.close(resolve));await rm(dir,{recursive:true,force:true});}
+});
