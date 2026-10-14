@@ -1,0 +1,99 @@
+{
+  "agh": {
+    "version": "0.0.0"
+  },
+  "runtime": {
+    "platform": "win32",
+    "arch": "x64",
+    "osRelease": "10.0.26200",
+    "node": "24.16.0",
+    "pid": 32952,
+    "uptimeMs": 347707
+  },
+  "profile": {
+    "name": "local-dev",
+    "resolvedProfileHash": "sha256-e847505be4554077fb237f89d84296bc67f93ef2f9addba605acd820cb97240f",
+    "presets": {
+      "default": "standard-windows",
+      "allowed": [
+        "standard-windows",
+        "reconstruction-tools",
+        "pose-tools"
+      ]
+    },
+    "models": [
+      {
+        "route": "command-code",
+        "id": "deepseek/deepseek-v4.1-flash",
+        "reasoning": false
+      },
+      {
+        "route": "agnes-ai",
+        "id": "agnes-3.0-flash",
+        "reasoning": false
+      }
+    ]
+  },
+  "config": {
+    "profile": "local-dev",
+    "revision": 2,
+    "configured": true,
+    "accounts": [
+      {
+        "accountId": "legacy-agnes-ai",
+        "label": "Agnes AI",
+        "providerId": "agnes-ai",
+        "route": "agnes-ai",
+        "baseUrl": "https://api.agnes-ai.cn/v1",
+        "model": "agnes-3.0-flash",
+        "models": [
+          {
+            "id": "agnes-3.0-flash",
+            "name": "Agnes 3.0 Flash"
+          }
+        ],
+        "enabled": true,
+        "authType": "api-key",
+        "credentialConfigured": true
+      },
+      {
+        "accountId": "legacy-command-code",
+        "label": "Command Code",
+        "providerId": "command-code",
+        "route": "command-code",
+        "baseUrl": "https://api.commandcode.ai/provider/v1",
+        "model": "deepseek/deepseek-v4.1-flash",
+        "models": [
+          {
+            "id": "deepseek/deepseek-v4.1-flash",
+            "name": "DeepSeek V4.1 Flash (Command Code)"
+          }
+        ],
+        "enabled": true,
+        "authType": "api-key",
+        "credentialConfigured": true
+      }
+    ],
+    "defaultAccountId": "legacy-command-code",
+    "effect": "new-sessions",
+    "provider": {
+      "id": "command-code",
+      "route": "command-code",
+      "baseUrl": "https://api.commandcode.ai/provider/v1",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "credentialConfigured": true
+    }
+  },
+  "browser": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "language": "zh-CN",
+    "platform": "Win32",
+    "timeZone": "Asia/Shanghai",
+    "screen": {
+      "width": 1707,
+      "height": 1067,
+      "dpr": 1.5
+    },
+    "origin": "http://127.0.0.1:4177"
+  }
+}

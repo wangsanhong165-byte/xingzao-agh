@@ -23,9 +23,14 @@
       "sha256": "07a69e52c22aaa86659fb8a88e7dcdfa8d368ee0d3572fcc4db1b1669dfc534c"
     },
     {
+      "path": "README.html",
+      "bytes": 2799,
+      "sha256": "07abfcd557db9c31ba85317d4038e32816fa076facac39f0ad2fed2f0308010b"
+    },
+    {
       "path": "README.md",
-      "bytes": 2091,
-      "sha256": "e203f85059a1b9d3d681dff5af42b1776df8eb0d48fdccf3212a63743db0f554"
+      "bytes": 2239,
+      "sha256": "4d3db830a2897ee2edb86236ab27a0b6294018cbb3432e875d316e11999aab80"
     },
     {
       "path": "agh-adaptation/LICENSE",
@@ -84,8 +89,8 @@
     },
     {
       "path": "bundle-manifest.json",
-      "bytes": 85360,
-      "sha256": "a9b90acab1775cb0635d3a9f4755f749f6d5042ae8952883722669da5cbc38ce"
+      "bytes": 88564,
+      "sha256": "74a6fb40b8ead3185b2a55f04fdee35ea3d90f2690019858c0ba5854bfe02283"
     },
     {
       "path": "case/baseline-pose.stl",
@@ -703,49 +708,124 @@
       "sha256": "5c18ec510616591fbb3a3a99f5d625442cfa684717775e2d081514d1ffbda080"
     },
     {
+      "path": "evidence/agh/失败任务/agh-diagnostics-97dcec39-20261014-131618.zip",
+      "bytes": 136978,
+      "sha256": "51138760f26a927fe9b01b68b2c40aae97b48f4ea2f397072d80faf17cc8ce5d"
+    },
+    {
       "path": "evidence/agh/失败任务/events.jsonl",
-      "bytes": 161318,
-      "sha256": "4b5aea11abd2bd1936f3fea666858e69ad3417f8ba7089282c4d9671beafe055"
+      "bytes": 161666,
+      "sha256": "d5979d32eea6a7f45a0886dc544b59c9e1d5eb75613fb993de25da6c44cdf851"
     },
     {
       "path": "evidence/agh/失败任务/index.html",
-      "bytes": 74594,
-      "sha256": "90d1394fa2c17185c95604459d2d5aef26fab407f28422d8e0b333fdad531aa6"
+      "bytes": 1276024,
+      "sha256": "92817143354e2ad932219fd527724474f25a21dd9b834c4d7bb34eae3c7f308f"
+    },
+    {
+      "path": "evidence/agh/失败任务/logs/browser.json",
+      "bytes": 97,
+      "sha256": "363b98b816ae5df16986771db46533d21928159c2a85e542c6d767bc70337a50"
+    },
+    {
+      "path": "evidence/agh/失败任务/logs/daemon.jsonl",
+      "bytes": 702,
+      "sha256": "5275e44c9fa47a9237fff77bc7253f325361ece2e825648325fe371c1c2dba49"
+    },
+    {
+      "path": "evidence/agh/失败任务/logs/host.jsonl",
+      "bytes": 1048544,
+      "sha256": "ae77458808d96ba80dfca07e49de872f7f5508d3bda93de4e61d738a0368e810"
+    },
+    {
+      "path": "evidence/agh/失败任务/system.json",
+      "bytes": 2524,
+      "sha256": "571c24ee6c3a47d9e3fdd9b011cbd31d9b523a7b9633a463bc6d048cb9ad3128"
     },
     {
       "path": "evidence/agh/失败任务/trace.json",
-      "bytes": 88421,
-      "sha256": "a784851757439da55cb9d7f7c681ca54442c479bd543631bfda5926493286dfd"
+      "bytes": 89299,
+      "sha256": "cb86d431f14cd82b8d64e8e87ac899f5d1e2b477b6480f14980ddbfcf8cea599"
+    },
+    {
+      "path": "evidence/agh/小预算任务/agh-diagnostics-cc4b0b84-20261014-131425.zip",
+      "bytes": 125974,
+      "sha256": "9c426d09cbf083490f25262bd5d026822347ffb43df53e19fcc83eddab7091d1"
     },
     {
       "path": "evidence/agh/小预算任务/events.jsonl",
-      "bytes": 125428,
-      "sha256": "3965aac34f53b267849ac4f4a3c78e6e887b810e36cefd920927175f2652e542"
+      "bytes": 126103,
+      "sha256": "d11e655e97189812d2f02e082046b9195f9d475481662b4b6b48838bf36f340b"
     },
     {
       "path": "evidence/agh/小预算任务/index.html",
-      "bytes": 59259,
-      "sha256": "f638cc129a8beed6b43e02cff8ea19a48bdee0213b7d6a2f1f94218193c2cf72"
+      "bytes": 1260724,
+      "sha256": "e4172ee01982f302840b98f79bec106fe7e44418ea13404bd4842d8b8db0d52c"
+    },
+    {
+      "path": "evidence/agh/小预算任务/logs/browser.json",
+      "bytes": 97,
+      "sha256": "c2d3d3918535019552a752c94a7fc4c90c168abd15c7dbeb6097762466c86e63"
+    },
+    {
+      "path": "evidence/agh/小预算任务/logs/daemon.jsonl",
+      "bytes": 702,
+      "sha256": "5275e44c9fa47a9237fff77bc7253f325361ece2e825648325fe371c1c2dba49"
+    },
+    {
+      "path": "evidence/agh/小预算任务/logs/host.jsonl",
+      "bytes": 1048544,
+      "sha256": "ae77458808d96ba80dfca07e49de872f7f5508d3bda93de4e61d738a0368e810"
+    },
+    {
+      "path": "evidence/agh/小预算任务/system.json",
+      "bytes": 2524,
+      "sha256": "eca03f3acff05ddae68dded4a88741950fa43da6a5530b13db8f4bb373df4f9f"
     },
     {
       "path": "evidence/agh/小预算任务/trace.json",
-      "bytes": 64584,
-      "sha256": "4295b7851c60e51984da8f7e4cd1bef9f76e915091f42d14707ca6e76242e9ce"
+      "bytes": 65477,
+      "sha256": "4bf065726647ab6a1fcf2f6a3adb063587a4e73fbcb59d5aeec2c5c1bc6666bf"
+    },
+    {
+      "path": "evidence/agh/正常任务/agh-diagnostics-e6821e89-20261014-131129.zip",
+      "bytes": 126552,
+      "sha256": "1d36d4587f3ede4b8330ed1ab069fa8582a7d9e93e64b259738a9e20d9bbcfcb"
     },
     {
       "path": "evidence/agh/正常任务/events.jsonl",
-      "bytes": 125776,
-      "sha256": "fab611ad8a1a16695576ac52186babd0edf0fe68808de9e5b3f28154fa323791"
+      "bytes": 126451,
+      "sha256": "446edf27b245094bb7035c5445a0a3d6fb19b1ed1aa5faa2fbcc3cbce824f376"
     },
     {
       "path": "evidence/agh/正常任务/index.html",
-      "bytes": 60160,
-      "sha256": "4db20ee13b71bc4de7f4a9dca2d43f8e256a576254050a4d3543d3df81530b57"
+      "bytes": 1261629,
+      "sha256": "5cd8ef9158008e0d8e71a511be91a99983e01808098e1a50a663909cf12d3fc5"
+    },
+    {
+      "path": "evidence/agh/正常任务/logs/browser.json",
+      "bytes": 97,
+      "sha256": "29d3211a804a091b343a4a973dbe300aa164918f7978a2955dcdcb38995a4f43"
+    },
+    {
+      "path": "evidence/agh/正常任务/logs/daemon.jsonl",
+      "bytes": 702,
+      "sha256": "5275e44c9fa47a9237fff77bc7253f325361ece2e825648325fe371c1c2dba49"
+    },
+    {
+      "path": "evidence/agh/正常任务/logs/host.jsonl",
+      "bytes": 1048544,
+      "sha256": "ae77458808d96ba80dfca07e49de872f7f5508d3bda93de4e61d738a0368e810"
+    },
+    {
+      "path": "evidence/agh/正常任务/system.json",
+      "bytes": 2523,
+      "sha256": "866e27683d4404946c9d451d34fff46fe34e923099ceff30b112d93f606784d1"
     },
     {
       "path": "evidence/agh/正常任务/trace.json",
-      "bytes": 65513,
-      "sha256": "38d4dc4b9a6df7842b92d5a41895c884a43ed09806b9658f1c4c05bd08e9f9db"
+      "bytes": 66415,
+      "sha256": "9033e21feab0d9b8a6edef2973bfc0315b54854819a96c8067dd9dc478ac933f"
     },
     {
       "path": "evidence/review-snapshot.json",
@@ -1266,6 +1346,16 @@
       "path": "src/print-server.mjs",
       "bytes": 26104,
       "sha256": "3162912bd681c456f0594038f656b5dd675e2f9c6364a6c3016e6649ffa2148a"
+    },
+    {
+      "path": "src/python-runtime.mjs",
+      "bytes": 465,
+      "sha256": "f8c687f7b457c4b6e3d856b7fd6eb34e22aaa7a98a1cd321799a57e93c904739"
+    },
+    {
+      "path": "src/python-runtime.test.mjs",
+      "bytes": 827,
+      "sha256": "cfebb7b8358d1c067b18662189777552af7e05ee09820b908f9dc200606d5768"
     },
     {
       "path": "src/reconstruction-agh.mjs",
@@ -2083,6 +2173,11 @@
       "sha256": "9e84fae286f1d1982bb0311c7f5e5a59527f0b872f10af41aeb3397916880511"
     },
     {
+      "path": "tools/setup/submission-readme.html",
+      "bytes": 2773,
+      "sha256": "c90b2616fceae041c7442dc94119ffc1d8830550b92fd5cba70d074b49a72481"
+    },
+    {
       "path": "tools/setup/test_reproduce.py",
       "bytes": 3966,
       "sha256": "7b8ac6132a6f864a138a41c88419f697957e99acebe9f10cfd87501f40fcb71f"
@@ -2181,26 +2276,6 @@
       "path": "运行与模型配置.md",
       "bytes": 15108,
       "sha256": "b9eadc68a17680d2de8085d1be7d70b2e7669fe10c923b5a11e1c3fed3b3663c"
-    },
-    {
-      "path": "src/python-runtime.mjs",
-      "bytes": 465,
-      "sha256": "f8c687f7b457c4b6e3d856b7fd6eb34e22aaa7a98a1cd321799a57e93c904739"
-    },
-    {
-      "path": "src/python-runtime.test.mjs",
-      "bytes": 827,
-      "sha256": "cfebb7b8358d1c067b18662189777552af7e05ee09820b908f9dc200606d5768"
-    },
-    {
-      "path": "tools/setup/submission-readme.html",
-      "bytes": 2773,
-      "sha256": "c90b2616fceae041c7442dc94119ffc1d8830550b92fd5cba70d074b49a72481"
-    },
-    {
-      "path": "README.html",
-      "bytes": 2740,
-      "sha256": "5a777f5aaf5674474ca107845504bef410387603adad3dcc7e504102de600549"
     }
   ],
   "manifestExcludesSelf": true

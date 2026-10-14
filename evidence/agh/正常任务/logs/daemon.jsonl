@@ -1,0 +1,4 @@
+{"at":"2026-10-08T07:41:49.817Z","kind":"daemon.request_failed","detail":{"diagnosticId":"3186f098-4952-44ad-a2ea-9f9a443fb5c0","method":"session/load","errorCode":"UNKNOWN"}}
+{"at":"2026-10-14T12:57:47.484Z","kind":"daemon.request_failed","detail":{"diagnosticId":"a9342ee1-1cad-4f79-885c-a8ac633c2be3","method":"session/new","errorCode":"UNKNOWN"}}
+{"at":"2026-10-14T13:04:54.334Z","kind":"daemon.request_failed","detail":{"diagnosticId":"6e15e886-2499-4880-bd5a-523cd25a2fc2","method":"session/load","errorCode":"UNKNOWN"}}
+{"at":"2026-10-14T13:10:01.387Z","kind":"daemon.request_failed","detail":{"diagnosticId":"9130250d-bb1f-414c-83fa-f8f21a0a4fba","method":"session/load","errorCode":"UNKNOWN"}}
