@@ -1,23 +1,2 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>形造｜作品说明</title>
-<style>body{margin:0;background:#f5f6f7;color:#26343b;font:16px/1.8 system-ui,"Microsoft YaHei",sans-serif}main{max-width:960px;margin:32px auto;background:#fff;padding:32px 40px;border:1px solid #e1e6e8;border-radius:10px}h1{font-size:30px;margin:0 0 8px}h2{font-size:20px;margin:28px 0 10px}.meta,.note{color:#65757c;font-size:14px}a{color:#146659}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:12px 10px;border-bottom:1px solid #e5eaec}th{background:#f7f9f9}.flow{color:#42645c;background:#f0f5f3;padding:12px 16px}@media(max-width:700px){main{margin:12px;padding:24px}h1{font-size:25px}}</style></head>
-<body><main>
-<h1>形造：图片建模与3D打印验证</h1>
-<p class="meta">本科生组 U074 · 大肥鱼的奇妙冒险 · 队长杨辰乐</p>
-<p>将图片或已有模型转为可检查的三维制作方案。Agnes Harness组织建模、几何检查和真实切片，根据刀轨反馈比较摆放或局部修正，再复核并交付模型与G-code。</p>
-<p class="flow">输入 → 任务规划 → 工具执行 → 切片反馈 → 调整纠错 → 结果验证</p>
-<h2>提交内容</h2>
-<table><tr><th>内容</th><th>文件</th></tr>
-<tr><td>演示视频</td><td>随参赛提交包提供，4分20秒</td></tr>
-<tr><td>案例与结果</td><td><a href="复核报告.html">模型与刀轨对照</a> · <a href="复核报告.html">计算复核报告</a>，附输入、模型与真实刀轨</td></tr>
-<tr><td>AGH原始记录</td><td><a href="evidence/agh/正常任务/index.html">正常任务</a> · <a href="evidence/agh/小预算任务/index.html">小预算任务</a> · <a href="evidence/agh/失败任务/index.html">失败任务</a>；各目录含官方按钮导出的原始ZIP及解压后的对话、轨迹、日志和系统信息</td></tr>
-<tr><td>完整源码与复现</td><td><a href="README.md">源码说明</a> · <a href="运行与模型配置.html">运行与环境配置</a></td></tr></table>
-<h2>已验证结果</h2>
-<table><tr><th>案例</th><th>结果</th></tr>
-<tr><td>角色三视图建模与上色</td><td>保留同源几何；优化摆放后，保护区域的支撑刀轨减少41.33%</td></tr>
-<tr><td>真实照片模型的外观保护</td><td>保持模型原形，保护区域的支撑刀轨减少77.33%</td></tr>
-<tr><td>微缩灯柱细杆保留</td><td>原件直立刀轨断段；原件侧放通过，保留0.5 mm原杆</td></tr></table>
-<p class="note">指标来自软件几何与实际切片验证。实物打印测试后续开展。</p>
-<p><a href="https://github.com/wangsanhong165-byte/xingzao-agh">GitHub项目源码</a></p>
-</main></body></html>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>形造：查看与运行</title><style>body{max-width:980px;margin:40px auto;padding:0 22px;font:16px/1.8 system-ui,Microsoft YaHei,sans-serif;color:#182b3b;background:#fafbf9}a{color:#156788}h1{font-size:30px}h2{margin-top:36px;font-size:23px}pre{background:#edf1f2;padding:18px;overflow:auto;white-space:pre-wrap;word-break:break-word}code{font-size:.93em}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccd6d9;padding:10px;text-align:left}.table{overflow:auto}</style><main><h1>形造：图片建模与3D打印验证</h1><p>先看演示和已有验证结果，需要创建新任务时再配置完整环境。</p><ol><li><a href="demo/xingzao-demo.mp4">观看演示视频</a></li><li><a href="复核报告.html">查看样例复核报告</a></li><li><a href="运行与模型配置.html">环境配置与完整运行方法</a></li></ol><h2>重新复核已有样例</h2><p>安装Node.js 24.10或更高版本，在仓库根目录执行：</p><pre>npm.cmd ci
+node tools/review/run.mjs</pre><p>无需Key或GPU。复核完成后重新打开报告。</p><h2>启动工作台</h2><pre>npm.cmd start</pre><p>打开 <a href="http://127.0.0.1:4337/">http://127.0.0.1:4337/</a>。执行新任务前，按完整运行方法准备专业工具及本人的AGH账号。仓库不附开发机私人任务数据。</p><p><a href="evidence/agh/">AGH执行记录</a>　<a href="THIRD_PARTY_NOTICES.md">来源与授权</a>　<a href="README.md">项目README</a></p></main></html>

@@ -2,7 +2,7 @@
   "schema": "xingzao-review-bundle/v1",
   "createdAt": "2026-10-09T10:38:14.498Z",
   "evidenceBytes": 20580038,
-  "payloadBytes": 32275685,
+  "payloadBytes": 31954456,
   "summary": {
     "task": "versioned-five-pose-original-delivery-and-historical-repair",
     "source": "team-original-parametric-design; not a photograph",
@@ -276,8 +276,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2239,
-      "sha256": "4d3db830a2897ee2edb86236ab27a0b6294018cbb3432e875d316e11999aab80",
+      "bytes": 3719,
+      "sha256": "7307b873b50e32a95928dd185b27ae3259f22b855bf30e645885f918e7862e53",
       "kind": "source"
     },
     {
@@ -311,465 +311,9 @@
       "kind": "source"
     },
     {
-      "path": "docs/agh-integration-findings.md",
-      "bytes": 4053,
-      "sha256": "1f3a384671ca2caec794cb54f3b9dab9f801a8144095e0f744016e1545600038",
-      "kind": "source"
-    },
-    {
-      "path": "docs/agh-v2-tool-probe-2026-10-02.md",
-      "bytes": 3411,
-      "sha256": "4d0dfffa95c8e8f07b9d72e497ecdb942968c0a322af22af4a1feced3ed49c72",
-      "kind": "source"
-    },
-    {
-      "path": "docs/agnes-native-evidence-2026-10-02.md",
-      "bytes": 2244,
-      "sha256": "17d6a9c8d77bece68c77dc4c641bdd6743a7d3fe3ce8bcf9830225849d3393b2",
-      "kind": "source"
-    },
-    {
-      "path": "docs/application-report-review-2026-10-04.md",
-      "bytes": 6980,
-      "sha256": "97acfad9cf15438612c6c709a88399f9240007bcf5ebe10a5c94569b4a288d8f",
-      "kind": "source"
-    },
-    {
-      "path": "docs/closeout-2026-10-04.md",
-      "bytes": 2980,
-      "sha256": "6c64cd948fbc3fae46819c20ddb59ae0f0afd80b521f36dc20075fa3943e3790",
-      "kind": "source"
-    },
-    {
-      "path": "docs/color-projection-experiment-2026-10-04.md",
-      "bytes": 2747,
-      "sha256": "bc24243f87e15ae849d636402b7b311a77baa2d2725aeac39084814aa1170018",
-      "kind": "source"
-    },
-    {
-      "path": "docs/competitiveness-priorities-2026-10-07.md",
-      "bytes": 10817,
-      "sha256": "cb24b789cf5d251350e9121c4f79798584e105c864469d6ff916800cfbc2f4a0",
-      "kind": "source"
-    },
-    {
-      "path": "docs/complete-object-validation-2026-10-05.md",
-      "bytes": 7068,
-      "sha256": "f4cbfc0ca290d0bdb2a46c7d056c65c29a7bbc1f048b3e3eff2ae79f73f3e43c",
-      "kind": "source"
-    },
-    {
-      "path": "docs/critical-feature-audit-2026-10-03.md",
-      "bytes": 5440,
-      "sha256": "bee3a08a81eba03c43f4c3eb426bd2471a6f90377424f73fe05fc23358583cb6",
-      "kind": "source"
-    },
-    {
-      "path": "docs/execution-checkpoint-2026-10-02.md",
-      "bytes": 3186,
-      "sha256": "533437a07a1281a13cefaaab78a809b8afe36da300cc33a06c5bacc749d3c180",
-      "kind": "source"
-    },
-    {
-      "path": "docs/first-delegation-validation-2026-10-08.md",
-      "bytes": 4085,
-      "sha256": "a1a919db8722f354841404e2645031f4a150b3b0aadb0b231771530316bb2565",
-      "kind": "source"
-    },
-    {
-      "path": "docs/five-pose-validation-2026-10-08.md",
-      "bytes": 3709,
-      "sha256": "2f7f5503bce5e79ee90186f055288c39973b253432270eefdae1fd42256c11b0",
-      "kind": "source"
-    },
-    {
-      "path": "docs/gemini-research-review-2026-10-02.md",
-      "bytes": 6547,
-      "sha256": "44c789072a86e4d53ac59dffb23cf0497714388994a7776d04708dc33f63eb21",
-      "kind": "source"
-    },
-    {
-      "path": "docs/hair-quality-investigation-2026-10-03.md",
-      "bytes": 4817,
-      "sha256": "2d058e68620374435976ec584459f18aa15340d3f439c3b47ee4c232df268126",
-      "kind": "source"
-    },
-    {
-      "path": "docs/image-blaster-competitive-review-2026-10-04.md",
-      "bytes": 5109,
-      "sha256": "6e54982d4fbce8f9232f9407e39df7d3c611be3711298884d872922d201e5195",
-      "kind": "source"
-    },
-    {
-      "path": "docs/local-rod-repair-validation-2026-10-04.md",
-      "bytes": 5026,
-      "sha256": "bd2c3d0ae08d19a385d9f30aa10387d10e0f813e18b29379730998984eddc176",
-      "kind": "source"
-    },
-    {
-      "path": "docs/material-validation-2026-10-02.md",
-      "bytes": 1911,
-      "sha256": "606b1ce6bcbcec194c8ec33fd5623dfdf11cd227aaeb80100ea0cfc3581d301d",
-      "kind": "source"
-    },
-    {
-      "path": "docs/meeting-rule-audit-2026-10-08.md",
-      "bytes": 7185,
-      "sha256": "f2b2808c22314cb02d0f8d497c22e6b3a6db9b9857c24d014442a5856f466a2d",
-      "kind": "source"
-    },
-    {
-      "path": "docs/model-import.md",
-      "bytes": 2670,
-      "sha256": "34f799a026e4cecf9747cd7e3ec1dd66d62a45aab0222f238d0b0cc776cfcf92",
-      "kind": "source"
-    },
-    {
-      "path": "docs/model-policy-update-2026-10-03.md",
-      "bytes": 3188,
-      "sha256": "a9fd112b847efced94cf2dd524535596d4547373b88a640d16adcefdea9a9ec0",
-      "kind": "source"
-    },
-    {
-      "path": "docs/photo-and-baseline-validation-2026-10-07.md",
-      "bytes": 4240,
-      "sha256": "887e60cec065bbbbd3d6c919e963b9e97c2100c5cdbe008afe398cf7cf3aeb8c",
-      "kind": "source"
-    },
-    {
-      "path": "docs/planar-validation-2026-10-02.md",
-      "bytes": 3129,
-      "sha256": "c093059b2b8350a7b5fd21e310db83a2f5b88462589699942665b2a1d55e54d6",
-      "kind": "source"
-    },
-    {
-      "path": "docs/pose-comparison-2026-10-03.md",
-      "bytes": 5068,
-      "sha256": "c11b471e2cace56dc5b36f26334849687fb658a0408101b579b0cc6b176149ae",
-      "kind": "source"
-    },
-    {
-      "path": "docs/print-detail.md",
-      "bytes": 4476,
-      "sha256": "5a54f2b99d53c945576d026add8ee4ade04c57724e8f20966afa42740cd9050d",
-      "kind": "source"
-    },
-    {
-      "path": "docs/product-and-narrative-audit-2026-10-08.md",
-      "bytes": 3610,
-      "sha256": "c23c4ee2e8e405a6ea2bd8040602fb2d9927f3a899c37bcc68c531615ed71b00",
-      "kind": "source"
-    },
-    {
-      "path": "docs/product-closure-2026-10-09.md",
-      "bytes": 5954,
-      "sha256": "71e2f7228f7a79f2b9d4c2fcb2d52e49db8d05d2d32e2d4479a718de272a164d",
-      "kind": "source"
-    },
-    {
-      "path": "docs/product-gap-validation-2026-10-09.md",
-      "bytes": 5527,
-      "sha256": "3dfbf30613ba736cd9072dbd749ab8674764a61d307af8707d2de7575f2d4ee4",
-      "kind": "source"
-    },
-    {
-      "path": "docs/professional-model-actual-slice-2026-10-02.md",
-      "bytes": 1986,
-      "sha256": "7a0af90293901aa605496aae2bd9a3f769cfec082865b53d3e53f42a59478f9c",
-      "kind": "source"
-    },
-    {
-      "path": "docs/protection-recovery-validation-2026-10-09.md",
-      "bytes": 4536,
-      "sha256": "d17a1c0e9f0bb337f3add2a1a78c843d94248439de5ae3d0f4fe8fa51be44463",
-      "kind": "source"
-    },
-    {
-      "path": "docs/public-photo-probe-2026-10-04.md",
-      "bytes": 2781,
-      "sha256": "99f3c6106d5e0264695d6e381dfc592e34fd7ffb9442b012c749c2505766c515",
-      "kind": "source"
-    },
-    {
-      "path": "docs/reconstruction-model-quality-review-2026-10-04.md",
-      "bytes": 8013,
-      "sha256": "056a3f642f56109148791c97faf46f73d80c6e3f5e2fd2fb191b9ed5751a6b22",
-      "kind": "source"
-    },
-    {
-      "path": "docs/reconstruction-workflow-2026-10-03.md",
-      "bytes": 3513,
-      "sha256": "abe6991fa3c69e9e54e860559a33cd869761b0cd78a9b508eeb6b911a88bb194",
-      "kind": "source"
-    },
-    {
-      "path": "docs/review-bundle-2026-10-07.md",
-      "bytes": 2962,
-      "sha256": "e842bb2bd19a8e261621d51a354e75cbda7c262783d0bdc3f7a242fb1e78d11f",
-      "kind": "source"
-    },
-    {
-      "path": "docs/review-cached-check-2026-10-07.md",
-      "bytes": 1766,
-      "sha256": "bc8920ce9e5004a8c0a020f699ce92ed2dcc709a6a6a5cbda8c183662059953a",
-      "kind": "source"
-    },
-    {
-      "path": "docs/review-preflight-2026-10-07.md",
-      "bytes": 3360,
-      "sha256": "7af0a85be067aec0a852dd6362067ab88cb77475b3b031ed5c162a69031c1436",
-      "kind": "source"
-    },
-    {
-      "path": "docs/rules-and-project-gap-review-2026-10-05.md",
-      "bytes": 7043,
-      "sha256": "0dfaed9f729ba02531bbf736571a187dd4420a38b6234f115ee96a19d275904c",
-      "kind": "source"
-    },
-    {
-      "path": "docs/spec-print-detail.md",
-      "bytes": 5928,
-      "sha256": "22f8357727034a6745dc3d7a5e21a26e2d63057564b0e1caa009aaa730050d50",
-      "kind": "source"
-    },
-    {
-      "path": "docs/spec.md",
-      "bytes": 4475,
-      "sha256": "ba660467072f213a687edfea8a52159b9b27661d8e0b96796636917f9a8d27bc",
-      "kind": "source"
-    },
-    {
-      "path": "docs/submission-audit-2026-10-09.md",
-      "bytes": 4232,
-      "sha256": "25e15f08c4bc90c77f0ac0cc5d5c40308c09e011aabb0cd736e507863061b194",
-      "kind": "source"
-    },
-    {
-      "path": "docs/submission-draft-2026-10-07.md",
-      "bytes": 4755,
-      "sha256": "120202d39e1fd43342985865af7798de457902aee52fcf4731577c07cfe3fb44",
-      "kind": "source"
-    },
-    {
-      "path": "docs/submission-readiness-2026-10-07.md",
-      "bytes": 11862,
-      "sha256": "0a718eb80b2df825ccb82d8a6f972bfe935776fd01d7b092c74d067530baa318",
-      "kind": "source"
-    },
-    {
-      "path": "docs/submission-requirements-2026-10-01.md",
-      "bytes": 3358,
-      "sha256": "c4f33b22ab0c23ad2eb9b6835db3247b637c88b25331729c1260c50e28f48e2d",
-      "kind": "source"
-    },
-    {
-      "path": "docs/submission-requirements-2026-10-02.md",
-      "bytes": 5042,
-      "sha256": "f625d1fad34111d112686df6b90f235ea75089c1b74af58252fcabfbb3256f14",
-      "kind": "source"
-    },
-    {
-      "path": "docs/submission-requirements-2026-10-05.md",
-      "bytes": 1486,
-      "sha256": "420675daf7ca2574bfca2fb2f31bff777c072a0f14a3bcb25d114db83abd9f1f",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-01-agh-print-detail.md",
-      "bytes": 2610,
-      "sha256": "b4254b3993a3054738e57fc9b7ca70dff372dda8e13e9d208e459195c968560d",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-01-photo-cad.md",
-      "bytes": 3224,
-      "sha256": "6a9740e519cfbc3cabb45fbc3c78d19a18fce29b5b08a3779c9d92d04bbc2e23",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-01-submission-preparation.md",
-      "bytes": 1065,
-      "sha256": "14c61f085327a28f6941a114e5f1ddad22327b249770e12dd037201efad340d0",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-02-competition-roadmap.md",
-      "bytes": 23859,
-      "sha256": "595ae5da08f909a336d815c15e4294480c8454d93e35d30b04ab9814801dae8e",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-02-multiview-agh-integration.md",
-      "bytes": 4330,
-      "sha256": "c47b7326d39b694812fa063d315533a62fdee85cc0bc201ef436ccc60697b300",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-03-constrained-pose-comparison.md",
-      "bytes": 3413,
-      "sha256": "58ac41b1b6bbd75b52077e6deacaa36daca3ed5ad17987f6707c603eb55cbbc2",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-03-critical-feature-audit.md",
-      "bytes": 4871,
-      "sha256": "ab21150e7a453c449a443a7b2b2be01370b43fd37a525644c3b9e08f4af7d862",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-03-local-rod-repair.md",
-      "bytes": 3473,
-      "sha256": "c2d7d4d4be4d720669864f2cca957c7e9160c1872bf2168694e8004a76e88089",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-04-reconstruction-quality-probe.md",
-      "bytes": 3590,
-      "sha256": "e0874fd70e286dd8a213c68bcec71538366723ecbd68073512591b1d25f83341",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-04-texture-agh-integration.md",
-      "bytes": 8186,
-      "sha256": "cde3a8c950a6a080f4422f97b15e96d855dd64b1ffecf05d95ae96872cad4720",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-05-complete-object-validation.md",
-      "bytes": 5159,
-      "sha256": "f39688b3633bb8911287d72520f506bc838ed8b8c5f3dbdb4b3925869684782e",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-05-visual-rod-selection.md",
-      "bytes": 1410,
-      "sha256": "b1e18bd6aef676ba83349f9c93afc2cf96746510f782f51bb7377c86cd9840de",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-07-real-photo-and-review-bundle.md",
-      "bytes": 3497,
-      "sha256": "c4df0d64b03bb9d5c8734093d244bce179d06d8afb832f88af87fa8f37e24567",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-08-first-delegation.md",
-      "bytes": 2508,
-      "sha256": "febf314a50400087ecc14719e3616bc1f58602c36bf193469f74a70dbd1b8c06",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-08-five-pose-policy.md",
-      "bytes": 1818,
-      "sha256": "2d91857c214ea48ed420b031f6699d23bd8ed3ffa245158297153d06882df1f4",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-08-submission-closeout.md",
-      "bytes": 1323,
-      "sha256": "f63d8703342fe03e6b8fb5002c7b4e3b95a5b4a0b1d901f1f882342afbf9b0e0",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-08-video-refresh.md",
-      "bytes": 2208,
-      "sha256": "e07bfaf71fcca6f8047444396e898970971f7888a76bad436ecaae0f1b8ec2d6",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-09-product-closure-plan.md",
-      "bytes": 1022,
-      "sha256": "bfecd2832279a16cfadccf133a57b6be37dd02e8c95e0d11d76e72250a53c063",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-09-product-gap-plan.md",
-      "bytes": 2031,
-      "sha256": "1357373c5e2dae28e8235c842683a03eb885f5f2ff4046373cd4084142e167ab",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-09-protection-recovery-plan.md",
-      "bytes": 1421,
-      "sha256": "39f98d64181c5b6d139d56bf32c1ef245d3767d6d500db47a1785217c4965a97",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/plans/2026-10-09-user-character-tests.md",
-      "bytes": 1193,
-      "sha256": "4fdf8e9c06d1bc4c0981d09235ebd4d02a405a65f77c41970a3d651c4362b408",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/specs/2026-10-03-constrained-manufacturing-design.md",
-      "bytes": 2281,
-      "sha256": "138245b3e57e6f1077dd15f4f483cc9cd916ab45b39d588d52c8159fdaf12af1",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/specs/2026-10-03-local-rod-repair-design.md",
-      "bytes": 4265,
-      "sha256": "ffd23ac52e1c64be0a27c1aba9bef5af59a5731875d87c0780e6fa2d4607226c",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/specs/2026-10-09-product-closure-design.md",
-      "bytes": 1561,
-      "sha256": "c4e97f98ea92b60dfb8ed7a6986c9627ef6c6e929b5c46647821d3be573a503c",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/specs/2026-10-09-product-gap-design.md",
-      "bytes": 2255,
-      "sha256": "6f664f9e56363a3bc495ade7e1ad20e0ca9a07516d8bcf78e368722c19ee6a68",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/specs/2026-10-09-protection-recovery-design.md",
-      "bytes": 1435,
-      "sha256": "d24c128826808d7ae0fef5d7a8b723b9871e460ae89b1533b4f2cdb199c1bb6b",
-      "kind": "source"
-    },
-    {
-      "path": "docs/superpowers/specs/2026-10-09-texture-uv-scale-design.md",
-      "bytes": 962,
-      "sha256": "d348b24ca427eb6ed1107d6a685b0515c6cb1737ae46aa5495c7e62af008f234",
-      "kind": "source"
-    },
-    {
-      "path": "docs/texture-agh-integration-validation-2026-10-05.md",
-      "bytes": 7230,
-      "sha256": "009db387ebbde920795f37e3a9b8673475d8b8821ed1a737a43a114aa69365ff",
-      "kind": "source"
-    },
-    {
-      "path": "docs/texture-feasibility-checkpoint-2026-10-04.md",
-      "bytes": 6493,
-      "sha256": "1552bfa21437e2a7ff5fee608d1df589330ce6cd7fe6193a1aa7ced6cc2fb560",
-      "kind": "source"
-    },
-    {
       "path": "docs/texture-model-first-run-2026-10-04.md",
       "bytes": 11038,
       "sha256": "c4135735503bd6e56eb05ef19440736621f8cc3c4bcd03ea1f80e1ee2baa8c0b",
-      "kind": "source"
-    },
-    {
-      "path": "docs/user-character-validation-2026-10-09.md",
-      "bytes": 6849,
-      "sha256": "17bd36038a3c46f216a821027ecd57f857623e3c542f86f689155cc27aa8c535",
-      "kind": "source"
-    },
-    {
-      "path": "docs/visual-rod-selection-validation-2026-10-05.md",
-      "bytes": 3913,
-      "sha256": "46151eba5d2a85bc8c5426351ef0bf672949d6e5527263d477d9da322017f775",
-      "kind": "source"
-    },
-    {
-      "path": "docs/下一阶段执行计划-2026-10-03.md",
-      "bytes": 7578,
-      "sha256": "5c18ec510616591fbb3a3a99f5d625442cfa684717775e2d081514d1ffbda080",
       "kind": "source"
     },
     {
@@ -1794,8 +1338,8 @@
     },
     {
       "path": "tools/reconstruction/README.md",
-      "bytes": 10112,
-      "sha256": "bf2801da6c80acd98c67ed2ba92a3106f3a182995296395a24aadeaa64141cdb",
+      "bytes": 895,
+      "sha256": "351d93148a012cdef944ad592819ab967e87d429128eb2982a313880565da1f1",
       "kind": "source"
     },
     {
@@ -2298,8 +1842,8 @@
     },
     {
       "path": "运行与模型配置.md",
-      "bytes": 15108,
-      "sha256": "b9eadc68a17680d2de8085d1be7d70b2e7669fe10c923b5a11e1c3fed3b3663c",
+      "bytes": 15750,
+      "sha256": "99cc233f2f0e6ba51a67001727306a79ae6c124be452963ecabfa2ad9f18327b",
       "kind": "source"
     },
     {
@@ -2430,8 +1974,8 @@
     },
     {
       "path": "运行与模型配置.html",
-      "bytes": 16936,
-      "sha256": "4fb99be9f824c9b6dfc27883dec912ae21e52dff237e045d92c892981c9509be",
+      "bytes": 17869,
+      "sha256": "a862356632de7746104ae3a53033ab08a67889d8d5a5e92c70158c1e7517bd2a",
       "kind": "source"
     },
     {
@@ -2468,18 +2012,6 @@
       "path": ".gitignore",
       "bytes": 72,
       "sha256": "82b047bdd5747939149260e6799d6be0bbfbde83f3a241ae39984f1a4987368f",
-      "kind": "source"
-    },
-    {
-      "path": "AGENTS.md",
-      "bytes": 820,
-      "sha256": "07a69e52c22aaa86659fb8a88e7dcdfa8d368ee0d3572fcc4db1b1669dfc534c",
-      "kind": "source"
-    },
-    {
-      "path": "docs/submission-usability-2026-10-13.md",
-      "bytes": 991,
-      "sha256": "282dc84af73fac616619f02dc479305a07b62e4360d419abc8265fdd9789561c",
       "kind": "source"
     },
     {
@@ -2544,8 +2076,8 @@
     },
     {
       "path": "tools/setup/reslice-result.mjs",
-      "bytes": 2945,
-      "sha256": "1f58f274638d53a56f5c818f537c66faf5e9582d7926695c7cd75353038d883e",
+      "bytes": 2942,
+      "sha256": "ffa7335d1d62158b6e4cc679a80e02ea13204b448e927b09d62d86dd4d4e39c2",
       "kind": "source"
     },
     {
@@ -2580,8 +2112,8 @@
     },
     {
       "path": "README.html",
-      "bytes": 2799,
-      "sha256": "07abfcd557db9c31ba85317d4038e32816fa076facac39f0ad2fed2f0308010b",
+      "bytes": 1603,
+      "sha256": "eaede11159afbb675f3897d7656970f2083f71b2ae72ef272d1d8e85168150c1",
       "kind": "source"
     },
     {
@@ -2672,6 +2204,30 @@
       "path": "evidence/agh/失败任务/logs/host.jsonl",
       "bytes": 1048544,
       "sha256": "ae77458808d96ba80dfca07e49de872f7f5508d3bda93de4e61d738a0368e810",
+      "kind": "source"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "kind": "source"
+    },
+    {
+      "path": "NOTICE",
+      "bytes": 331,
+      "sha256": "32419bc6e7b67801d65787cdc9aa286a9ba974e847114f95102838d68afcb64c",
+      "kind": "source"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 3557,
+      "sha256": "ec901d7e4025edb973c7f3baaef992b4531a69d7fd04d5e42e70a8ab7ab9c283",
+      "kind": "source"
+    },
+    {
+      "path": "docs/architecture.md",
+      "bytes": 2005,
+      "sha256": "b0ace6bc034a93a1dc1e1b7f97cdb9946c0385f3273d09b1e8059895b3074b7e",
       "kind": "source"
     }
   ],
