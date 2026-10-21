@@ -1,13 +1,14 @@
 import path from 'node:path';
 import {readFile,lstat} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
+import {existsSync} from 'node:fs';
 const project=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const roots=['案例/','评审案例/','测试样例/','AGH运行记录/','演示视频/'];
-const pages=new Set(['README.html','演示视频.mp4','完整源码/README.md','开始.html','案例与复现.html','复核报告.html','README.md','作品说明.md','作品说明.html','完整源码/运行与模型配置.html']);
+const roots=['案例/','评审案例/','测试样例/','AGH运行记录/','演示视频/','case/','examples/photo-protection/','demo/','evidence/agh/'];
+const pages=new Set(['README.html','演示视频.mp4','完整源码/README.md','开始.html','案例与复现.html','复核报告.html','README.md','作品说明.md','作品说明.html','完整源码/运行与模型配置.html','运行与模型配置.html','运行与模型配置.md','THIRD_PARTY_NOTICES.md']);
 const allowed=s=>pages.has(s)||roots.some(p=>s.startsWith(p));
 const types={'.html':'text/html; charset=utf-8','.md':'text/plain; charset=utf-8','.ini':'text/plain; charset=utf-8','.json':'application/json; charset=utf-8','.jsonl':'text/plain; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.glb':'model/gltf-binary','.stl':'model/stl','.gcode':'text/plain; charset=utf-8','.mp4':'video/mp4'};
 const esc=s=>s.replace(/[&<>]/gu,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-export function createSubmissionRouter({root=process.env.XINGZAO_REVIEW_ROOT||path.resolve(project,'..')}={}){
+export function createSubmissionRouter({root=process.env.XINGZAO_REVIEW_ROOT||(existsSync(path.join(project,'bundle-manifest.json'))&&existsSync(path.join(project,'README.html'))?project:path.resolve(project,'..'))}={}){
  root=path.resolve(root);
  async function read(name){
   if(!allowed(name)||name.includes('\\')||name.split('/').some(p=>p==='..'||p==='.')||!types[path.extname(name)])return null;
@@ -25,7 +26,7 @@ export function createSubmissionRouter({root=process.env.XINGZAO_REVIEW_ROOT||pa
    res.writeHead(200,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'});res.end(JSON.stringify({casesAvailable:available}));return true;
   }
   let name;if(u.pathname==='/examples')name=caseName;
-  else if(u.pathname==='/submission-guide')name='完整源码/运行与模型配置.html';
+  else if(u.pathname==='/submission-guide')name=await read('运行与模型配置.html')?'运行与模型配置.html':'完整源码/运行与模型配置.html';
   else if(u.pathname.startsWith('/review-files/')){try{name=decodeURIComponent(u.pathname.slice('/review-files/'.length));}catch{return false;}}
   else return false;
   let bytes=await read(name);

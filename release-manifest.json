@@ -19,8 +19,8 @@
     },
     {
       "path": "README.html",
-      "bytes": 1603,
-      "sha256": "eaede11159afbb675f3897d7656970f2083f71b2ae72ef272d1d8e85168150c1"
+      "bytes": 1663,
+      "sha256": "02308e23818e37dbb1868fa1ddc8f3ad4b187706b4aa89023fccb7d62bc7c195"
     },
     {
       "path": "README.md",
@@ -85,7 +85,7 @@
     {
       "path": "bundle-manifest.json",
       "bytes": 70606,
-      "sha256": "06141e4b7ac7d6955ad6c3a7aa51dffe0d057a394e75423f9237202fe062f09e"
+      "sha256": "cdf7ec6c47e19f849284064e91aafaf41f7316be331af329c6f1f895bf8a6fae"
     },
     {
       "path": "case/baseline-pose.stl",
@@ -1064,8 +1064,8 @@
     },
     {
       "path": "src/submission-assets-http.mjs",
-      "bytes": 3792,
-      "sha256": "c3e58ccd2ebac8d833c362b6b6ce3888b0a81a10ee07c79fe197f155da027c3f"
+      "bytes": 4110,
+      "sha256": "114c21b266dea52c26e0ffa89401232973cae4c48ade6a32c8726313c529a910"
     },
     {
       "path": "src/support-evaluation.mjs",
@@ -1870,17 +1870,17 @@
     {
       "path": "复核报告.html",
       "bytes": 49880,
-      "sha256": "8b33c8d28660488d2d89bceda306eefaffb8fbfc5fda582d1888472f4c7cca43"
+      "sha256": "f3bc509c2f38f1feb96b809e8990b8127371f583be5faff0b7d4816522866b6c"
     },
     {
       "path": "运行与模型配置.html",
-      "bytes": 17869,
-      "sha256": "a862356632de7746104ae3a53033ab08a67889d8d5a5e92c70158c1e7517bd2a"
+      "bytes": 18116,
+      "sha256": "390060612c30c958a05dcd247cf066cc27239df25a61a8853ec9e44c72b055bd"
     },
     {
       "path": "运行与模型配置.md",
-      "bytes": 15750,
-      "sha256": "99cc233f2f0e6ba51a67001727306a79ae6c124be452963ecabfa2ad9f18327b"
+      "bytes": 15991,
+      "sha256": "4344ddcf9ddc9e8a1dd8f82e0df3f9656f2f09f002230ab17d90fe32061fce0f"
     },
     {
       "path": "LICENSE",

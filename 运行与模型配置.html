@@ -72,6 +72,7 @@ node tools/review/preflight.mjs --mode live</code></pre>
 <div class="table"><table><thead><tr><th>资产</th><th>固定来源</th><th>data/reconstruction/下的位置</th></tr></thead><tbody><tr><td>形状，约4.59GiB</td><td>tencent/Hunyuan3D-2mv @ 3a761b539b29fe4ff64714813aa9560fd66f5de0</td><td>modelcache/hunyuan3d-2mv</td></tr><tr><td>Paint Turbo，17文件、约8.40GiB</td><td>tencent/Hunyuan3D-2 @ 9cd649ba6913f7a852e3286bad86bfa9a2d83dcf</td><td>modelcache/hunyuan3d-paint-probe</td></tr><tr><td>Hunyuan源码</td><td>Tencent-Hunyuan/Hunyuan3D-2 @ f8db63096c8282cb27354314d896feba5ba6ff8a</td><td>source-f8db630/Hunyuan3D-2-上述完整commit</td></tr></tbody></table></div>
 <p>上色使用插画参考、跳过Delight，输出RGB审阅资产；不表示PBR或彩色FDM打印。</p>
 <h2>第5步：编译上色扩展</h2>
+<p>**GitHub源码克隆不附预编译wheel，请直接执行下方“从开始菜单打开 x64 Native Tools”后的源码构建命令。** 只有另外持有同平台参赛补充包wheel时，才使用下面的可选预编译安装命令。</p>
 <p>针对 RTX5060 Laptop / Windows x64 / Python3.12 / Torch2.11.0+cu130，补充包已带两个编译好的wheel。在GPU环境和Hunyuan源码装好后，可执行以下两条，符合该配置即可跳过源码编译。其他CUDA、Torch或GPU组合请用后面的源码构建步骤。</p>
 <pre><code>data\reconstruction\env-texture-probe\Scripts\python.exe -m pip install --no-index --no-deps --find-links data\setup\wheels custom-rasterizer==0.1 mesh-processor==0.0.0
 data\reconstruction\env-texture-probe\Scripts\python.exe tools\setup\check_runtime.py --kind texture --gpu-smoke</code></pre>

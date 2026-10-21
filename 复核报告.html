@@ -1,6 +1,6 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>形造｜样例复核报告</title><style>
 *{box-sizing:border-box}body{margin:0;background:#f4f7f8;color:#202e38;font-family:"Microsoft YaHei",sans-serif;line-height:1.65}main{max-width:1040px;margin:36px auto;padding:0 24px}header{margin-bottom:22px}.eyebrow{color:#536b76;font-size:14px;margin:0}h1{font-size:30px;margin:5px 0}h2{font-size:19px;margin:0 0 14px}.muted{color:#60737d;font-size:14px}.verdict,section{background:white;border:1px solid #dfe7eb;border-radius:12px;padding:22px;margin:18px 0}.verdict{border-left:6px solid #24816c}.verdict strong{font-size:23px;color:#1f715f}.verdict p{margin:6px 0 0}table{width:100%;border-collapse:collapse;font-size:14px}th{text-align:left;color:#526976;font-weight:500;background:#f3f6f7}th,td{padding:13px 12px;border-bottom:1px solid #e5ecef;vertical-align:top}small{display:block;font-size:12px;color:#657780;margin-top:3px}.match{color:#207260;background:#edf7f3;border-radius:6px;padding:4px 9px;white-space:nowrap}.photo{display:flex;gap:38px;flex-wrap:wrap}.photo span{display:block;color:#60737d;font-size:13px}.photo strong{display:block;font-size:22px;margin:4px 0}details{background:#fff;border:1px solid #dfe7eb;border-radius:9px;padding:14px 18px;margin:20px 0}summary{cursor:pointer;color:#516a77}pre{white-space:pre-wrap;word-break:break-all;font-size:12px;max-height:600px;overflow:auto}.scroll{overflow-x:auto}.note{font-size:13px;color:#617580}footer{padding:12px 0 30px;color:#71838d;font-size:12px}@media print{body{background:#fff}main{margin:0;max-width:none}details{display:none}.verdict,section{break-inside:avoid}}
-</style></head><body><main><header><p class="eyebrow">形造 · 提交样例</p><h1>切片结果复核</h1><p class="muted">复核时间：2026/10/21 13:07:01</p></header>
+</style></head><body><main><header><p class="eyebrow">形造 · 提交样例</p><h1>切片结果复核</h1><p class="muted">复核时间：2026/10/21 13:20:08</p></header>
 <nav><a href="README.html">返回作品入口</a> · <a href="README.html">查看完整案例与文件</a></nav>
 <section><h2>验证目标</h2><p>比较原件直立、局部加粗和原件侧放在固定FDM切片配置下的细杆保留情况。</p><h2>输入模型</h2><p>受控微缩灯柱模型：一根直径0.5 mm的细杆。使用0.4 mm喷嘴、0.2 mm层高的固定PLA切片配置。原模型、候选模型、刀轨与检查采样点都随包提供。</p><p><a href="case/source-original.stl">下载原模型STL</a> · <a href="tools/slicer/fdm-pla-04.ini">查看切片配置</a></p></section>
 <section><h2>执行过程</h2><ol><li>声明要保留的细杆与允许修改范围，AGH调用几何检查和实际切片。</li><li>原件直立时关键细杆未完整进入刀轨；0.7 mm候选仍断段，0.8 mm候选通过。</li><li>加入原件侧放对照后发现：0.5 mm原杆也能通过。五姿态任务最终保留原形，交付侧放方案。</li><li>本次复核重新读取随包刀轨并计算结果，同时核对文件身份和姿态关系。</li></ol><p><a href="evidence/agh/正常任务/index.html">查看AGH实际工具调用</a> · <a href="evidence/agh/失败任务/index.html">查看失败处理记录</a></p></section>
@@ -11,7 +11,7 @@
   &quot;valid&quot;: true,
   &quot;schema&quot;: &quot;xingzao-review-bundle/v1&quot;,
   &quot;fileCount&quot;: 369,
-  &quot;totalBytes&quot;: 31954456,
+  &quot;totalBytes&quot;: 31955322,
   &quot;cases&quot;: [
     {
       &quot;id&quot;: &quot;baseline&quot;,
