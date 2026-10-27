@@ -2,7 +2,7 @@
   "schema": "xingzao-review-bundle/v1",
   "createdAt": "2026-10-09T10:38:14.498Z",
   "evidenceBytes": 20580038,
-  "payloadBytes": 31955322,
+  "payloadBytes": 32000278,
   "summary": {
     "task": "versioned-five-pose-original-delivery-and-historical-repair",
     "source": "team-original-parametric-design; not a photograph",
@@ -276,8 +276,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3719,
-      "sha256": "7307b873b50e32a95928dd185b27ae3259f22b855bf30e645885f918e7862e53",
+      "bytes": 7809,
+      "sha256": "6a5d537364d4686eb59d05f7e2b0b8907099018d7c0ae5294e2283f88568b272",
       "kind": "source"
     },
     {
@@ -1842,8 +1842,8 @@
     },
     {
       "path": "运行与模型配置.md",
-      "bytes": 15991,
-      "sha256": "4344ddcf9ddc9e8a1dd8f82e0df3f9656f2f09f002230ab17d90fe32061fce0f",
+      "bytes": 16211,
+      "sha256": "934ae2e39157cb69ef39dff93313c2e8f3c2efbfe32e26a1c349671e21122ad7",
       "kind": "source"
     },
     {
@@ -1974,8 +1974,8 @@
     },
     {
       "path": "运行与模型配置.html",
-      "bytes": 18116,
-      "sha256": "390060612c30c958a05dcd247cf066cc27239df25a61a8853ec9e44c72b055bd",
+      "bytes": 18364,
+      "sha256": "8b1cef5bdae983771c35aa4ae6d994ca73e4f77aff4505d9ea49f2e435294baf",
       "kind": "source"
     },
     {
@@ -2226,8 +2226,38 @@
     },
     {
       "path": "docs/architecture.md",
-      "bytes": 2005,
-      "sha256": "b0ace6bc034a93a1dc1e1b7f97cdb9946c0385f3273d09b1e8059895b3074b7e",
+      "bytes": 6025,
+      "sha256": "1a58a7df21e547a07e9487d1c76c8e2aa910d9f68234aa6bfaa8f7eb7922cf87",
+      "kind": "source"
+    },
+    {
+      "path": "README.zh-CN.md",
+      "bytes": 7053,
+      "sha256": "4d286e96ac74141f475414a3d4062eda79f92cab7b6cf5873693adb84ea49139",
+      "kind": "source"
+    },
+    {
+      "path": "docs/architecture.zh-CN.md",
+      "bytes": 5253,
+      "sha256": "f5fcef92ea2eca27f86e91cf9b64497aab8c8cb88f179f6df4f5e6d0d7cf7548",
+      "kind": "source"
+    },
+    {
+      "path": "docs/getting-started.md",
+      "bytes": 9566,
+      "sha256": "20d34691cc17f887e7acd04aa967533b0f8b4fa27ee572a9e1621eac6baba61f",
+      "kind": "source"
+    },
+    {
+      "path": "docs/integration.md",
+      "bytes": 7589,
+      "sha256": "11073056b2fcfee92d59837a4870299a19afb3dd4ec199283ed3334b55761e5a",
+      "kind": "source"
+    },
+    {
+      "path": "docs/integration.zh-CN.md",
+      "bytes": 6917,
+      "sha256": "e76aea331717134f0c5b51bcb89070aa5259ad4a6d34a23779ffe17076a18c3d",
       "kind": "source"
     }
   ],

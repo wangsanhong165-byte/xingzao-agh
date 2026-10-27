@@ -1,17 +1,57 @@
-# 形造：图片建模与3D打印验证
+# Xingzao · From Images to Verified 3D-Printing Plans
 
-基于Agnes Harness组织三视图建模、外观区域保护、细杆检查、实际切片与结果复核。规划模型使用DeepSeek V4.1，专业几何生成使用本地Hunyuan3D-2mv。
+English | [简体中文](README.zh-CN.md)
 
-本仓库提供参赛版本源码、标准灯柱与公开摄影样例、真实G-code，以及AGH运行记录。
+**An Agnes Harness workbench for image-based modeling, color preview, and slicer-in-the-loop checks.**
 
-- [演示视频](demo/xingzao-demo.mp4)
-- [已有结果复核报告](复核报告.html)（下载后用浏览器打开）
-- [官方界面导出的AGH运行记录](evidence/agh)
-- [完整环境与模型配置](运行与模型配置.md)
+[Demo video](#demo-video) · [Quick start](#quick-start) · [Architecture](#architecture) · [Integration standards](#integration-standards) · [Full setup](docs/getting-started.md)
 
-## 快速查看与复核
+## Project Overview
 
-需要Node.js **24.10或更高**，包含npm。Windows PowerShell：
+A model that looks complete on screen can still lose a thin rod during slicing or require support near an important surface. Creators then have to move between modeling software, a slicer, and manual checks to find a usable plan.
+
+Xingzao brings these steps into one local workbench. Start with front/side/back images or an existing STL/GLB, confirm the important region or rod and the allowed changes, then let **Agnes Harness (AGH)** coordinate generation, tool execution, feedback, and verification.
+
+### Core features
+
+| Capability | What the workbench does |
+| --- | --- |
+| Image-based modeling | Runs local Hunyuan3D-2mv, checks the generated mesh, and performs an initial slice. |
+| Color preview | Uses Hunyuan3D-Paint 2.0 Turbo with an illustration reference; keeps the manufacturing geometry separate from the textured GLB. |
+| Appearance protection | Compares five declared print poses, measures support extrusion near a user-confirmed region, and shows whole-part material/time estimates. |
+| Thin-rod preservation | Checks feature coverage and the full confirmed rod centerline against model extrusion paths. Tries original geometry in different poses and supports bounded local thickening where allowed. |
+| Verified delivery | Rechecks the selected model, profile, transforms, and G-code before releasing the final files. Unsatisfied constraints stop delivery. |
+
+### What is distinctive
+
+- **Slicing is part of the decision loop.** Checks read actual PrusaSlicer G-code, rather than treating a closed mesh as sufficient evidence.
+- **Measurements share one source coordinate system.** Support paths are mapped back to the same protected region so pose comparisons remain meaningful.
+- **Repair has a budget.** Rod changes are constrained by the allowed region, radial growth, and added volume; a feasible original pose can avoid geometry changes.
+- **Decisions remain inspectable.** The workbench connects tool feedback, task state, file hashes, and AGH execution records.
+
+### Recorded examples
+
+| Example | Before → after | Meaning |
+| --- | --- | --- |
+| Photographic skull model, same protected region/profile | Support path length **34.898 m → 7.911 m (−77.33%)**; slicer material estimate **39.01 g → 33.81 g** | Reduced planned support near the protected surface; the percentage is a local path metric. |
+| Controlled lamp-post rod, upright | Original **0.5 mm** fails; **0.7 mm** still has a centerline gap; **0.8 mm** passes | Feature samples alone are insufficient; the complete centerline is checked too. |
+| Separate five-pose lamp-post task | Original **0.5 mm** rod passes in the side-oriented pose, **0.80 g / 346 s** estimated | Changing pose can preserve the original geometry. |
+
+The repair experiments and five-pose task are separate records. Current evidence covers software geometry and planned extrusion paths; physical printing, fit, and strength remain future experiments. See the [review report](复核报告.html) and [architecture guide](docs/architecture.md).
+
+## Demo Video
+
+[![Xingzao workbench demonstration — click to open the video](demo/cover.png)](demo/xingzao-demo.mp4)
+
+**[Watch or download the demo MP4](demo/xingzao-demo.mp4)** · [AGH-exported execution records](evidence/agh)
+
+The recorded demo has Chinese narration and shows the workbench, modeling/color review, support comparison, and thin-rod checks. It is an existing run; a fresh clone does not contain the developer's private images or task database.
+
+## Quick Start
+
+### 1. Recheck the included results — no model account or GPU
+
+Install **Node.js 24.10+** with npm. In Windows PowerShell:
 
 ```powershell
 git clone https://github.com/wangsanhong165-byte/xingzao-agh.git
@@ -20,24 +60,11 @@ npm.cmd ci
 node tools/review/run.mjs
 ```
 
-该命令重新读取随仓库提供的模型、真实刀轨和文件绑定，生成根目录`复核报告.html`。不调用模型服务，不需要Key或GPU。检查包括细杆覆盖与连续性、既有修改预算，以及公开摄影样例的保护区支撑路径。部分网格探针使用随包缓存，具体范围见报告。
+Open the generated `复核报告.html` in a browser. The command verifies bundled files and recalculates G-code checks. Some mesh probes are cached; the report identifies the verification scope.
 
-首次从零运行建议：先按上面命令复核样例，再按下面步骤重新生成并切片；需要执行AGH新任务时，按完整配置说明的第1—3步准备CPU工具和账号，图片建模与上色再继续第4—5步。
+### 2. Regenerate a standard part and run the real slicer
 
-## 启动工作台
-
-```powershell
-$env:PHOTO_CAD_AGH_HOME = Join-Path $env:USERPROFILE '.agh-print-detail-v2'
-npm.cmd start
-```
-
-浏览器打开 http://127.0.0.1:4337/。工作台可以启动；创建并执行新任务前，需要按[运行与模型配置](运行与模型配置.md)准备Python、PrusaSlicer、AGH和本人模型服务账号。图片建模与上色还需要GPU环境和模型权重。
-
-仓库不包含开发机的私有图片、任务数据库、账号或模型权重。首页案例回看取决于本机是否已有对应任务；第一次克隆时，请先查看上面的复核报告和样例文件，或配置环境后创建自己的任务。
-
-## 重新生成标准件并实际切片
-
-Windows x64、Python **3.12**，在仓库根目录执行：
+With **Windows x64 and Python 3.12**:
 
 ```powershell
 py -3.12 tools/setup/reproduce.py environment --kind cpu-review
@@ -45,21 +72,48 @@ py -3.12 tools/setup/reproduce.py assets --scope slicer
 & .\data\reconstruction\env-torch-readonly\Scripts\python.exe tools/setup/reslice.py
 ```
 
-新STL、G-code和结果页写入`data/reproduction-runs/`。GitHub版本由安装器下载固定版本依赖和PrusaSlicer；安装过程需要网络，随后切片在本机完成。它验证标准灯柱的生成与切片，不会重新执行图片生成模型。
+This creates new STL/G-code files and a result page under `data/reproduction-runs/`. Setup downloads pinned dependencies and PrusaSlicer; no image-generation model is called.
 
-## 主要目录
+### 3. Open the workbench and prepare new tasks
 
-- src、public：工作台服务和界面。
-- tools：模型调用、几何处理、切片审计和环境准备。
-- pose-agh-plugin、repair-agh-plugin、reconstruction-agh-plugin、texture-agh-plugin：四个业务插件。
-- agh-adaptation：固定版本AGH的适配补丁与新增源码。
-- tests：接口与流程测试。
-- [技术结构与检查范围](docs/architecture.md)：算法、代码入口及结果边界。
+```powershell
+$env:PHOTO_CAD_AGH_HOME = Join-Path $env:USERPROFILE '.agh-print-detail-v2'
+npm.cmd start
+```
 
-图片建模和上色需按运行说明下载权重。当前制造结果通过软件几何及真实刀轨验证，实物打印为后续测试。
+Open **http://127.0.0.1:4337/**. The current UI is in Chinese. Before executing new AGH tasks, follow the [full setup guide](docs/getting-started.md) to install the CPU tools, build the pinned AGH runtime, and configure your own model account. Image modeling and texturing additionally require GPU dependencies and model weights.
 
-## 开源许可与来源
+## Architecture
 
-本项目原创代码采用[Apache-2.0](LICENSE)。AGH适配代码及其他第三方内容保留各自的许可证和声明，见[第三方来源与授权说明](THIRD_PARTY_NOTICES.md)。模型权重及演示中的角色图像、配音等素材不纳入本项目代码许可证。
+```mermaid
+flowchart LR
+    Input[Images or STL/GLB] --> UI[Local workbench]
+    UI --> Task[Confirmed task and constraints]
+    Task --> AGH[Agnes Harness + reasoning model]
+    AGH --> Plugins[Task-scoped plugins]
+    Plugins --> Tools[Hunyuan / geometry tools / PrusaSlicer]
+    Tools --> Audit[Mesh and G-code checks]
+    Audit -->|Feedback| AGH
+    Audit -->|Verified result| Output[STL / G-code / color GLB]
+```
 
-请勿提交`.env`、模型Key、AGH私人账号目录或个人任务数据。需要的配置项见[.env.example](.env.example)，Key使用本人的AGH Provider设置保存。
+AGH coordinates the process; geometry and slicer services compute the metrics and enforce the constraints. Pose selection uses the service-ranked feasible candidates, rather than a model-invented score. [Modules, algorithms, and source map →](docs/architecture.md)
+
+## Integration Standards
+
+- **AGH plugins:** four business packages register structured tools through `ctx.extension().registerTool()` and communicate with the local workbench over HTTP/JSON.
+- **Task binding:** per-task IDs/tokens, candidate IDs, and ordered execution gates connect calls to the correct job.
+- **Artifacts:** STL for manufacturing geometry, GLB/glTF for color review, PrusaSlicer G-code for extrusion analysis, and SHA-256 for file identity.
+- **Reproducibility:** pinned AGH revision, model revisions, slicer version, configuration, and source-coordinate transforms accompany the workflow.
+
+[Tool names, HTTP routes, data conventions, and extension steps →](docs/integration.md)
+
+## Environment and Scope
+
+The recorded local platform is **Windows 11, RTX 5060 Laptop 8 GB VRAM, and 16 GB RAM**. Reviewing included files and running CPU manufacturing checks do not require a GPU. Full shape/texture inference uses separate Python environments; see [setup and troubleshooting](docs/getting-started.md).
+
+Local repair currently targets **one user-confirmed, axis-aligned straight circular rod**. Color output is RGB preview, not a claim of PBR materials or color FDM printing. No physical printer/MHS device integration is included in this release.
+
+## License and Attribution
+
+Original project code is licensed under [Apache-2.0](LICENSE). AGH adaptations and third-party code, models, datasets, and demo media retain their own terms; see [NOTICE](NOTICE) and [third-party sources and licenses](THIRD_PARTY_NOTICES.md). Weights, private task data, and account credentials are not distributed. Use your own authorized inputs and configure keys in your own AGH account; optional environment fields are listed in [.env.example](.env.example).
