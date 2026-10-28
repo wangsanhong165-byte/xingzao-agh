@@ -6,6 +6,10 @@ English | [简体中文](README.zh-CN.md)
 
 [Demo video](#demo-video) · [Quick start](#quick-start) · [Architecture](#architecture) · [Integration standards](#integration-standards) · [Full setup](docs/getting-started.md)
 
+![Selected frames from the recorded demo: three-view modeling, color review, protected-region support, and thin-rod checks](docs/assets/demo-preview.gif)
+
+8-second visual summary · [Download the full narrated demo (4:21, 17.9 MiB)](https://github.com/wangsanhong165-byte/xingzao-agh/raw/refs/heads/main/demo/xingzao-demo.mp4) · [Read the results online](docs/results.md)
+
 ## Project Overview
 
 A model that looks complete on screen can still lose a thin rod during slicing or require support near an important surface. Creators then have to move between modeling software, a slicer, and manual checks to find a usable plan.
@@ -37,15 +41,15 @@ Xingzao brings these steps into one local workbench. Start with front/side/back 
 | Controlled lamp-post rod, upright | Original **0.5 mm** fails; **0.7 mm** still has a centerline gap; **0.8 mm** passes | Feature samples alone are insufficient; the complete centerline is checked too. |
 | Separate five-pose lamp-post task | Original **0.5 mm** rod passes in the side-oriented pose, **0.80 g / 346 s** estimated | Changing pose can preserve the original geometry. |
 
-The repair experiments and five-pose task are separate records. Current evidence covers software geometry and planned extrusion paths; physical printing, fit, and strength remain future experiments. See the [review report](复核报告.html) and [architecture guide](docs/architecture.md).
+The repair experiments and five-pose task are separate records. Current evidence covers software geometry and planned extrusion paths; physical printing, fit, and strength remain future experiments. See the [results and evidence](docs/results.md) and [architecture guide](docs/architecture.md).
 
 ## Demo Video
 
-[![Xingzao workbench demonstration — click to open the video](demo/cover.png)](demo/xingzao-demo.mp4)
+[![Recorded demo cover — download the full MP4](demo/cover.png)](https://github.com/wangsanhong165-byte/xingzao-agh/raw/refs/heads/main/demo/xingzao-demo.mp4)
 
-**[Watch or download the demo MP4](demo/xingzao-demo.mp4)** · [AGH-exported execution records](evidence/agh)
+**[Download the complete MP4 — 4 minutes 21 seconds](https://github.com/wangsanhong165-byte/xingzao-agh/raw/refs/heads/main/demo/xingzao-demo.mp4)** · [Results you can read on GitHub](docs/results.md) · [AGH-exported execution records](evidence/agh)
 
-The recorded demo has Chinese narration and shows the workbench, modeling/color review, support comparison, and thin-rod checks. It is an existing run; a fresh clone does not contain the developer's private images or task database.
+The full video has Chinese narration and includes modeling/color review, AGH decisions, support comparison, thin-rod checks, and stopping/recovery. The preview above uses selected frames with English captions. Download the MP4 to play it locally; GitHub's file preview cannot play this large video. A fresh clone does not contain the developer's private images or task database.
 
 ## Quick Start
 

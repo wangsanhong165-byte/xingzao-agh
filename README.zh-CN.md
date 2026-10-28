@@ -6,6 +6,10 @@
 
 [演示视频](#演示视频) · [快速开始](#快速开始) · [架构介绍](#架构介绍) · [集成标准](#集成标准) · [完整配置](运行与模型配置.md)
 
+![已有演示的关键画面：三视图建模、彩色审阅、保护区支撑与细杆检查](docs/assets/demo-preview.gif)
+
+8秒关键画面摘要 · [下载完整配音视频（4分21秒，17.9 MiB）](https://github.com/wangsanhong165-byte/xingzao-agh/raw/refs/heads/main/demo/xingzao-demo.mp4) · [在线查看结果](docs/results.zh-CN.md)
+
 ## 项目介绍
 
 屏幕上看起来完整的模型，进入切片后仍可能丢失细杆，或在重要表面附近生成大量支撑。创作者需要在建模软件、切片器和人工检查之间反复切换，才能找到可用的方案。
@@ -37,15 +41,15 @@
 | 标准灯柱细杆，直立姿态 | 原件 **0.5 mm** 未通过；**0.7 mm** 仍有轴线缺口；**0.8 mm** 通过 | 特征采样通过后，仍需检查完整轴线的刀轨连续性。 |
 | 独立的灯柱五姿态任务 | 原件 **0.5 mm** 细杆侧放通过，估算 **0.80 g / 346 s** | 调整摆放可以避免修改原几何。 |
 
-局部修正试验与五姿态任务是独立记录。当前证据覆盖软件几何和计划挤出路径，实物打印、装配及强度留待后续实验。详见[复核报告](复核报告.html)和[技术架构](docs/architecture.zh-CN.md)。
+局部修正试验与五姿态任务是独立记录。当前证据覆盖软件几何和计划挤出路径，实物打印、装配及强度留待后续实验。详见[结果与证据](docs/results.zh-CN.md)和[技术架构](docs/architecture.zh-CN.md)。
 
 ## 演示视频
 
-[![形造工作台演示，点击打开视频](demo/cover.png)](demo/xingzao-demo.mp4)
+[![已有演示封面，点击下载完整MP4](demo/cover.png)](https://github.com/wangsanhong165-byte/xingzao-agh/raw/refs/heads/main/demo/xingzao-demo.mp4)
 
-**[观看或下载演示 MP4](demo/xingzao-demo.mp4)** · [AGH官方界面导出的执行记录](evidence/agh)
+**[下载完整MP4：4分21秒](https://github.com/wangsanhong165-byte/xingzao-agh/raw/refs/heads/main/demo/xingzao-demo.mp4)** · [在线查看案例结果](docs/results.zh-CN.md) · [AGH官方界面导出的执行记录](evidence/agh)
 
-视频采用中文配音，展示工作台、建模与彩色审阅、支撑比较及细杆检查。它记录已有任务；首次克隆不包含开发机的私人图片或历史任务数据库。
+完整视频采用中文配音，展示建模与彩色审阅、AGH决策、支撑比较、细杆检查以及停止与恢复。上方预览选取视频关键帧并添加英文说明。完整MP4请下载后播放，GitHub文件页无法直接预览该大小的视频。首次克隆不包含开发机的私人图片或历史任务数据库。
 
 ## 快速开始
 

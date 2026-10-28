@@ -26,7 +26,7 @@
 | [pose-agh-plugin](../pose-agh-plugin/index.mjs) | `pose_inspect`、`pose_evaluate`、`pose_select`、`pose_verify`、`pose_submit` | 检查 → 评估全部声明姿态 → 选取可行推荐 → 复核 → 提交 |
 | [repair-agh-plugin](../repair-agh-plugin/index.mjs) | `repair_inspect`、`repair_evaluate`、`repair_apply`、`repair_verify`、`repair_submit` | 检查 → 评估原件 → 失败后采用允许修正 → 评估 → 复核 → 提交 |
 
-修正任务中，原件评估通过可跳过 `repair_apply`，直接验证。生产姿态 ID 为 `upright`、`tilt-x-plus`、`tilt-x-minus`、`tilt-y-plus`、`face-up`。修正候选为 `original` 和服务依次签发的 `r01`～`r03`。纹理尝试为 `t01`/`t02`；只有标准配置发生真实资源失败后才允许使用 `compact` 配置。
+修正任务中，原件评估通过可跳过 `repair_apply`，直接验证。工作台采用 `fixed-five-v2` 策略，姿态 ID 为 `upright`、`tilt-x-plus`、`tilt-x-minus`、`tilt-y-plus`、`face-up`。底层姿态API省略 `posePolicy` 时默认使用历史 `fixed-four-v1`，因此调用方需要明确传入 `fixed-five-v2` 才会比较5种姿态。修正候选为 `original` 和服务依次签发的 `r01`～`r03`。纹理尝试为 `t01`/`t02`；只有标准配置发生真实资源失败后才允许使用 `compact` 配置。
 
 生成次数、修正候选和工具调用均有会话预算。客户端使用服务返回的候选和选项，不自行编造 ID、无限重试或绕过复核。
 
@@ -78,6 +78,31 @@ HTTP 成功不等于候选可行，还需按操作检查 `success`、`feasible`�
 ```powershell
 Invoke-RestMethod http://127.0.0.1:4337/api/poses/status
 ```
+
+### 示例：导入标准STL并创建五姿态任务
+
+完成CPU和AGH配置后，在仓库根目录运行。导入模型需要CPU工具，启动任务另需已配置的本人AGH模型账号。公开的创建入口无需手动传工具令牌，由运行器内部生成。
+
+```powershell
+$file = (Resolve-Path 'case/source-original.stl').Path
+$payload = @{
+  name = 'source-original.stl'
+  mime = 'model/stl'
+  sourceUnits = 'mm'
+  targetLongestEdgeMm = 30
+  dataBase64 = [Convert]::ToBase64String([IO.File]::ReadAllBytes($file))
+} | ConvertTo-Json -Depth 6
+$model = Invoke-RestMethod http://127.0.0.1:4337/api/model-import -Method Post -ContentType 'application/json' -Body $payload
+$poseRequest = @{
+  sourceKind = 'imported'
+  sourceCandidateId = $model.candidateId
+  posePolicy = 'fixed-five-v2'
+} | ConvertTo-Json
+$job = Invoke-RestMethod http://127.0.0.1:4337/api/poses/start -Method Post -ContentType 'application/json' -Body $poseRequest
+Invoke-RestMethod "http://127.0.0.1:4337/api/poses/jobs/$($job.id)"
+```
+
+最小示例没有声明保护区域或细杆，因此**不包含这些特征检查**。请用工作台选取并确认杆段/区域，或按验证器补充 `criticalFeatures`、`continuousRods`、`protectedRegions`/`maxRegionSupportPathLengthMm`。随后轮询返回的任务ID；只有 `stage: "completed"` 且 `recheck` 成功才是验证后交付，`no-feasible`、`failed`、`interrupted` 都是停止结果。下载使用任务返回的STL/G-code链接，不自行拼接文件哈希。
 
 ## 4. 文件与测量约定
 

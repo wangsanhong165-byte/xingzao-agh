@@ -2,7 +2,7 @@
   "schema": "xingzao-review-bundle/v1",
   "createdAt": "2026-10-09T10:38:14.498Z",
   "evidenceBytes": 20580038,
-  "payloadBytes": 32000278,
+  "payloadBytes": 32595180,
   "summary": {
     "task": "versioned-five-pose-original-delivery-and-historical-repair",
     "source": "team-original-parametric-design; not a photograph",
@@ -276,8 +276,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7809,
-      "sha256": "6a5d537364d4686eb59d05f7e2b0b8907099018d7c0ae5294e2283f88568b272",
+      "bytes": 8536,
+      "sha256": "0126267845590d45547f2cd76dae01a6ccb36286622e17a174e4df7bcd53497e",
       "kind": "source"
     },
     {
@@ -1842,8 +1842,8 @@
     },
     {
       "path": "运行与模型配置.md",
-      "bytes": 16211,
-      "sha256": "934ae2e39157cb69ef39dff93313c2e8f3c2efbfe32e26a1c349671e21122ad7",
+      "bytes": 9223,
+      "sha256": "681862ee67000a6b35bb42eda2d16956a78a4111f8101da41077b2a8273d46a9",
       "kind": "source"
     },
     {
@@ -1974,8 +1974,8 @@
     },
     {
       "path": "运行与模型配置.html",
-      "bytes": 18364,
-      "sha256": "8b1cef5bdae983771c35aa4ae6d994ca73e4f77aff4505d9ea49f2e435294baf",
+      "bytes": 11037,
+      "sha256": "2e397ef12504007fdcee4bb08217c1c484e774d7b9b2fdd367cf1ae10cfebb4f",
       "kind": "source"
     },
     {
@@ -2232,8 +2232,8 @@
     },
     {
       "path": "README.zh-CN.md",
-      "bytes": 7053,
-      "sha256": "4d286e96ac74141f475414a3d4062eda79f92cab7b6cf5873693adb84ea49139",
+      "bytes": 7750,
+      "sha256": "e55be4a6e93e747b613998ae6c26896bb9831ad8b149ae80add4cb6035580516",
       "kind": "source"
     },
     {
@@ -2250,14 +2250,44 @@
     },
     {
       "path": "docs/integration.md",
-      "bytes": 7589,
-      "sha256": "11073056b2fcfee92d59837a4870299a19afb3dd4ec199283ed3334b55761e5a",
+      "bytes": 9406,
+      "sha256": "cd7785ef61a9c7ff34160c456522d0c707d7f50eb191aaf84401c982b4d71efe",
       "kind": "source"
     },
     {
       "path": "docs/integration.zh-CN.md",
-      "bytes": 6917,
-      "sha256": "e76aea331717134f0c5b51bcb89070aa5259ad4a6d34a23779ffe17076a18c3d",
+      "bytes": 8611,
+      "sha256": "1b691328647842e586875a5f37882adc279ea4ed9bab329ffbd46bd5172486a3",
+      "kind": "source"
+    },
+    {
+      "path": "docs/assets/demo-preview.gif",
+      "bytes": 265958,
+      "sha256": "789cd63254df65d55252db24888d06c78a12db2c0eb69ece5bad26ac75beda7c",
+      "kind": "source"
+    },
+    {
+      "path": "docs/assets/modeling-preview.png",
+      "bytes": 197368,
+      "sha256": "6b01c0a94739feb793204d162910d2d5fd86e5718c633187d54de0d953f55bec",
+      "kind": "source"
+    },
+    {
+      "path": "docs/assets/rod-preview.png",
+      "bytes": 132190,
+      "sha256": "ef17e54ba604e203e97eb7ef8459e10d1157426df28ec4f0325380cd45aecdc8",
+      "kind": "source"
+    },
+    {
+      "path": "docs/results.md",
+      "bytes": 4618,
+      "sha256": "8fae073d391ef3ed37f7856a523b44b57e4e2a51a9e0a7905710da8ff3f5766f",
+      "kind": "source"
+    },
+    {
+      "path": "docs/results.zh-CN.md",
+      "bytes": 4148,
+      "sha256": "01a8834190aef8b098779094eceaa606775cd67ed5952b47a831fc412186934a",
       "kind": "source"
     }
   ],

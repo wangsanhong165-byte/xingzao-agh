@@ -1,114 +1,73 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>形造：环境配置与运行</title><style>body{max-width:980px;margin:40px auto;padding:0 22px;font:16px/1.8 system-ui,Microsoft YaHei,sans-serif;color:#182b3b;background:#fafbf9}a{color:#156788}h1{font-size:30px}h2{margin-top:36px;font-size:23px}pre{background:#edf1f2;padding:18px;overflow:auto;white-space:pre-wrap;word-break:break-word}code{font-size:.93em}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccd6d9;padding:10px;text-align:left}.table{overflow:auto}</style><main><h1>形造：查看与完整复现</h1>
-<p><a href="https://github.com/wangsanhong165-byte/xingzao-agh/blob/main/docs/getting-started.md">English setup guide</a> | 简体中文 · <a href="https://github.com/wangsanhong165-byte/xingzao-agh/blob/main/README.zh-CN.md">项目首页</a></p>
-<h2>从GitHub源码开始</h2>
-<p>先安装Node.js 24.10或更高版本（含npm），在克隆的仓库根目录执行<code>npm.cmd ci</code>。运行<code>node tools/review/run.mjs</code>复核仓库自带样例；运行<code>npm.cmd start</code>打开工作台。GitHub版本不附Node、Python环境、切片器二进制、模型权重或开发机任务数据库，所需工具由下文安装器下载。新任务需要配置本人的AGH账号与专业工具。</p>
-<p>下文同时说明参赛包与GitHub部署：提到“完整源码”时，GitHub用户均指仓库根目录；提到“案例/测试样例”时，GitHub用户使用仓库根目录<code>case/</code>及<code>examples/</code>。参赛包独有的预装组件不作为源码克隆的前提。</p>
-<p>所有功能最终都在同一个工作台 <code>http://127.0.0.1:4337/</code> 使用。提交包完整解压后，先打开根目录 **README.html**。以下命令在 **完整源码** 根目录执行；GitHub用户在仓库根目录执行。</p>
-<h2>材料与运行入口</h2>
-<p>提交包根目录为README.html、演示视频.mp4、完整源码、AGH运行记录、案例。README.html包含材料链接；案例/index.html提供三类案例的输入、过程和交付文件。</p>
-<p>以下命令均在 **完整源码** 目录执行；GitHub用户在仓库根目录执行。参赛包附Node及前端依赖，先为当前PowerShell设置路径：</p>
-<pre><code>$bundledNode = Join-Path $PWD &#x27;data/tools/node-v24.16.0-win-x64&#x27;
-if (Test-Path $bundledNode) { $env:PATH = $bundledNode + &#x27;;&#x27; + $env:PATH }</code></pre>
-<p>重新复核已有文件：</p>
-<pre><code>node tools/review/run.mjs</code></pre>
-<p>GitHub版本的报告写入仓库根目录<code>复核报告.html</code>；参赛包按随包目录生成报告。不调用模型，不需要Key或GPU。</p>
-<p>启动工作台：</p>
-<pre><code>$env:PHOTO_CAD_AGH_HOME = Join-Path $env:USERPROFILE &#x27;.agh-print-detail-v2&#x27;
-node src/print-server.mjs</code></pre>
-<p>地址为 http://127.0.0.1:4337/。新任务按后文配置AGH；图片建模和上色还需GPU环境及权重。</p>
-<h2>随包离线复核组件</h2>
-<p>200 MB以内的参赛补充包预装了 PrusaSlicer 2.9.6、CPU网格与刀轨复核所需的Python wheels，以及本机编译并可选使用的纹理扩展wheel。Windows x64、Python 3.12 用户可以直接安装CPU复核环境并离线运行切片，不必再从PyPI下载这组依赖。这个轻量环境用于网格和制造验证，不包含图片识别或生成所需的OpenCV、模型权重及GPU运行库。若从GitHub源码克隆，安装器可以在线下载同版本依赖及切片器。</p>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>形造：环境配置与运行</title><style>body{max-width:980px;margin:40px auto;padding:0 22px;font:16px/1.8 system-ui,Microsoft YaHei,sans-serif;color:#182b3b;background:#fafbf9}a{color:#156788}h1{font-size:30px}h2{margin-top:36px;font-size:23px}pre{background:#edf1f2;padding:18px;overflow:auto;white-space:pre-wrap;word-break:break-word}code{font-size:.93em}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccd6d9;padding:10px;text-align:left}.table{overflow:auto}</style><main><h1>形造：从源码部署与运行</h1>
+<p><a href="https://github.com/wangsanhong165-byte/xingzao-agh/blob/main/docs/getting-started.md">English</a> | 简体中文 · <a href="https://github.com/wangsanhong165-byte/xingzao-agh/blob/main/README.zh-CN.md">项目首页</a></p>
+<p>本文针对 **Windows x64 上新克隆的 GitHub 仓库**。仓库包含源码、样例和执行记录，不附 Python 环境、切片器程序、模型权重、私人任务数据库或账号。安装过程需要访问 GitHub、PyPI、PyTorch 和 Hugging Face。</p>
+<h2>先选需要的运行范围</h2>
+<div class="table"><table><thead><tr><th>目标</th><th>需要准备</th><th>阅读步骤</th></tr></thead><tbody><tr><td>查看并复核已有结果</td><td>Node.js 24.10+，含npm</td><td>第1步</td></tr><tr><td>重新生成标准件并切片</td><td>上述环境和Python 3.12 x64</td><td>第1～2步</td></tr><tr><td>执行新的AGH制造任务</td><td>上述环境、Git、AGH编译工具和本人的模型账号</td><td>第1、3～4步</td></tr><tr><td>图片建模与上色</td><td>上述环境、兼容的NVIDIA GPU和驱动，以及上色扩展的CUDA编译工具</td><td>第1、3～6步</td></tr></tbody></table></div>
+<p>已有完整GPU平台为 Windows 11、RTX 5060 Laptop 8 GB显存、16 GB内存、Python 3.12、Torch 2.11.0+cu130。CPU制造检查无需CUDA或混元权重。完整安装建议预留约40 GB磁盘空间，其中形状与纹理权重约13 GiB。其他软硬件组合需单独验证。</p>
+<h2>第1步：克隆与复核已有结果</h2>
+<p>在PowerShell执行：</p>
+<pre><code>git clone https://github.com/wangsanhong165-byte/xingzao-agh.git
+cd xingzao-agh
+npm.cmd ci
+node tools/review/run.mjs</code></pre>
+<p>用浏览器打开仓库根目录的 <code>复核报告.html</code>。预期：原件直立和边界修正案例被拒绝；正常修正和原件侧放通过；摄影外观保护案例的区域支撑路径减少约77.33%。“复核通过”表示这些判断与记录一致，不表示所有候选都可行。</p>
+<p>这一步不调用模型、无需Key或GPU，部分网格探针使用已有缓存。GitHub不直接渲染HTML报告，在线查看请从首页进入“结果与证据”。</p>
+<h2>第2步：重新生成标准件并切片</h2>
+<p>准备Python 3.12 x64后，在仓库根目录执行：</p>
 <pre><code>py -3.12 tools/setup/reproduce.py environment --kind cpu-review
-&amp; .\data\reconstruction\env-torch-readonly\Scripts\python.exe tools/setup/check_runtime.py --kind cpu-review
-py -3.12 tools/setup/reproduce.py assets --scope slicer</code></pre>
-<p>安装Python3.12 x64后，依次执行上面三条准备命令，再重新建模并切片：</p>
-<pre><code>&amp; .\data\reconstruction\env-torch-readonly\Scripts\python.exe tools/setup/reslice.py</code></pre>
-<p>最后会打开“本次重新生成与切片”报告；新文件保存在源码 <code>data/reproduction-runs/</code> 的本次目录。STL切片所需的PrusaSlicer exe和DLL保持官方字节，套件省略GUI示例资源和本项目不用的STEP导入库；安装器校验固定SHA-256，完整官方发行版与源码地址保留在ORIGIN.txt。完整图像建模和上色需要下载模型及GPU依赖，见第4步。</p>
-<h2>完整运行前准备</h2>
-<p>固定GPU路线为Windows x64、Python3.12、RTX5060 Laptop 8GB、Torch2.11.0+cu130。重新建立两个独立Python环境，不复制开发机的Conda或语音环境。</p>
-<div class="table"><table><thead><tr><th>准备项</th><th>官方入口</th><th>用途</th></tr></thead><tbody><tr><td>Node.js≥24.10，含npm</td><td><a href="https://nodejs.org/en/download">Node.js</a></td><td>参赛包已附24.16.0；源码克隆用户需安装</td></tr><tr><td>64位Python3.12，可运行py -3.12</td><td><a href="https://www.python.org/downloads/windows/">Python Windows</a></td><td>网格、模型及安装工具</td></tr><tr><td>Git</td><td><a href="https://gitforwindows.org/">Git for Windows</a></td><td>固定版本AGH源码</td></tr><tr><td>VS2022 Build Tools，C++桌面开发及Windows SDK</td><td><a href="https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022">微软Build Tools</a></td><td>AGH Windows原生组件；换GPU环境编译纹理扩展也要用</td></tr><tr><td>CUDA Toolkit13.0、兼容的NVIDIA驱动</td><td><a href="https://developer.nvidia.com/cuda-13-0-0-download-archive">NVIDIA CUDA13.0</a></td><td>只有从源码编译纹理扩展时才需Toolkit；附带wheel可用于本机Torch/CUDA栈</td></tr><tr><td>自己的模型服务账号</td><td>AGH的Provider设置</td><td>智能体规划和工具调用</td></tr></tbody></table></div>
-<p>CPU制造任务无需CUDA、GPU或Hunyuan权重。完整GPU安装建议预留40GB磁盘空间：形状和纹理权重约13GiB，另需依赖、下载缓存及编译临时文件。下载需访问GitHub、PyPI、PyTorch和Hugging Face。</p>
-<h2>第1步：安装项目依赖与专业工具</h2>
-<p>打开PowerShell，进入源码目录：</p>
-<p>参赛包已经附Node运行环境。使用下面命令前，可只为当前PowerShell设置路径：</p>
-<pre><code>$bundledNode = Join-Path $PWD &#x27;data/tools/node-v24.16.0-win-x64&#x27;
-if (Test-Path $bundledNode) { $env:PATH = $bundledNode + &#x27;;&#x27; + $env:PATH }</code></pre>
-<pre><code>npm.cmd ci
-py -3.12 tools/setup/reproduce.py environment --kind cpu
+py -3.12 tools/setup/reproduce.py assets --scope slicer
+&amp; .\data\reconstruction\env-torch-readonly\Scripts\python.exe tools/setup/reslice.py</code></pre>
+<p>安装器下载固定版本CPU依赖和PrusaSlicer 2.9.6。最后一条命令生成新的STL和G-code，并打开结果页，文件保存在 <code>data/reproduction-runs/</code>。它验证标准灯柱的重新生成与实际切片，不调用图片模型或AGH账号。</p>
+<h2>第3步：准备专业工具、AGH与模型账号</h2>
+<p>安装Git、VS2022 Build Tools的“C++桌面开发”及Windows SDK。随后在仓库根目录执行：</p>
+<pre><code>py -3.12 tools/setup/reproduce.py environment --kind cpu
 py -3.12 tools/setup/reproduce.py assets --scope core
-&amp; .\data\reconstruction\env-torch-readonly\Scripts\python.exe tools/setup/check_runtime.py --kind cpu</code></pre>
-<p>安装过程的pip check应显示 **No broken requirements found**；最后应输出 **meshImport: true、imageProcessingAvailable: true**。安装器下载固定PrusaSlicer2.9.6和Hunyuan源码，核验哈希与53份源文件。它只准备项目data/，拒绝修改继承环境；遇到旧环境请用新解压目录。</p>
-<p>只看计划而不安装：<code>py -3.12 tools/setup/reproduce.py --plan assets --scope all</code>。</p>
-<h2>第2步：构建AGH、配置账号、安装插件</h2>
-<pre><code>powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/setup/agh.ps1 -Action Build
+&amp; .\data\reconstruction\env-torch-readonly\Scripts\python.exe tools/setup/check_runtime.py --kind cpu
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/setup/agh.ps1 -Action Build
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/setup/agh.ps1 -Action Serve</code></pre>
-<p>Build获取AGH固定版本ec7ebbdb36e7658d2a121c3ba5113e850b16cb63，应用agh-adaptation/全部适配，使用pnpm10.34.5构建完整运行目录；pnpm通过npm临时调用。脚本拒绝覆盖不同版本源码或已有运行目录。</p>
-<p>Serve终端保持打开，按终端地址进入AGH Provider设置。选择 **CommandCode**，Base URL为 <code>https://api.commandcode.ai/provider/v1</code>；输入本人Key，测试连接，选择 **deepseek/deepseek-v4.1-flash**，保存为默认账号。项目也支持Agnes AI的agnes-3.0-flash；其他模型需修改并验证项目路由白名单，不能只填任意名称。</p>
-<p>另开PowerShell进入同一源码目录，停止此专用AGH实例，再安装四个业务插件：</p>
+<p>CPU检查应显示 <code>meshImport: true</code>、<code>imageProcessingAvailable: true</code>。Build获取固定AGH提交 <code>ec7ebbdb36e7658d2a121c3ba5113e850b16cb63</code>，应用 <code>agh-adaptation/</code> 的适配，通过npm调用pnpm 10.34.5完成构建。脚本拒绝覆盖版本冲突的源码或运行目录。</p>
+<p>保持Serve运行，按终端地址打开AGH，在Provider设置中配置**本人的模型账号**、测试连接并保存默认账号。已有配置使用 **CommandCode**，Base URL为 <code>https://api.commandcode.ai/provider/v1</code>，模型为 <code>deepseek/deepseek-v4.1-flash</code>；项目也支持已配置的Agnes AI路由 <code>agnes-3.0-flash</code>。其他模型路由需修改并验证白名单。账号权限和额度以提供方为准。</p>
+<p>另开PowerShell，进入同一仓库目录，停止此专用AGH实例、安装插件并重启：</p>
 <pre><code>$env:AGH_HOME = Join-Path $env:USERPROFILE &#x27;.agh-print-detail-v2&#x27;
 $env:PHOTO_CAD_AGH_HOME = $env:AGH_HOME
 $env:AGNES_PROFILE = &#x27;local-dev&#x27;
 node data/agh-runtime/agnes.mjs daemon stop --profile local-dev
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/setup/agh.ps1 -Action Plugins
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/setup/agh.ps1 -Action Serve</code></pre>
-<p>插件安装从随包源码读取真实integrity，通过AGH官方安装、信任、启用、快照固定流程准备姿态、修正、重建和上色工具。Key只保存于本人AGH私有凭据库，无需开发者Key、.env或历史账号。</p>
-<h2>第3步：先跑CPU制造任务</h2>
-<p>启动工作台并完成AGH配置后，可用随包灯柱验证完整任务：</p>
-<p>1. 首页进入“细杆检查”，点击“导入自己的STL / GLB”。选择提交包 <code>案例/测试样例/case/source-original.stl</code>；GitHub用户选仓库 <code>case/source-original.stl</code>。</p>
-<p>2. 将“目标最长边”填为 **30 mm**，点击“检查并导入模型”。应显示尺寸 **12 × 8 × 30 mm**，再点击“继续细杆检查”。</p>
-<p>3. 杆轴选择 **Z轴**，保留默认预算 **0.2 mm径向、20 mm³新增体积**。先在模型画布上滚轮放大，再点“点击模型选取细杆”，点击杆身中段。</p>
-<p>4. 查看测量提案，应得到 **0.25 mm半径**和 **Z=2到28 mm**的完整轴线。勾选确认后，点“开始一次打印方案检查”。</p>
-<p>5. 等待五姿态比较和结果重检。成功时本页开放STL下载；点击“查看姿态任务”，在结果页下载 **已验证G-code**。任务地址可用于恢复查看。</p>
-<p>AGH组织姿态比较，工具实际生成G-code；原件可行便直接交付，必要且预算允许才修正。结果页显示特征/连续性检查、采用方案和耗材/时间估算，可下载模型和刀轨。降低预算或改变目标可以查看停止结果。</p>
+<p>Plugins完成4个业务插件的安装、信任、启用与快照固定。Key保存在本人的AGH私有设置中，不复制开发机账号目录，也不将Key提交到Git。</p>
+<h2>第4步：启动工作台并执行制造任务</h2>
+<p>另开PowerShell，在仓库根目录执行：</p>
+<pre><code>$env:PHOTO_CAD_AGH_HOME = Join-Path $env:USERPROFILE &#x27;.agh-print-detail-v2&#x27;
+npm.cmd start</code></pre>
+<p>打开 **http://127.0.0.1:4337/**，保持AGH与工作台进程运行：</p>
+<p>1. 进入“细杆检查”，选择“导入自己的STL / GLB”，导入 <code>case/source-original.stl</code>。</p>
+<p>2. “目标最长边”填写 **30 mm**，检查导入后确认尺寸 **12 × 8 × 30 mm**，继续细杆检查。</p>
+<p>3. 杆轴选择 **Z轴**，保留 **0.2 mm径向、20 mm³新增体积**预算，放大画布并点选杆身中段。</p>
+<p>4. 确认 **0.25 mm半径**和 **Z=2到28 mm** 的完整轴线，开始打印方案检查。</p>
+<p>5. 等待五姿态比较与结果重检。成功时下载STL，通过“查看姿态任务”下载已验证G-code。保存任务URL可再次打开结果。</p>
+<p>就绪检查：</p>
 <pre><code>node tools/review/preflight.mjs --mode offline
 node tools/review/preflight.mjs --mode live</code></pre>
-<p>offline应为ready，live还需账号与插件就绪。实际成功以任务页工具结果和文件交付为准。</p>
-<h2>第4步：准备形状和插画上色</h2>
-<p>继续在同一源码目录执行。GPU安装将独立CPU环境补成形状环境，另建上色环境。</p>
+<p>offline检查本地工具和文件，live另需账号与插件。新执行以任务完成并交付已验证文件为准。</p>
+<h2>第5步：可选图片建模与彩色审阅</h2>
+<p>准备GPU独立环境并下载固定版本资产：</p>
 <pre><code>py -3.12 tools/setup/reproduce.py environment --kind gpu
 &amp; .\data\reconstruction\env-torch-readonly\Scripts\python.exe tools/setup/reproduce.py assets --scope shape
 &amp; .\data\reconstruction\env-texture-probe\Scripts\python.exe tools/setup/reproduce.py assets --scope texture
 &amp; .\data\reconstruction\env-torch-readonly\Scripts\python.exe tools/setup/check_runtime.py --kind shape --gpu-smoke</code></pre>
-<p>下载器从固定Hugging Face revision取得文件，核验大小及SHA/Git blob，包括形状配置和生成程序要求的下载清单。中断可重跑，同身份文件复核后跳过，不覆盖不同内容。</p>
-<div class="table"><table><thead><tr><th>资产</th><th>固定来源</th><th>data/reconstruction/下的位置</th></tr></thead><tbody><tr><td>形状，约4.59GiB</td><td>tencent/Hunyuan3D-2mv @ 3a761b539b29fe4ff64714813aa9560fd66f5de0</td><td>modelcache/hunyuan3d-2mv</td></tr><tr><td>Paint Turbo，17文件、约8.40GiB</td><td>tencent/Hunyuan3D-2 @ 9cd649ba6913f7a852e3286bad86bfa9a2d83dcf</td><td>modelcache/hunyuan3d-paint-probe</td></tr><tr><td>Hunyuan源码</td><td>Tencent-Hunyuan/Hunyuan3D-2 @ f8db63096c8282cb27354314d896feba5ba6ff8a</td><td>source-f8db630/Hunyuan3D-2-上述完整commit</td></tr></tbody></table></div>
-<p>上色使用插画参考、跳过Delight，输出RGB审阅资产；不表示PBR或彩色FDM打印。</p>
-<h2>第5步：编译上色扩展</h2>
-<p>**GitHub源码克隆不附预编译wheel，请直接执行下方“从开始菜单打开 x64 Native Tools”后的源码构建命令。** 只有另外持有同平台参赛补充包wheel时，才使用下面的可选预编译安装命令。</p>
-<p>针对 RTX5060 Laptop / Windows x64 / Python3.12 / Torch2.11.0+cu130，补充包已带两个编译好的wheel。在GPU环境和Hunyuan源码装好后，可执行以下两条，符合该配置即可跳过源码编译。其他CUDA、Torch或GPU组合请用后面的源码构建步骤。</p>
-<pre><code>data\reconstruction\env-texture-probe\Scripts\python.exe -m pip install --no-index --no-deps --find-links data\setup\wheels custom-rasterizer==0.1 mesh-processor==0.0.0
-data\reconstruction\env-texture-probe\Scripts\python.exe tools\setup\check_runtime.py --kind texture --gpu-smoke</code></pre>
-<p>检查应显示 <code>nativeExtensions: true</code> 且 <code>rasterVisiblePixels</code> 大于0。</p>
-<p>从开始菜单打开 **x64 Native Tools Command Prompt for VS2022**，进入源码目录。以下是CMD命令，CUDA目录按实际安装路径设置，变量仅影响当前终端：</p>
+<div class="table"><table><thead><tr><th>资产</th><th>固定上游版本</th></tr></thead><tbody><tr><td>Hunyuan3D-2mv，约4.59 GiB</td><td><code>tencent/Hunyuan3D-2mv</code> @ <code>3a761b539b29fe4ff64714813aa9560fd66f5de0</code></td></tr><tr><td>Paint Turbo资产，约8.40 GiB</td><td><code>tencent/Hunyuan3D-2</code> @ <code>9cd649ba6913f7a852e3286bad86bfa9a2d83dcf</code></td></tr><tr><td>Hunyuan源码</td><td><code>Tencent-Hunyuan/Hunyuan3D-2</code> @ <code>f8db63096c8282cb27354314d896feba5ba6ff8a</code></td></tr></tbody></table></div>
+<p>下载器检查文件身份，可复用同身份的已下载文件。上色以插画为参考、跳过Delight，生成RGB审阅资产。制造几何与彩色文件分别保留。</p>
+<h2>第6步：编译上色扩展</h2>
+<p>GitHub克隆**不含预编译原生wheel**。针对已有Torch/CUDA栈，准备CUDA Toolkit 13.0和兼容驱动。打开 **x64 Native Tools Command Prompt for VS2022**，进入仓库目录，执行以下 **CMD命令**；CUDA安装路径按实际情况调整：</p>
 <pre><code>set &quot;CUDA_HOME=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.0&quot;
 set &quot;CUDA_PATH=%CUDA_HOME%&quot;
 set &quot;PATH=%CUDA_HOME%\bin;%PATH%&quot;
 data\reconstruction\env-texture-probe\Scripts\python.exe tools\setup\build_native.py
 data\reconstruction\env-texture-probe\Scripts\python.exe -m pip install --no-index --no-deps --find-links data\setup\wheels custom-rasterizer==0.1 mesh-processor==0.0.0
 data\reconstruction\env-texture-probe\Scripts\python.exe tools\setup\check_runtime.py --kind texture --gpu-smoke</code></pre>
-<p>脚本在副本中构建custom_rasterizer和mesh_processor，携带已验证的Windows编译设置，目标sm_120。固定上游版本已包含int64_t修复，无需改动受哈希保护的生产源码。最后应输出 **textureImport: true、nativeExtensions: true、rasterVisiblePixels大于0**。失败时核对VS、SDK、nvcc和Torch版本，保留错误输出。</p>
-<p>两个环境均不继承系统包：</p>
-<ul><li>形状/几何：data/reconstruction/env-torch-readonly/Scripts/python.exe</li><li>上色：data/reconstruction/env-texture-probe/Scripts/python.exe</li></ul>
-<h2>第6步：从输入到交付</h2>
-<p>保持AGH Serve和工作台进程运行，在4337首页操作：</p>
-<p>1. **照片建模**：上传正、侧、背图，确认侧视方向与尺寸；等待白模、网格检查和初次切片。</p>
-<p>2. **彩色审阅**：从同源模型进入上色，上传插画参考，查看GLB配色和接缝。这一步可选，制造用源几何保持独立。</p>
-<p>3. **外观保护**：点选重要表面、调整保护体积、确认目标；AGH比较五姿态，列出局部支撑收益和总耗材/时间代价。</p>
-<p>4. **细杆检查**：点选直圆杆、确认预算，按反馈保留原件或受约束修正；失败条件会停止。</p>
-<p>5. **文件交付**：在结果页下载模型和刀轨；保存任务URL可恢复现有任务。</p>
-<p>各入口携带模型来源，均在同一工作台。可使用本人图片；GitHub的case/skull-input-front.png、skull-input-left.png、skull-input-back.png提供公开许可三视图，来源在case/skull-input-manifest.json；提交包保留对应真实刀轨供复核。</p>
-<p>新任务数据在项目data/目录，例如reconstruction/jobs（建模）、texture（上色）；制造结果由页面提供下载。新AGH记录在本人专用home，通过Web导出，或在PowerShell中：</p>
-<pre><code>$env:AGH_HOME = Join-Path $env:USERPROFILE &#x27;.agh-print-detail-v2&#x27;
-$env:AGNES_PROFILE = &#x27;local-dev&#x27;
-node data/agh-runtime/agnes.mjs sessions --json
-node data/agh-runtime/agnes.mjs export &lt;实际会话ID&gt; --format agnes --html</code></pre>
-<h2>pip依赖批量下载与离线安装</h2>
-<p>按<a href="https://pip.pypa.io/en/stable/cli/pip_download/">pip download官方流程</a>下载安装文件，不复制site-packages：</p>
-<pre><code>py -3.12 tools/setup/reproduce.py wheels --kind gpu --destination data/setup/wheels</code></pre>
-<p>该目录收集Torch和项目Python依赖；第5步的两个原生wheel也在同一目录。相同平台的另一台机器，可在新解压源码中：</p>
-<pre><code>py -3.12 tools/setup/reproduce.py environment --kind gpu --wheelhouse data/setup/wheels
-&amp; .\data\reconstruction\env-texture-probe\Scripts\python.exe -m pip install --no-index --no-deps --find-links data/setup/wheels custom-rasterizer==0.1 mesh-processor==0.0.0</code></pre>
-<p>Git/Node/VS/CUDA、AGH构建依赖、模型和切片器不是pip，仍按前面步骤准备。原生wheel适用相同Python/Torch/CUDA/GPU架构，其他平台需重新编译。</p>
-<h2>排错</h2>
-<div class="table"><table><thead><tr><th>情况</th><th>处理</th></tr></thead><tbody><tr><td>.env not found</td><td>标准启动命令不读取.env；账号在AGH设置</td></tr><tr><td>页面能开但任务失败</td><td>顺序检查AGH、四插件、CPU工具；建模/上色再检查GPU环境和模型</td></tr><tr><td>凭据权限错误</td><td>本人新建的专用home用官方界面保存账号，不复制他人的凭据库；按AGH原错误检查权限</td></tr><tr><td>首次没有旧案例</td><td>提交包的案例/index.html提供现有案例；新任务可导入随包模型</td></tr><tr><td>文件身份或源码核验失败</td><td>核对revision和路径，不关闭校验；可用新解压目录安装</td></tr><tr><td>4337占用</td><td>核对自己的重复工作台进程，业务插件默认连接4337</td></tr><tr><td>显存不足</td><td>关闭其他GPU任务，降低生成/贴图设置，以实际运行结果判断成功</td></tr></tbody></table></div>
-<p>若pip下载约1.9GB的Torch文件长期无进展，可运行 <code>py -3.12 tools/setup/download_torch.py</code>。它从官方PyTorch地址分块续传，按官方SHA-256校验后保存wheel；再重跑 <code>environment --kind gpu</code>，安装器会复用该文件。分块失败时保留已完成部分，不将未完成文件当成安装成功。</p>
-<p>视频和trace保留已有任务记录；重新执行会产生新的模型、刀轨和AGH记录。</p></main></html>
+<p>检查应显示 <code>textureImport: true</code>、<code>nativeExtensions: true</code>、<code>rasterVisiblePixels &gt; 0</code>。构建脚本在源码副本中使用已有Windows/sm_120设置。其他Torch/CUDA/GPU组合需重新构建并验证。</p>
+<p>返回工作台，上传正、侧、背图，确认侧视方向和尺寸后生成白模；可选进入彩色审阅并上传插画参考。已有几何也可以进入外观保护或细杆检查。请使用有权使用的图片；<code>case/skull-input-front.png</code>、<code>skull-input-left.png</code>、<code>skull-input-back.png</code> 为公开许可样例，来源与处理记录见 <code>case/skull-input-manifest.json</code>。</p>
+<h2>排错与执行记录</h2>
+<div class="table"><table><thead><tr><th>现象</th><th>检查方法</th></tr></thead><tbody><tr><td>页面能开，任务无法运行</td><td>检查AGH Serve、模型账号、4个插件和CPU工具；图片阶段另查GPU资产</td></tr><tr><td>找不到以前的演示任务</td><td>私人历史任务不随仓库分发，先看在线结果或随仓库样例，再创建自己的任务</td></tr><tr><td>4337端口被占用</td><td>检查重复启动的工作台；业务插件使用固定端口</td></tr><tr><td>文件身份不一致</td><td>核对固定版本与路径，不关闭校验</td></tr><tr><td>上色扩展失败</td><td>匹配Python/Torch/CUDA/VS版本，检查光栅器烟测</td></tr><tr><td>GPU显存不足</td><td>关闭其他GPU任务，降低允许的生成/上色设置，重新执行并检查结果</td></tr></tbody></table></div>
+<p>新任务和资产写入 <code>data/</code>；AGH记录使用本人的专用home，可从AGH Web界面导出。已有官方界面导出在 <code>evidence/agh/</code>。</p>
+<p>如需为同平台机器预下载Python依赖，可执行 <code>py -3.12 tools/setup/reproduce.py wheels --kind gpu --destination data/setup/wheels</code>，再用 <code>environment --kind gpu --wheelhouse data/setup/wheels</code> 安装。模型、AGH构建依赖、切片器和原生扩展仍需按前文准备。</p></main></html>

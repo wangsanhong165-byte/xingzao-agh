@@ -26,7 +26,7 @@ Build/install instructions are in [getting started](getting-started.md). The set
 | [pose-agh-plugin](../pose-agh-plugin/index.mjs) | `pose_inspect`, `pose_evaluate`, `pose_select`, `pose_verify`, `pose_submit` | Inspect → evaluate every declared pose → select feasible recommendation → verify → submit |
 | [repair-agh-plugin](../repair-agh-plugin/index.mjs) | `repair_inspect`, `repair_evaluate`, `repair_apply`, `repair_verify`, `repair_submit` | Inspect → evaluate original → apply an allowed repair after failure → evaluate → verify → submit |
 
-For repair, an original candidate that passes can proceed to verification without `repair_apply`. The production pose IDs are `upright`, `tilt-x-plus`, `tilt-x-minus`, `tilt-y-plus`, and `face-up`. Repair candidate IDs are `original` and service-issued `r01`–`r03`. Texture attempts are `t01`/`t02`; the `compact` profile is eligible only after a real standard-profile resource failure.
+For repair, an original candidate that passes can proceed to verification without `repair_apply`. The workbench's `fixed-five-v2` policy uses `upright`, `tilt-x-plus`, `tilt-x-minus`, `tilt-y-plus`, and `face-up`. The low-level pose API defaults to legacy `fixed-four-v1` when `posePolicy` is omitted, so API clients must request `fixed-five-v2` explicitly for five poses. Repair candidate IDs are `original` and service-issued `r01`–`r03`. Texture attempts are `t01`/`t02`; the `compact` profile is eligible only after a real standard-profile resource failure.
 
 Generation, repair, and tool calls have finite per-session budgets. Clients must follow returned candidates/options instead of inventing IDs, retrying indefinitely, or bypassing verification.
 
@@ -78,6 +78,31 @@ Readiness can be checked without a task token:
 ```powershell
 Invoke-RestMethod http://127.0.0.1:4337/api/poses/status
 ```
+
+### Example: import the standard STL and start a five-pose task
+
+Run from the repository root after completing the CPU/AGH setup. Import requires the CPU tools; starting the task additionally requires your configured AGH model account. These public start endpoints do not require a tool token; the runner creates it internally.
+
+```powershell
+$file = (Resolve-Path 'case/source-original.stl').Path
+$payload = @{
+  name = 'source-original.stl'
+  mime = 'model/stl'
+  sourceUnits = 'mm'
+  targetLongestEdgeMm = 30
+  dataBase64 = [Convert]::ToBase64String([IO.File]::ReadAllBytes($file))
+} | ConvertTo-Json -Depth 6
+$model = Invoke-RestMethod http://127.0.0.1:4337/api/model-import -Method Post -ContentType 'application/json' -Body $payload
+$poseRequest = @{
+  sourceKind = 'imported'
+  sourceCandidateId = $model.candidateId
+  posePolicy = 'fixed-five-v2'
+} | ConvertTo-Json
+$job = Invoke-RestMethod http://127.0.0.1:4337/api/poses/start -Method Post -ContentType 'application/json' -Body $poseRequest
+Invoke-RestMethod "http://127.0.0.1:4337/api/poses/jobs/$($job.id)"
+```
+
+This minimal example compares poses without declaring a protected region or rod, so it does **not** request those feature checks. Use the workbench to select and confirm a rod/region, or supply the validated `criticalFeatures`, `continuousRods`, or `protectedRegions`/`maxRegionSupportPathLengthMm` fields. Poll the returned job ID; only `stage: "completed"` with a successful `recheck` is a verified delivery. `no-feasible`, `failed`, and `interrupted` are stopped outcomes. Use the task's returned STL/G-code URLs rather than constructing a download hash yourself.
 
 ## 4. Artifact and measurement conventions
 
